@@ -1,0 +1,125 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shakshak/core/extentions/glopal_extentions.dart';
+import 'package:shakshak/core/extentions/padding_extention.dart';
+import 'package:shakshak/core/utils/shared_widgets/custom_drop_down.dart';
+import 'package:shakshak/core/utils/shared_widgets/phone_text_field.dart';
+
+import '../../../../core/utils/shared_widgets/custom_text_field.dart';
+import '../../../../core/utils/validations.dart';
+import '../../../../generated/assets.dart';
+import '../../../../generated/l10n.dart';
+import '../widgets/register_button.dart';
+import 'have_an_account_widget.dart';
+
+class RegisterViewBody extends StatefulWidget {
+  const RegisterViewBody({super.key});
+
+  @override
+  State<RegisterViewBody> createState() => _RegisterViewBodyState();
+}
+
+class _RegisterViewBodyState extends State<RegisterViewBody> {
+  final TextEditingController countryController =
+      TextEditingController(text: '🇸🇦 +966');
+  final TextEditingController userNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  String? countryCode = '966';
+
+  @override
+  void dispose() {
+    userNameController.dispose();
+    emailController.dispose();
+    phoneController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Center(
+            child: SvgPicture.asset(
+              Assets.svgLogin,
+              width: MediaQuery.sizeOf(context).width,
+            ),
+          ),
+          20.ph,
+          Form(
+            key: formKey,
+            child: Column(
+              children: [
+                CustomTextField(
+                  controller: userNameController,
+                  autoValidateMode: AutovalidateMode.onUserInteraction,
+                  validator: Validation.validateName(context),
+                  prefix: Padding(
+                    padding: EdgeInsets.all(8.r),
+                    child: SvgPicture.asset(Assets.svgUser),
+                  ),
+                  hint: S.of(context).userName,
+                ),
+                16.ph,
+                PhoneTextField(),
+                16.ph,
+                CustomTextField(
+                  controller: emailController,
+                  autoValidateMode: AutovalidateMode.onUserInteraction,
+                  validator: Validation.validateEmail(context),
+                  keyType: TextInputType.emailAddress,
+                  prefix: Padding(
+                    padding: EdgeInsets.all(8.r),
+                    child: SvgPicture.asset(Assets.svgEmail),
+                  ),
+                  hint: S.of(context).email,
+                ),
+                16.ph,
+                CustomDropDown(
+                  items: [
+                    'a',
+                    'b',
+                    'c',
+                  ],
+                  onChange: (p0) {},
+                  hint: S.of(context).chooseLocation,
+                  prefix: Padding(
+                    padding: EdgeInsets.all(8.r),
+                    child: SvgPicture.asset(Assets.svgLocation),
+                  ),
+                ),
+                16.ph,
+                CustomDropDown(
+                  items: [
+                    'a',
+                    'b',
+                    'c',
+                  ],
+                  onChange: (p0) {},
+                  hint: S.of(context).chooseLocation,
+                ),
+                30.ph,
+                RegisterButton(
+                    userNameController: userNameController,
+                    emailController: emailController,
+                    phoneController: phoneController,
+                    passwordController: passwordController,
+                    // countryCode: countryCode!,
+                    formKey: formKey),
+                HaveAnAccountWidget(),
+                24.ph
+              ],
+            ).paddingSymmetric(horizontal: 16.w),
+          ),
+        ],
+      ),
+    );
+  }
+}

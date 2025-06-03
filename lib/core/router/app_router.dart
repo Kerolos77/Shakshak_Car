@@ -1,0 +1,239 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shakshak/features/authentication/presentation/view_models/auth_cubit/auth_cubit.dart';
+import 'package:shakshak/features/authentication/presentation/views/login_view.dart';
+import 'package:shakshak/features/authentication/presentation/views/otp_view.dart';
+import 'package:shakshak/features/authentication/presentation/views/profile_view.dart';
+import 'package:shakshak/features/authentication/presentation/views/register_view.dart';
+import 'package:shakshak/features/contact_us/presentation/views/contact_us_view.dart';
+import 'package:shakshak/features/faq/presentation/views/faq_view.dart';
+import 'package:shakshak/features/on_boarding/presentation/views/on_boarding_view.dart';
+import 'package:shakshak/features/out_station_rides/presentation/views/outstation_rides_view.dart';
+import 'package:shakshak/features/outstation/presentation/views/out_station_view.dart';
+import 'package:shakshak/features/rides/presentation/views/rides_view.dart';
+import 'package:shakshak/features/settings/presentation/views/settings_view.dart';
+import 'package:shakshak/features/splash/presentation/views/splash_view.dart';
+import 'package:shakshak/features/terms_and_conditions/presetation/views/terms_and_conditions_view.dart';
+import 'package:shakshak/features/user_home/presentation/views/user_home_view.dart';
+import 'package:shakshak/features/wallet/presentation/views/wallet_view.dart';
+
+import '../../features/authentication/presentation/views/role_selection_view.dart';
+import '../../features/terms_and_conditions/presetation/views/privacy_policy_view.dart';
+import 'routes.dart';
+
+abstract class AppRouter {
+  static GlobalKey<ScaffoldMessengerState> scaffoldMessengerState =
+  GlobalKey<ScaffoldMessengerState>();
+  static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
+  static BuildContext get globalContext => navigatorKey.currentContext!;
+
+  static final routers = GoRouter(
+    navigatorKey: navigatorKey,
+    debugLogDiagnostics: true,
+    initialLocation: Routes.userHomeView,
+    routes: <RouteBase>[
+      GoRoute(
+        path: Routes.splashView,
+        pageBuilder: (context, state) =>
+            buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: const SplashView(),
+            ),
+      ),
+      GoRoute(
+        path: Routes.onBoardingView,
+        pageBuilder: (context, state) =>
+            buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: OnBoardingView(),
+            ),
+      ),
+      GoRoute(
+        path: Routes.roleSelectionView,
+        pageBuilder: (context, state) =>
+            buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: BlocProvider(
+                create: (context) => AuthCubit(),
+                child: RoleSelectionView(),
+              ),
+            ),
+      ),
+      GoRoute(
+        path: Routes.loginView,
+        pageBuilder: (context, state) =>
+            buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: BlocProvider(
+                create: (context) => AuthCubit(),
+                child: LoginView(),
+              ),
+            ),
+      ),
+      GoRoute(
+        path: Routes.termsAndConditionsView,
+        pageBuilder: (context, state) =>
+            buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: TermsAndConditionsView(),
+            ),
+      ),
+      GoRoute(
+        path: Routes.privacyPolicyView,
+        pageBuilder: (context, state) =>
+            buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: PrivacyPolicyView(),
+            ),
+      ),
+      GoRoute(
+        path: Routes.otpView,
+        pageBuilder: (context, state) =>
+            buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: BlocProvider(
+                create: (context) => AuthCubit(),
+                child: OtpView(),
+              ),
+            ),
+      ),
+      GoRoute(
+        path: Routes.registerView,
+        pageBuilder: (context, state) =>
+            buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: BlocProvider(
+                create: (context) => AuthCubit(),
+                child: RegisterView(),
+              ),
+            ),
+      ),
+      GoRoute(
+        path: Routes.profileView,
+        pageBuilder: (context, state) =>
+            buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: BlocProvider(
+                create: (context) => AuthCubit(),
+                child: ProfileView(),
+              ),
+            ),
+      ),
+      GoRoute(
+        path: Routes.settingsView,
+        pageBuilder: (context, state) =>
+            buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: SettingsView(),
+            ),
+      ),
+      GoRoute(
+        path: Routes.userHomeView,
+        pageBuilder: (context, state) =>
+            buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: UserHomeView(),
+            ),
+      ),
+      GoRoute(
+        path: Routes.outStationView,
+        pageBuilder: (context, state) =>
+            buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: OutStationView(),
+            ),
+      ),
+      GoRoute(
+        path: Routes.ridesView,
+        pageBuilder: (context, state) =>
+            buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: RidesView(),
+            ),
+      ), GoRoute(
+        path: Routes.outstationRidesView,
+        pageBuilder: (context, state) =>
+            buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: OutstationRidesView(),
+            ),
+      ),
+      GoRoute(
+        path: Routes.walletView,
+        pageBuilder: (context, state) =>
+            buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: WalletView(),
+            ),
+      ),
+      GoRoute(
+        path: Routes.contactUsView,
+        pageBuilder: (context, state) =>
+            buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: ContactUsView(),
+            ),
+      ),
+      GoRoute(
+        path: Routes.faqView,
+        pageBuilder: (context, state) =>
+            buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: FaqView(),
+            ),
+      ),
+    ],
+  );
+}
+
+CustomTransitionPage buildPageWithSlideTransition<T>({
+  required BuildContext context,
+  required GoRouterState state,
+  required Widget child,
+}) {
+  return CustomTransitionPage<T>(
+    key: state.pageKey,
+    child: child,
+    transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+        SlideTransition(
+            position: animation.drive(
+              Tween<Offset>(
+                begin: const Offset(0, 0),
+                end: Offset.zero,
+              ).chain(CurveTween(curve: Curves.easeIn)),
+            ),
+            child: child),
+  );
+}
+
+CustomTransitionPage buildPageWithDefaultTransition<T>({
+  required BuildContext context,
+  required GoRouterState state,
+  required Widget child,
+}) {
+  return CustomTransitionPage<T>(
+    key: state.pageKey,
+    child: child,
+    transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+        FadeTransition(opacity: animation, child: child),
+  );
+}

@@ -1,0 +1,170 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shakshak/core/constants/app_const.dart';
+import 'package:shakshak/core/extentions/glopal_extentions.dart';
+import 'package:shakshak/core/network/local/cache_helper.dart';
+import 'package:shakshak/core/resources/app_colors.dart';
+import 'package:shakshak/core/utils/styles.dart';
+import 'package:shakshak/features/base_layout/presentation/view_models/drawer_cubit/drawer_cubit.dart';
+import 'package:shakshak/generated/l10n.dart';
+
+import '../../../../core/router/router_helper.dart';
+import '../../../../core/router/routes.dart';
+import '../../../authentication/presentation/widgets/logout_dialog.dart';
+import 'custom_drawer_item.dart';
+
+class CustomDrawer extends StatelessWidget {
+  const CustomDrawer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<DrawerCubit, DrawerState>(
+      builder: (context, state) {
+        final cubit = context.read<DrawerCubit>();
+        final selectedIndex = cubit.selectedDrawerItemIndex;
+        return Drawer(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(0),
+          ),
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              DrawerHeader(
+                decoration: const BoxDecoration(
+                  color: AppColors.primaryColor,
+                ),
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: Colors.black87,
+                      radius: 40.r,
+                      child: Icon(
+                        Icons.person,
+                        color: Colors.white,
+                        size: 60.r,
+                      ),
+                    ),
+                    6.ph,
+                    Text(
+                      'Mostafa',
+                      style: Styles.textStyle16SemiBold,
+                    ),
+                    Text(
+                      'mostafa@gmail.com',
+                      style: Styles.textStyle16SemiBold,
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10.h),
+              CustomDrawerItem(
+                title: S.of(context).city,
+                icon: Icons.directions_car,
+                isSelected: selectedIndex == 0,
+                onTap: () {
+                  cubit.changeSelectedDrawerItem(0);
+                  navigateAndReplacement(context, Routes.userHomeView);
+                },
+              ),
+              CustomDrawerItem(
+                title: S.of(context).outstation,
+                icon: Icons.directions_bus,
+                isSelected: selectedIndex == 1,
+                onTap: () {
+                  cubit.changeSelectedDrawerItem(1);
+
+                  navigateAndReplacement(context, Routes.outStationView);
+                },
+              ),
+              CustomDrawerItem(
+                title: S.of(context).rides,
+                icon: Icons.commute,
+                isSelected: selectedIndex == 2,
+                onTap: () {
+                  cubit.changeSelectedDrawerItem(2);
+                  navigateAndReplacement(context, Routes.ridesView);
+                },
+              ),
+              CustomDrawerItem(
+                title: S.of(context).outstationRides,
+                icon: Icons.commute,
+                isSelected: selectedIndex == 3,
+                onTap: () {
+                  cubit.changeSelectedDrawerItem(3);
+                  navigateAndReplacement(context, Routes.outstationRidesView);
+                },
+              ),
+              CustomDrawerItem(
+                title: S.of(context).myWallet,
+                icon: Icons.wallet,
+                isSelected: selectedIndex == 4,
+                onTap: () {
+                  cubit.changeSelectedDrawerItem(4);
+                  navigateAndReplacement(context, Routes.walletView);
+                },
+              ),
+              CustomDrawerItem(
+                title: S.of(context).settings,
+                icon: Icons.settings,
+                isSelected: selectedIndex == 5,
+                onTap: () {
+                  cubit.changeSelectedDrawerItem(5);
+                  navigateAndReplacement(context, Routes.settingsView);
+                },
+              ),
+              CustomDrawerItem(
+                title: S.of(context).profile,
+                icon: Icons.person,
+                isSelected: selectedIndex == 6,
+                onTap: () {
+                  cubit.changeSelectedDrawerItem(6);
+                  navigateAndReplacement(context, Routes.profileView);
+                },
+              ),
+              CustomDrawerItem(
+                title: S.of(context).contactUs,
+                icon: Icons.call,
+                isSelected: selectedIndex == 7,
+                onTap: () {
+                  cubit.changeSelectedDrawerItem(7);
+                  navigateAndReplacement(context, Routes.contactUsView);
+                },
+              ),
+              CustomDrawerItem(
+                title: S.of(context).faqs,
+                icon: Icons.quiz_outlined,
+                isSelected: selectedIndex == 8,
+                onTap: () {
+                  cubit.changeSelectedDrawerItem(8);
+                  navigateAndReplacement(context, Routes.faqView);
+                },
+              ),
+              CacheHelper.getData(key: AppConstant.kToken) != null
+                  ? CustomDrawerItem(
+                      title: S.of(context).logout,
+                      icon: Icons.logout,
+                      isSelected: false,
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          barrierDismissible: false,
+                          builder: (_) => LogoutDialog(),
+                        );
+                      },
+                    )
+                  : CustomDrawerItem(
+                      title: S.of(context).login,
+                      icon: Icons.login,
+                      isSelected: false,
+                      onTap: () {
+                        navigateAndFinish(context, Routes.loginView);
+                      },
+                    ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}

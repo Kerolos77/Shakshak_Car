@@ -1,0 +1,58 @@
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shakshak/core/extentions/padding_extention.dart';
+
+import '../../../../core/router/router_helper.dart';
+import '../../../../core/router/routes.dart';
+import '../../../../core/utils/styles.dart';
+import '../../../../generated/l10n.dart';
+
+class TermsAndConditionsWidget extends StatelessWidget {
+  const TermsAndConditionsWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text.rich(
+      textAlign: TextAlign.center,
+      TextSpan(
+        text: S.of(context).byTapping,
+        style: Styles.textStyle16,
+        children: [
+          TextSpan(
+            text: ' "${S.of(context).next}" ',
+            style: Styles.textStyle16Bold,
+          ),
+          TextSpan(
+            text: S.of(context).agreeTo,
+            style: Styles.textStyle16SemiBold,
+          ),
+          TextSpan(
+            text: S.of(context).termsAndConditions,
+            style: Styles.textStyle16Bold.copyWith(
+              decoration: TextDecoration.underline,
+            ),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                navigateTo(context, Routes.termsAndConditionsView);
+              },
+          ),
+          TextSpan(
+            text: ' ${S.of(context).and} ',
+            style: Styles.textStyle16,
+          ),
+          TextSpan(
+            text: S.of(context).privacyPolicy,
+            style: Styles.textStyle16Bold.copyWith(
+              decoration: TextDecoration.underline,
+            ),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                navigateTo(context, Routes.privacyPolicyView);
+              },
+          ),
+        ],
+      ),
+    ).paddingSymmetric(horizontal: 30.w);
+  }
+}
