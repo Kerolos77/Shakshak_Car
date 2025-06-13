@@ -7,6 +7,13 @@ import 'package:shakshak/features/authentication/presentation/views/otp_view.dar
 import 'package:shakshak/features/authentication/presentation/views/profile_view.dart';
 import 'package:shakshak/features/authentication/presentation/views/register_view.dart';
 import 'package:shakshak/features/contact_us/presentation/views/contact_us_view.dart';
+import 'package:shakshak/features/driver/home/presentation/views/driver_home_view.dart';
+import 'package:shakshak/features/driver/online_registration/views/car_licence_view.dart';
+import 'package:shakshak/features/driver/online_registration/views/car_view.dart';
+import 'package:shakshak/features/driver/online_registration/views/criminal_record_view.dart';
+import 'package:shakshak/features/driver/online_registration/views/driver_online_registration_view.dart';
+import 'package:shakshak/features/driver/online_registration/views/licence_view.dart';
+import 'package:shakshak/features/driver/online_registration/views/national_id_view.dart';
 import 'package:shakshak/features/faq/presentation/views/faq_view.dart';
 import 'package:shakshak/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:shakshak/features/out_station_rides/presentation/views/outstation_rides_view.dart';
@@ -24,7 +31,7 @@ import 'routes.dart';
 
 abstract class AppRouter {
   static GlobalKey<ScaffoldMessengerState> scaffoldMessengerState =
-  GlobalKey<ScaffoldMessengerState>();
+      GlobalKey<ScaffoldMessengerState>();
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   static BuildContext get globalContext => navigatorKey.currentContext!;
@@ -32,174 +39,215 @@ abstract class AppRouter {
   static final routers = GoRouter(
     navigatorKey: navigatorKey,
     debugLogDiagnostics: true,
-    initialLocation: Routes.userHomeView,
+    initialLocation: Routes.driverOnlineRegistrationView,
     routes: <RouteBase>[
       GoRoute(
         path: Routes.splashView,
-        pageBuilder: (context, state) =>
-            buildPageWithDefaultTransition<void>(
-              context: context,
-              state: state,
-              child: const SplashView(),
-            ),
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: const SplashView(),
+        ),
       ),
       GoRoute(
         path: Routes.onBoardingView,
-        pageBuilder: (context, state) =>
-            buildPageWithDefaultTransition<void>(
-              context: context,
-              state: state,
-              child: OnBoardingView(),
-            ),
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: OnBoardingView(),
+        ),
       ),
       GoRoute(
         path: Routes.roleSelectionView,
-        pageBuilder: (context, state) =>
-            buildPageWithDefaultTransition<void>(
-              context: context,
-              state: state,
-              child: BlocProvider(
-                create: (context) => AuthCubit(),
-                child: RoleSelectionView(),
-              ),
-            ),
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: BlocProvider(
+            create: (context) => AuthCubit(),
+            child: RoleSelectionView(),
+          ),
+        ),
       ),
       GoRoute(
         path: Routes.loginView,
-        pageBuilder: (context, state) =>
-            buildPageWithDefaultTransition<void>(
-              context: context,
-              state: state,
-              child: BlocProvider(
-                create: (context) => AuthCubit(),
-                child: LoginView(),
-              ),
-            ),
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: BlocProvider(
+            create: (context) => AuthCubit(),
+            child: LoginView(),
+          ),
+        ),
       ),
       GoRoute(
         path: Routes.termsAndConditionsView,
-        pageBuilder: (context, state) =>
-            buildPageWithDefaultTransition<void>(
-              context: context,
-              state: state,
-              child: TermsAndConditionsView(),
-            ),
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: TermsAndConditionsView(),
+        ),
       ),
       GoRoute(
         path: Routes.privacyPolicyView,
-        pageBuilder: (context, state) =>
-            buildPageWithDefaultTransition<void>(
-              context: context,
-              state: state,
-              child: PrivacyPolicyView(),
-            ),
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: PrivacyPolicyView(),
+        ),
       ),
       GoRoute(
         path: Routes.otpView,
-        pageBuilder: (context, state) =>
-            buildPageWithDefaultTransition<void>(
-              context: context,
-              state: state,
-              child: BlocProvider(
-                create: (context) => AuthCubit(),
-                child: OtpView(),
-              ),
-            ),
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: BlocProvider(
+            create: (context) => AuthCubit(),
+            child: OtpView(),
+          ),
+        ),
       ),
       GoRoute(
         path: Routes.registerView,
-        pageBuilder: (context, state) =>
-            buildPageWithDefaultTransition<void>(
-              context: context,
-              state: state,
-              child: BlocProvider(
-                create: (context) => AuthCubit(),
-                child: RegisterView(),
-              ),
-            ),
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: BlocProvider(
+            create: (context) => AuthCubit(),
+            child: RegisterView(),
+          ),
+        ),
       ),
       GoRoute(
         path: Routes.profileView,
-        pageBuilder: (context, state) =>
-            buildPageWithDefaultTransition<void>(
-              context: context,
-              state: state,
-              child: BlocProvider(
-                create: (context) => AuthCubit(),
-                child: ProfileView(),
-              ),
-            ),
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: BlocProvider(
+            create: (context) => AuthCubit(),
+            child: ProfileView(),
+          ),
+        ),
       ),
       GoRoute(
         path: Routes.settingsView,
-        pageBuilder: (context, state) =>
-            buildPageWithDefaultTransition<void>(
-              context: context,
-              state: state,
-              child: SettingsView(),
-            ),
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: SettingsView(),
+        ),
       ),
       GoRoute(
         path: Routes.userHomeView,
-        pageBuilder: (context, state) =>
-            buildPageWithDefaultTransition<void>(
-              context: context,
-              state: state,
-              child: UserHomeView(),
-            ),
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: UserHomeView(),
+        ),
       ),
       GoRoute(
         path: Routes.outStationView,
-        pageBuilder: (context, state) =>
-            buildPageWithDefaultTransition<void>(
-              context: context,
-              state: state,
-              child: OutStationView(),
-            ),
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: OutStationView(),
+        ),
       ),
       GoRoute(
         path: Routes.ridesView,
-        pageBuilder: (context, state) =>
-            buildPageWithDefaultTransition<void>(
-              context: context,
-              state: state,
-              child: RidesView(),
-            ),
-      ), GoRoute(
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: RidesView(),
+        ),
+      ),
+      GoRoute(
         path: Routes.outstationRidesView,
-        pageBuilder: (context, state) =>
-            buildPageWithDefaultTransition<void>(
-              context: context,
-              state: state,
-              child: OutstationRidesView(),
-            ),
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: OutstationRidesView(),
+        ),
       ),
       GoRoute(
         path: Routes.walletView,
-        pageBuilder: (context, state) =>
-            buildPageWithDefaultTransition<void>(
-              context: context,
-              state: state,
-              child: WalletView(),
-            ),
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: WalletView(),
+        ),
       ),
       GoRoute(
         path: Routes.contactUsView,
-        pageBuilder: (context, state) =>
-            buildPageWithDefaultTransition<void>(
-              context: context,
-              state: state,
-              child: ContactUsView(),
-            ),
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: ContactUsView(),
+        ),
       ),
       GoRoute(
         path: Routes.faqView,
-        pageBuilder: (context, state) =>
-            buildPageWithDefaultTransition<void>(
-              context: context,
-              state: state,
-              child: FaqView(),
-            ),
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: FaqView(),
+        ),
+      ),
+      // --------------------------------- Driver ---------------------------------
+      GoRoute(
+        path: Routes.driverHomeView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: DriverHomeView(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.driverOnlineRegistrationView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: DriverOnlineRegistrationView(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.criminalRecordView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: CriminalRecordView(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.nationalIdView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: NationalIdView(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.licenceView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: LicenceView(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.carLicenceView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: CarLicenceView(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.carView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: CarView(),
+        ),
       ),
     ],
   );

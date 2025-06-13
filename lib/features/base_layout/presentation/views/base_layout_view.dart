@@ -7,7 +7,12 @@ import 'package:shakshak/core/utils/shared_widgets/custom_app_bar.dart';
 import '../widgets/custom_drawer.dart';
 
 class BaseLayoutView extends StatelessWidget {
-  const BaseLayoutView({super.key, this.header, this.body, this.title});
+  const BaseLayoutView({
+    super.key,
+    this.header,
+    this.body,
+    this.title,
+  });
 
   final Widget? header;
   final Widget? body;

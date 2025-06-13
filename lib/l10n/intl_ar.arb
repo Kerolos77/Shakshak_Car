@@ -80,5 +80,6 @@
   "profile": "الملف الشخصي",
   "mobileNumber": "رقم الهاتف",
   "deleteAccount": "احذف حسابك",
-  "support": "الدعم"
+  "support": "الدعم",
+  "onlineRegistration": "التسجيل عبر الإنترنت"
 }

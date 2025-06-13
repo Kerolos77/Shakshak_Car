@@ -97,6 +97,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "numberOfPassengers": MessageLookupByLibrary.simpleMessage(
       "Number of passengers",
     ),
+    "onlineRegistration": MessageLookupByLibrary.simpleMessage(
+      "Online registration",
+    ),
     "outstation": MessageLookupByLibrary.simpleMessage("Outstation"),
     "outstationRides": MessageLookupByLibrary.simpleMessage("Outstation rides"),
     "paidVia": MessageLookupByLibrary.simpleMessage("Paid Via"),

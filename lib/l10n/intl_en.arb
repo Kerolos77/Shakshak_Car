@@ -79,5 +79,6 @@
   "profile": "Profile",
   "mobileNumber": "Mobile number",
   "deleteAccount": "DeleteAccount",
-  "support": "Support"
+  "support": "Support",
+  "onlineRegistration": "Online registration"
 }

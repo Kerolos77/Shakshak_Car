@@ -93,6 +93,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "noAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "numberOfPassengers": MessageLookupByLibrary.simpleMessage("عدد الركاب"),
+    "onlineRegistration": MessageLookupByLibrary.simpleMessage(
+      "التسجيل عبر الإنترنت",
+    ),
     "outstation": MessageLookupByLibrary.simpleMessage("الرحلات الخارجية"),
     "outstationRides": MessageLookupByLibrary.simpleMessage(
       "رحلات خارج المدينة",

@@ -629,6 +629,16 @@ class S {
   String get support {
     return Intl.message('Support', name: 'support', desc: '', args: []);
   }
+
+  /// `Online registration`
+  String get onlineRegistration {
+    return Intl.message(
+      'Online registration',
+      name: 'onlineRegistration',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
