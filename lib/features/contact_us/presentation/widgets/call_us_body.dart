@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 import 'package:shakshak/core/extentions/padding_extention.dart';
+import 'package:shakshak/core/utils/common_use.dart';
 import 'package:shakshak/core/utils/styles.dart';
 import 'package:shakshak/generated/l10n.dart';
 
-class ContactUsBody extends StatelessWidget {
-  const ContactUsBody({
+class CallUsBody extends StatelessWidget {
+  const CallUsBody({
     super.key,
   });
 
@@ -15,7 +16,9 @@ class ContactUsBody extends StatelessWidget {
     return Column(
       children: [
         InkWell(
-          onTap: () {},
+          onTap: () {
+            makePhoneCall(phoneNumber: '+201067859354');
+          },
           borderRadius: BorderRadius.circular(16.r),
           child: Row(
             children: [
