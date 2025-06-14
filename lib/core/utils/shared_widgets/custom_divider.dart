@@ -6,7 +6,7 @@ import '../../resources/app_colors.dart';
 class CustomDivider extends StatelessWidget {
   const CustomDivider({
     super.key,
-    this.height = 10,
+    this.height = 20,
   });
 
   final double height;

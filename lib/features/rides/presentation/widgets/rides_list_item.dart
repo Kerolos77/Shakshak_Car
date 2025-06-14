@@ -5,6 +5,8 @@ import 'package:shakshak/core/extentions/glopal_extentions.dart';
 import 'package:shakshak/core/resources/app_colors.dart';
 import 'package:shakshak/core/utils/styles.dart';
 
+import '../../../driver/outstation/presentation/widgets/ride_destination_widget.dart';
+
 class RidesListItem extends StatelessWidget {
   const RidesListItem({
     super.key,
@@ -35,54 +37,9 @@ class RidesListItem extends StatelessWidget {
             ],
           ),
           8.ph,
-          Row(
-            children: [
-              Column(
-                children: [
-                  Container(
-                    height: 24.r,
-                    width: 24.r,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black, width: 2),
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                  SizedBox(height: 30.h, child: VerticalDivider()),
-                  Container(
-                    height: 24.r,
-                    width: 24.r,
-                    padding: EdgeInsets.all(1.r),
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      border: Border.all(color: Colors.black, width: 2),
-                      shape: BoxShape.circle,
-                    ),
-                    child: Icon(
-                      Icons.place,
-                      color: Colors.white,
-                      size: 16.r,
-                    ),
-                  ),
-                ],
-              ),
-              12.pw,
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Shebeen El-kom',
-                      style: Styles.textStyle16Medium,
-                    ),
-                    30.ph,
-                    Text(
-                      'Shebeen El-kom',
-                      style: Styles.textStyle16SemiBold,
-                    ),
-                  ],
-                ),
-              ),
-            ],
+          RideDestinationWidget(
+            from: 'Shebeen El-kom',
+            to: 'Shebeen El-kom',
           ),
           10.ph,
           Container(

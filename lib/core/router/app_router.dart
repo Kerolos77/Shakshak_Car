@@ -26,6 +26,7 @@ import 'package:shakshak/features/user_home/presentation/views/user_home_view.da
 import 'package:shakshak/features/wallet/presentation/views/wallet_view.dart';
 
 import '../../features/authentication/presentation/views/role_selection_view.dart';
+import '../../features/driver/outstation/presentation/views/driver_outstation_view.dart';
 import '../../features/terms_and_conditions/presetation/views/privacy_policy_view.dart';
 import 'routes.dart';
 
@@ -39,7 +40,7 @@ abstract class AppRouter {
   static final routers = GoRouter(
     navigatorKey: navigatorKey,
     debugLogDiagnostics: true,
-    initialLocation: Routes.driverOnlineRegistrationView,
+    initialLocation: Routes.driverHomeView,
     routes: <RouteBase>[
       GoRoute(
         path: Routes.splashView,
@@ -247,6 +248,14 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: CarView(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.driverOutstationView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: DriverOutstationView(),
         ),
       ),
     ],

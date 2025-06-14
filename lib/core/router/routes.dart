@@ -20,10 +20,13 @@ class Routes {
   // --------------------------------- Driver ---------------------------------
 
   static String driverHomeView = "/driverHomeView";
+  
   static String driverOnlineRegistrationView = "/driverOnlineRegistrationView";
   static String nationalIdView = "/nationalIdView";
   static String criminalRecordView = "/criminalRecordView";
   static String licenceView = "/licenceView";
   static String carLicenceView = "/carLicenceView";
   static String carView = "/carView";
+
+  static String driverOutstationView = "/driverOutstationView";
 }

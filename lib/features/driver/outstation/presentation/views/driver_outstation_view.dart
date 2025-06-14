@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shakshak/core/extentions/glopal_extentions.dart';
 import 'package:shakshak/features/base_layout/presentation/views/base_layout_view.dart';
 
 import '../../../../../core/constants/app_const.dart';
 import '../../../../../core/resources/app_colors.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../generated/l10n.dart';
-import '../../../outstation/presentation/widgets/driver_rides_list_item.dart';
+import '../../../../rides/presentation/widgets/rides_list.dart';
 
-class DriverHomeView extends StatelessWidget {
-  const DriverHomeView({super.key});
+class DriverOutstationView extends StatelessWidget {
+  const DriverOutstationView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BaseLayoutView(
-      title: S.of(context).rides,
+      title: S.of(context).outstation,
       horizontalPadding: 0,
       body: DefaultTabController(
           length: 3,
@@ -76,31 +75,13 @@ class DriverHomeView extends StatelessWidget {
               Expanded(
                   child: TabBarView(
                 children: [
-                  RidesList(),
-                  RidesList(),
-                  RidesList(),
+                  RidesList(isOutstation: true),
+                  RidesList(isOutstation: true),
+                  RidesList(isOutstation: true),
                 ],
               )),
             ],
           )),
-    );
-  }
-}
-
-class RidesList extends StatelessWidget {
-  const RidesList({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.separated(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
-      itemBuilder: (context, index) => DriverRidesListItem(
-        isOutstation: false,
-      ),
-      separatorBuilder: (context, index) => 12.ph,
-      itemCount: 5,
     );
   }
 }
