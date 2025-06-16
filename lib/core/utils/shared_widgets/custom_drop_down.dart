@@ -39,9 +39,7 @@ class CustomDropDown extends StatelessWidget {
         if (label != null) ...[
           Text(
             label!,
-            style: Styles.textStyle12SemiBold.copyWith(
-              color: AppColors.darkGreyColor,
-            ),
+            style: Styles.textStyle16SemiBold,
           ),
           6.ph,
         ],
@@ -93,7 +91,7 @@ class CustomDropDown extends StatelessWidget {
                   return DropdownMenuItem(
                     value: value,
                     child: Text(
-                      style: Styles.textStyle16Medium,
+                      style: Styles.textStyle18SemiBold,
                       value ?? '',
                       overflow: TextOverflow.ellipsis,
                     ),

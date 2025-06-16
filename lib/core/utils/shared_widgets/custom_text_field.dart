@@ -67,9 +67,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         if (widget.label != null) ...[
           Text(
             widget.label!,
-            style: Styles.textStyle12SemiBold.copyWith(
-              color: AppColors.darkGreyColor,
-            ),
+            style: Styles.textStyle16SemiBold,
           ),
           6.ph,
         ],
@@ -105,8 +103,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             hintText: widget.hint,
             hintStyle: Styles.textStyle16Medium,
           ),
-          style:
-              Styles.textStyle16Medium.copyWith(color: AppColors.primaryColor),
+          style: Styles.textStyle18SemiBold,
         ),
       ],
     );

@@ -8,6 +8,7 @@ import 'package:shakshak/core/utils/shared_widgets/custom_divider.dart';
 import 'package:shakshak/core/utils/styles.dart';
 
 import '../../../../../core/utils/common_use.dart';
+import '../../../../../generated/l10n.dart';
 import 'ride_destination_widget.dart';
 
 class DriverRidesListItem extends StatelessWidget {
@@ -83,15 +84,15 @@ class DriverRidesListItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Weight: 55 KG',
+                      '${S.of(context).weight} 55 KG',
                       style: Styles.textStyle16SemiBold,
                     ),
                     Text(
-                      'Dimension: 80',
+                      '${S.of(context).dimension} 80',
                       style: Styles.textStyle16SemiBold,
                     ),
                     Text(
-                      'Image:',
+                      '${S.of(context).image} 80',
                       style: Styles.textStyle16SemiBold,
                     ),
                   ],
@@ -106,7 +107,7 @@ class DriverRidesListItem extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(
-                        'Status : ',
+                        '${S.of(context).status}: ',
                         style: Styles.textStyle16Bold,
                       ),
                       Text(

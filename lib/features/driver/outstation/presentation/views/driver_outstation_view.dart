@@ -57,15 +57,9 @@ class DriverOutstationView extends StatelessWidget {
                               ],
                             ),
                           ),*/
-                          Tab(
-                            text: 'New',
-                          ),
-                          Tab(
-                            text: 'Active',
-                          ),
-                          Tab(
-                            text: 'Completed',
-                          ),
+                          Tab(text: S.of(context).newRide),
+                          Tab(text: S.of(context).active),
+                          Tab(text: S.of(context).completed),
                         ],
                       ),
                     ),
