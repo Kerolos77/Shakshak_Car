@@ -6,6 +6,9 @@ import 'package:shakshak/core/extentions/padding_extention.dart';
 import 'package:shakshak/core/utils/shared_widgets/phone_text_field.dart';
 import 'package:shakshak/generated/assets.dart';
 
+import '../../../../core/resources/app_colors.dart';
+import '../../../../core/router/router_helper.dart';
+import '../../../../core/router/routes.dart';
 import '../../../../core/utils/styles.dart';
 import '../../../../generated/l10n.dart';
 import 'login_button.dart';
@@ -72,6 +75,32 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 LoginButton(
                   emailOrPhoneController: phoneController,
                   formKey: formKey,
+                ),
+                14.ph,
+                Align(
+                  alignment: Alignment.center,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        S.of(context).noAccount,
+                        style: Styles.textStyle14.copyWith(
+                          color: AppColors.primaryColor,
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          navigateTo(context, Routes.registerView);
+                        },
+                        child: Text(
+                          S.of(context).signup,
+                          style: Styles.textStyle14.copyWith(
+                            color: AppColors.darkGreyColor,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 14.ph,
                 TermsAndConditionsWidget(),
