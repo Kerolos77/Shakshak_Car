@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shakshak/features/authentication/data/repo/auth_repo.dart';
 import 'package:shakshak/features/authentication/presentation/view_models/auth_cubit/auth_cubit.dart';
 import 'package:shakshak/features/authentication/presentation/views/login_view.dart';
 import 'package:shakshak/features/authentication/presentation/views/otp_view.dart';
@@ -28,6 +29,7 @@ import 'package:shakshak/features/wallet/presentation/views/wallet_view.dart';
 import '../../features/authentication/presentation/views/role_selection_view.dart';
 import '../../features/driver/outstation/presentation/views/driver_outstation_view.dart';
 import '../../features/terms_and_conditions/presetation/views/privacy_policy_view.dart';
+import '../services/service_locator.dart';
 import 'routes.dart';
 
 abstract class AppRouter {
@@ -40,7 +42,7 @@ abstract class AppRouter {
   static final routers = GoRouter(
     navigatorKey: navigatorKey,
     debugLogDiagnostics: true,
-    initialLocation: Routes.driverHomeView,
+    initialLocation: Routes.loginView,
     routes: <RouteBase>[
       GoRoute(
         path: Routes.splashView,
@@ -64,7 +66,7 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: BlocProvider(
-            create: (context) => AuthCubit(),
+            create: (context) => AuthCubit(sl<AuthRepo>()),
             child: RoleSelectionView(),
           ),
         ),
@@ -75,7 +77,7 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: BlocProvider(
-            create: (context) => AuthCubit(),
+            create: (context) => AuthCubit(sl<AuthRepo>()),
             child: LoginView(),
           ),
         ),
@@ -102,7 +104,7 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: BlocProvider(
-            create: (context) => AuthCubit(),
+            create: (context) => AuthCubit(sl<AuthRepo>()),
             child: OtpView(),
           ),
         ),
@@ -113,7 +115,7 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: BlocProvider(
-            create: (context) => AuthCubit(),
+            create: (context) => AuthCubit(sl<AuthRepo>()),
             child: RegisterView(),
           ),
         ),
@@ -124,7 +126,7 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: BlocProvider(
-            create: (context) => AuthCubit(),
+            create: (context) => AuthCubit(sl<AuthRepo>()),
             child: ProfileView(),
           ),
         ),

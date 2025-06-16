@@ -5,6 +5,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/router/app_router.dart';
 
+import 'core/constants/app_const.dart';
+import 'core/network/dio_helper/dio_helper.dart';
 import 'core/network/local/cache_helper.dart';
 import 'core/resources/app_colors.dart';
 import 'core/services/service_locator.dart';
@@ -71,4 +73,8 @@ Future<void> initialization() async {
 
   await ServiceLocator().init();
   await CacheHelper.init();
+  await DioHelper.init();
+
+  AppConstant.currentLanguage =
+      CacheHelper.getData(key: AppConstant.kCurrentLanguage) ?? 'en';
 }

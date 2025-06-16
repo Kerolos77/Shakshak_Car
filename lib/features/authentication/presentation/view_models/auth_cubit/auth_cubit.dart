@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:shakshak/features/authentication/data/models/forget_password_model.dart';
 import 'package:shakshak/features/authentication/data/models/new_password_model.dart';
+import 'package:shakshak/features/authentication/data/repo/auth_repo.dart';
 
 import '../../../../../core/constants/app_const.dart';
 import '../../../../../core/network/local/cache_helper.dart';
@@ -17,7 +18,7 @@ import '../../../data/models/update_profile_model.dart';
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  AuthCubit() : super(AuthInitial());
+  AuthCubit(this.authRepo) : super(AuthInitial());
 
   String roleSelection = '';
 
@@ -29,6 +30,8 @@ class AuthCubit extends Cubit<AuthState> {
   bool registerPasswordVisible = true;
 
   bool isChecked = false;
+
+  final AuthRepo authRepo;
 
   void selectRoleType(String method) {
     roleSelection = method;
@@ -63,6 +66,20 @@ class AuthCubit extends Cubit<AuthState> {
     emit(RegisterChangePasswordVisabilityState());
   }
 
+  void login({required LoginBody loginBody}) async {
+    emit(LoginLoadingState());
+    var result = await authRepo.login(
+      loginBody: loginBody,
+    );
+    result.fold((fail) {
+      debugPrint("error while login ${fail.message}");
+      emit(LoginErrorState(fail.message));
+    }, (loginModel) {
+      // print(loginModel.data!.token!);
+      emit(LoginSuccessState(loginModel));
+    });
+  }
+
   void signup({required SignupBody signupBody}) async {
     emit(RegisterLoadingState());
     /* var result = await authRepo.signup(signupBody: signupBody);
@@ -91,7 +108,9 @@ class AuthCubit extends Cubit<AuthState> {
     });*/
   }
 
-  void verifyPhoneOtp({required int otpCode,}) async {
+  void verifyPhoneOtp({
+    required int otpCode,
+  }) async {
     emit(VerifyPhoneOTPLoadingState());
     /*var result = fromForgetPassword
         ? await authRepo.forgetPasswordOtp(otp: otpCode)
@@ -145,20 +164,6 @@ class AuthCubit extends Cubit<AuthState> {
       emit(NewPasswordFailureStatue(fail.message));
     }, (forgetPasswordModel) {
       emit(NewPasswordSuccessStatue(forgetPasswordModel));
-    });*/
-  }
-
-  void login({required LoginBody loginBody}) async {
-    emit(LoginLoadingState());
-    /*var result = await authRepo.login(
-      loginBody: loginBody,
-    );
-    result.fold((fail) {
-      debugPrint("error while login ${fail.message}");
-      emit(LoginErrorState(fail.message));
-    }, (loginModel) {
-      // print(loginModel.data!.token!);
-      emit(LoginSuccessState(loginModel));
     });*/
   }
 

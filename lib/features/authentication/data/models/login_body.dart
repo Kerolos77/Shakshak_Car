@@ -1,21 +1,21 @@
 import 'dart:convert';
 
 class LoginBody {
-  final String emailOrPhone;
+  final String phone;
 
   LoginBody({
-    required this.emailOrPhone,
+    required this.phone,
   });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'email': emailOrPhone,
+      'phone': phone,
     };
   }
 
   factory LoginBody.fromMap(Map<String, dynamic> map) {
     return LoginBody(
-      emailOrPhone: map['email'] as String,
+      phone: map['phone'] as String,
     );
   }
 
