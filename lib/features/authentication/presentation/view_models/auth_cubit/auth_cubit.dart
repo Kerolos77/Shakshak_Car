@@ -35,8 +35,7 @@ class AuthCubit extends Cubit<AuthState> {
 
   void selectRoleType(String method) {
     roleSelection = method;
-    CacheHelper.saveData(
-        key: AppConstant.kRoleSelection, value: int.parse(method));
+    CacheHelper.saveData(key: AppConstant.kRoleSelection, value: method);
     debugPrint(roleSelection);
     emit(RoleSelectionChangedState());
   }

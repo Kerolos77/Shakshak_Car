@@ -109,7 +109,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                 key: AppConstant.kOnBoarding, value: true);
                             if (!mounted) return;
                             navigateAndFinish(
-                                context, Routes.loginView);
+                                context, Routes.roleSelectionView);
                           },
                           child: Text(
                             S.of(context).skip,
@@ -155,7 +155,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 await CacheHelper.saveData(
                     key: AppConstant.kOnBoarding, value: true);
                 if (!mounted) return;
-                navigateAndFinish(context, Routes.loginView);
+                navigateAndFinish(context, Routes.roleSelectionView);
               } else {
                 controller.nextPage(
                     duration: const Duration(milliseconds: 300),

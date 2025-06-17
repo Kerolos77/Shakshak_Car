@@ -43,7 +43,7 @@ abstract class AppRouter {
   static final routers = GoRouter(
     navigatorKey: navigatorKey,
     debugLogDiagnostics: true,
-    initialLocation: Routes.driverOnlineRegistrationView,
+    initialLocation: Routes.splashView,
     routes: <RouteBase>[
       GoRoute(
         path: Routes.splashView,

@@ -21,7 +21,7 @@ class RoleSelectionWidget extends StatelessWidget {
             RoleSelectionOption(
               text: S.of(context).user,
               details: S.of(context).userDescription,
-              value: '6',
+              value: 'user',
               icon: Icons.person,
               groupValue: cubit.roleSelection,
               onChanged: (value) {
@@ -32,7 +32,7 @@ class RoleSelectionWidget extends StatelessWidget {
             RoleSelectionOption(
               text: S.of(context).driver,
               details: S.of(context).driverDescription,
-              value: '7',
+              value: 'driver',
               icon: Icons.drive_eta_rounded,
               groupValue: cubit.roleSelection,
               onChanged: (value) {

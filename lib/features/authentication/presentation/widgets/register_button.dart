@@ -67,7 +67,9 @@ class RegisterButton extends StatelessWidget {
           return CustomButton(
             text: S.of(context).signup,
             onTap: () {
-              navigateTo(context, Routes.userHomeView);
+              CacheHelper.getData(key: AppConstant.kRoleSelection) == 'user'
+                  ? navigateAndFinish(context, Routes.userHomeView)
+                  : navigateAndFinish(context, Routes.driverHomeView);
               /*       if (formKey.currentState!.validate()) {
 
                   context.read<AuthCubit>().signup(
