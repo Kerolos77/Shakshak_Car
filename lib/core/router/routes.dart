@@ -30,4 +30,5 @@ class Routes {
 
   static String driverOutstationView = "/driverOutstationView";
   static String vehicleInformationView = "/vehicleInformationView";
+  static String tripMapView = "/tripMapView";
 }

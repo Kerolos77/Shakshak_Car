@@ -108,5 +108,10 @@
   "selfieWithId": "Selfie with National ID",
   "selfieWithLicense": "Selfie with License",
   "done": "Done",
-  "pleaseAddAllImages": "Please add all required images"
+  "pleaseAddAllImages": "Please add all required images",
+  "tripMap": "Trip map",
+  "acceptFareOn": "Accept fare on {price}",
+  "noTripsNow": "No trips right now...",
+  "online": "Online",
+  "offline": "Offline"
 }

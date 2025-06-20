@@ -7,6 +7,7 @@ import '../../../../../core/resources/app_colors.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../generated/l10n.dart';
 import '../widgets/no_trips_widget.dart';
+import '../widgets/online_offline_toggle_button.dart';
 import '../widgets/rides_list.dart';
 
 class DriverHomeView extends StatelessWidget {
@@ -18,66 +19,59 @@ class DriverHomeView extends StatelessWidget {
       title: S.of(context).rides,
       horizontalPadding: 0,
       body: DefaultTabController(
-          length: 3,
-          child: Column(
-            children: [
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12.r),
-                  boxShadow: AppConstant.shadow,
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: TabBar(
-                        labelColor: Colors.white,
-                        unselectedLabelColor: AppColors.darkGreyColor,
-                        indicatorSize: TabBarIndicatorSize.tab,
-                        indicator: BoxDecoration(
-                          color: AppColors.primaryColor,
-                          borderRadius: BorderRadius.circular(10.r),
-                        ),
-                        dividerColor: Colors.transparent,
-                        labelStyle: Styles.textStyle16Bold.copyWith(
-                          fontFamily: 'Cairo',
-                        ),
-                        unselectedLabelStyle: Styles.textStyle16Bold.copyWith(
-                          fontFamily: 'Cairo',
-                        ),
-                        tabs: [
-                          /*  Tab(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text('New'),
-                                6.pw,
-                                Icon(Icons.list),
-                              ],
-                            ),
-                          ),*/
-                          Tab(text: S.of(context).newRide),
-                          Tab(text: S.of(context).active),
-                          Tab(text: S.of(context).completed),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+        length: 3,
+        child: Column(
+          children: [
+            OnlineOfflineToggleButton(),
+            SizedBox(height: 12.h),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12.r),
+                boxShadow: AppConstant.shadow,
               ),
-              Expanded(
-                  child: TabBarView(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TabBar(
+                      labelColor: Colors.white,
+                      unselectedLabelColor: AppColors.darkGreyColor,
+                      indicatorSize: TabBarIndicatorSize.tab,
+                      indicator: BoxDecoration(
+                        color: AppColors.primaryColor,
+                        borderRadius: BorderRadius.circular(10.r),
+                      ),
+                      dividerColor: Colors.transparent,
+                      labelStyle: Styles.textStyle16Bold.copyWith(
+                        fontFamily: 'Cairo',
+                      ),
+                      unselectedLabelStyle: Styles.textStyle16Bold.copyWith(
+                        fontFamily: 'Cairo',
+                      ),
+                      tabs: [
+                        Tab(text: S.of(context).newRide),
+                        Tab(text: S.of(context).active),
+                        Tab(text: S.of(context).completed),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: TabBarView(
                 children: [
                   NoTripsWidget(),
                   RidesList(),
                   RidesList(),
-                  RidesList(),
                 ],
-              )),
-            ],
-          )),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

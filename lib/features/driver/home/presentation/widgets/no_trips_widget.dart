@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 import 'package:shakshak/core/resources/app_colors.dart';
+import 'package:shakshak/core/utils/styles.dart';
+
+import '../../../../../generated/l10n.dart';
 
 class NoTripsWidget extends StatefulWidget {
   const NoTripsWidget({Key? key}) : super(key: key);
@@ -45,8 +48,8 @@ class _NoTripsWidgetState extends State<NoTripsWidget>
     return Opacity(
       opacity: opacity,
       child: Container(
-        width: baseSize * scale,
-        height: baseSize * scale,
+        width: baseSize.r * scale,
+        height: baseSize.r * scale,
         decoration: BoxDecoration(color: color, shape: BoxShape.circle),
         child: widget,
       ),
@@ -100,13 +103,9 @@ class _NoTripsWidgetState extends State<NoTripsWidget>
               Transform.scale(
                 scale: _scaleAnimation.value,
                 child: Text(
-                  'No trips right now...',
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: AppColors.primaryColor,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.2,
-                  ),
+                  S.of(context).noTripsNow,
+                  style: Styles.textStyle22Bold
+                      .copyWith(color: AppColors.primaryColor),
                 ),
               ),
             ],

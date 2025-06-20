@@ -109,5 +109,10 @@
   "selfieWithId": "صورة سيلفي مع بطاقة الهوية",
   "selfieWithLicense": "صورة سيلفي مع بطاقة الرخصة",
   "done": "تم",
-  "pleaseAddAllImages": "يرجى إضافة جميع الصور المطلوبة"
+  "pleaseAddAllImages": "يرجى إضافة جميع الصور المطلوبة",
+  "tripMap": "خريطة الرحلة",
+  "acceptFareOn": "اقبل الأجرة بقيمة {price}",
+  "noTripsNow": "لا توجد رحلات حالياً...",
+  "online": "متصل",
+  "offline": "غير متصل"
 }

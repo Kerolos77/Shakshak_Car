@@ -20,8 +20,11 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
+  static String m0(price) => "اقبل الأجرة بقيمة ${price}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "acceptFareOn": m0,
     "activate": MessageLookupByLibrary.simpleMessage("تفعيل"),
     "active": MessageLookupByLibrary.simpleMessage("نشطة"),
     "activeRides": MessageLookupByLibrary.simpleMessage("الرحلات\nالنشطة"),
@@ -113,7 +116,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "newRide": MessageLookupByLibrary.simpleMessage("جديدة"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "noAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+    "noTripsNow": MessageLookupByLibrary.simpleMessage(
+      "لا توجد رحلات حالياً...",
+    ),
     "numberOfPassengers": MessageLookupByLibrary.simpleMessage("عدد الركاب"),
+    "offline": MessageLookupByLibrary.simpleMessage("غير متصل"),
+    "online": MessageLookupByLibrary.simpleMessage("متصل"),
     "onlineRegistration": MessageLookupByLibrary.simpleMessage(
       "التسجيل عبر الإنترنت",
     ),
@@ -164,6 +172,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "topupWallet": MessageLookupByLibrary.simpleMessage("شحن المحفظة"),
     "totalBalance": MessageLookupByLibrary.simpleMessage("الرصيد الإجمالي"),
     "transactionId": MessageLookupByLibrary.simpleMessage("رقم العملية"),
+    "tripMap": MessageLookupByLibrary.simpleMessage("خريطة الرحلة"),
     "user": MessageLookupByLibrary.simpleMessage("مستخدم"),
     "userDescription": MessageLookupByLibrary.simpleMessage(
       "بحاجة إلى توصيلة آمنة",

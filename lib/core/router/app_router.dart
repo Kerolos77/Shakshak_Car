@@ -15,6 +15,7 @@ import 'package:shakshak/features/driver/online_registration/views/criminal_reco
 import 'package:shakshak/features/driver/online_registration/views/driver_online_registration_view.dart';
 import 'package:shakshak/features/driver/online_registration/views/licence_view.dart';
 import 'package:shakshak/features/driver/online_registration/views/national_id_view.dart';
+import 'package:shakshak/features/driver/trip_map/presentation/views/trip_map_view.dart';
 import 'package:shakshak/features/faq/presentation/views/faq_view.dart';
 import 'package:shakshak/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:shakshak/features/out_station_rides/presentation/views/outstation_rides_view.dart';
@@ -43,7 +44,7 @@ abstract class AppRouter {
   static final routers = GoRouter(
     navigatorKey: navigatorKey,
     debugLogDiagnostics: true,
-    initialLocation: Routes.driverHomeView,
+    initialLocation: Routes.tripMapView,
     routes: <RouteBase>[
       GoRoute(
         path: Routes.splashView,
@@ -267,6 +268,14 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: VehicleInformationView(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.tripMapView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: TripMapView(),
         ),
       ),
     ],

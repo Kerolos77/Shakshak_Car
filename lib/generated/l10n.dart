@@ -819,6 +819,41 @@ class S {
       args: [],
     );
   }
+
+  /// `Trip map`
+  String get tripMap {
+    return Intl.message('Trip map', name: 'tripMap', desc: '', args: []);
+  }
+
+  /// `Accept fare on {price}`
+  String acceptFareOn(Object price) {
+    return Intl.message(
+      'Accept fare on $price',
+      name: 'acceptFareOn',
+      desc: '',
+      args: [price],
+    );
+  }
+
+  /// `No trips right now...`
+  String get noTripsNow {
+    return Intl.message(
+      'No trips right now...',
+      name: 'noTripsNow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Online`
+  String get online {
+    return Intl.message('Online', name: 'online', desc: '', args: []);
+  }
+
+  /// `Offline`
+  String get offline {
+    return Intl.message('Offline', name: 'offline', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -20,8 +20,11 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(price) => "Accept fare on ${price}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "acceptFareOn": m0,
     "activate": MessageLookupByLibrary.simpleMessage("Activate"),
     "active": MessageLookupByLibrary.simpleMessage("Active"),
     "activeRides": MessageLookupByLibrary.simpleMessage("Active\nRides"),
@@ -115,9 +118,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "noAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account ?",
     ),
+    "noTripsNow": MessageLookupByLibrary.simpleMessage("No trips right now..."),
     "numberOfPassengers": MessageLookupByLibrary.simpleMessage(
       "Number of passengers",
     ),
+    "offline": MessageLookupByLibrary.simpleMessage("Offline"),
+    "online": MessageLookupByLibrary.simpleMessage("Online"),
     "onlineRegistration": MessageLookupByLibrary.simpleMessage(
       "Online registration",
     ),
@@ -166,6 +172,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "topupWallet": MessageLookupByLibrary.simpleMessage("Topup wallet"),
     "totalBalance": MessageLookupByLibrary.simpleMessage("Total Balance"),
     "transactionId": MessageLookupByLibrary.simpleMessage("Transaction ID"),
+    "tripMap": MessageLookupByLibrary.simpleMessage("Trip map"),
     "user": MessageLookupByLibrary.simpleMessage("User"),
     "userDescription": MessageLookupByLibrary.simpleMessage(
       "Need a safe drive",
