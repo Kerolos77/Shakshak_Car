@@ -854,6 +854,76 @@ class S {
   String get offline {
     return Intl.message('Offline', name: 'offline', desc: '', args: []);
   }
+
+  /// `Add topup amount`
+  String get addTopupAmount {
+    return Intl.message(
+      'Add topup amount',
+      name: 'addTopupAmount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter amount`
+  String get enterAmount {
+    return Intl.message(
+      'Enter amount',
+      name: 'enterAmount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Topup`
+  String get topup {
+    return Intl.message('Topup', name: 'topup', desc: '', args: []);
+  }
+
+  /// `Withdraw`
+  String get withdraw {
+    return Intl.message('Withdraw', name: 'withdraw', desc: '', args: []);
+  }
+
+  /// `Withdrawal`
+  String get withdrawal {
+    return Intl.message('Withdrawal', name: 'withdrawal', desc: '', args: []);
+  }
+
+  /// `Add withdraw amount`
+  String get addWithdrawAmount {
+    return Intl.message(
+      'Add withdraw amount',
+      name: 'addWithdrawAmount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notes`
+  String get notes {
+    return Intl.message('Notes', name: 'notes', desc: '', args: []);
+  }
+
+  /// `Withdrawal History`
+  String get withdrawalHistory {
+    return Intl.message(
+      'Withdrawal History',
+      name: 'withdrawalHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Withdraw requests`
+  String get withdrawRequests {
+    return Intl.message(
+      'Withdraw requests',
+      name: 'withdrawRequests',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

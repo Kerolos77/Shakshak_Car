@@ -28,6 +28,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "activate": MessageLookupByLibrary.simpleMessage("تفعيل"),
     "active": MessageLookupByLibrary.simpleMessage("نشطة"),
     "activeRides": MessageLookupByLibrary.simpleMessage("الرحلات\nالنشطة"),
+    "addTopupAmount": MessageLookupByLibrary.simpleMessage("أدخل مبلغ الشحن"),
+    "addWithdrawAmount": MessageLookupByLibrary.simpleMessage(
+      "أدخل مبلغ السحب",
+    ),
     "agreeTo": MessageLookupByLibrary.simpleMessage("فإنك توافق على "),
     "and": MessageLookupByLibrary.simpleMessage(" و "),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
@@ -72,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
     "enrollNow": MessageLookupByLibrary.simpleMessage("سجل الآن"),
+    "enterAmount": MessageLookupByLibrary.simpleMessage("أدخل المبلغ"),
     "enterOfferRate": MessageLookupByLibrary.simpleMessage(
       "أدخل عرض السعر الخاص بك",
     ),
@@ -119,6 +124,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "noTripsNow": MessageLookupByLibrary.simpleMessage(
       "لا توجد رحلات حالياً...",
     ),
+    "notes": MessageLookupByLibrary.simpleMessage("ملاحظات"),
     "numberOfPassengers": MessageLookupByLibrary.simpleMessage("عدد الركاب"),
     "offline": MessageLookupByLibrary.simpleMessage("غير متصل"),
     "online": MessageLookupByLibrary.simpleMessage("متصل"),
@@ -169,6 +175,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "الشروط والأحكام",
     ),
     "to": MessageLookupByLibrary.simpleMessage("إلى"),
+    "topup": MessageLookupByLibrary.simpleMessage("شحن"),
     "topupWallet": MessageLookupByLibrary.simpleMessage("شحن المحفظة"),
     "totalBalance": MessageLookupByLibrary.simpleMessage("الرصيد الإجمالي"),
     "transactionId": MessageLookupByLibrary.simpleMessage("رقم العملية"),
@@ -190,6 +197,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "whereYouWantToGo": MessageLookupByLibrary.simpleMessage(
       "إلى أين تريد الذهاب؟",
     ),
+    "withdraw": MessageLookupByLibrary.simpleMessage("سحب"),
+    "withdrawRequests": MessageLookupByLibrary.simpleMessage("طلبات السحب"),
+    "withdrawal": MessageLookupByLibrary.simpleMessage("عملية السحب"),
+    "withdrawalHistory": MessageLookupByLibrary.simpleMessage("سجل السحب"),
     "writeUs": MessageLookupByLibrary.simpleMessage("اكتب لنا"),
   };
 }

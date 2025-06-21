@@ -28,6 +28,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "activate": MessageLookupByLibrary.simpleMessage("Activate"),
     "active": MessageLookupByLibrary.simpleMessage("Active"),
     "activeRides": MessageLookupByLibrary.simpleMessage("Active\nRides"),
+    "addTopupAmount": MessageLookupByLibrary.simpleMessage("Add topup amount"),
+    "addWithdrawAmount": MessageLookupByLibrary.simpleMessage(
+      "Add withdraw amount",
+    ),
     "agreeTo": MessageLookupByLibrary.simpleMessage("you agree to "),
     "and": MessageLookupByLibrary.simpleMessage(" and "),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
@@ -76,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailUs": MessageLookupByLibrary.simpleMessage("Email Us"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "enrollNow": MessageLookupByLibrary.simpleMessage("Enroll now"),
+    "enterAmount": MessageLookupByLibrary.simpleMessage("Enter amount"),
     "enterOfferRate": MessageLookupByLibrary.simpleMessage(
       "Enter your offer rate",
     ),
@@ -119,6 +124,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Don\'t have an account ?",
     ),
     "noTripsNow": MessageLookupByLibrary.simpleMessage("No trips right now..."),
+    "notes": MessageLookupByLibrary.simpleMessage("Notes"),
     "numberOfPassengers": MessageLookupByLibrary.simpleMessage(
       "Number of passengers",
     ),
@@ -169,6 +175,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Terms and conditions",
     ),
     "to": MessageLookupByLibrary.simpleMessage("To"),
+    "topup": MessageLookupByLibrary.simpleMessage("Topup"),
     "topupWallet": MessageLookupByLibrary.simpleMessage("Topup wallet"),
     "totalBalance": MessageLookupByLibrary.simpleMessage("Total Balance"),
     "transactionId": MessageLookupByLibrary.simpleMessage("Transaction ID"),
@@ -189,6 +196,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "when": MessageLookupByLibrary.simpleMessage("When"),
     "whereYouWantToGo": MessageLookupByLibrary.simpleMessage(
       "Where do you want to go?",
+    ),
+    "withdraw": MessageLookupByLibrary.simpleMessage("Withdraw"),
+    "withdrawRequests": MessageLookupByLibrary.simpleMessage(
+      "Withdraw requests",
+    ),
+    "withdrawal": MessageLookupByLibrary.simpleMessage("Withdrawal"),
+    "withdrawalHistory": MessageLookupByLibrary.simpleMessage(
+      "Withdrawal History",
     ),
     "writeUs": MessageLookupByLibrary.simpleMessage("Write us"),
   };

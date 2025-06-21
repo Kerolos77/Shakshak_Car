@@ -113,5 +113,14 @@
   "acceptFareOn": "Accept fare on {price}",
   "noTripsNow": "No trips right now...",
   "online": "Online",
-  "offline": "Offline"
+  "offline": "Offline",
+  "addTopupAmount": "Add topup amount",
+  "enterAmount": "Enter amount",
+  "topup": "Topup",
+  "withdraw": "Withdraw",
+  "withdrawal": "Withdrawal",
+  "addWithdrawAmount": "Add withdraw amount",
+  "notes": "Notes",
+  "withdrawalHistory": "Withdrawal History",
+  "withdrawRequests": "Withdraw requests"
 }

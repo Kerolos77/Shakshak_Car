@@ -55,6 +55,7 @@ class CustomButton extends StatelessWidget {
             children: [
               Text(
                 text,
+                textAlign: TextAlign.center,
                 style: Styles.textStyle16Bold.copyWith(
                     fontSize: fontSize.sp,
                     fontWeight: fontWeight,

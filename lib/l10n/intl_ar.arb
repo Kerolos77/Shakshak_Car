@@ -114,5 +114,14 @@
   "acceptFareOn": "اقبل الأجرة بقيمة {price}",
   "noTripsNow": "لا توجد رحلات حالياً...",
   "online": "متصل",
-  "offline": "غير متصل"
+  "offline": "غير متصل",
+  "addTopupAmount": "أدخل مبلغ الشحن",
+  "enterAmount": "أدخل المبلغ",
+  "topup": "شحن",
+  "withdraw": "سحب",
+  "withdrawal": "عملية السحب",
+  "addWithdrawAmount": "أدخل مبلغ السحب",
+  "notes": "ملاحظات",
+  "withdrawalHistory": "سجل السحب",
+  "withdrawRequests": "طلبات السحب"
 }

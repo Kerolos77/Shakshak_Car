@@ -26,6 +26,7 @@ import 'package:shakshak/features/splash/presentation/views/splash_view.dart';
 import 'package:shakshak/features/terms_and_conditions/presetation/views/terms_and_conditions_view.dart';
 import 'package:shakshak/features/user_home/presentation/views/user_home_view.dart';
 import 'package:shakshak/features/wallet/presentation/views/wallet_view.dart';
+import 'package:shakshak/features/wallet/presentation/views/withdraw_history_view.dart';
 
 import '../../features/authentication/presentation/views/role_selection_view.dart';
 import '../../features/driver/outstation/presentation/views/driver_outstation_view.dart';
@@ -44,7 +45,7 @@ abstract class AppRouter {
   static final routers = GoRouter(
     navigatorKey: navigatorKey,
     debugLogDiagnostics: true,
-    initialLocation: Routes.splashView,
+    initialLocation: Routes.walletView,
     routes: <RouteBase>[
       GoRoute(
         path: Routes.splashView,
@@ -179,6 +180,14 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: WalletView(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.withdrawHistoryView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: WithdrawHistoryView(),
         ),
       ),
       GoRoute(
