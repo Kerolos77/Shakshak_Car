@@ -121,6 +121,7 @@ class _WalletViewState extends State<WalletView> {
                   CustomTextField(
                     label: S.of(context).addTopupAmount,
                     hint: S.of(context).enterAmount,
+                    keyType: TextInputType.number,
                   ),
                   24.ph,
                   CustomButton(text: S.of(context).topup),
@@ -162,6 +163,7 @@ class _WalletViewState extends State<WalletView> {
                   CustomTextField(
                     label: S.of(context).addWithdrawAmount,
                     hint: S.of(context).enterAmount,
+                    keyType: TextInputType.number,
                   ),
                   12.ph,
                   CustomTextField(
