@@ -14,8 +14,8 @@ import '../widgets/register_button.dart';
 import 'have_an_account_widget.dart';
 
 class RegisterViewBody extends StatefulWidget {
-  const RegisterViewBody({super.key});
-
+  RegisterViewBody({super.key,required this.phoneNumber });
+  String phoneNumber;
   @override
   State<RegisterViewBody> createState() => _RegisterViewBodyState();
 }
@@ -37,6 +37,11 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
     phoneController.dispose();
     passwordController.dispose();
     super.dispose();
+  }
+  @override
+  void initState() {
+    phoneController.text = widget.phoneNumber;
+    super.initState();
   }
 
   @override

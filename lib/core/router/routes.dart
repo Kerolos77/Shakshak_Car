@@ -17,6 +17,9 @@ class Routes {
   static String faqView = "/faqView";
   static String termsAndConditionsView = "/termsAndConditionsView";
   static String privacyPolicyView = "/privacyPolicyView";
+  static String selectLocationView = "/SelectLocationView";
+  static String userHomePage = "/UserHomePage";
+  static String selectDestinationPage = "/SelectDestinationPage";
 
   // --------------------------------- Driver ---------------------------------
 

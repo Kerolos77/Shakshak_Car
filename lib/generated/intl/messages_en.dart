@@ -76,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "dropoffLocation": MessageLookupByLibrary.simpleMessage(
       "Enter drop-off location",
     ),
+    "egpPrefix": MessageLookupByLibrary.simpleMessage("EGP  "),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emailUs": MessageLookupByLibrary.simpleMessage("Email Us"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
@@ -128,6 +129,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "numberOfPassengers": MessageLookupByLibrary.simpleMessage(
       "Number of passengers",
     ),
+    "offerYourFare": MessageLookupByLibrary.simpleMessage("Offer your fare"),
     "offline": MessageLookupByLibrary.simpleMessage("Offline"),
     "online": MessageLookupByLibrary.simpleMessage("Online"),
     "onlineRegistration": MessageLookupByLibrary.simpleMessage(
@@ -148,6 +150,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy policy"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+    "promoCode": MessageLookupByLibrary.simpleMessage("Promo code"),
     "rides": MessageLookupByLibrary.simpleMessage("Rides"),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "selectCarModel": MessageLookupByLibrary.simpleMessage("Select car model"),

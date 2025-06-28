@@ -122,5 +122,8 @@
   "addWithdrawAmount": "Add withdraw amount",
   "notes": "Notes",
   "withdrawalHistory": "Withdrawal History",
-  "withdrawRequests": "Withdraw requests"
+  "withdrawRequests": "Withdraw requests",
+  "offerYourFare": "Offer your fare",
+  "egpPrefix": "EGP  ",
+  "promoCode": "Promo code"
 }

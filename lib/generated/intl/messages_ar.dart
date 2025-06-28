@@ -70,6 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "يقدم توصيلة آمنة للمستخدمين",
     ),
     "dropoffLocation": MessageLookupByLibrary.simpleMessage("أدخل موقع الوصول"),
+    "egpPrefix": MessageLookupByLibrary.simpleMessage("ج.م  "),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "emailUs": MessageLookupByLibrary.simpleMessage(
       "راسلنا عبر البريد الإلكتروني",
@@ -126,6 +127,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "notes": MessageLookupByLibrary.simpleMessage("ملاحظات"),
     "numberOfPassengers": MessageLookupByLibrary.simpleMessage("عدد الركاب"),
+    "offerYourFare": MessageLookupByLibrary.simpleMessage("قدم سعرك"),
     "offline": MessageLookupByLibrary.simpleMessage("غير متصل"),
     "online": MessageLookupByLibrary.simpleMessage("متصل"),
     "onlineRegistration": MessageLookupByLibrary.simpleMessage(
@@ -148,6 +150,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "privacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+    "promoCode": MessageLookupByLibrary.simpleMessage("رمز ترويجي"),
     "rides": MessageLookupByLibrary.simpleMessage("الرحلات"),
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
     "selectCarModel": MessageLookupByLibrary.simpleMessage("اختر طراز السيارة"),

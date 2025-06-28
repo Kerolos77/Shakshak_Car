@@ -111,18 +111,13 @@ class AuthCubit extends Cubit<AuthState> {
     required int otpCode,
   }) async {
     emit(VerifyPhoneOTPLoadingState());
-    /*var result = fromForgetPassword
-        ? await authRepo.forgetPasswordOtp(otp: otpCode)
-        : await authRepo.verifyPhoneOtp(
-            otp: otpCode,
-            registerToken:
-                CacheHelper.getData(key: AppConstant.kRegisterToken));
+    var result = await authRepo.verifyPhoneOtp(otp: otpCode.toString());
     result.fold((fail) {
       debugPrint("error while verify phone otp ${fail.message}");
       emit(VerifyPhoneOTPErrorState(fail.message));
-    }, (otpModel) {
-      emit(VerifyPhoneOTPSuccessState(otpModel));
-    });*/
+    }, (profileModel) {
+      emit(VerifyPhoneOTPSuccessState(profileModel));
+    });
   }
 
   void forgetPassword({required String phone}) async {
