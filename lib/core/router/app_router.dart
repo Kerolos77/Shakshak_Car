@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shakshak/features/authentication/data/repo/auth_repo.dart';
 import 'package:shakshak/features/authentication/presentation/view_models/auth_cubit/auth_cubit.dart';
 import 'package:shakshak/features/authentication/presentation/views/login_view.dart';
 import 'package:shakshak/features/authentication/presentation/views/otp_view.dart';
@@ -14,6 +15,7 @@ import 'package:shakshak/features/driver/online_registration/views/criminal_reco
 import 'package:shakshak/features/driver/online_registration/views/driver_online_registration_view.dart';
 import 'package:shakshak/features/driver/online_registration/views/licence_view.dart';
 import 'package:shakshak/features/driver/online_registration/views/national_id_view.dart';
+import 'package:shakshak/features/driver/trip_map/presentation/views/trip_map_view.dart';
 import 'package:shakshak/features/faq/presentation/views/faq_view.dart';
 import 'package:shakshak/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:shakshak/features/out_station_rides/presentation/views/outstation_rides_view.dart';
@@ -24,9 +26,17 @@ import 'package:shakshak/features/splash/presentation/views/splash_view.dart';
 import 'package:shakshak/features/terms_and_conditions/presetation/views/terms_and_conditions_view.dart';
 import 'package:shakshak/features/user_home/presentation/views/user_home_view.dart';
 import 'package:shakshak/features/wallet/presentation/views/wallet_view.dart';
+import 'package:shakshak/features/wallet/presentation/views/withdraw_history_view.dart';
 
 import '../../features/authentication/presentation/views/role_selection_view.dart';
+import '../../features/driver/outstation/presentation/views/driver_outstation_view.dart';
+import '../../features/driver/vehicle_information/presentation/views/vehicle_information_view.dart';
 import '../../features/terms_and_conditions/presetation/views/privacy_policy_view.dart';
+import '../../features/user_home_page/presentation/screen/user_home_page.dart';
+import '../../features/user_home_page/presentation/screen/user_home_page.dart';
+import '../../features/user_home_page/presentation/screen/select_destination_page.dart';
+import '../../features/user_home_page/presentation/widgets/select_destination_widget.dart';
+import '../services/service_locator.dart';
 import 'routes.dart';
 
 abstract class AppRouter {
@@ -39,7 +49,7 @@ abstract class AppRouter {
   static final routers = GoRouter(
     navigatorKey: navigatorKey,
     debugLogDiagnostics: true,
-    initialLocation: Routes.splashView,
+    initialLocation: Routes.userHomePage,
     routes: <RouteBase>[
       GoRoute(
         path: Routes.splashView,
@@ -63,7 +73,7 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: BlocProvider(
-            create: (context) => AuthCubit(),
+            create: (context) => AuthCubit(sl<AuthRepo>()),
             child: RoleSelectionView(),
           ),
         ),
@@ -74,7 +84,7 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: BlocProvider(
-            create: (context) => AuthCubit(),
+            create: (context) => AuthCubit(sl<AuthRepo>()),
             child: LoginView(),
           ),
         ),
@@ -96,26 +106,35 @@ abstract class AppRouter {
         ),
       ),
       GoRoute(
-        path: Routes.otpView,
-        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
-          context: context,
-          state: state,
-          child: BlocProvider(
-            create: (context) => AuthCubit(),
-            child: OtpView(),
-          ),
-        ),
-      ),
+          path: Routes.otpView,
+          pageBuilder: (context, state) {
+            final phoneNumber = state.extra as String;
+            return buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: BlocProvider(
+                create: (context) => AuthCubit(sl<AuthRepo>()),
+                child: OtpView(
+                  phoneNumber: phoneNumber,
+                ),
+              ),
+            );
+          }),
       GoRoute(
         path: Routes.registerView,
-        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
-          context: context,
-          state: state,
-          child: BlocProvider(
-            create: (context) => AuthCubit(),
-            child: RegisterView(),
-          ),
-        ),
+        pageBuilder: (context, state) {
+          final phoneNumber = state.extra as String?;
+          return buildPageWithDefaultTransition<void>(
+            context: context,
+            state: state,
+            child: BlocProvider(
+              create: (context) => AuthCubit(sl<AuthRepo>()),
+              child: RegisterView(
+                phoneNumber: phoneNumber ?? '',
+              ),
+            ),
+          );
+        },
       ),
       GoRoute(
         path: Routes.profileView,
@@ -123,7 +142,7 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: BlocProvider(
-            create: (context) => AuthCubit(),
+            create: (context) => AuthCubit(sl<AuthRepo>()),
             child: ProfileView(),
           ),
         ),
@@ -143,6 +162,31 @@ abstract class AppRouter {
           state: state,
           child: UserHomeView(),
         ),
+      ),
+      GoRoute(
+        path: Routes.userHomePage,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: UserHomePage(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.selectDestinationPage,
+        pageBuilder: (context, state) {
+          final Map<String, dynamic> extra =
+              state.extra as Map<String, dynamic>;
+          return buildPageWithDefaultTransition<void>(
+            context: context,
+            state: state,
+            child: SelectDestinationPage(
+              cubit: extra['cubit'],
+              address: extra['address'],
+              destinationController: extra['destinationController'],
+              categoryName: extra['categoryName'],
+            ),
+          );
+        },
       ),
       GoRoute(
         path: Routes.outStationView,
@@ -174,6 +218,14 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: WalletView(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.withdrawHistoryView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: WithdrawHistoryView(),
         ),
       ),
       GoRoute(
@@ -247,6 +299,30 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: CarView(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.driverOutstationView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: DriverOutstationView(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.vehicleInformationView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: VehicleInformationView(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.tripMapView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: TripMapView(),
         ),
       ),
     ],

@@ -4,7 +4,7 @@ import 'package:shakshak/core/utils/styles.dart';
 import 'package:shakshak/features/base_layout/presentation/views/base_layout_view.dart';
 
 import '../../../../generated/l10n.dart';
-import '../widgets/rides_list_view.dart';
+import '../widgets/rides_list.dart';
 
 class RidesView extends StatefulWidget {
   const RidesView({super.key});
@@ -65,9 +65,9 @@ class _RidesViewState extends State<RidesView> {
               controller: _pageController,
               onPageChanged: _onPageChanged,
               children: const [
-                RidesListView(),
-                RidesListView(),
-                RidesListView(),
+                RidesList(),
+                RidesList(),
+                RidesList(),
               ],
             ),
           ),

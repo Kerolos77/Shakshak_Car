@@ -10,32 +10,34 @@ class EmailUsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          S.of(context).writeUs,
-          style: Styles.textStyle20Bold,
-        ),
-        Text(
-          S.of(context).describeIssue,
-          style: Styles.textStyle16,
-        ),
-        16.ph,
-        CustomTextField(
-          hint: S.of(context).email,
-        ),
-        12.ph,
-        CustomTextField(
-          hint: S.of(context).describeFeedback,
-          maxLiens: 6,
-        ),
-        20.ph,
-        CustomButton(
-          text: S.of(context).submit,
-        ),
-        20.ph,
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            S.of(context).writeUs,
+            style: Styles.textStyle20Bold,
+          ),
+          Text(
+            S.of(context).describeIssue,
+            style: Styles.textStyle16,
+          ),
+          16.ph,
+          CustomTextField(
+            hint: S.of(context).email,
+          ),
+          12.ph,
+          CustomTextField(
+            hint: S.of(context).describeFeedback,
+            maxLiens: 6,
+          ),
+          20.ph,
+          CustomButton(
+            text: S.of(context).submit,
+          ),
+          20.ph,
+        ],
+      ),
     );
   }
 }

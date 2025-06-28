@@ -53,17 +53,18 @@ class CustomButton extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              if (img != null) ...[
-                img!,
-                6.pw,
-              ],
               Text(
                 text,
+                textAlign: TextAlign.center,
                 style: Styles.textStyle16Bold.copyWith(
                     fontSize: fontSize.sp,
                     fontWeight: fontWeight,
                     color: textColor),
               ),
+              if (img != null) ...[
+                6.pw,
+                img!,
+              ],
             ],
           ),
         ),

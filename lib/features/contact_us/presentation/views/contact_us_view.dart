@@ -4,7 +4,7 @@ import 'package:shakshak/core/utils/styles.dart';
 import 'package:shakshak/features/base_layout/presentation/views/base_layout_view.dart';
 
 import '../../../../generated/l10n.dart';
-import '../widgets/contact_us_body.dart';
+import '../widgets/call_us_body.dart';
 import '../widgets/email_us_body.dart';
 
 class ContactUsView extends StatefulWidget {
@@ -78,7 +78,7 @@ class _ContactUsViewState extends State<ContactUsView> {
               controller: _pageController,
               onPageChanged: _onPageChanged,
               children: [
-                ContactUsBody(),
+                CallUsBody(),
                 EmailUsBody(),
               ],
             ),

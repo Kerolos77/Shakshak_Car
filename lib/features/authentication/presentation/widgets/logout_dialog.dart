@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:shakshak/features/authentication/data/repo/auth_repo.dart';
 
 import '../../../../core/resources/app_colors.dart';
 import '../../../../core/router/router_helper.dart';
+import '../../../../core/services/service_locator.dart';
 import '../../../../core/utils/shared_widgets/custom_animated_dialog.dart';
 import '../../../../core/utils/shared_widgets/custom_button.dart';
 import '../../../../core/utils/styles.dart';
@@ -18,7 +20,7 @@ class LogoutDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AuthCubit(),
+      create: (context) => AuthCubit(sl<AuthRepo>()),
       child: BlocConsumer<AuthCubit, AuthState>(
         /*       buildWhen: (previous, current) =>
             current is LogoutLoadingState ||

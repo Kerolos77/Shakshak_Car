@@ -15,8 +15,9 @@ import 'otp_button.dart';
 class OtpViewBody extends StatefulWidget {
   const OtpViewBody({
     super.key,
+    required this.phoneNumber,
   });
-
+final String phoneNumber;
   @override
   State<OtpViewBody> createState() => _OtpViewBodyState();
 }
@@ -85,6 +86,7 @@ class _OtpViewBodyState extends State<OtpViewBody> {
           OtpButton(
             otpController: otpController,
             formKey: formKey,
+            phoneNumber:widget.phoneNumber ,
           ),
           14.ph,
           /*   ResendOtp(),*/

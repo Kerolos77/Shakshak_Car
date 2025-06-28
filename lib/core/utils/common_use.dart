@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/utils/styles.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../resources/app_colors.dart';
 import '../router/router_helper.dart';
@@ -113,4 +114,16 @@ AppBar buildAppBar(BuildContext context,
           )
         : null,
   );
+}
+
+Future<void> makePhoneCall({required String phoneNumber}) async {
+  final Uri launchUri = Uri(
+    scheme: 'tel',
+    path: phoneNumber,
+  );
+  if (await canLaunchUrl(Uri.parse(launchUri.toString()))) {
+    await launchUrl(Uri.parse(launchUri.toString()));
+  } else {
+    throw 'Could not launch $launchUri';
+  }
 }

@@ -639,6 +639,311 @@ class S {
       args: [],
     );
   }
+
+  /// `Vehicle information`
+  String get vehicleInformation {
+    return Intl.message(
+      'Vehicle information',
+      name: 'vehicleInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Car number`
+  String get carNumber {
+    return Intl.message('Car number', name: 'carNumber', desc: '', args: []);
+  }
+
+  /// `Car brand`
+  String get carBrand {
+    return Intl.message('Car brand', name: 'carBrand', desc: '', args: []);
+  }
+
+  /// `Car color`
+  String get carColor {
+    return Intl.message('Car color', name: 'carColor', desc: '', args: []);
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message('Save', name: 'save', desc: '', args: []);
+  }
+
+  /// `New`
+  String get newRide {
+    return Intl.message('New', name: 'newRide', desc: '', args: []);
+  }
+
+  /// `Active`
+  String get active {
+    return Intl.message('Active', name: 'active', desc: '', args: []);
+  }
+
+  /// `Completed`
+  String get completed {
+    return Intl.message('Completed', name: 'completed', desc: '', args: []);
+  }
+
+  /// `Weight:`
+  String get weight {
+    return Intl.message('Weight:', name: 'weight', desc: '', args: []);
+  }
+
+  /// `Dimension:`
+  String get dimension {
+    return Intl.message('Dimension:', name: 'dimension', desc: '', args: []);
+  }
+
+  /// `Image:`
+  String get image {
+    return Intl.message('Image:', name: 'image', desc: '', args: []);
+  }
+
+  /// `Car model`
+  String get carModel {
+    return Intl.message('Car model', name: 'carModel', desc: '', args: []);
+  }
+
+  /// `Select car model`
+  String get selectCarModel {
+    return Intl.message(
+      'Select car model',
+      name: 'selectCarModel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `National ID birth date`
+  String get nationalIdBirthDate {
+    return Intl.message(
+      'National ID birth date',
+      name: 'nationalIdBirthDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Criminal record`
+  String get criminalRecord {
+    return Intl.message(
+      'Criminal record',
+      name: 'criminalRecord',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `National ID`
+  String get nationalId {
+    return Intl.message('National ID', name: 'nationalId', desc: '', args: []);
+  }
+
+  /// `Licence`
+  String get licence {
+    return Intl.message('Licence', name: 'licence', desc: '', args: []);
+  }
+
+  /// `Car licence`
+  String get carLicence {
+    return Intl.message('Car licence', name: 'carLicence', desc: '', args: []);
+  }
+
+  /// `Car`
+  String get car {
+    return Intl.message('Car', name: 'car', desc: '', args: []);
+  }
+
+  /// `Send Docs`
+  String get sendDocs {
+    return Intl.message('Send Docs', name: 'sendDocs', desc: '', args: []);
+  }
+
+  /// `ID Number`
+  String get idNumber {
+    return Intl.message('ID Number', name: 'idNumber', desc: '', args: []);
+  }
+
+  /// `Select expire date`
+  String get selectExpireDate {
+    return Intl.message(
+      'Select expire date',
+      name: 'selectExpireDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Front Side`
+  String get frontSide {
+    return Intl.message('Front Side', name: 'frontSide', desc: '', args: []);
+  }
+
+  /// `Back Side`
+  String get backSide {
+    return Intl.message('Back Side', name: 'backSide', desc: '', args: []);
+  }
+
+  /// `Selfie with National ID`
+  String get selfieWithId {
+    return Intl.message(
+      'Selfie with National ID',
+      name: 'selfieWithId',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Selfie with License`
+  String get selfieWithLicense {
+    return Intl.message(
+      'Selfie with License',
+      name: 'selfieWithLicense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Done`
+  String get done {
+    return Intl.message('Done', name: 'done', desc: '', args: []);
+  }
+
+  /// `Please add all required images`
+  String get pleaseAddAllImages {
+    return Intl.message(
+      'Please add all required images',
+      name: 'pleaseAddAllImages',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trip map`
+  String get tripMap {
+    return Intl.message('Trip map', name: 'tripMap', desc: '', args: []);
+  }
+
+  /// `Accept fare on {price}`
+  String acceptFareOn(Object price) {
+    return Intl.message(
+      'Accept fare on $price',
+      name: 'acceptFareOn',
+      desc: '',
+      args: [price],
+    );
+  }
+
+  /// `No trips right now...`
+  String get noTripsNow {
+    return Intl.message(
+      'No trips right now...',
+      name: 'noTripsNow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Online`
+  String get online {
+    return Intl.message('Online', name: 'online', desc: '', args: []);
+  }
+
+  /// `Offline`
+  String get offline {
+    return Intl.message('Offline', name: 'offline', desc: '', args: []);
+  }
+
+  /// `Add topup amount`
+  String get addTopupAmount {
+    return Intl.message(
+      'Add topup amount',
+      name: 'addTopupAmount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter amount`
+  String get enterAmount {
+    return Intl.message(
+      'Enter amount',
+      name: 'enterAmount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Topup`
+  String get topup {
+    return Intl.message('Topup', name: 'topup', desc: '', args: []);
+  }
+
+  /// `Withdraw`
+  String get withdraw {
+    return Intl.message('Withdraw', name: 'withdraw', desc: '', args: []);
+  }
+
+  /// `Withdrawal`
+  String get withdrawal {
+    return Intl.message('Withdrawal', name: 'withdrawal', desc: '', args: []);
+  }
+
+  /// `Add withdraw amount`
+  String get addWithdrawAmount {
+    return Intl.message(
+      'Add withdraw amount',
+      name: 'addWithdrawAmount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notes`
+  String get notes {
+    return Intl.message('Notes', name: 'notes', desc: '', args: []);
+  }
+
+  /// `Withdrawal History`
+  String get withdrawalHistory {
+    return Intl.message(
+      'Withdrawal History',
+      name: 'withdrawalHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Withdraw requests`
+  String get withdrawRequests {
+    return Intl.message(
+      'Withdraw requests',
+      name: 'withdrawRequests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Offer your fare`
+  String get offerYourFare {
+    return Intl.message(
+      'Offer your fare',
+      name: 'offerYourFare',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `EGP  `
+  String get egpPrefix {
+    return Intl.message('EGP  ', name: 'egpPrefix', desc: '', args: []);
+  }
+
+  /// `Promo code`
+  String get promoCode {
+    return Intl.message('Promo code', name: 'promoCode', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

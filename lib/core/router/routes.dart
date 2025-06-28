@@ -12,18 +12,27 @@ class Routes {
   static String ridesView = "/ridesView";
   static String outstationRidesView = "/outstationRidesView";
   static String walletView = "/walletView";
+  static String withdrawHistoryView = "/withdrawHistoryView";
   static String contactUsView = "/contactUsView";
   static String faqView = "/faqView";
   static String termsAndConditionsView = "/termsAndConditionsView";
   static String privacyPolicyView = "/privacyPolicyView";
+  static String selectLocationView = "/SelectLocationView";
+  static String userHomePage = "/UserHomePage";
+  static String selectDestinationPage = "/SelectDestinationPage";
 
   // --------------------------------- Driver ---------------------------------
 
   static String driverHomeView = "/driverHomeView";
+
   static String driverOnlineRegistrationView = "/driverOnlineRegistrationView";
   static String nationalIdView = "/nationalIdView";
   static String criminalRecordView = "/criminalRecordView";
   static String licenceView = "/licenceView";
   static String carLicenceView = "/carLicenceView";
   static String carView = "/carView";
+
+  static String driverOutstationView = "/driverOutstationView";
+  static String vehicleInformationView = "/vehicleInformationView";
+  static String tripMapView = "/tripMapView";
 }

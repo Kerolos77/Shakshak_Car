@@ -22,12 +22,12 @@ class LoginViewBody extends StatefulWidget {
 }
 
 class _LoginViewBodyState extends State<LoginViewBody> {
-  final TextEditingController emailOrPhoneController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
-    emailOrPhoneController.dispose();
+    phoneController.dispose();
     super.dispose();
   }
 
@@ -68,10 +68,12 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             key: formKey,
             child: Column(
               children: [
-                PhoneTextField(),
+                PhoneTextField(
+                  controller: phoneController,
+                ),
                 14.ph,
                 LoginButton(
-                  emailOrPhoneController: emailOrPhoneController,
+                  emailOrPhoneController: phoneController,
                   formKey: formKey,
                 ),
                 14.ph,
