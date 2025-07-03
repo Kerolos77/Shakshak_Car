@@ -9,7 +9,7 @@ class CustomLoadingButton extends StatelessWidget {
       {super.key,
       this.color = AppColors.secondaryColor,
       this.circleIndicatorColor = AppColors.secondaryColor,
-      this.height = 40});
+      this.height = 56});
 
   final Color color;
   final Color circleIndicatorColor;

@@ -2,36 +2,42 @@ import 'dart:convert';
 
 class SignupBody {
   final String userName;
-  final String email;
-  final String password;
   final String phone;
-  final int roleId;
+
+  final String email;
+  final int countryId;
+  final int cityId;
+
+  // final int roleId;
 
   SignupBody({
     required this.userName,
-    required this.email,
-    required this.password,
     required this.phone,
-    required this.roleId,
+    required this.email,
+    required this.countryId,
+    required this.cityId,
+    // required this.roleId,
   });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'name': userName,
-      'email': email,
       'phone': phone,
-      'password': password,
-      'role_id': roleId,
+      'email': email,
+      'country_id': countryId,
+      'city_id': cityId,
+      // 'role_id': roleId,
     };
   }
 
   factory SignupBody.fromMap(Map<String, dynamic> map) {
     return SignupBody(
       userName: map['name'] as String,
-      email: map['email'] as String,
       phone: map['phone'] as String,
-      password: map['password'] as String,
-      roleId: map['role_id'] as int,
+      email: map['email'] as String,
+      countryId: map['country_id'] as int,
+      cityId: map['city_id'] as int,
+      // roleId: map['role_id'] as int,
     );
   }
 

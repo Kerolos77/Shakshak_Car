@@ -25,6 +25,9 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "acceptFareOn": m0,
+    "accountRegisteredSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم تسجيل الحساب بنجاح",
+    ),
     "activate": MessageLookupByLibrary.simpleMessage("تفعيل"),
     "active": MessageLookupByLibrary.simpleMessage("نشطة"),
     "activeRides": MessageLookupByLibrary.simpleMessage("الرحلات\nالنشطة"),
@@ -32,11 +35,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "addWithdrawAmount": MessageLookupByLibrary.simpleMessage(
       "أدخل مبلغ السحب",
     ),
+    "ageRequired": MessageLookupByLibrary.simpleMessage("العمر مطلوب"),
     "agreeTo": MessageLookupByLibrary.simpleMessage("فإنك توافق على "),
     "and": MessageLookupByLibrary.simpleMessage(" و "),
+    "apartmentRequired": MessageLookupByLibrary.simpleMessage(
+      "رقم الشقة مطلوب",
+    ),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "backSide": MessageLookupByLibrary.simpleMessage("الوجه الخلفي"),
     "bookRide": MessageLookupByLibrary.simpleMessage("احجز الرحلة"),
+    "buildingRequired": MessageLookupByLibrary.simpleMessage(
+      "رقم المبنى مطلوب",
+    ),
     "byTapping": MessageLookupByLibrary.simpleMessage("بالنقر على"),
     "call": MessageLookupByLibrary.simpleMessage("اتصل"),
     "callUs": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
@@ -50,9 +60,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "cash": MessageLookupByLibrary.simpleMessage("نقدًا"),
     "chooseLocation": MessageLookupByLibrary.simpleMessage("اختر الموقع"),
     "city": MessageLookupByLibrary.simpleMessage("المدينة"),
+    "cityIsRequired": MessageLookupByLibrary.simpleMessage("المدينة مطلوبة"),
     "completed": MessageLookupByLibrary.simpleMessage("مكتملة"),
     "completedRides": MessageLookupByLibrary.simpleMessage("الرحلات\nالمكتملة"),
+    "confirmPasswordRequired": MessageLookupByLibrary.simpleMessage(
+      "يرجى تأكيد كلمة المرور",
+    ),
     "contactUs": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
+    "countryIsRequired": MessageLookupByLibrary.simpleMessage("الدولة مطلوبة"),
     "criminalRecord": MessageLookupByLibrary.simpleMessage("السجل الجنائي"),
     "dark": MessageLookupByLibrary.simpleMessage("داكن"),
     "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
@@ -63,6 +78,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "describeIssue": MessageLookupByLibrary.simpleMessage("صف مشكلتك"),
     "dimension": MessageLookupByLibrary.simpleMessage("الأبعاد: "),
+    "dobRequired": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد مطلوب"),
     "done": MessageLookupByLibrary.simpleMessage("تم"),
     "doneSuccessfully": MessageLookupByLibrary.simpleMessage("تم بنجاح"),
     "driver": MessageLookupByLibrary.simpleMessage("سائق"),
@@ -71,6 +87,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "dropoffLocation": MessageLookupByLibrary.simpleMessage("أدخل موقع الوصول"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+    "emailOrPhoneRequired": MessageLookupByLibrary.simpleMessage(
+      "البريد الإلكتروني أو رقم الهاتف مطلوب",
+    ),
+    "emailRequired": MessageLookupByLibrary.simpleMessage(
+      "البريد الإلكتروني مطلوب",
+    ),
     "emailUs": MessageLookupByLibrary.simpleMessage(
       "راسلنا عبر البريد الإلكتروني",
     ),
@@ -89,8 +111,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "error": MessageLookupByLibrary.simpleMessage("حدث خطأ"),
     "errorOccurred": MessageLookupByLibrary.simpleMessage("حدث خطأ"),
     "faqs": MessageLookupByLibrary.simpleMessage("الأسئلة الشائعة"),
+    "floorRequired": MessageLookupByLibrary.simpleMessage("الطابق مطلوب"),
     "from": MessageLookupByLibrary.simpleMessage("من"),
     "frontSide": MessageLookupByLibrary.simpleMessage("الوجه الأمامي"),
+    "genderRequired": MessageLookupByLibrary.simpleMessage("الجنس مطلوب"),
     "helloToOurApp": MessageLookupByLibrary.simpleMessage(
       "أهلاً بك في تطبيقنا",
     ),
@@ -99,6 +123,18 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "idNumber": MessageLookupByLibrary.simpleMessage("رقم الهوية"),
     "image": MessageLookupByLibrary.simpleMessage("الصورة: "),
+    "invalidDob": MessageLookupByLibrary.simpleMessage(
+      "تاريخ الميلاد غير صالح",
+    ),
+    "invalidEmail": MessageLookupByLibrary.simpleMessage(
+      "البريد الإلكتروني غير صالح",
+    ),
+    "invalidNationalId": MessageLookupByLibrary.simpleMessage(
+      "الرقم القومي غير صالح",
+    ),
+    "invalidPhone": MessageLookupByLibrary.simpleMessage(
+      "رقم هاتف سعودي غير صالح",
+    ),
     "language": MessageLookupByLibrary.simpleMessage("اللغة"),
     "licence": MessageLookupByLibrary.simpleMessage("الرخصة"),
     "light": MessageLookupByLibrary.simpleMessage("فاتح"),
@@ -114,9 +150,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "mobileNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
     "myWallet": MessageLookupByLibrary.simpleMessage("محفظتي"),
+    "nameRequired": MessageLookupByLibrary.simpleMessage("الاسم مطلوب"),
     "nationalId": MessageLookupByLibrary.simpleMessage("بطاقة الهوية"),
     "nationalIdBirthDate": MessageLookupByLibrary.simpleMessage(
       "تاريخ الميلاد في بطاقة الهوية",
+    ),
+    "nationalIdRequired": MessageLookupByLibrary.simpleMessage(
+      "الرقم القومي مطلوب",
     ),
     "newRide": MessageLookupByLibrary.simpleMessage("جديدة"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
@@ -131,11 +171,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "onlineRegistration": MessageLookupByLibrary.simpleMessage(
       "التسجيل عبر الإنترنت",
     ),
+    "or": MessageLookupByLibrary.simpleMessage("أو"),
+    "otpRequired": MessageLookupByLibrary.simpleMessage("رمز التحقق مطلوب"),
     "outstation": MessageLookupByLibrary.simpleMessage("الرحلات الخارجية"),
     "outstationRides": MessageLookupByLibrary.simpleMessage(
       "رحلات خارج المدينة",
     ),
     "paidVia": MessageLookupByLibrary.simpleMessage("تم الدفع عبر"),
+    "passwordMinLength": MessageLookupByLibrary.simpleMessage(
+      "يجب ألا تقل كلمة المرور عن 8 أحرف",
+    ),
+    "passwordRequired": MessageLookupByLibrary.simpleMessage(
+      "كلمة المرور مطلوبة",
+    ),
+    "passwordsDoNotMatch": MessageLookupByLibrary.simpleMessage(
+      "كلمتا المرور غير متطابقتين",
+    ),
+    "phoneRequired": MessageLookupByLibrary.simpleMessage("رقم الهاتف مطلوب"),
+    "photoRequired": MessageLookupByLibrary.simpleMessage("الصورة مطلوبة"),
     "pickupLocation": MessageLookupByLibrary.simpleMessage(
       "أدخل موقع الانطلاق",
     ),
@@ -151,6 +204,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "rides": MessageLookupByLibrary.simpleMessage("الرحلات"),
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
     "selectCarModel": MessageLookupByLibrary.simpleMessage("اختر طراز السيارة"),
+    "selectCity": MessageLookupByLibrary.simpleMessage("إختر المدينة"),
+    "selectCountry": MessageLookupByLibrary.simpleMessage("إختر الدولة"),
     "selectExpireDate": MessageLookupByLibrary.simpleMessage(
       "اختر تاريخ الانتهاء",
     ),
@@ -169,6 +224,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "signup": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
     "status": MessageLookupByLibrary.simpleMessage("الحالة"),
+    "streetNameRequired": MessageLookupByLibrary.simpleMessage(
+      "اسم الشارع مطلوب",
+    ),
     "submit": MessageLookupByLibrary.simpleMessage("إرسال"),
     "support": MessageLookupByLibrary.simpleMessage("الدعم"),
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
@@ -185,6 +243,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "بحاجة إلى توصيلة آمنة",
     ),
     "userName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
+    "validPhone": MessageLookupByLibrary.simpleMessage("رقم هاتف سعودي صالح"),
     "vehicleInformation": MessageLookupByLibrary.simpleMessage(
       "معلومات السيارة",
     ),

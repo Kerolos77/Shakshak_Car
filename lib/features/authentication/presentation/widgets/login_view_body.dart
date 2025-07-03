@@ -94,7 +94,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         },
                         child: Text(
                           S.of(context).signup,
-                          style: Styles.textStyle14.copyWith(
+                          style: Styles.textStyle14SemiBold.copyWith(
                             color: AppColors.darkGreyColor,
                           ),
                         ),

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shakshak/features/authentication/data/repo/auth_repo.dart';
 import 'package:shakshak/features/authentication/presentation/view_models/auth_cubit/auth_cubit.dart';
+import 'package:shakshak/features/authentication/presentation/view_models/country_city_cubit/countries_cities_cubit.dart';
 import 'package:shakshak/features/authentication/presentation/views/login_view.dart';
 import 'package:shakshak/features/authentication/presentation/views/otp_view.dart';
 import 'package:shakshak/features/authentication/presentation/views/profile_view.dart';
@@ -45,7 +46,7 @@ abstract class AppRouter {
   static final routers = GoRouter(
     navigatorKey: navigatorKey,
     debugLogDiagnostics: true,
-    initialLocation: Routes.walletView,
+    initialLocation: Routes.splashView,
     routes: <RouteBase>[
       GoRoute(
         path: Routes.splashView,
@@ -117,8 +118,15 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: BlocProvider(
-            create: (context) => AuthCubit(sl<AuthRepo>()),
+          child: MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => AuthCubit(sl<AuthRepo>()),
+              ),
+              BlocProvider(
+                create: (context) => CountriesCitiesCubit(sl<AuthRepo>()),
+              ),
+            ],
             child: RegisterView(),
           ),
         ),

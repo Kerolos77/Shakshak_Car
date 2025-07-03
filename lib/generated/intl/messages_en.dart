@@ -25,6 +25,9 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "acceptFareOn": m0,
+    "accountRegisteredSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Account registered successfully",
+    ),
     "activate": MessageLookupByLibrary.simpleMessage("Activate"),
     "active": MessageLookupByLibrary.simpleMessage("Active"),
     "activeRides": MessageLookupByLibrary.simpleMessage("Active\nRides"),
@@ -32,11 +35,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "addWithdrawAmount": MessageLookupByLibrary.simpleMessage(
       "Add withdraw amount",
     ),
+    "ageRequired": MessageLookupByLibrary.simpleMessage("Age is required"),
     "agreeTo": MessageLookupByLibrary.simpleMessage("you agree to "),
     "and": MessageLookupByLibrary.simpleMessage(" and "),
+    "apartmentRequired": MessageLookupByLibrary.simpleMessage(
+      "Apartment is required",
+    ),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "backSide": MessageLookupByLibrary.simpleMessage("Back Side"),
     "bookRide": MessageLookupByLibrary.simpleMessage("Book ride"),
+    "buildingRequired": MessageLookupByLibrary.simpleMessage(
+      "Building is required",
+    ),
     "byTapping": MessageLookupByLibrary.simpleMessage("By tapping"),
     "call": MessageLookupByLibrary.simpleMessage("Call"),
     "callUs": MessageLookupByLibrary.simpleMessage("Call Us"),
@@ -50,9 +60,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "cash": MessageLookupByLibrary.simpleMessage("Cash"),
     "chooseLocation": MessageLookupByLibrary.simpleMessage("Choose location"),
     "city": MessageLookupByLibrary.simpleMessage("City"),
+    "cityIsRequired": MessageLookupByLibrary.simpleMessage("City is required"),
     "completed": MessageLookupByLibrary.simpleMessage("Completed"),
     "completedRides": MessageLookupByLibrary.simpleMessage("Completed\nRides"),
+    "confirmPasswordRequired": MessageLookupByLibrary.simpleMessage(
+      "Please confirm your password",
+    ),
     "contactUs": MessageLookupByLibrary.simpleMessage("Contact us"),
+    "countryIsRequired": MessageLookupByLibrary.simpleMessage(
+      "Country is required",
+    ),
     "criminalRecord": MessageLookupByLibrary.simpleMessage("Criminal record"),
     "dark": MessageLookupByLibrary.simpleMessage("Dark"),
     "date": MessageLookupByLibrary.simpleMessage("Date"),
@@ -65,6 +82,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Describe your issue",
     ),
     "dimension": MessageLookupByLibrary.simpleMessage("Dimension:"),
+    "dobRequired": MessageLookupByLibrary.simpleMessage(
+      "Date of birth is required",
+    ),
     "done": MessageLookupByLibrary.simpleMessage("Done"),
     "doneSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Done successfully",
@@ -77,6 +97,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Enter drop-off location",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "emailOrPhoneRequired": MessageLookupByLibrary.simpleMessage(
+      "Email or phone number is required",
+    ),
+    "emailRequired": MessageLookupByLibrary.simpleMessage("Email is required"),
     "emailUs": MessageLookupByLibrary.simpleMessage("Email Us"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "enrollNow": MessageLookupByLibrary.simpleMessage("Enroll now"),
@@ -93,14 +117,28 @@ class MessageLookup extends MessageLookupByLibrary {
     "error": MessageLookupByLibrary.simpleMessage("Error"),
     "errorOccurred": MessageLookupByLibrary.simpleMessage("Error occurred"),
     "faqs": MessageLookupByLibrary.simpleMessage("FAQs"),
+    "floorRequired": MessageLookupByLibrary.simpleMessage("Floor is required"),
     "from": MessageLookupByLibrary.simpleMessage("From"),
     "frontSide": MessageLookupByLibrary.simpleMessage("Front Side"),
+    "genderRequired": MessageLookupByLibrary.simpleMessage(
+      "Gender is required",
+    ),
     "helloToOurApp": MessageLookupByLibrary.simpleMessage("hello to our app"),
     "iHaveMyOwnAccount": MessageLookupByLibrary.simpleMessage(
       "I have my own account?",
     ),
     "idNumber": MessageLookupByLibrary.simpleMessage("ID Number"),
     "image": MessageLookupByLibrary.simpleMessage("Image:"),
+    "invalidDob": MessageLookupByLibrary.simpleMessage("Invalid date of birth"),
+    "invalidEmail": MessageLookupByLibrary.simpleMessage(
+      "Invalid email address",
+    ),
+    "invalidNationalId": MessageLookupByLibrary.simpleMessage(
+      "Invalid National ID",
+    ),
+    "invalidPhone": MessageLookupByLibrary.simpleMessage(
+      "Invalid Saudi phone number",
+    ),
     "language": MessageLookupByLibrary.simpleMessage("Language"),
     "licence": MessageLookupByLibrary.simpleMessage("Licence"),
     "light": MessageLookupByLibrary.simpleMessage("Light"),
@@ -114,9 +152,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "mobileNumber": MessageLookupByLibrary.simpleMessage("Mobile number"),
     "myWallet": MessageLookupByLibrary.simpleMessage("My wallet"),
+    "nameRequired": MessageLookupByLibrary.simpleMessage("Name is required"),
     "nationalId": MessageLookupByLibrary.simpleMessage("National ID"),
     "nationalIdBirthDate": MessageLookupByLibrary.simpleMessage(
       "National ID birth date",
+    ),
+    "nationalIdRequired": MessageLookupByLibrary.simpleMessage(
+      "National ID is required",
     ),
     "newRide": MessageLookupByLibrary.simpleMessage("New"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
@@ -133,9 +175,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "onlineRegistration": MessageLookupByLibrary.simpleMessage(
       "Online registration",
     ),
+    "or": MessageLookupByLibrary.simpleMessage("or"),
+    "otpRequired": MessageLookupByLibrary.simpleMessage("OTP is required"),
     "outstation": MessageLookupByLibrary.simpleMessage("Outstation"),
     "outstationRides": MessageLookupByLibrary.simpleMessage("Outstation rides"),
     "paidVia": MessageLookupByLibrary.simpleMessage("Paid Via"),
+    "passwordMinLength": MessageLookupByLibrary.simpleMessage(
+      "Password must be at least 8 characters",
+    ),
+    "passwordRequired": MessageLookupByLibrary.simpleMessage(
+      "Password is required",
+    ),
+    "passwordsDoNotMatch": MessageLookupByLibrary.simpleMessage(
+      "Passwords do not match",
+    ),
+    "phoneRequired": MessageLookupByLibrary.simpleMessage(
+      "Phone number is required",
+    ),
+    "photoRequired": MessageLookupByLibrary.simpleMessage("Photo is required"),
     "pickupLocation": MessageLookupByLibrary.simpleMessage(
       "Enter pickup location",
     ),
@@ -151,6 +208,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "rides": MessageLookupByLibrary.simpleMessage("Rides"),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "selectCarModel": MessageLookupByLibrary.simpleMessage("Select car model"),
+    "selectCity": MessageLookupByLibrary.simpleMessage("Select city"),
+    "selectCountry": MessageLookupByLibrary.simpleMessage("Select country"),
     "selectExpireDate": MessageLookupByLibrary.simpleMessage(
       "Select expire date",
     ),
@@ -169,6 +228,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "signup": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
     "status": MessageLookupByLibrary.simpleMessage("Status"),
+    "streetNameRequired": MessageLookupByLibrary.simpleMessage(
+      "Street name is required",
+    ),
     "submit": MessageLookupByLibrary.simpleMessage("Submit"),
     "support": MessageLookupByLibrary.simpleMessage("Support"),
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
@@ -185,6 +247,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Need a safe drive",
     ),
     "userName": MessageLookupByLibrary.simpleMessage("User name"),
+    "validPhone": MessageLookupByLibrary.simpleMessage(
+      "a valid Saudi phone number",
+    ),
     "vehicleInformation": MessageLookupByLibrary.simpleMessage(
       "Vehicle information",
     ),

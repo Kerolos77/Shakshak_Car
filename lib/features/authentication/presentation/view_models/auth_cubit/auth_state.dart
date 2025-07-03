@@ -8,8 +8,8 @@ final class AuthInitial extends AuthState {}
 class RoleSelectionChangedState extends AuthState {}
 
 final class AuthChangeBody extends AuthState {}
-// register
 
+// register
 class RegisterLoadingState extends AuthState {}
 
 class RegisterSuccessState extends AuthState {

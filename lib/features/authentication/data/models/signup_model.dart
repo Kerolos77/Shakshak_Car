@@ -1,87 +1,71 @@
 class SignupModel {
-  bool? status;
-  String? message;
   Data? data;
+  String? msg;
+  int? status;
+  bool? statusval;
 
-  SignupModel({this.status, this.message, this.data});
+  SignupModel({
+    this.data,
+    this.msg,
+    this.status,
+    this.statusval,
+  });
 
-  SignupModel.fromJson(Map<String, dynamic> json) {
-    status = json['status'] ?? false;
-    message = json['message'] ?? '';
-    data = json['data'] != null ? Data.fromJson(json['data']) : Data();
+  SignupModel.fromJson(dynamic json) {
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+    msg = json['msg'];
+    status = json['status'];
+    statusval = json['statusval'];
   }
 }
 
 class Data {
   Data({
-    this.user,
+    this.id,
+    this.name,
+    this.phone,
+    this.image,
+    this.countryId,
+    this.city,
+    this.email,
+    this.walletAmount,
+    this.pendingWallet,
+    this.driverStatus,
+    this.isDriver,
+    this.isOnline,
+    this.serviceId,
     this.token,
   });
 
   Data.fromJson(dynamic json) {
-    user = json['user'] != null ? User.fromJson(json['user']) : null;
+    id = json['id'];
+    name = json['name'];
+    phone = json['phone'];
+    image = json['image'];
+    countryId = json['country_id'];
+    city = json['city'];
+    email = json['email'];
+    walletAmount = json['wallet_amount'];
+    pendingWallet = json['pending_wallet'];
+    driverStatus = json['driver_status'];
+    isDriver = json['is_driver'];
+    isOnline = json['is_online'];
+    serviceId = json['service_id'];
     token = json['token'];
   }
 
-  User? user;
-  String? token;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    if (user != null) {
-      map['user'] = user?.toJson();
-    }
-    map['token'] = token;
-    return map;
-  }
-}
-
-class User {
-  User({
-    this.name,
-    this.nameEn,
-    this.email,
-    this.phone,
-    this.roleId,
-    this.updatedAt,
-    this.createdAt,
-    this.id,
-    this.profilePhotoUrl,
-  });
-
-  User.fromJson(dynamic json) {
-    name = json['name'];
-    nameEn = json['name_en'];
-    email = json['email'];
-    phone = json['phone'];
-    roleId = json['role_id'];
-    updatedAt = json['updated_at'];
-    createdAt = json['created_at'];
-    id = json['id'];
-    profilePhotoUrl = json['profile_photo_url'];
-  }
-
-  String? name;
-  String? nameEn;
-  String? email;
-  String? phone;
-  int? roleId;
-  String? updatedAt;
-  String? createdAt;
   int? id;
-  String? profilePhotoUrl;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['name'] = name;
-    map['name_en'] = nameEn;
-    map['email'] = email;
-    map['phone'] = phone;
-    map['role_id'] = roleId;
-    map['updated_at'] = updatedAt;
-    map['created_at'] = createdAt;
-    map['id'] = id;
-    map['profile_photo_url'] = profilePhotoUrl;
-    return map;
-  }
+  String? name;
+  String? phone;
+  String? image;
+  dynamic countryId;
+  dynamic city;
+  String? email;
+  String? walletAmount;
+  int? pendingWallet;
+  String? driverStatus;
+  int? isDriver;
+  dynamic isOnline;
+  int? serviceId;
+  String? token;
 }

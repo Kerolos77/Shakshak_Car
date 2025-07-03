@@ -81,13 +81,13 @@ class AuthCubit extends Cubit<AuthState> {
 
   void signup({required SignupBody signupBody}) async {
     emit(RegisterLoadingState());
-    /* var result = await authRepo.signup(signupBody: signupBody);
+    var result = await authRepo.signup(signupBody: signupBody);
     result.fold((fail) {
       debugPrint("error while signup ${fail.message}");
       emit(RegisterErrorState(fail.message));
     }, (registerModel) {
       emit(RegisterSuccessState(registerModel));
-    });*/
+    });
   }
 
   void verifyPhone(

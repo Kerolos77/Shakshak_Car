@@ -3,14 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 import 'package:shakshak/core/extentions/padding_extention.dart';
-import 'package:shakshak/core/utils/shared_widgets/custom_drop_down.dart';
-import 'package:shakshak/core/utils/shared_widgets/phone_text_field.dart';
 
 import '../../../../core/utils/shared_widgets/custom_text_field.dart';
 import '../../../../core/utils/validations.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
 import '../widgets/register_button.dart';
+import 'cities_drop_down.dart';
 import 'have_an_account_widget.dart';
 
 class RegisterViewBody extends StatefulWidget {
@@ -21,21 +20,19 @@ class RegisterViewBody extends StatefulWidget {
 }
 
 class _RegisterViewBodyState extends State<RegisterViewBody> {
-  final TextEditingController countryController =
-      TextEditingController(text: '🇸🇦 +966');
   final TextEditingController userNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  String? countryCode = '966';
+  int? selectedCountryId;
+  int? selectedCityId;
+  int? selectedDistrictId;
 
   @override
   void dispose() {
     userNameController.dispose();
     emailController.dispose();
     phoneController.dispose();
-    passwordController.dispose();
     super.dispose();
   }
 
@@ -68,7 +65,18 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                   hint: S.of(context).userName,
                 ),
                 16.ph,
-                PhoneTextField(),
+                // PhoneTextField(),
+                CustomTextField(
+                  controller: phoneController,
+                  autoValidateMode: AutovalidateMode.onUserInteraction,
+                  validator: Validation.validatePhone(context),
+                  keyType: TextInputType.phone,
+                  prefix: Padding(
+                    padding: EdgeInsets.all(8.r),
+                    child: SvgPicture.asset(Assets.svgPhone),
+                  ),
+                  hint: S.of(context).mobileNumber,
+                ),
                 16.ph,
                 CustomTextField(
                   controller: emailController,
@@ -82,36 +90,28 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                   hint: S.of(context).email,
                 ),
                 16.ph,
-                CustomDropDown(
-                  items: [
-                    'a',
-                    'b',
-                    'c',
-                  ],
-                  onChange: (p0) {},
-                  hint: S.of(context).chooseLocation,
-                  prefix: Padding(
-                    padding: EdgeInsets.all(8.r),
-                    child: SvgPicture.asset(Assets.svgLocation),
-                  ),
-                ),
-                16.ph,
-                CustomDropDown(
-                  items: [
-                    'a',
-                    'b',
-                    'c',
-                  ],
-                  onChange: (p0) {},
-                  hint: S.of(context).chooseLocation,
+                CitiesDropDown(
+                  onCountrySelected: (countryId) {
+                    setState(() {
+                      selectedCountryId = countryId;
+                    });
+                  },
+                  onCitySelected: (cityId) {
+                    setState(() {
+                      selectedCityId = cityId;
+                    });
+                  },
+                  onDistrictSelected: (districtId) {
+                    setState(() {
+                      selectedDistrictId = districtId;
+                    });
+                  },
                 ),
                 30.ph,
                 RegisterButton(
                     userNameController: userNameController,
                     emailController: emailController,
                     phoneController: phoneController,
-                    passwordController: passwordController,
-                    // countryCode: countryCode!,
                     formKey: formKey),
                 HaveAnAccountWidget(),
                 24.ph
