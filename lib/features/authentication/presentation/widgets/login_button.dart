@@ -37,7 +37,9 @@ class LoginButton extends StatelessWidget {
                 S.of(context).doneSuccessfully,
                 AppColors.primaryColor,
                 ContentType.success);
-            navigateTo(context, Routes.otpView);
+            navigateTo(context, Routes.otpView, extra: {
+              "phoneNumber": emailOrPhoneController.text,
+            });
           } else {
             showSnackBar(
                 context,

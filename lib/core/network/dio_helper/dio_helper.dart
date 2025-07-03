@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import '../../constants/api_const.dart';
 import '../../constants/app_const.dart';
@@ -11,6 +13,45 @@ class DioHelper {
       baseUrl: ApiConstant.baseUrl,
       receiveDataWhenStatusError: true,
     ));
+
+    // Manual interceptor
+    dio!.interceptors.add(InterceptorsWrapper(
+      onRequest: (options, handler) {
+        debugPrint("🚀 REQUEST:");
+        debugPrint("- URL: ${options.baseUrl}${options.path}");
+        debugPrint("- METHOD: ${options.method}");
+        debugPrint("- HEADERS: ${options.headers}");
+        debugPrint("- QUERY PARAMS: ${options.queryParameters}");
+        debugPrint("- BODY: ${options.data}");
+        return handler.next(options);
+      },
+      onResponse: (response, handler) {
+        debugPrint("✅ RESPONSE:");
+        debugPrint("- STATUS CODE: ${response.statusCode}");
+        debugPrint("- DATA: ${response.data}");
+        return handler.next(response);
+      },
+      onError: (DioException e, handler) {
+        debugPrint("❌ ERROR:");
+        debugPrint("- MESSAGE: ${e.message}");
+        if (e.response != null) {
+          debugPrint("- STATUS CODE: ${e.response?.statusCode}");
+          debugPrint("- DATA: ${e.response?.data}");
+        }
+        return handler.next(e);
+      },
+    ));
+
+    // Pretty logger
+    dio!.interceptors.add(PrettyDioLogger(
+      requestHeader: true,
+      requestBody: true,
+      responseHeader: false,
+      responseBody: true,
+      error: true,
+      compact: true,
+      maxWidth: 90,
+    ));
   }
 
   static Future<Response> getData({
@@ -22,7 +63,6 @@ class DioHelper {
   }) async {
     dio!.options.headers = {
       'lang': AppConstant.currentLanguage,
-      //  'lang': 'ar',
       'Authorization': 'Bearer $token',
       'Content-Type': 'application/json',
     };
@@ -41,7 +81,6 @@ class DioHelper {
   }) async {
     dio!.options.headers = {
       'lang': AppConstant.currentLanguage,
-      //  'lang': 'ar',
       'Content-Type': 'application/json',
     };
     return await dio!.get(url, queryParameters: query);
@@ -56,7 +95,6 @@ class DioHelper {
   }) async {
     dio!.options.headers = {
       'lang': AppConstant.currentLanguage,
-      // 'lang': 'ar',
       'Authorization': 'Bearer $token',
       'Content-Type': 'application/json',
     };
@@ -76,7 +114,6 @@ class DioHelper {
   }) async {
     dio!.options.headers = {
       'lang': AppConstant.currentLanguage,
-      //  'lang': 'ar',
       'Authorization': 'Bearer $token',
       'Content-Type': 'application/json',
     };
@@ -95,7 +132,6 @@ class DioHelper {
   }) async {
     dio!.options.headers = {
       'lang': AppConstant.currentLanguage,
-      //  'lang': 'ar',
       'Authorization': 'Bearer $token',
       'Content-Type': 'application/json',
     };
@@ -108,13 +144,12 @@ class DioHelper {
   static Future<Response> postDataWithoutToken({
     required String url,
     Map<String, dynamic>? query,
-    required Object data,
+    Object? data,
     String? lang,
     String? token,
   }) async {
     dio!.options.headers = {
       'lang': AppConstant.currentLanguage,
-      // 'lang': 'ar',
       'Authorization': token == null ? '' : 'Bearer $token',
       'Content-Type': 'application/json',
     };
@@ -134,8 +169,7 @@ class DioHelper {
   }) async {
     dio!.options.headers = {
       'lang': AppConstant.currentLanguage,
-      //  'lang': 'ar',
-      'Authorization': token!,
+      'Authorization': token ?? '',
       'Content-Type': 'application/json',
     };
     return await dio!.put(

@@ -7,4 +7,6 @@ class ApiConstant {
   static const String signupUrl = 'auth/signup';
   static const String loginUrl = 'auth/send_otp';
   static const String verifyOtpUrl = 'login';
+  static const String sendOTP = 'auth/send_otp';
+  static const String verifyOTP = 'auth/verify_otp';
 }

@@ -28,7 +28,7 @@ class AppColors {
   static const scaffoldColor = Color(0xffF9F9F9);
 
   static const whiteColor = Color(0xffFCF7F4);
-
+static const blackColor = Colors.black;
   static List<Color> linearPrimarySecondaryColor = [
     whiteColor,
     primaryColor.withAlpha(200),

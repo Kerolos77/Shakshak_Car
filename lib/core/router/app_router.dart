@@ -33,6 +33,8 @@ import '../../features/authentication/presentation/views/role_selection_view.dar
 import '../../features/driver/outstation/presentation/views/driver_outstation_view.dart';
 import '../../features/driver/vehicle_information/presentation/views/vehicle_information_view.dart';
 import '../../features/terms_and_conditions/presetation/views/privacy_policy_view.dart';
+import '../../features/user_home_page/presentation/screen/select_destination_page.dart';
+import '../../features/user_home_page/presentation/screen/user_home_page.dart';
 import '../services/service_locator.dart';
 import 'routes.dart';
 
@@ -103,16 +105,20 @@ abstract class AppRouter {
         ),
       ),
       GoRoute(
-        path: Routes.otpView,
-        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
-          context: context,
-          state: state,
-          child: BlocProvider(
-            create: (context) => AuthCubit(sl<AuthRepo>()),
-            child: OtpView(),
-          ),
-        ),
-      ),
+          path: Routes.otpView,
+          pageBuilder: (context, state) {
+            final phoneNumber = state.extra as String;
+            return buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: BlocProvider(
+                create: (context) => AuthCubit(sl<AuthRepo>()),
+                child: OtpView(
+                  phoneNumber: phoneNumber,
+                ),
+              ),
+            );
+          }),
       GoRoute(
         path: Routes.registerView,
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
@@ -157,6 +163,31 @@ abstract class AppRouter {
           state: state,
           child: UserHomeView(),
         ),
+      ),
+      GoRoute(
+        path: Routes.userHomePage,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: UserHomePage(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.selectDestinationPage,
+        pageBuilder: (context, state) {
+          final Map<String, dynamic> extra =
+              state.extra as Map<String, dynamic>;
+          return buildPageWithDefaultTransition<void>(
+            context: context,
+            state: state,
+            child: SelectDestinationPage(
+              cubit: extra['cubit'],
+              address: extra['address'],
+              destinationController: extra['destinationController'],
+              categoryName: extra['categoryName'],
+            ),
+          );
+        },
       ),
       GoRoute(
         path: Routes.outStationView,

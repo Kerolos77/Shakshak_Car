@@ -100,9 +100,9 @@ class VerifyPhoneErrorState extends AuthState {
 class VerifyPhoneOTPLoadingState extends AuthState {}
 
 class VerifyPhoneOTPSuccessState extends AuthState {
-  final OtpModel userModel;
+  final ProfileModel profileModel;
 
-  VerifyPhoneOTPSuccessState(this.userModel);
+  VerifyPhoneOTPSuccessState(this.profileModel);
 }
 
 class VerifyPhoneOTPErrorState extends AuthState {

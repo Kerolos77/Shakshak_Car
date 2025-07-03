@@ -151,5 +151,8 @@
   "invalidNationalId": "Invalid National ID",
   "dobRequired": "Date of birth is required",
   "invalidDob": "Invalid date of birth",
-  "accountRegisteredSuccessfully": "Account registered successfully"
+  "accountRegisteredSuccessfully": "Account registered successfully",
+  "offerYourFare": "Offer your fare",
+  "egpPrefix": "EGP  ",
+  "promoCode": "Promo code"
 }
