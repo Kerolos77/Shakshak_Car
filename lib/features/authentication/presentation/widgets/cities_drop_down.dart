@@ -102,7 +102,7 @@ class _CitiesDropDownState extends State<CitiesDropDown> {
             }
           },
         ),
-        10.ph,
+        16.ph,
         BlocBuilder<CountriesCitiesCubit, CountriesCitiesState>(
           buildWhen: (previous, current) =>
               current is CitiesLoading ||

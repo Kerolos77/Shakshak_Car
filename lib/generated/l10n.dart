@@ -1204,6 +1204,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Offer your fare`
+  String get offerYourFare {
+    return Intl.message(
+      'Offer your fare',
+      name: 'offerYourFare',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `EGP  `
+  String get egpPrefix {
+    return Intl.message('EGP  ', name: 'egpPrefix', desc: '', args: []);
+  }
+
+  /// `Promo code`
+  String get promoCode {
+    return Intl.message('Promo code', name: 'promoCode', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

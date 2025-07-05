@@ -107,14 +107,15 @@ abstract class AppRouter {
       GoRoute(
           path: Routes.otpView,
           pageBuilder: (context, state) {
-            final phoneNumber = state.extra as String;
+            final Map<String, dynamic> extra =
+                state.extra as Map<String, dynamic>;
             return buildPageWithDefaultTransition<void>(
               context: context,
               state: state,
               child: BlocProvider(
                 create: (context) => AuthCubit(sl<AuthRepo>()),
                 child: OtpView(
-                  phoneNumber: phoneNumber,
+                  phoneNumber: extra['phoneNumber'],
                 ),
               ),
             );
