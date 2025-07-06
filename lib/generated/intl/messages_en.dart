@@ -61,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "chooseLocation": MessageLookupByLibrary.simpleMessage("Choose location"),
     "city": MessageLookupByLibrary.simpleMessage("City"),
     "cityIsRequired": MessageLookupByLibrary.simpleMessage("City is required"),
+    "close": MessageLookupByLibrary.simpleMessage("Close"),
     "completed": MessageLookupByLibrary.simpleMessage("Completed"),
     "completedRides": MessageLookupByLibrary.simpleMessage("Completed\nRides"),
     "confirmPasswordRequired": MessageLookupByLibrary.simpleMessage(
@@ -148,6 +149,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginAs": MessageLookupByLibrary.simpleMessage("Login as :"),
     "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+    "logoutConfirmation": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to log out?",
+    ),
+    "logoutSuccessMessage": MessageLookupByLibrary.simpleMessage(
+      "You have been logged out successfully",
+    ),
     "loremMessage": MessageLookupByLibrary.simpleMessage(
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     ),
@@ -207,6 +214,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy policy"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+    "profileUpdatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Profile updated successfully",
+    ),
     "promoCode": MessageLookupByLibrary.simpleMessage("Promo code"),
     "rides": MessageLookupByLibrary.simpleMessage("Rides"),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
@@ -245,6 +255,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "totalBalance": MessageLookupByLibrary.simpleMessage("Total Balance"),
     "transactionId": MessageLookupByLibrary.simpleMessage("Transaction ID"),
     "tripMap": MessageLookupByLibrary.simpleMessage("Trip map"),
+    "updateProfile": MessageLookupByLibrary.simpleMessage("Update profile"),
     "user": MessageLookupByLibrary.simpleMessage("User"),
     "userDescription": MessageLookupByLibrary.simpleMessage(
       "Need a safe drive",

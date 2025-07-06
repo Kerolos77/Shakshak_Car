@@ -1,7 +1,10 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:shakshak/core/constants/app_const.dart';
+import 'package:shakshak/core/network/local/cache_helper.dart';
 import 'package:shakshak/features/authentication/data/models/country_model.dart';
 import 'package:shakshak/features/authentication/data/models/profile_model.dart';
 
@@ -12,7 +15,6 @@ import '../models/city_model.dart';
 import '../models/login_body.dart';
 import '../models/login_model.dart';
 import '../models/signup_body.dart';
-import '../models/signup_model.dart';
 import 'auth_repo.dart';
 
 class AuthRepoImp implements AuthRepo {
@@ -47,14 +49,14 @@ class AuthRepoImp implements AuthRepo {
   }
 
   @override
-  Future<Either<Failure, SignupModel>> signup(
+  Future<Either<Failure, ProfileModel>> signup(
       {required SignupBody signupBody}) async {
     try {
       var data = await DioHelper.postDataWithoutToken(
         url: ApiConstant.signupUrl,
         data: signupBody.toMap(),
       );
-      return right(SignupModel.fromJson(data.data));
+      return right(ProfileModel.fromJson(data.data));
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));
@@ -62,26 +64,6 @@ class AuthRepoImp implements AuthRepo {
       return left(ServerFailure(e.toString()));
     }
   }
-
-  /* @override
-  Future<Either<Failure, OtpModel>> verifyPhoneOtp(
-      {required int otp, required String registerToken}) async {
-    try {
-      var data = await DioHelper.postData(
-        url: ApiConstant.verifyOtpUrl,
-        token: registerToken,
-        data: {
-          'otp': otp,
-        },
-      );
-      return right(OtpModel.fromJson(data.data));
-    } catch (e) {
-      if (e is DioException) {
-        return left(ServerFailure.fromDioError(e));
-      }
-      return left(ServerFailure(e.toString()));
-    }
-  }*/
 
   @override
   Future<Either<Failure, LoginModel>> login(
@@ -108,14 +90,68 @@ class AuthRepoImp implements AuthRepo {
         url: ApiConstant.verifyOTP,
         query: {"code": otp},
       );
-      print("response: $response");
-      print("TYPE: ${response.data.runtimeType}");
 
       final jsonData =
           response.data is String ? jsonDecode(response.data) : response.data;
 
       final model = ProfileModel.fromJson(jsonData);
       return right(model);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, ProfileModel>> getProfile() async {
+    try {
+      var data = await DioHelper.getData(
+        url: ApiConstant.getProfileUrl,
+        token: CacheHelper.getData(key: AppConstant.kToken),
+      );
+      return right(ProfileModel.fromJson(data.data));
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, ProfileModel>> updateProfile({
+    required String name,
+    required String email,
+    required int countryId,
+    required int cityId,
+    File? photo,
+  }) async {
+    MultipartFile? photoFile;
+    String photoName = '';
+
+    if (photo != null) {
+      photoName = photo.path.split('/').last;
+      photoFile = await MultipartFile.fromFile(
+        photo.path,
+        filename: photoName,
+      );
+    }
+
+    FormData data = FormData.fromMap({
+      "name": name,
+      "email": email,
+      "country_id": countryId,
+      "city_id": cityId,
+      if (photo != null) "image": photoFile,
+    });
+    try {
+      var response = await DioHelper.postData(
+          url: ApiConstant.updateProfileUrl,
+          token: CacheHelper.getData(key: AppConstant.kToken),
+          data: data);
+      return right(ProfileModel.fromJson(response.data));
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));

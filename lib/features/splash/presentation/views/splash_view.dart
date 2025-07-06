@@ -41,10 +41,11 @@ class _SplashViewState extends State<SplashView>
 
       if (CacheHelper.getData(key: AppConstant.kOnBoarding) ?? false == true) {
         if (CacheHelper.getData(key: AppConstant.kToken) != null) {
-          navigateAndFinish(
-            context,
-            Routes.userHomeView,
-          );
+          if (CacheHelper.getData(key: AppConstant.kIsDriver) == 1) {
+            navigateAndFinish(context, Routes.driverHomeView);
+          } else {
+            navigateAndFinish(context, Routes.userHomeView);
+          }
         } else {
           navigateAndFinish(
             context,

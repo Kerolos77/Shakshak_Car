@@ -61,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "chooseLocation": MessageLookupByLibrary.simpleMessage("اختر الموقع"),
     "city": MessageLookupByLibrary.simpleMessage("المدينة"),
     "cityIsRequired": MessageLookupByLibrary.simpleMessage("المدينة مطلوبة"),
+    "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
     "completed": MessageLookupByLibrary.simpleMessage("مكتملة"),
     "completedRides": MessageLookupByLibrary.simpleMessage("الرحلات\nالمكتملة"),
     "confirmPasswordRequired": MessageLookupByLibrary.simpleMessage(
@@ -146,6 +147,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "login": MessageLookupByLibrary.simpleMessage("تسجيل دخول"),
     "loginAs": MessageLookupByLibrary.simpleMessage("تسجيل الدخول كـ :"),
     "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+    "logoutConfirmation": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد إنك تريد تسجيل الخروج ؟",
+    ),
+    "logoutSuccessMessage": MessageLookupByLibrary.simpleMessage(
+      "تم تسجيل خروجك بنجاح",
+    ),
     "loremMessage": MessageLookupByLibrary.simpleMessage(
       "لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد.",
     ),
@@ -203,6 +210,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "privacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+    "profileUpdatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم تحديث الملف الشخصي بنجاح",
+    ),
     "promoCode": MessageLookupByLibrary.simpleMessage("رمز ترويجي"),
     "rides": MessageLookupByLibrary.simpleMessage("الرحلات"),
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
@@ -241,6 +251,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "totalBalance": MessageLookupByLibrary.simpleMessage("الرصيد الإجمالي"),
     "transactionId": MessageLookupByLibrary.simpleMessage("رقم العملية"),
     "tripMap": MessageLookupByLibrary.simpleMessage("خريطة الرحلة"),
+    "updateProfile": MessageLookupByLibrary.simpleMessage("تحديث الملف الشخصي"),
     "user": MessageLookupByLibrary.simpleMessage("مستخدم"),
     "userDescription": MessageLookupByLibrary.simpleMessage(
       "بحاجة إلى توصيلة آمنة",

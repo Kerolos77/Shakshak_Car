@@ -14,9 +14,10 @@ class AppConstant {
   static const String kOnBoarding = 'onBoarding';
   static const String kRoleSelection = 'roleSelection';
   static const String kToken = 'token';
-  static const String kRoleId = 'roleId';
+  static const String kIsDriver = 'roleId';
   static const String kRegisterToken = 'registerToken';
   static const String kUserIdOtp = 'userIdOtp';
+  static const String kUserName = 'userName';
   static const String kCartBox = 'cartBox';
   static const String kCurrentLanguage = 'currentLanguage';
   static const String kHasArea = 'hasArea';

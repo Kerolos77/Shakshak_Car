@@ -1,4 +1,3 @@
-/*
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -39,8 +38,7 @@ class CustomCachedNetworkImage extends StatelessWidget {
           ),
         ),
       ),
-      */
-/*placeholder: (context, url) => Center(
+      placeholder: (context, url) => Center(
         child: Container(
           width: width,
           height: height,
@@ -50,7 +48,7 @@ class CustomCachedNetworkImage extends StatelessWidget {
             child: Opacity(
                 opacity: 0.2,
                 child: Padding(
-                  padding: EdgeInsets.all(loadingImgPadding.w),
+                  padding: EdgeInsets.all(loadingImgPadding.r),
                   child: Image.asset(
                     Assets.imagesLoading,
                     width: width,
@@ -58,8 +56,7 @@ class CustomCachedNetworkImage extends StatelessWidget {
                 )),
           ),
         ),
-      ),*//*
-
+      ),
       errorWidget: (context, url, error) => Container(
         width: width,
         height: height,
@@ -68,7 +65,7 @@ class CustomCachedNetworkImage extends StatelessWidget {
         child: Icon(
           Icons.error_outline,
           color: Colors.red,
-          size: errorIconSize,
+          size: errorIconSize.r,
         ),
       ),
     );
@@ -122,8 +119,7 @@ class CustomCachedNetworkImage2 extends StatelessWidget {
           ),
         ),
       ),
-      */
-/*     placeholder: (context, url) => Center(
+      placeholder: (context, url) => Center(
         child: Container(
           width: width,
           height: height,
@@ -135,14 +131,13 @@ class CustomCachedNetworkImage2 extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.all(loadingImgPadding.w),
                   child: Image.asset(
-                    AppAssets.loadingImgPath,
+                    Assets.imagesLoading,
                     width: width,
                   ),
                 )),
           ),
         ),
-      ),*//*
-
+      ),
       errorWidget: (context, url, error) => Center(
         child: Container(
           width: width,
@@ -170,4 +165,3 @@ class CustomCachedNetworkImage2 extends StatelessWidget {
     );
   }
 }
-*/

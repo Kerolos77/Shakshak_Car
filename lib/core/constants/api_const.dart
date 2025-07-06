@@ -9,4 +9,6 @@ class ApiConstant {
   static const String verifyOtpUrl = 'login';
   static const String sendOTP = 'auth/send_otp';
   static const String verifyOTP = 'auth/verify_otp';
+  static const String getProfileUrl = 'user/profile';
+  static const String updateProfileUrl = 'user/profile/update';
 }

@@ -14,12 +14,16 @@ class CitiesDropDown extends StatefulWidget {
   final Function(int)? onCountrySelected;
   final Function(int)? onCitySelected;
   final Function(int)? onDistrictSelected;
+  final int? initialCountryId;
+  final int? initialCityId;
 
   const CitiesDropDown({
     super.key,
     this.onCountrySelected,
     this.onCitySelected,
     this.onDistrictSelected,
+    this.initialCountryId,
+    this.initialCityId,
   });
 
   @override
@@ -27,10 +31,12 @@ class CitiesDropDown extends StatefulWidget {
 }
 
 class _CitiesDropDownState extends State<CitiesDropDown> {
+  String? selectedCountryName;
+  String? selectedCityName;
+
   @override
   void initState() {
     super.initState();
-
     context.read<CountriesCitiesCubit>().getCountries();
   }
 
@@ -69,6 +75,22 @@ class _CitiesDropDownState extends State<CitiesDropDown> {
                   .where((name) => name != null)
                   .cast<String>()
                   .toList();
+
+              // Set initial country if provided
+              if (widget.initialCountryId != null &&
+                  selectedCountryName == null) {
+                final initialCountry = countries.firstWhere(
+                  (country) => country.id == widget.initialCountryId,
+                  orElse: () => countries.first,
+                );
+                if (initialCountry.name != null) {
+                  selectedCountryName = initialCountry.name;
+                  cubit.selectedCountryId = initialCountry.id;
+                  // Load cities for the initial country
+                  cubit.getCities(countryId: initialCountry.id!);
+                }
+              }
+
               return CustomDropDown(
                 hint: S.of(context).selectCountry,
                 prefix: Padding(
@@ -82,7 +104,11 @@ class _CitiesDropDownState extends State<CitiesDropDown> {
                   return null;
                 },
                 items: countryNames,
+                value: selectedCountryName,
                 onChange: (countryName) {
+                  setState(() {
+                    selectedCountryName = countryName;
+                  });
                   final selectedCountry = countries
                       .firstWhere((country) => country.name == countryName);
                   cubit.getCities(countryId: selectedCountry.id!);
@@ -128,13 +154,26 @@ class _CitiesDropDownState extends State<CitiesDropDown> {
                 ),
               );
             } else if (state is CitiesSuccess) {
-              final countries = state.citiesModel.data!;
-              final List<String> countryNames = state.citiesModel.data!
-                  .map((country) => country.name)
+              final cities = state.citiesModel.data!;
+              final List<String> cityNames = state.citiesModel.data!
+                  .map((city) => city.name)
                   .where((name) => name != null)
                   .cast<String>()
                   .toList();
-              return countries.isNotEmpty
+
+              // Set initial city if provided
+              if (widget.initialCityId != null && selectedCityName == null) {
+                final initialCity = cities.firstWhere(
+                  (city) => city.id == widget.initialCityId,
+                  orElse: () => cities.first,
+                );
+                if (initialCity.name != null) {
+                  selectedCityName = initialCity.name;
+                  cubit.selectedCityId = initialCity.id;
+                }
+              }
+
+              return cities.isNotEmpty
                   ? CustomDropDown(
                       hint: S.of(context).selectCity,
                       prefix: Padding(
@@ -147,16 +186,20 @@ class _CitiesDropDownState extends State<CitiesDropDown> {
                         }
                         return null;
                       },
-                      items: countryNames,
-                      onChange: (countryName) {
-                        final selectedCountry = countries.firstWhere(
-                            (country) => country.name == countryName);
-                        cubit.selectedCityId = selectedCountry.id;
+                      items: cityNames,
+                      value: selectedCityName,
+                      onChange: (cityName) {
+                        setState(() {
+                          selectedCityName = cityName;
+                        });
+                        final selectedCity =
+                            cities.firstWhere((city) => city.name == cityName);
+                        cubit.selectedCityId = selectedCity.id;
 
-                        // Call the country selection callback if provided
+                        // Call the city selection callback if provided
                         if (widget.onCitySelected != null &&
-                            selectedCountry.id != null) {
-                          widget.onCitySelected!(selectedCountry.id!);
+                            selectedCity.id != null) {
+                          widget.onCitySelected!(selectedCity.id!);
                         }
                       },
                     )

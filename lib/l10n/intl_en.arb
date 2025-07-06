@@ -154,5 +154,10 @@
   "accountRegisteredSuccessfully": "Account registered successfully",
   "offerYourFare": "Offer your fare",
   "egpPrefix": "EGP  ",
-  "promoCode": "Promo code"
+  "promoCode": "Promo code",
+  "logoutConfirmation": "Are you sure you want to log out?",
+  "close": "Close",
+  "logoutSuccessMessage": "You have been logged out successfully",
+  "updateProfile": "Update profile",
+  "profileUpdatedSuccessfully": "Profile updated successfully"
 }

@@ -1224,6 +1224,51 @@ class S {
   String get promoCode {
     return Intl.message('Promo code', name: 'promoCode', desc: '', args: []);
   }
+
+  /// `Are you sure you want to log out?`
+  String get logoutConfirmation {
+    return Intl.message(
+      'Are you sure you want to log out?',
+      name: 'logoutConfirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get close {
+    return Intl.message('Close', name: 'close', desc: '', args: []);
+  }
+
+  /// `You have been logged out successfully`
+  String get logoutSuccessMessage {
+    return Intl.message(
+      'You have been logged out successfully',
+      name: 'logoutSuccessMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update profile`
+  String get updateProfile {
+    return Intl.message(
+      'Update profile',
+      name: 'updateProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile updated successfully`
+  String get profileUpdatedSuccessfully {
+    return Intl.message(
+      'Profile updated successfully',
+      name: 'profileUpdatedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -184,5 +184,9 @@
   "userMarker": "أنت",
   "zoomIn": "تكبير",
   "zoomOut": "تصغير",
-  "close": "إغلاق"
+  "logoutConfirmation": "هل أنت متأكد إنك تريد تسجيل الخروج ؟",
+  "close": "إغلاق",
+  "logoutSuccessMessage": "تم تسجيل خروجك بنجاح",
+  "updateProfile": "تحديث الملف الشخصي",
+  "profileUpdatedSuccessfully": "تم تحديث الملف الشخصي بنجاح"
 }
