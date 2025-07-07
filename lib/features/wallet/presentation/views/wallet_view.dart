@@ -11,7 +11,7 @@ import 'package:shakshak/core/utils/styles.dart';
 import 'package:shakshak/features/base_layout/presentation/views/base_layout_view.dart';
 
 import '../../../../generated/l10n.dart';
-import '../widgets/wallet_transaction_item.dart';
+import '../widgets/wallet_transactions_list.dart';
 
 class WalletView extends StatefulWidget {
   const WalletView({super.key});
@@ -63,14 +63,7 @@ class _WalletViewState extends State<WalletView> {
       ).paddingSymmetric(horizontal: 16.w, vertical: 8.h),
       body: Column(
         children: [
-          Expanded(
-            child: ListView.separated(
-              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-              itemBuilder: (context, index) => WalletTransactionItem(),
-              separatorBuilder: (context, index) => 16.ph,
-              itemCount: 6,
-            ),
-          ),
+          WalletTransactionsList(),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
             decoration: const BoxDecoration(color: AppColors.primaryColor),

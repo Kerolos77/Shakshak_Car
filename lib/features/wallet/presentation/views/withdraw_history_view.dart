@@ -4,6 +4,7 @@ import 'package:shakshak/core/extentions/glopal_extentions.dart';
 import 'package:shakshak/features/base_layout/presentation/views/base_layout_view.dart';
 
 import '../../../../generated/l10n.dart';
+import '../../data/models/wallet_transactions_model.dart';
 import '../widgets/wallet_transaction_item.dart';
 
 class WithdrawHistoryView extends StatelessWidget {
@@ -16,7 +17,21 @@ class WithdrawHistoryView extends StatelessWidget {
       horizontalPadding: 0,
       body: ListView.separated(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-          itemBuilder: (context, index) => WalletTransactionItem(),
+          itemBuilder: (context, index) => WalletTransactionItem(
+                walletTransactionData: WalletTransactionData(
+                    id: 66,
+                    paymentId: "341463213",
+                    status: "pending",
+                    success: 0,
+                    amount: "110.0",
+                    paymentMethod: "card",
+                    paymentGateway: "paymob",
+                    userID: 45,
+                    createdAt: "2025-06-11T12:21:42.000000Z",
+                    updatedAt: "2025-06-11T12:21:42.000000Z",
+                    type: "deposit",
+                    note: "aaaa"),
+              ),
           separatorBuilder: (context, index) => 16.ph,
           itemCount: 6),
     );

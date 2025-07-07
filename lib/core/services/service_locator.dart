@@ -1,8 +1,10 @@
 import 'package:get_it/get_it.dart';
+import 'package:shakshak/features/wallet/data/repo/wallet_repo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/authentication/data/repo/auth_repo.dart';
 import '../../features/authentication/data/repo/auth_repo_imp.dart';
+import '../../features/wallet/data/repo/wallet_repo_imp.dart';
 
 final sl = GetIt.instance;
 
@@ -11,6 +13,9 @@ class ServiceLocator {
     await _initSharedPref();
     sl.registerLazySingleton<AuthRepo>(
       () => AuthRepoImp(),
+    );
+    sl.registerLazySingleton<WalletRepo>(
+      () => WalletRepoImp(),
     );
   }
 

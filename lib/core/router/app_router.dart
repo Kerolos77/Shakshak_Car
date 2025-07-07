@@ -26,6 +26,8 @@ import 'package:shakshak/features/settings/presentation/views/settings_view.dart
 import 'package:shakshak/features/splash/presentation/views/splash_view.dart';
 import 'package:shakshak/features/terms_and_conditions/presetation/views/terms_and_conditions_view.dart';
 import 'package:shakshak/features/user_home/presentation/views/user_home_view.dart';
+import 'package:shakshak/features/wallet/data/repo/wallet_repo.dart';
+import 'package:shakshak/features/wallet/presentation/view_models/wallet_cubit.dart';
 import 'package:shakshak/features/wallet/presentation/views/wallet_view.dart';
 import 'package:shakshak/features/wallet/presentation/views/withdraw_history_view.dart';
 
@@ -219,7 +221,10 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: WalletView(),
+          child: BlocProvider(
+            create: (context) => WalletCubit(sl<WalletRepo>()),
+            child: WalletView(),
+          ),
         ),
       ),
       GoRoute(

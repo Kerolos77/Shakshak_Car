@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import 'package:shakshak/core/utils/styles.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -126,4 +127,12 @@ Future<void> makePhoneCall({required String phoneNumber}) async {
   } else {
     throw 'Could not launch $launchUri';
   }
+}
+
+String formatCustomDate(String rawDate) {
+  String cleaned = rawDate.replaceFirst(RegExp(r'Z.*$'), 'Z');
+
+  DateTime dateTime = DateTime.parse(cleaned);
+
+  return DateFormat('yyyy/M/d , hh.mm a').format(dateTime);
 }

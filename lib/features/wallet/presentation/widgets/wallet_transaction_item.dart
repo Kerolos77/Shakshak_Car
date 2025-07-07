@@ -7,10 +7,14 @@ import 'package:shakshak/core/extentions/padding_extention.dart';
 import 'package:shakshak/core/resources/app_colors.dart';
 import 'package:shakshak/core/utils/styles.dart';
 
+import '../../../../core/utils/common_use.dart';
 import '../../../../generated/l10n.dart';
+import '../../data/models/wallet_transactions_model.dart';
 
 class WalletTransactionItem extends StatefulWidget {
-  const WalletTransactionItem({super.key});
+  const WalletTransactionItem({super.key, required this.walletTransactionData});
+
+  final WalletTransactionData walletTransactionData;
 
   @override
   State<WalletTransactionItem> createState() => _WalletTransactionItemState();
@@ -52,13 +56,13 @@ class _WalletTransactionItemState extends State<WalletTransactionItem> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '+100.00 EGP',
+                        '+${widget.walletTransactionData.amount ?? 0} EGP',
                         style: Styles.textStyle14Bold.copyWith(
                           color: AppColors.secondaryColor,
                         ),
                       ),
                       Text(
-                        S.of(context).deposit,
+                        widget.walletTransactionData.type ?? '',
                         style: Styles.textStyle14Bold,
                       ),
                     ],
@@ -112,7 +116,7 @@ class _WalletTransactionItemState extends State<WalletTransactionItem> {
                         style: Styles.textStyle14Bold,
                       ),
                       Text(
-                        '#0123456789',
+                        '#${widget.walletTransactionData.paymentId ?? ''}',
                         style: Styles.textStyle14,
                       ),
                     ],
@@ -126,7 +130,7 @@ class _WalletTransactionItemState extends State<WalletTransactionItem> {
                         style: Styles.textStyle14Bold,
                       ),
                       Text(
-                        'Card',
+                        widget.walletTransactionData.paymentMethod ?? '',
                         style: Styles.textStyle14,
                       ),
                     ],
@@ -140,7 +144,8 @@ class _WalletTransactionItemState extends State<WalletTransactionItem> {
                         style: Styles.textStyle14Bold,
                       ),
                       Text(
-                        '2025/5/5 , 05.55 PM',
+                        formatCustomDate(
+                            widget.walletTransactionData.createdAt ?? ''),
                         style: Styles.textStyle14,
                       ),
                     ],
@@ -154,7 +159,7 @@ class _WalletTransactionItemState extends State<WalletTransactionItem> {
                         style: Styles.textStyle14Bold,
                       ),
                       Text(
-                        'Pending',
+                        widget.walletTransactionData.status ?? '',
                         style: Styles.textStyle14,
                       ),
                     ],

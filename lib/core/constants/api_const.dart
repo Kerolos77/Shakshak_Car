@@ -11,4 +11,7 @@ class ApiConstant {
   static const String verifyOTP = 'auth/verify_otp';
   static const String getProfileUrl = 'user/profile';
   static const String updateProfileUrl = 'user/profile/update';
+
+  // wallet
+  static const String getWalletTransactionsUrl = 'user/transactions';
 }
