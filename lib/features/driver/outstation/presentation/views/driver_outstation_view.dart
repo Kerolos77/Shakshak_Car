@@ -69,9 +69,18 @@ class DriverOutstationView extends StatelessWidget {
               Expanded(
                   child: TabBarView(
                 children: [
-                  RidesList(isOutstation: true),
-                  RidesList(isOutstation: true),
-                  RidesList(isOutstation: true),
+                  RidesList(
+                    isOutstation: true,
+                    rides: [],
+                  ),
+                  RidesList(
+                    isOutstation: true,
+                    rides: [],
+                  ),
+                  RidesList(
+                    isOutstation: true,
+                    rides: [],
+                  ),
                 ],
               )),
             ],

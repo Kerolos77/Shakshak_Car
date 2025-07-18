@@ -4,11 +4,15 @@ import 'package:shakshak/core/constants/app_const.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 import 'package:shakshak/core/resources/app_colors.dart';
 import 'package:shakshak/core/utils/styles.dart';
+import 'package:shakshak/features/rides/data/models/ride.dart';
 
 class OutstationRidesListItem extends StatelessWidget {
   const OutstationRidesListItem({
     super.key,
+    required this.ride,
   });
+
+  final Ride ride;
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +29,11 @@ class OutstationRidesListItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Canceled',
+                ride.status ?? '-',
                 style: Styles.textStyle16SemiBold,
               ),
               Text(
-                '50.00 EGP',
+                '${ride.amount ?? '-'} EGP',
                 style: Styles.textStyle18Bold,
               ),
             ],
@@ -71,12 +75,12 @@ class OutstationRidesListItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Shebeen El-kom',
+                      ride.sourceAddress ?? '-',
                       style: Styles.textStyle16Medium,
                     ),
                     30.ph,
                     Text(
-                      'Shebeen El-kom',
+                      ride.destinationAddress ?? '-',
                       style: Styles.textStyle16SemiBold,
                     ),
                   ],
@@ -92,7 +96,7 @@ class OutstationRidesListItem extends StatelessWidget {
                 color: AppColors.lightGreyColor,
                 borderRadius: BorderRadius.circular(12.r)),
             child: Text(
-              'canceled',
+              ride.status ?? '-',
               style: Styles.textStyle16SemiBold,
             ),
           ),

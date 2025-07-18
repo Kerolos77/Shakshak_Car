@@ -19,8 +19,9 @@ import 'package:shakshak/features/driver/online_registration/views/national_id_v
 import 'package:shakshak/features/driver/trip_map/presentation/views/trip_map_view.dart';
 import 'package:shakshak/features/faq/presentation/views/faq_view.dart';
 import 'package:shakshak/features/on_boarding/presentation/views/on_boarding_view.dart';
-import 'package:shakshak/features/out_station_rides/presentation/views/outstation_rides_view.dart';
 import 'package:shakshak/features/outstation/presentation/views/out_station_view.dart';
+import 'package:shakshak/features/rides/data/repo/rides_repo.dart';
+import 'package:shakshak/features/rides/presentation/view_models/rides_cubit.dart';
 import 'package:shakshak/features/rides/presentation/views/rides_view.dart';
 import 'package:shakshak/features/settings/presentation/views/settings_view.dart';
 import 'package:shakshak/features/splash/presentation/views/splash_view.dart';
@@ -34,6 +35,7 @@ import 'package:shakshak/features/wallet/presentation/views/withdraw_history_vie
 import '../../features/authentication/presentation/views/role_selection_view.dart';
 import '../../features/driver/outstation/presentation/views/driver_outstation_view.dart';
 import '../../features/driver/vehicle_information/presentation/views/vehicle_information_view.dart';
+import '../../features/outstation_rides/presentation/views/outstation_rides_view.dart';
 import '../../features/terms_and_conditions/presetation/views/privacy_policy_view.dart';
 import '../../features/user_home_page/presentation/screen/select_destination_page.dart';
 import '../../features/user_home_page/presentation/screen/user_home_page.dart';
@@ -205,7 +207,10 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: RidesView(),
+          child: BlocProvider(
+            create: (context) => RidesCubit(sl<RidesRepo>()),
+            child: RidesView(),
+          ),
         ),
       ),
       GoRoute(
@@ -213,7 +218,10 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: OutstationRidesView(),
+          child: BlocProvider(
+            create: (context) => RidesCubit(sl<RidesRepo>()),
+            child: OutstationRidesView(),
+          ),
         ),
       ),
       GoRoute(

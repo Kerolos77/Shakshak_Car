@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shakshak/core/resources/app_colors.dart';
 import 'package:shakshak/core/utils/styles.dart';
 import 'package:shakshak/features/base_layout/presentation/views/base_layout_view.dart';
+import 'package:shakshak/features/rides/data/models/ride.dart';
+import 'package:shakshak/features/rides/presentation/view_models/rides_cubit.dart';
 
 import '../../../../generated/l10n.dart';
 import '../widgets/outstation_rides_list_view.dart';
@@ -22,6 +25,12 @@ class _OutstationRidesViewState extends State<OutstationRidesView> {
     'Completed\nRides',
     'Canceled\nRides'
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<RidesCubit>().getRides(inCity: 0);
+  }
 
   void _onTap(int index) {
     setState(() => _selectedIndex = index);
@@ -61,14 +70,36 @@ class _OutstationRidesViewState extends State<OutstationRidesView> {
           ),
           const Divider(),
           Expanded(
-            child: PageView(
-              controller: _pageController,
-              onPageChanged: _onPageChanged,
-              children: [
-                OutstationRidesListView(),
-                OutstationRidesListView(),
-                OutstationRidesListView(),
-              ],
+            child: BlocBuilder<RidesCubit, RidesState>(
+              builder: (context, state) {
+                if (state is RidesLoading) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (state is RidesFailure) {
+                  return Center(child: Text(state.errorMessage));
+                } else if (state is RidesSuccess) {
+                  final data = state.ridesModel.data;
+                  final List<Ride> searching = data?.searching ?? [];
+                  final List<Ride> started = data?.started ?? [];
+                  final List<Ride> placed = data?.placed ?? [];
+                  final List<Ride> completed = data?.completed ?? [];
+                  final List<Ride> canceled = data?.canceled ?? [];
+                  final List<Ride> active = [
+                    ...searching,
+                    ...started,
+                    ...placed,
+                  ];
+                  return PageView(
+                    controller: _pageController,
+                    onPageChanged: _onPageChanged,
+                    children: [
+                      OutstationRidesListView(rides: active),
+                      OutstationRidesListView(rides: completed),
+                      OutstationRidesListView(rides: canceled),
+                    ],
+                  );
+                }
+                return const SizedBox.shrink();
+              },
             ),
           ),
         ],

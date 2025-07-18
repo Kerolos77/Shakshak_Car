@@ -55,7 +55,7 @@ class CustomDrawer extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 10.h),
-              CacheHelper.getData(key: AppConstant.kRoleSelection) == 'user'
+              CacheHelper.getData(key: AppConstant.kIsDriver) == 0
                   ? UserDrawerListItems(
                       selectedIndex: selectedIndex, cubit: cubit)
                   : DriverDrawerListItems(

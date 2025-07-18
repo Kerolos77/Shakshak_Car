@@ -12,13 +12,16 @@ import 'package:shakshak/core/utils/styles.dart';
 import '../../../../../core/utils/common_use.dart';
 import '../../../../../generated/l10n.dart';
 import 'ride_destination_widget.dart';
+import 'package:shakshak/features/rides/data/models/ride.dart';
 
 class DriverRidesListItem extends StatelessWidget {
   const DriverRidesListItem({
     super.key,
+    required this.ride,
     this.isOutstation = false,
   });
 
+  final Ride ride;
   final bool isOutstation;
 
   @override
@@ -51,11 +54,11 @@ class DriverRidesListItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Mostafa',
+                        ride.user?.name ?? '-',
                         style: Styles.textStyle16SemiBold,
                       ),
                       Text(
-                        '50.00 EGP',
+                        '${ride.amount ?? '-'} EGP',
                         style: Styles.textStyle16SemiBold,
                       ),
                     ],
@@ -71,9 +74,8 @@ class DriverRidesListItem extends StatelessWidget {
                     ),
                     4.pw,
                     Text(
-                      '0.79 KM',
-                      style: Styles.textStyle14SemiBold
-                          .copyWith(color: Colors.black),
+                      '${ride.distance ?? '-'} KM',
+                      style: Styles.textStyle14SemiBold.copyWith(color: Colors.black),
                     ),
                   ],
                 ),
@@ -81,8 +83,8 @@ class DriverRidesListItem extends StatelessWidget {
             ),
             CustomDivider(),
             RideDestinationWidget(
-              from: 'Shebeen El-kom',
-              to: 'Shebeen El-kom',
+              from: ride.sourceAddress ?? '-',
+              to: ride.destinationAddress ?? '-',
             ),
             12.ph,
             isOutstation
@@ -90,22 +92,21 @@ class DriverRidesListItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '${S.of(context).weight} 55 KG',
+                        '${S.of(context).weight} ${ride.parcelWeight ?? '-'} KG',
                         style: Styles.textStyle16SemiBold,
                       ),
                       Text(
-                        '${S.of(context).dimension} 80',
+                        '${S.of(context).dimension} ${ride.parcelDimension ?? '-'}',
                         style: Styles.textStyle16SemiBold,
                       ),
                       Text(
-                        '${S.of(context).image} 80',
+                        '${S.of(context).image} ${ride.parcelImage ?? '-'}',
                         style: Styles.textStyle16SemiBold,
                       ),
                     ],
                   )
                 : Container(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+                    padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
                     decoration: BoxDecoration(
                       color: AppColors.lightGreyColor,
                       borderRadius: BorderRadius.circular(8.r),
@@ -117,7 +118,7 @@ class DriverRidesListItem extends StatelessWidget {
                           style: Styles.textStyle16Bold,
                         ),
                         Text(
-                          'Completed',
+                          ride.status ?? '-',
                           style: Styles.textStyle16,
                         ),
                       ],
@@ -132,7 +133,7 @@ class DriverRidesListItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12.r),
                 ),
                 child: Text(
-                  'Recommended price is 50.00 EGP , Approx distance 3.03 KM',
+                  'Recommended price is ${ride.amount ?? '-'} EGP , Approx distance ${ride.distance ?? '-'} KM',
                   style: Styles.textStyle16,
                 ),
               ),
@@ -140,9 +141,11 @@ class DriverRidesListItem extends StatelessWidget {
               CustomButton(
                 text: '',
                 onTap: () {
-                  makePhoneCall(
-                    phoneNumber: '+201067859354',
-                  );
+                  if (ride.user?.phone != null) {
+                    makePhoneCall(
+                      phoneNumber: ride.user!.phone!,
+                    );
+                  }
                 },
                 height: 40,
                 borderRadius: 8,
