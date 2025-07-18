@@ -10,7 +10,11 @@ class ProfileModel {
     status = json['status'];
     statusval = json['statusval'];
     msg = json['msg'];
-    data = json['data'] != null ? UserData.fromJson(json['data']) : null;
+    if (json['data'] != null && json['data'] is Map<String, dynamic>) {
+      data = UserData.fromJson(json['data']);
+    } else {
+      data = null;
+    }
   }
 
   int? status;
@@ -73,7 +77,7 @@ class UserData {
   dynamic city;
   String? email;
   String? walletAmount;
-  String? pendingWallet;
+  dynamic pendingWallet;
   String? driverStatus;
   int? isDriver;
   int? isOnline;

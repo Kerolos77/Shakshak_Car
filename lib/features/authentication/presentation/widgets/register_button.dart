@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shakshak/core/router/router_helper.dart';
 import 'package:shakshak/features/authentication/presentation/view_models/country_city_cubit/countries_cities_cubit.dart';
 
+import '../../../../core/constants/app_const.dart';
+import '../../../../core/network/local/cache_helper.dart';
 import '../../../../core/resources/app_colors.dart';
 import '../../../../core/router/routes.dart';
 import '../../../../core/utils/shared_widgets/custom_button.dart';
@@ -36,12 +38,27 @@ class RegisterButton extends StatelessWidget {
           if (state.userModel.statusval == true) {
             showSnackBar(
                 context,
-                // state.userModel.msg ?? '',
-                S.of(context).accountRegisteredSuccessfully,
+                state.userModel.msg!,
                 S.of(context).doneSuccessfully,
                 AppColors.primaryColor,
                 ContentType.success);
-            navigateAndReplacement(context, Routes.loginView);
+            if (state.userModel.data?.id != null) {
+              CacheHelper.saveData(
+                  key: AppConstant.kUserIdOtp, value: state.userModel.data?.id);
+              CacheHelper.saveData(
+                  key: AppConstant.kToken, value: state.userModel.data?.token);
+              CacheHelper.saveData(
+                  key: AppConstant.kUserName,
+                  value: state.userModel.data?.name);
+              CacheHelper.saveData(
+                  key: AppConstant.kIsDriver,
+                  value: state.userModel.data?.isDriver);
+              if (state.userModel.data?.isDriver == 0) {
+                navigateAndFinish(context, Routes.userHomeView);
+              } else {
+                navigateAndFinish(context, Routes.driverHomeView);
+              }
+            }
           } else {
             showSnackBar(
               context,

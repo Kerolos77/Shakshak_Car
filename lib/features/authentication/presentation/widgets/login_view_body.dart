@@ -8,9 +8,8 @@ import 'package:shakshak/generated/assets.dart';
 import '../../../../core/resources/app_colors.dart';
 import '../../../../core/router/router_helper.dart';
 import '../../../../core/router/routes.dart';
-import '../../../../core/utils/shared_widgets/custom_text_field.dart';
+import '../../../../core/utils/shared_widgets/phone_text_field.dart';
 import '../../../../core/utils/styles.dart';
-import '../../../../core/utils/validations.dart';
 import '../../../../generated/l10n.dart';
 import 'login_button.dart';
 import 'terms_and_conditions_widget.dart';
@@ -69,20 +68,20 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             key: formKey,
             child: Column(
               children: [
-                CustomTextField(
+                // CustomTextField(
+                //   controller: phoneController,
+                //   autoValidateMode: AutovalidateMode.onUserInteraction,
+                //   validator: Validation.validatePhone(context),
+                //   keyType: TextInputType.phone,
+                //   prefix: Padding(
+                //     padding: EdgeInsets.all(8.r),
+                //     child: SvgPicture.asset(Assets.svgPhone),
+                //   ),
+                //   hint: S.of(context).mobileNumber,
+                // ),
+                PhoneTextField(
                   controller: phoneController,
-                  autoValidateMode: AutovalidateMode.onUserInteraction,
-                  validator: Validation.validatePhone(context),
-                  keyType: TextInputType.phone,
-                  prefix: Padding(
-                    padding: EdgeInsets.all(8.r),
-                    child: SvgPicture.asset(Assets.svgPhone),
-                  ),
-                  hint: S.of(context).mobileNumber,
                 ),
-                /*   PhoneTextField(
-                  controller: phoneController,
-                ),*/
                 24.ph,
                 LoginButton(
                   emailOrPhoneController: phoneController,

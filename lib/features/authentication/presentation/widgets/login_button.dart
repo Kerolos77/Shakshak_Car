@@ -60,7 +60,7 @@ class LoginButton extends StatelessWidget {
               if (formKey.currentState!.validate()) {
                 context.read<AuthCubit>().login(
                       loginBody: LoginBody(
-                        phone: emailOrPhoneController.text,
+                        phone: context.read<AuthCubit>().completeNumber,
                       ),
                     );
               }

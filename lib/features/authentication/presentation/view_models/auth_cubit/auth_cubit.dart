@@ -17,6 +17,7 @@ class AuthCubit extends Cubit<AuthState> {
   AuthCubit(this.authRepo) : super(AuthInitial());
 
   String roleSelection = '';
+  String completeNumber = '';
 
   bool loginPasswordVisible = true;
 
@@ -34,6 +35,11 @@ class AuthCubit extends Cubit<AuthState> {
     CacheHelper.saveData(key: AppConstant.kRoleSelection, value: method);
     debugPrint(roleSelection);
     emit(RoleSelectionChangedState());
+  }
+
+  void changeCompleteNumber({required String completeNumber}) {
+    this.completeNumber = completeNumber;
+    emit(LoginChangeCompleteNumberStatus());
   }
 
   void login({required LoginBody loginBody}) async {

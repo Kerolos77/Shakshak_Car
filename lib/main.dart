@@ -10,11 +10,14 @@ import 'core/network/dio_helper/dio_helper.dart';
 import 'core/network/local/cache_helper.dart';
 import 'core/resources/app_colors.dart';
 import 'core/services/service_locator.dart';
+import 'core/utils/bloc_observer.dart';
 import 'features/base_layout/presentation/view_models/drawer_cubit/drawer_cubit.dart';
 import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = MyBlocObserver();
+
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,

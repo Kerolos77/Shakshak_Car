@@ -39,6 +39,8 @@ class LoginErrorState extends AuthState {
   LoginErrorState(this.errorMsg);
 }
 
+class LoginChangeCompleteNumberStatus extends AuthState {}
+
 //Verify Phone OTP
 class VerifyPhoneOTPLoadingState extends AuthState {}
 
