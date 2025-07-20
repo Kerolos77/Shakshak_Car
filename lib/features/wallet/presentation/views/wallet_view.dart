@@ -74,7 +74,7 @@ class _WalletViewState extends State<WalletView> {
                 Expanded(
                   child: CustomButton(
                     text: S.of(context).withdraw,
-                    buttonColor: Theme.of(context).colorScheme.background,
+                    buttonColor: Theme.of(context).colorScheme.surface,
                     textColor: Theme.of(context).primaryColor,
                     onTap: _showWithdrawBottomSheet,
                   ),

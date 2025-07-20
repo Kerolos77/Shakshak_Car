@@ -30,15 +30,15 @@ class VehicleItemWidget extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(12.r),
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.background,
+                color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(16.r),
               ),
               child: CircleAvatar(
                 radius: 30.r,
-                backgroundColor: Theme.of(context).colorScheme.onBackground,
+                backgroundColor: Theme.of(context).colorScheme.onSurface,
                 child: Icon(
                   Icons.person,
-                  color: Theme.of(context).colorScheme.background,
+                  color: Theme.of(context).colorScheme.surface,
                   size: 50.r,
                 ),
               ),
@@ -47,7 +47,7 @@ class VehicleItemWidget extends StatelessWidget {
             Text(
               'Ride',
               style: Styles.textStyle16(context)
-                  .copyWith(color: Theme.of(context).colorScheme.onBackground),
+                  .copyWith(color: Theme.of(context).colorScheme.onSurface),
             )
           ],
         ),

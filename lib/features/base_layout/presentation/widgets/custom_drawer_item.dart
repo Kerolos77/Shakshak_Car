@@ -41,7 +41,7 @@ class CustomDrawerItem extends StatelessWidget {
               style: Styles.textStyle16SemiBold(context).copyWith(
                   color: isSelected
                       ? Theme.of(context).colorScheme.onPrimary
-                      : Theme.of(context).colorScheme.onBackground),
+                      : Theme.of(context).colorScheme.onSurface),
             ),
           ],
         ),

@@ -43,7 +43,7 @@ class BaseLayoutView extends StatelessWidget {
                       left: horizontalPadding.w,
                       right: horizontalPadding.w),
                   decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.background,
+                      color: Theme.of(context).colorScheme.surface,
                       borderRadius: BorderRadius.vertical(
                         top: Radius.circular(
                           20.r,

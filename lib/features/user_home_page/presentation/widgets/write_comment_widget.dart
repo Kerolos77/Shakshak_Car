@@ -27,7 +27,7 @@ class WriteCommentWidget extends StatelessWidget {
           hintText: '...Write your comment here...',
           hintStyle: TextStyle(color: Theme.of(context).hintColor),
           contentPadding: const EdgeInsets.symmetric(vertical: 20.0),
-          labelStyle: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+          labelStyle: TextStyle(color: Theme.of(context).colorScheme.onSurface),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(18.r),

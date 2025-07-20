@@ -11,6 +11,7 @@ class BottomSheetModalForWriteCommentWidget extends StatelessWidget {
       required this.onPressedDoneButton,
       required this.commentFocusNode,
       required this.commentController});
+
   final Function() onPressedClearButton;
   final Function() onPressedDoneButton;
   final FocusNode commentFocusNode;
@@ -54,7 +55,8 @@ class BottomSheetModalForWriteCommentWidget extends StatelessWidget {
                       hintStyle: TextStyle(color: Theme.of(context).hintColor),
                       contentPadding:
                           const EdgeInsets.symmetric(vertical: 20.0),
-                      labelStyle: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                      labelStyle: TextStyle(
+                          color: Theme.of(context).colorScheme.onSurface),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(18.r),

@@ -31,7 +31,7 @@ class RoleSelectionOption extends StatelessWidget {
         decoration: BoxDecoration(
           color: isSelected
               ? Theme.of(context).colorScheme.secondary
-              : Theme.of(context).colorScheme.background,
+              : Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(10.r),
           border: Border.all(
             color: Theme.of(context).primaryColor.withOpacity(0.15),

@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 
 import '../../constants/app_const.dart';
-import '../../resources/app_colors.dart';
 import '../styles.dart';
 
 class CustomButton extends StatelessWidget {

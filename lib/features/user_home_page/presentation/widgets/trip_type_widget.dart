@@ -30,7 +30,7 @@ class _TripTypeWidgetState extends State<TripTypeWidget> {
         decoration: BoxDecoration(
           color: widget.isSelected
               ? Theme.of(context).colorScheme.secondary
-              : Theme.of(context).colorScheme.background,
+              : Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Padding(
@@ -64,7 +64,7 @@ class _TripTypeWidgetState extends State<TripTypeWidget> {
                           style: TextStyle(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.bold,
-                            color: Theme.of(context).colorScheme.onBackground,
+                            color: Theme.of(context).colorScheme.onSurface,
                           ),
                         ),
                       ),

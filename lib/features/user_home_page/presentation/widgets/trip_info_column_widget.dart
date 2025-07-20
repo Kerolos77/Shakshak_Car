@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/features/user_home_page/presentation/widgets/text_form_field_for_select_destination_widget.dart';
 import 'package:shakshak/features/user_home_page/presentation/widgets/user_offer_widget.dart';
@@ -19,7 +18,6 @@ import 'my_current_location_widget.dart';
 import 'travel_time_widget.dart';
 import 'waiting_for_replies_and_change_offer_widget.dart';
 
-
 class TripInfoColumnWidget extends StatefulWidget {
   final HomeCubit cubit;
   final List<TripTypeModel> tripTypeList;
@@ -27,7 +25,7 @@ class TripInfoColumnWidget extends StatefulWidget {
   // final TextEditingController startAddressController;
   final TextEditingController destinationController;
   final TextEditingController offerController;
-final dynamic Function()? onLocationTap;
+  final dynamic Function()? onLocationTap;
   final List<DriverOffer> driverOffers = [
     DriverOffer(driverName: "Driver A", price: 20),
     DriverOffer(driverName: "Driver B", price: 18),
@@ -182,7 +180,6 @@ class _TripInfoColumnWidgetState extends State<TripInfoColumnWidget> {
               Container(
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.46,
-
                 padding: EdgeInsets.only(
                   top: 15.h,
                   bottom: 5.h,
@@ -190,7 +187,7 @@ class _TripInfoColumnWidgetState extends State<TripInfoColumnWidget> {
                   left: 10.w,
                 ),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.background,
+                  color: Theme.of(context).colorScheme.surface,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(27.r),
                     topLeft: Radius.circular(27.r),

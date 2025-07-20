@@ -28,7 +28,7 @@ class DriverHomeView extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
               padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.background,
+                color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(12.r),
                 boxShadow: AppConstant.shadow,
               ),
@@ -47,7 +47,8 @@ class DriverHomeView extends StatelessWidget {
                       labelStyle: Styles.textStyle16Bold(context).copyWith(
                         fontFamily: 'Cairo',
                       ),
-                      unselectedLabelStyle: Styles.textStyle16Bold(context).copyWith(
+                      unselectedLabelStyle:
+                          Styles.textStyle16Bold(context).copyWith(
                         fontFamily: 'Cairo',
                       ),
                       tabs: [

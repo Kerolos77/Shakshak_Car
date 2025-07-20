@@ -62,7 +62,7 @@ class _ContactUsViewState extends State<ContactUsView> {
                       style: Styles.textStyle16Bold(context).copyWith(
                         color: isSelected
                             ? Theme.of(context).primaryColor
-                            : Theme.of(context).colorScheme.onBackground,
+                            : Theme.of(context).colorScheme.onSurface,
                         fontWeight:
                             isSelected ? FontWeight.bold : FontWeight.w600,
                       ),
