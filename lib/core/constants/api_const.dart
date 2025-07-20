@@ -14,6 +14,8 @@ class ApiConstant {
 
   // wallet
   static const String getWalletTransactionsUrl = 'user/transactions';
+  static const String chargeWalletUrl = 'user/charge_wallet';
+  static const String withdrawRequestUrl = 'user/withdraw_request';
 
   // rides
   static const String geUserRidesUrl = 'order/old-for-user';
