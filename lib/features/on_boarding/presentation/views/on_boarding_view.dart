@@ -113,8 +113,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                           },
                           child: Text(
                             S.of(context).skip,
-                            style: Styles.textStyle14SemiBold
-                                .copyWith(color: AppColors.primaryColor),
+                            style: Styles.textStyle14SemiBold(context),
                           ),
                         ),
                 ),

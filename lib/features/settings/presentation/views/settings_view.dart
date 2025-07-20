@@ -11,6 +11,7 @@ import '../../../../core/constants/app_const.dart';
 import '../../../../core/network/local/cache_helper.dart';
 import '../../../../generated/l10n.dart';
 import '../view_models/language_cubit/language_cubit.dart';
+import '../view_models/theme_cubit/theme_cubit.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
@@ -32,7 +33,7 @@ class SettingsView extends StatelessWidget {
                 10.pw,
                 Text(
                   S.of(context).language,
-                  style: Styles.textStyle18SemiBold,
+                  style: Styles.textStyle18SemiBold(context),
                 ),
                 10.pw,
                 Spacer(),
@@ -77,15 +78,27 @@ class SettingsView extends StatelessWidget {
                 10.pw,
                 Text(
                   S.of(context).lightDarkTheme,
-                  style: Styles.textStyle18SemiBold,
+                  style: Styles.textStyle18SemiBold(context),
                 ),
                 10.pw,
                 Spacer(),
                 SizedBox(
                   width: 150.w,
-                  child: CustomDropDown(
-                    items: [S.of(context).light, S.of(context).dark],
-                    onChange: (p0) {},
+                  child: BlocBuilder<ThemeCubit, ThemeState>(
+                    builder: (context, themeState) {
+                      final themeCubit = context.read<ThemeCubit>();
+                      final isDark = themeState.themeMode == AppThemeMode.dark;
+                      return CustomDropDown(
+                        items: [S.of(context).light, S.of(context).dark],
+                        value: isDark ? S.of(context).dark : S.of(context).light,
+                        onChange: (selected) {
+                          final mode = selected == S.of(context).dark
+                              ? AppThemeMode.dark
+                              : AppThemeMode.light;
+                          themeCubit.changeTheme(mode);
+                        },
+                      );
+                    },
                   ),
                 )
               ],
@@ -101,7 +114,7 @@ class SettingsView extends StatelessWidget {
                 10.pw,
                 Text(
                   S.of(context).support,
-                  style: Styles.textStyle18SemiBold,
+                  style: Styles.textStyle18SemiBold(context),
                 ),
               ],
             ),
@@ -116,7 +129,7 @@ class SettingsView extends StatelessWidget {
                 10.pw,
                 Text(
                   S.of(context).deleteAccount,
-                  style: Styles.textStyle18SemiBold,
+                  style: Styles.textStyle18SemiBold(context),
                 ),
               ],
             ),

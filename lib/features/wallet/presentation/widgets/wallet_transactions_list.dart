@@ -47,7 +47,7 @@ class _WalletTransactionsListState extends State<WalletTransactionsList> {
                   child: Center(
                   child: Text(
                     'no data',
-                    style: Styles.textStyle16Medium,
+                    style: Styles.textStyle16Medium(context),
                   ),
                 ));
         } else if (state is WalletTransactionsLoading) {
@@ -79,7 +79,7 @@ class _WalletTransactionsListState extends State<WalletTransactionsList> {
               child: Center(
             child: Text(
               state.errorMessage,
-              style: Styles.textStyle16Medium,
+              style: Styles.textStyle16Medium(context),
             ),
           ));
         } else {

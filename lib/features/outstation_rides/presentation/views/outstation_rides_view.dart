@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shakshak/core/resources/app_colors.dart';
 import 'package:shakshak/core/utils/styles.dart';
 import 'package:shakshak/features/base_layout/presentation/views/base_layout_view.dart';
 import 'package:shakshak/features/rides/data/models/ride.dart';
@@ -20,11 +19,11 @@ class _OutstationRidesViewState extends State<OutstationRidesView> {
   final PageController _pageController = PageController();
   int _selectedIndex = 0;
 
-  final List<String> titles = [
-    'Active\nRides',
-    'Completed\nRides',
-    'Canceled\nRides'
-  ];
+  List<String> get titles => [
+        S.of(context).activeRides,
+        S.of(context).completedRides,
+        S.of(context).canceledRides,
+      ];
 
   @override
   void initState() {
@@ -60,8 +59,10 @@ class _OutstationRidesViewState extends State<OutstationRidesView> {
                 child: Text(
                   titles[index],
                   textAlign: TextAlign.center,
-                  style: Styles.textStyle16Bold.copyWith(
-                    color: isSelected ? AppColors.primaryColor : Colors.black,
+                  style: Styles.textStyle16Bold(context).copyWith(
+                    color: isSelected
+                        ? Theme.of(context).primaryColor
+                        : Theme.of(context).colorScheme.onBackground,
                     fontWeight: isSelected ? FontWeight.bold : FontWeight.w600,
                   ),
                 ),

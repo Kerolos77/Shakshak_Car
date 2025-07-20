@@ -29,14 +29,14 @@ class TextFormFieldForSelectDestinationWidget extends StatelessWidget {
     return TextFormField(
       controller: destinationController,
       style: TextStyle(
-        color: AppColors.blackColor,
+        color: Theme.of(context).textTheme.bodyLarge?.color,
         fontSize: 14.sp,
         fontWeight: FontWeight.w600,
       ),
       decoration: InputDecoration(
         hintText: "To",
         hintStyle: TextStyle(
-          color: Colors.grey,
+          color: Theme.of(context).hintColor,
           fontSize: 14.sp,
           fontWeight: FontWeight.w600,
         ),
@@ -45,7 +45,7 @@ class TextFormFieldForSelectDestinationWidget extends StatelessWidget {
         prefixIcon: Icon(
           Icons.search_rounded,
           size: 20,
-          color: Colors.black,
+          color: Theme.of(context).iconTheme.color,
         ),
         border: OutlineInputBorder(
           borderSide: BorderSide.none,

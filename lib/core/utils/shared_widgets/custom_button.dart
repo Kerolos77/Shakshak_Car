@@ -11,7 +11,7 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.text,
     this.onTap,
-    this.buttonColor = AppColors.secondaryColor,
+    this.buttonColor,
     this.textColor = Colors.white,
     this.hPadding = 0,
     this.borderRadius = 16,
@@ -31,7 +31,7 @@ class CustomButton extends StatelessWidget {
   final double hPadding, width, height, vPadding;
   final double borderRadius;
   final Color borderColor;
-  final Color buttonColor;
+  final Color? buttonColor;
   final double fontSize;
   final FontWeight? fontWeight;
 
@@ -43,7 +43,7 @@ class CustomButton extends StatelessWidget {
         height: height.h,
         width: width.w,
         decoration: BoxDecoration(
-            color: buttonColor,
+            color: buttonColor ?? Theme.of(context).primaryColor,
             borderRadius: BorderRadius.circular(borderRadius.r),
             boxShadow: AppConstant.shadow,
             border: Border.all(
@@ -56,7 +56,7 @@ class CustomButton extends StatelessWidget {
               Text(
                 text,
                 textAlign: TextAlign.center,
-                style: Styles.textStyle16Bold.copyWith(
+                style: Styles.textStyle16Bold(context).copyWith(
                     fontSize: fontSize.sp,
                     fontWeight: fontWeight,
                     color: textColor),

@@ -45,15 +45,16 @@ class BottomSheetModalForWriteCommentWidget extends StatelessWidget {
                     focusNode: commentFocusNode,
                     style: TextStyle(
                       fontSize: 17.sp,
+                      color: Theme.of(context).textTheme.bodyLarge?.color,
                     ),
                     controller: commentController,
                     maxLines: 3,
                     decoration: InputDecoration(
                       hintText: '...Write your comment here...',
-                      hintStyle: const TextStyle(),
+                      hintStyle: TextStyle(color: Theme.of(context).hintColor),
                       contentPadding:
                           const EdgeInsets.symmetric(vertical: 20.0),
-                      labelStyle: const TextStyle(color: AppColors.blackColor),
+                      labelStyle: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(18.r),

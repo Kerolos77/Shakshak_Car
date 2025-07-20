@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 
-import '../../../../core/resources/app_colors.dart';
 import '../../../../core/utils/styles.dart';
 
 class RoleSelectionOption extends StatelessWidget {
@@ -30,10 +29,12 @@ class RoleSelectionOption extends StatelessWidget {
       onTap: () => onChanged(value),
       child: Container(
         decoration: BoxDecoration(
-          color: isSelected ? AppColors.primaryLightColor : Colors.white,
+          color: isSelected
+              ? Theme.of(context).colorScheme.secondary
+              : Theme.of(context).colorScheme.background,
           borderRadius: BorderRadius.circular(10.r),
           border: Border.all(
-            color: AppColors.primaryColor.withOpacity(0.15),
+            color: Theme.of(context).primaryColor.withOpacity(0.15),
           ),
         ),
         padding: EdgeInsets.symmetric(
@@ -48,12 +49,12 @@ class RoleSelectionOption extends StatelessWidget {
                 children: [
                   Text(
                     text,
-                    style: Styles.textStyle18Bold,
+                    style: Styles.textStyle18Bold(context),
                   ),
                   6.ph,
                   Text(
                     details,
-                    style: Styles.textStyle14SemiBold,
+                    style: Styles.textStyle14SemiBold(context),
                   ),
                 ],
               ),

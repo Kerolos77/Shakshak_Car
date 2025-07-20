@@ -64,7 +64,7 @@ class _OnlineOfflineToggleButtonState extends State<OnlineOfflineToggleButton> {
                   padding: EdgeInsets.symmetric(horizontal: 12.w),
                   child: Text(
                     isOnline ? S.of(context).online : S.of(context).offline,
-                    style: Styles.textStyle16Bold.copyWith(
+                    style: Styles.textStyle16Bold(context).copyWith(
                       color: isOnline ? Colors.green : Colors.red,
                     ),
                   ),

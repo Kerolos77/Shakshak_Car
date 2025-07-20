@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
-import 'package:shakshak/core/resources/app_colors.dart';
 import 'package:shakshak/core/utils/styles.dart';
 
 class CustomDrawerItem extends StatelessWidget {
@@ -27,17 +26,22 @@ class CustomDrawerItem extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
         margin: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
         decoration: BoxDecoration(
-            color: isSelected ? AppColors.primaryColor : null,
+            color: isSelected ? Theme.of(context).primaryColor : null,
             borderRadius: BorderRadius.circular(12.r)),
         child: Row(
           children: [
             Icon(icon,
-                color: isSelected ? Colors.white : Colors.grey, size: 26.r),
+                color: isSelected
+                    ? Theme.of(context).colorScheme.onPrimary
+                    : Colors.grey,
+                size: 26.r),
             12.pw,
             Text(
               title,
-              style: Styles.textStyle16SemiBold
-                  .copyWith(color: isSelected ? Colors.white : Colors.black),
+              style: Styles.textStyle16SemiBold(context).copyWith(
+                  color: isSelected
+                      ? Theme.of(context).colorScheme.onPrimary
+                      : Theme.of(context).colorScheme.onBackground),
             ),
           ],
         ),

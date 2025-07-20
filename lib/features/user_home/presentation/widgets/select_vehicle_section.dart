@@ -20,7 +20,7 @@ class _SelectVehicleSectionState extends State<SelectVehicleSection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(S.of(context).selectVehicle, style: Styles.textStyle16SemiBold),
+        Text(S.of(context).selectVehicle, style: Styles.textStyle16SemiBold(context)),
         12.ph,
         Row(
           children: List.generate(3, (index) {

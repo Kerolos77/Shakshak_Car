@@ -96,7 +96,7 @@ AppBar buildAppBar(BuildContext context,
             children: [
               Text(
                 title,
-                style: Styles.textStyle14Bold,
+                style: Styles.textStyle14Bold(context),
               ),
             ],
           )

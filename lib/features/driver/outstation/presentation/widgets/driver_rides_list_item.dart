@@ -8,11 +8,11 @@ import 'package:shakshak/core/router/routes.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_button.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_divider.dart';
 import 'package:shakshak/core/utils/styles.dart';
+import 'package:shakshak/features/rides/data/models/ride.dart';
 
 import '../../../../../core/utils/common_use.dart';
 import '../../../../../generated/l10n.dart';
 import 'ride_destination_widget.dart';
-import 'package:shakshak/features/rides/data/models/ride.dart';
 
 class DriverRidesListItem extends StatelessWidget {
   const DriverRidesListItem({
@@ -34,7 +34,7 @@ class DriverRidesListItem extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
         decoration: BoxDecoration(
             boxShadow: AppConstant.shadow,
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.surfaceContainerHighest,
             borderRadius: BorderRadius.circular(12.r)),
         child: Column(
           children: [
@@ -55,11 +55,11 @@ class DriverRidesListItem extends StatelessWidget {
                     children: [
                       Text(
                         ride.user?.name ?? '-',
-                        style: Styles.textStyle16SemiBold,
+                        style: Styles.textStyle16SemiBold(context),
                       ),
                       Text(
                         '${ride.amount ?? '-'} EGP',
-                        style: Styles.textStyle16SemiBold,
+                        style: Styles.textStyle16SemiBold(context),
                       ),
                     ],
                   ),
@@ -75,7 +75,8 @@ class DriverRidesListItem extends StatelessWidget {
                     4.pw,
                     Text(
                       '${ride.distance ?? '-'} KM',
-                      style: Styles.textStyle14SemiBold.copyWith(color: Colors.black),
+                      style: Styles.textStyle14SemiBold(context)
+                          .copyWith(color: Colors.black),
                     ),
                   ],
                 ),
@@ -93,33 +94,34 @@ class DriverRidesListItem extends StatelessWidget {
                     children: [
                       Text(
                         '${S.of(context).weight} ${ride.parcelWeight ?? '-'} KG',
-                        style: Styles.textStyle16SemiBold,
+                        style: Styles.textStyle16SemiBold(context),
                       ),
                       Text(
                         '${S.of(context).dimension} ${ride.parcelDimension ?? '-'}',
-                        style: Styles.textStyle16SemiBold,
+                        style: Styles.textStyle16SemiBold(context),
                       ),
                       Text(
                         '${S.of(context).image} ${ride.parcelImage ?? '-'}',
-                        style: Styles.textStyle16SemiBold,
+                        style: Styles.textStyle16SemiBold(context),
                       ),
                     ],
                   )
                 : Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
                     decoration: BoxDecoration(
-                      color: AppColors.lightGreyColor,
+                      color: Theme.of(context).colorScheme.surface,
                       borderRadius: BorderRadius.circular(8.r),
                     ),
                     child: Row(
                       children: [
                         Text(
                           '${S.of(context).status}: ',
-                          style: Styles.textStyle16Bold,
+                          style: Styles.textStyle16Bold(context),
                         ),
                         Text(
                           ride.status ?? '-',
-                          style: Styles.textStyle16,
+                          style: Styles.textStyle16(context),
                         ),
                       ],
                     ),
@@ -134,7 +136,7 @@ class DriverRidesListItem extends StatelessWidget {
                 ),
                 child: Text(
                   'Recommended price is ${ride.amount ?? '-'} EGP , Approx distance ${ride.distance ?? '-'} KM',
-                  style: Styles.textStyle16,
+                  style: Styles.textStyle16(context),
                 ),
               ),
             if (!isOutstation)

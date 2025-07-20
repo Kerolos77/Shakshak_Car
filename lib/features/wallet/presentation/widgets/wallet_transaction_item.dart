@@ -57,13 +57,13 @@ class _WalletTransactionItemState extends State<WalletTransactionItem> {
                     children: [
                       Text(
                         '+${widget.walletTransactionData.amount ?? 0} EGP',
-                        style: Styles.textStyle14Bold.copyWith(
+                        style: Styles.textStyle14Bold(context).copyWith(
                           color: AppColors.secondaryColor,
                         ),
                       ),
                       Text(
                         widget.walletTransactionData.type ?? '',
-                        style: Styles.textStyle14Bold,
+                        style: Styles.textStyle14Bold(context),
                       ),
                     ],
                   ),
@@ -113,11 +113,11 @@ class _WalletTransactionItemState extends State<WalletTransactionItem> {
                     children: [
                       Text(
                         S.of(context).transactionId,
-                        style: Styles.textStyle14Bold,
+                        style: Styles.textStyle14Bold(context),
                       ),
                       Text(
                         '#${widget.walletTransactionData.paymentId ?? ''}',
-                        style: Styles.textStyle14,
+                        style: Styles.textStyle14(context),
                       ),
                     ],
                   ),
@@ -127,11 +127,11 @@ class _WalletTransactionItemState extends State<WalletTransactionItem> {
                     children: [
                       Text(
                         S.of(context).paidVia,
-                        style: Styles.textStyle14Bold,
+                        style: Styles.textStyle14Bold(context),
                       ),
                       Text(
                         widget.walletTransactionData.paymentMethod ?? '',
-                        style: Styles.textStyle14,
+                        style: Styles.textStyle14(context),
                       ),
                     ],
                   ),
@@ -141,12 +141,12 @@ class _WalletTransactionItemState extends State<WalletTransactionItem> {
                     children: [
                       Text(
                         S.of(context).date,
-                        style: Styles.textStyle14Bold,
+                        style: Styles.textStyle14Bold(context),
                       ),
                       Text(
                         formatCustomDate(
                             widget.walletTransactionData.createdAt ?? ''),
-                        style: Styles.textStyle14,
+                        style: Styles.textStyle14(context),
                       ),
                     ],
                   ),
@@ -156,11 +156,11 @@ class _WalletTransactionItemState extends State<WalletTransactionItem> {
                     children: [
                       Text(
                         S.of(context).status,
-                        style: Styles.textStyle14Bold,
+                        style: Styles.textStyle14Bold(context),
                       ),
                       Text(
                         widget.walletTransactionData.status ?? '',
-                        style: Styles.textStyle14,
+                        style: Styles.textStyle14(context),
                       ),
                     ],
                   ),

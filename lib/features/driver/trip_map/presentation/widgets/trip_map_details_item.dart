@@ -73,11 +73,11 @@ class _TripMapDetailsItemState extends State<TripMapDetailsItem> {
                     children: [
                       Text(
                         'Mostafa',
-                        style: Styles.textStyle16SemiBold,
+                        style: Styles.textStyle16SemiBold(context),
                       ),
                       Text(
                         '50.00 EGP',
-                        style: Styles.textStyle16SemiBold,
+                        style: Styles.textStyle16SemiBold(context),
                       ),
                     ],
                   ),
@@ -93,7 +93,7 @@ class _TripMapDetailsItemState extends State<TripMapDetailsItem> {
                     4.pw,
                     Text(
                       '0.79 KM',
-                      style: Styles.textStyle14SemiBold
+                      style: Styles.textStyle14SemiBold(context)
                           .copyWith(color: Colors.black),
                     ),
                   ],
@@ -144,11 +144,11 @@ class _TripMapDetailsItemState extends State<TripMapDetailsItem> {
                     children: [
                       Text(
                         'Mostafa',
-                        style: Styles.textStyle16SemiBold,
+                        style: Styles.textStyle16SemiBold(context),
                       ),
                       Text(
                         '50.00 EGP',
-                        style: Styles.textStyle16SemiBold,
+                        style: Styles.textStyle16SemiBold(context),
                       ),
                     ],
                   ),
@@ -164,7 +164,7 @@ class _TripMapDetailsItemState extends State<TripMapDetailsItem> {
                     4.pw,
                     Text(
                       '0.79 KM',
-                      style: Styles.textStyle14SemiBold
+                      style: Styles.textStyle14SemiBold(context)
                           .copyWith(color: Colors.black),
                     ),
                   ],
@@ -193,7 +193,7 @@ class _TripMapDetailsItemState extends State<TripMapDetailsItem> {
                   child: Center(
                       child: Text(
                     '+5',
-                    style: Styles.textStyle20Bold.copyWith(color: Colors.white),
+                    style: Styles.textStyle20Bold(context).copyWith(color: Colors.white),
                   )),
                 ),
                 separatorBuilder: (context, index) => 8.pw,

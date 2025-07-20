@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/constants/app_const.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 import 'package:shakshak/core/network/local/cache_helper.dart';
-import 'package:shakshak/core/resources/app_colors.dart';
 import 'package:shakshak/core/utils/styles.dart';
 import 'package:shakshak/features/base_layout/presentation/view_models/drawer_cubit/drawer_cubit.dart';
 
@@ -28,28 +27,28 @@ class CustomDrawer extends StatelessWidget {
             padding: EdgeInsets.zero,
             children: [
               DrawerHeader(
-                decoration: const BoxDecoration(
-                  color: AppColors.primaryColor,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).primaryColor,
                 ),
                 child: Column(
                   children: [
                     CircleAvatar(
-                      backgroundColor: Colors.black87,
+                      backgroundColor: Theme.of(context).colorScheme.onPrimary,
                       radius: 40.r,
                       child: Icon(
                         Icons.person,
-                        color: Colors.white,
+                        color: Theme.of(context).primaryColor,
                         size: 60.r,
                       ),
                     ),
                     6.ph,
                     Text(
                       'Mostafa',
-                      style: Styles.textStyle16SemiBold,
+                      style: Styles.textStyle16SemiBold(context),
                     ),
                     Text(
                       'mostafa@gmail.com',
-                      style: Styles.textStyle16SemiBold,
+                      style: Styles.textStyle16SemiBold(context),
                     ),
                   ],
                 ),

@@ -31,7 +31,7 @@ class LogoutDialog extends StatelessWidget {
                 SizedBox(height: 12.h),
                 Text(
                   S.of(context).logoutConfirmation,
-                  style: Styles.textStyle16Medium.copyWith(
+                  style: Styles.textStyle16Medium(context).copyWith(
                     color: AppColors.primaryColor,
                   ),
                 ),
@@ -53,7 +53,7 @@ class LogoutDialog extends StatelessWidget {
                   onPressed: () => navigatePop(context),
                   child: Text(
                     S.of(context).close,
-                    style: Styles.textStyle12SemiBold.copyWith(
+                    style: Styles.textStyle12SemiBold(context).copyWith(
                       color: Colors.grey,
                     ),
                   ),

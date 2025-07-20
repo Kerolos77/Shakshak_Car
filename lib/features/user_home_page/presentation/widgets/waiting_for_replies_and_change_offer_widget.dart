@@ -99,7 +99,7 @@ class _WaitingForRepliesAndChangeOfferWidgetState
               topLeft: Radius.circular(27.r),
               topRight: Radius.circular(27.r),
             ),
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.background,
           ),
           child: ListView(
             children: [
@@ -110,7 +110,7 @@ class _WaitingForRepliesAndChangeOfferWidgetState
                     Text(
                       'Waiting for replies...',
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.onBackground,
                         fontSize: 18.sp,
                         fontWeight: FontWeight.w600,
                       ),
@@ -126,7 +126,7 @@ class _WaitingForRepliesAndChangeOfferWidgetState
                     Text(
                       'Your offer',
                       style: TextStyle(
-                        color: Colors.grey,
+                        color: Theme.of(context).colorScheme.onBackground.withOpacity(0.7),
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
                       ),

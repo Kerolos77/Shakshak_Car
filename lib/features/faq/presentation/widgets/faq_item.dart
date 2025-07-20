@@ -38,7 +38,7 @@ class _FaqItemState extends State<FaqItem> {
               children: [
                 Text(
                   'How can i pay ?',
-                  style: Styles.textStyle16SemiBold,
+                  style: Styles.textStyle16SemiBold(context),
                 ),
                 IconButton(
                   onPressed: () {
@@ -78,7 +78,7 @@ class _FaqItemState extends State<FaqItem> {
               padding: EdgeInsets.all(16.r),
               child: Text(
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Suspendisse vel justo vitae justo faucibus tincidunt.Maecenas aliquet, nisi at varius consequat, urna lorem fermentum est.Curabitur vel elit ac nulla dapibus sollicitudin.Praesent in orci nec risus tincidunt tincidunt.Integer tincidunt, lacus a pulvinar laoreet, nulla velit fermentum mi, nec viverra erat purus eget quam.Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.',
-                style: Styles.textStyle16SemiBold
+                style: Styles.textStyle16SemiBold(context)
                     .copyWith(color: AppColors.greyColor),
               ),
             ),

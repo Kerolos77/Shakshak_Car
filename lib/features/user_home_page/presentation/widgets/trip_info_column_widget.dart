@@ -190,7 +190,7 @@ class _TripInfoColumnWidgetState extends State<TripInfoColumnWidget> {
                   left: 10.w,
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.background,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(27.r),
                     topLeft: Radius.circular(27.r),

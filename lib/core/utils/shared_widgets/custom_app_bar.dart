@@ -38,7 +38,7 @@ class CustomAppBar extends StatelessWidget {
                 )),
         Text(
           title ?? '',
-          style: Styles.textStyle20Bold.copyWith(color: Colors.white),
+          style: Styles.textStyle20Bold(context).copyWith(color: Colors.white),
         ),
         CircleAvatar(
           backgroundColor: Colors.black,

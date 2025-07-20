@@ -104,8 +104,7 @@ class _NoTripsWidgetState extends State<NoTripsWidget>
                 scale: _scaleAnimation.value,
                 child: Text(
                   S.of(context).noTripsNow,
-                  style: Styles.textStyle22Bold
-                      .copyWith(color: AppColors.primaryColor),
+                  style: Styles.textStyle22Bold(context),
                 ),
               ),
             ],

@@ -20,7 +20,7 @@ class HaveAnAccountWidget extends StatelessWidget {
         children: [
           Text(
             S.of(context).iHaveMyOwnAccount,
-            style: Styles.textStyle14.copyWith(
+            style: Styles.textStyle14(context).copyWith(
               color: AppColors.primaryColor,
             ),
           ),
@@ -30,7 +30,7 @@ class HaveAnAccountWidget extends StatelessWidget {
             },
             child: Text(
               S.of(context).login,
-              style: Styles.textStyle14.copyWith(
+              style: Styles.textStyle14(context).copyWith(
                 color: AppColors.darkGreyColor,
               ),
             ),

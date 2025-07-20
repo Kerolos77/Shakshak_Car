@@ -28,7 +28,7 @@ class AppColors {
   static const scaffoldColor = Color(0xffF9F9F9);
 
   static const whiteColor = Color(0xffFCF7F4);
-static const blackColor = Colors.black;
+  static const blackColor = Colors.black;
   static List<Color> linearPrimarySecondaryColor = [
     whiteColor,
     primaryColor.withAlpha(200),
@@ -36,4 +36,80 @@ static const blackColor = Colors.black;
   ];
 
   static const redColor = Color(0xffF83838);
+
+  // DARK MODE COLORS
+  static const darkBackground = Color(0xFF181A20); // main background
+  static const darkSurface = Color(0xFF23262F); // containers, cards
+  static const darkPrimary = Color(0xFF8F5FE8); // accent/primary
+  static const darkSecondary = Color(0xFF5C5F62); // secondary accent
+  static const darkText = Color(0xFFF5F6FA); // main text
+  static const darkTextSecondary = Color(0xFFB0B3B8); // secondary text
+
+  // ThemeData for light and dark themes
+  static final ThemeData lightTheme = ThemeData(
+    scaffoldBackgroundColor: Colors.white,
+    primaryColor: primaryColor,
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: primaryColor,
+      brightness: Brightness.light,
+      surfaceContainerHighest: Color(0xFFF3F4F6), // light grey for containers
+    ),
+    fontFamily: 'Cairo',
+    appBarTheme: const AppBarTheme(
+      backgroundColor: whiteColor,
+      foregroundColor: blackColor,
+      iconTheme: IconThemeData(color: blackColor),
+    ),
+    textTheme: const TextTheme(
+      bodyLarge: TextStyle(color: blackColor),
+      bodyMedium: TextStyle(color: blackColor),
+      bodySmall: TextStyle(color: blackColor),
+    ),
+  );
+
+  static final ThemeData darkTheme = ThemeData(
+    scaffoldBackgroundColor: darkBackground,
+    primaryColor: darkPrimary,
+    colorScheme: ColorScheme(
+      brightness: Brightness.dark,
+      primary: darkPrimary,
+      onPrimary: darkText,
+      secondary: darkSecondary,
+      onSecondary: darkText,
+      surface: darkSurface,
+      onSurface: darkText,
+      surfaceContainerHighest: Color(0xFF42454C), // dark grey for containers
+      error: redColor,
+      onError: Colors.white,
+    ),
+    fontFamily: 'Cairo',
+    appBarTheme: const AppBarTheme(
+      backgroundColor: darkSurface,
+      foregroundColor: darkText,
+      iconTheme: IconThemeData(color: darkText),
+    ),
+    textTheme: const TextTheme(
+      bodyLarge: TextStyle(color: darkText),
+      bodyMedium: TextStyle(color: darkText),
+      bodySmall: TextStyle(color: darkTextSecondary),
+      titleLarge: TextStyle(color: darkText),
+      titleMedium: TextStyle(color: darkText),
+      titleSmall: TextStyle(color: darkTextSecondary),
+      labelLarge: TextStyle(color: darkText),
+      labelMedium: TextStyle(color: darkTextSecondary),
+      labelSmall: TextStyle(color: darkTextSecondary),
+    ),
+    cardColor: darkSurface,
+    dialogBackgroundColor: darkSurface,
+    canvasColor: darkBackground,
+    dividerColor: darkSecondary,
+    iconTheme: const IconThemeData(color: darkText),
+    inputDecorationTheme: const InputDecorationTheme(
+      fillColor: darkSurface,
+      filled: true,
+      hintStyle: TextStyle(color: darkTextSecondary),
+      labelStyle: TextStyle(color: darkText),
+      border: OutlineInputBorder(),
+    ),
+  );
 }

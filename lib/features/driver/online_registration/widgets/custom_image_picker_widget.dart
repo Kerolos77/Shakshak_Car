@@ -37,7 +37,7 @@ class _CustomImagePickerWidgetState extends State<CustomImagePickerWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('Please select', style: Styles.textStyle18Bold),
+              Text('Please select', style: Styles.textStyle18Bold(context)),
               12.ph,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -68,7 +68,7 @@ class _CustomImagePickerWidgetState extends State<CustomImagePickerWidget> {
         child: Column(
           children: [
             Icon(icon, color: Colors.black, size: 28.r),
-            Text(label, style: Styles.textStyle16),
+            Text(label, style: Styles.textStyle16(context)),
           ],
         ),
       ),
@@ -95,7 +95,7 @@ class _CustomImagePickerWidgetState extends State<CustomImagePickerWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(widget.title, style: Styles.textStyle16Bold),
+        Text(widget.title, style: Styles.textStyle16Bold(context)),
         12.ph,
         GestureDetector(
           onTap: _showImageSourceBottomSheet,
@@ -124,7 +124,7 @@ class _CustomImagePickerWidgetState extends State<CustomImagePickerWidget> {
                               size: 50.r, color: Colors.white),
                         ),
                         12.ph,
-                        Text('Add photo', style: Styles.textStyle16SemiBold),
+                        Text('Add photo', style: Styles.textStyle16SemiBold(context)),
                       ],
                     ),
                   ),

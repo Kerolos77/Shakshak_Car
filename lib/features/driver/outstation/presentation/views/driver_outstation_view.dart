@@ -40,10 +40,10 @@ class DriverOutstationView extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.r),
                         ),
                         dividerColor: Colors.transparent,
-                        labelStyle: Styles.textStyle16Bold.copyWith(
+                        labelStyle: Styles.textStyle16Bold(context).copyWith(
                           fontFamily: 'Cairo',
                         ),
-                        unselectedLabelStyle: Styles.textStyle16Bold.copyWith(
+                        unselectedLabelStyle: Styles.textStyle16Bold(context).copyWith(
                           fontFamily: 'Cairo',
                         ),
                         tabs: [

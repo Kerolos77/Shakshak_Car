@@ -20,6 +20,7 @@ class AppConstant {
   static const String kUserName = 'userName';
   static const String kCartBox = 'cartBox';
   static const String kCurrentLanguage = 'currentLanguage';
+  static const String kThemeMode = 'themeMode';
   static const String kHasArea = 'hasArea';
   static const String kHasService = 'hasService';
 

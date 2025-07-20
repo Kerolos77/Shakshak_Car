@@ -57,11 +57,11 @@ class _LoginViewBodyState extends State<LoginViewBody> {
           50.ph,
           Text(
             S.of(context).login,
-            style: Styles.textStyle20Bold,
+            style: Styles.textStyle20Bold(context),
           ),
           Text(
             S.of(context).welcomeBack,
-            style: Styles.textStyle16,
+            style: Styles.textStyle16(context),
           ),
           30.ph,
           Form(
@@ -95,7 +95,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     children: [
                       Text(
                         S.of(context).noAccount,
-                        style: Styles.textStyle14.copyWith(
+                        style: Styles.textStyle14(context).copyWith(
                           color: AppColors.primaryColor,
                         ),
                       ),
@@ -105,7 +105,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         },
                         child: Text(
                           S.of(context).signup,
-                          style: Styles.textStyle14SemiBold.copyWith(
+                          style: Styles.textStyle14SemiBold(context).copyWith(
                             color: AppColors.darkGreyColor,
                           ),
                         ),

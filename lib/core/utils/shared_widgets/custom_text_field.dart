@@ -67,7 +67,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         if (widget.label != null) ...[
           Text(
             widget.label!,
-            style: Styles.textStyle16SemiBold,
+            style: Styles.textStyle16SemiBold(context).copyWith(color: Theme.of(context).colorScheme.onSurface),
           ),
           6.ph,
         ],
@@ -86,7 +86,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           inputFormatters: widget.inputFormatters,
           cursorColor: AppColors.secondaryColor,
           decoration: InputDecoration(
-            fillColor: Colors.white,
+            fillColor: Theme.of(context).colorScheme.surface,
             filled: true,
             enabledBorder: buildOutlineInputBorder(),
             errorBorder: OutlineInputBorder(
@@ -101,9 +101,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
             suffixIcon: widget.suffix,
             prefixIcon: widget.prefix,
             hintText: widget.hint,
-            hintStyle: Styles.textStyle16Medium,
+            hintStyle: Styles.textStyle16Medium(context).copyWith(color: Theme.of(context).hintColor),
+            labelStyle: Styles.textStyle16SemiBold(context).copyWith(color: Theme.of(context).colorScheme.onSurface),
           ),
-          style: Styles.textStyle18SemiBold,
+          style: Styles.textStyle18SemiBold(context).copyWith(color: Theme.of(context).textTheme.bodyLarge?.color),
         ),
       ],
     );

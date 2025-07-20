@@ -34,11 +34,13 @@ class _WalletViewState extends State<WalletView> {
               children: [
                 Text(
                   S.of(context).totalBalance,
-                  style: Styles.textStyle14Bold.copyWith(color: Colors.white),
+                  style: Styles.textStyle14Bold(context)
+                      .copyWith(color: Colors.white),
                 ),
                 Text(
                   '0.00 EGP',
-                  style: Styles.textStyle20Bold.copyWith(color: Colors.white),
+                  style: Styles.textStyle20Bold(context)
+                      .copyWith(color: Colors.white),
                 ),
               ],
             ),
@@ -53,7 +55,7 @@ class _WalletViewState extends State<WalletView> {
               ),
               child: Text(
                 S.of(context).topupWallet,
-                style: Styles.textStyle16Bold.copyWith(
+                style: Styles.textStyle16Bold(context).copyWith(
                   color: AppColors.primaryColor,
                 ),
               ),
@@ -66,14 +68,14 @@ class _WalletViewState extends State<WalletView> {
           WalletTransactionsList(),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
-            decoration: const BoxDecoration(color: AppColors.primaryColor),
+            decoration: BoxDecoration(color: Theme.of(context).primaryColor),
             child: Row(
               children: [
                 Expanded(
                   child: CustomButton(
                     text: S.of(context).withdraw,
-                    buttonColor: Colors.white,
-                    textColor: AppColors.primaryColor,
+                    buttonColor: Theme.of(context).colorScheme.background,
+                    textColor: Theme.of(context).primaryColor,
                     onTap: _showWithdrawBottomSheet,
                   ),
                 ),
@@ -81,8 +83,8 @@ class _WalletViewState extends State<WalletView> {
                 Expanded(
                   child: CustomButton(
                     text: S.of(context).withdrawalHistory,
-                    buttonColor: AppColors.primaryLightColor,
-                    textColor: AppColors.primaryColor,
+                    buttonColor: Theme.of(context).colorScheme.secondary,
+                    textColor: Theme.of(context).primaryColor,
                     onTap: () {
                       navigateTo(context, Routes.withdrawHistoryView);
                     },
@@ -109,7 +111,7 @@ class _WalletViewState extends State<WalletView> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(S.of(context).topupWallet,
-                      style: Styles.textStyle18Bold),
+                      style: Styles.textStyle18Bold(context)),
                   12.ph,
                   CustomTextField(
                     label: S.of(context).addTopupAmount,
@@ -151,7 +153,8 @@ class _WalletViewState extends State<WalletView> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(S.of(context).withdraw, style: Styles.textStyle18Bold),
+                  Text(S.of(context).withdraw,
+                      style: Styles.textStyle18Bold(context)),
                   12.ph,
                   CustomTextField(
                     label: S.of(context).addWithdrawAmount,

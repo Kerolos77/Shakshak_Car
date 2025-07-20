@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
-import 'package:shakshak/core/resources/app_colors.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_button.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_drop_down.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_text_field.dart';
@@ -25,7 +24,7 @@ class UserHomeView extends StatelessWidget {
           children: [
             Text(
               S.of(context).whereYouWantToGo,
-              style: Styles.textStyle20Bold,
+              style: Styles.textStyle20Bold(context),
             ),
             6.ph,
             Container(
@@ -34,23 +33,28 @@ class UserHomeView extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12.r),
                 gradient: LinearGradient(
                   colors: [
-                    AppColors.primaryColor,
-                    AppColors.primaryLightColor,
+                    Theme.of(context).primaryColor,
+                    Theme.of(context).colorScheme.secondary,
                   ],
                 ),
               ),
               child: Row(
                 children: [
-                  Icon(Icons.error, color: Colors.black, size: 24.r),
+                  Icon(Icons.error,
+                      color: Theme.of(context).colorScheme.onPrimary,
+                      size: 24.r),
                   8.pw,
                   Expanded(
                     child: Text(
                       S.of(context).loremMessage,
-                      style: Styles.textStyle16,
+                      style: Styles.textStyle16(context).copyWith(
+                          color: Theme.of(context).colorScheme.onPrimary),
                     ),
                   ),
                   8.pw,
-                  Icon(Icons.chevron_right, color: Colors.black, size: 28.r),
+                  Icon(Icons.chevron_right,
+                      color: Theme.of(context).colorScheme.onPrimary,
+                      size: 28.r),
                 ],
               ),
             ),

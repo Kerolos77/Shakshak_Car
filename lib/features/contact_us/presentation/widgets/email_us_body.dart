@@ -16,11 +16,11 @@ class EmailUsBody extends StatelessWidget {
         children: [
           Text(
             S.of(context).writeUs,
-            style: Styles.textStyle20Bold,
+            style: Styles.textStyle20Bold(context),
           ),
           Text(
             S.of(context).describeIssue,
-            style: Styles.textStyle16,
+            style: Styles.textStyle16(context),
           ),
           16.ph,
           CustomTextField(

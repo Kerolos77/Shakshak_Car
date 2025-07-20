@@ -30,7 +30,7 @@ class CallUsBody extends StatelessWidget {
               6.pw,
               Text(
                 S.of(context).call,
-                style: Styles.textStyle18Bold,
+                style: Styles.textStyle18Bold(context),
               )
             ],
           ).paddingSymmetric(horizontal: 8.w, vertical: 4.h),
@@ -49,7 +49,7 @@ class CallUsBody extends StatelessWidget {
               6.pw,
               Text(
                 S.of(context).location,
-                style: Styles.textStyle18Bold,
+                style: Styles.textStyle18Bold(context),
               )
             ],
           ).paddingSymmetric(horizontal: 8.w, vertical: 4.h),

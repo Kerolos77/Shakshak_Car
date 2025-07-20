@@ -49,7 +49,7 @@ class _PhoneTextFieldState extends State<PhoneTextField> {
                 fillColor: Colors.white,
                 filled: true,
                 hintText: S.of(context).mobileNumber,
-                hintStyle: Styles.textStyle16Medium,
+                hintStyle: Styles.textStyle16Medium(context),
                 border: OutlineInputBorder(
                   borderSide: const BorderSide(
                     color: AppColors.secondaryColor,
