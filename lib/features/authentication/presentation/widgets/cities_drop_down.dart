@@ -162,7 +162,9 @@ class _CitiesDropDownState extends State<CitiesDropDown> {
                   .toList();
 
               // Set initial city if provided
-              if (widget.initialCityId != null && selectedCityName == null) {
+              if (widget.initialCityId != null &&
+                  selectedCityName == null &&
+                  cities.isNotEmpty) {
                 final initialCity = cities.firstWhere(
                   (city) => city.id == widget.initialCityId,
                   orElse: () => cities.first,

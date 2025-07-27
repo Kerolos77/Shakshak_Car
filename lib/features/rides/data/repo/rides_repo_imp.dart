@@ -13,7 +13,7 @@ class RidesRepoImp implements RidesRepo {
   Future<Either<Failure, RidesModel>> getRides({required int inCity}) async {
     // try {
     var data = await DioHelper.getData(
-        url: ApiConstant.geUserRidesUrl,
+        url: ApiConstant.getUserRidesUrl,
         token: CacheHelper.getData(key: AppConstant.kToken),
         query: {
           'in_city': inCity,

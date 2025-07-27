@@ -159,5 +159,6 @@
   "close": "Close",
   "logoutSuccessMessage": "You have been logged out successfully",
   "updateProfile": "Update profile",
-  "profileUpdatedSuccessfully": "Profile updated successfully"
+  "profileUpdatedSuccessfully": "Profile updated successfully",
+  "readFaqsSolution": "Read FAQs solution"
 }

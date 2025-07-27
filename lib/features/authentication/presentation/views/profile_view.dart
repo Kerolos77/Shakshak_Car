@@ -36,7 +36,8 @@ class ProfileView extends StatefulWidget {
 class _ProfileViewState extends State<ProfileView> {
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
+
+  // final TextEditingController _phoneController = TextEditingController();
   int? _selectedCountryId;
   int? _selectedCityId;
   String profilePhotoUrl = '';
@@ -55,7 +56,7 @@ class _ProfileViewState extends State<ProfileView> {
   void dispose() {
     _userNameController.dispose();
     _emailController.dispose();
-    _phoneController.dispose();
+    // _phoneController.dispose();
     super.dispose();
   }
 
@@ -96,7 +97,7 @@ class _ProfileViewState extends State<ProfileView> {
               ),
               hint: S.of(context).userName,
             ),
-            12.ph,
+            /*12.ph,
             CustomTextField(
               controller: _phoneController,
               isReadOnly: true,
@@ -108,7 +109,7 @@ class _ProfileViewState extends State<ProfileView> {
                 child: SvgPicture.asset(Assets.svgPhone),
               ),
               hint: S.of(context).mobileNumber,
-            ),
+            ),*/
             12.ph,
             CustomTextField(
               controller: _emailController,
@@ -286,7 +287,8 @@ class _ProfileViewState extends State<ProfileView> {
           if (state is GetProfileSuccessState) {
             _userNameController.text = state.userModel.data?.name ?? '';
             _emailController.text = state.userModel.data?.email ?? '';
-            _phoneController.text = state.userModel.data?.phone ?? '';
+            /*  _phoneController.text =
+                (state.userModel.data?.phone)?.substring(3) ?? '';*/
             profilePhotoUrl = state.userModel.data?.image ?? '';
             _selectedCountryId = state.userModel.data?.countryId;
             _selectedCityId = state.userModel.data?.city;
@@ -315,6 +317,7 @@ class _ProfileViewState extends State<ProfileView> {
           return SingleChildScrollView(
             child: Column(
               children: [
+                12.ph,
                 CustomTextField(
                   controller: _userNameController,
                   autoValidateMode: AutovalidateMode.onUserInteraction,
@@ -325,8 +328,9 @@ class _ProfileViewState extends State<ProfileView> {
                   ),
                   hint: S.of(context).userName,
                 ),
-                12.ph,
-                CustomTextField(
+                /*
+               12.ph,
+               CustomTextField(
                   controller: _phoneController,
                   isReadOnly: true,
                   autoValidateMode: AutovalidateMode.onUserInteraction,
@@ -337,7 +341,11 @@ class _ProfileViewState extends State<ProfileView> {
                     child: SvgPicture.asset(Assets.svgPhone),
                   ),
                   hint: S.of(context).mobileNumber,
-                ),
+                ),*/
+                /*12.ph,
+                PhoneTextField(
+                  controller: _phoneController,
+                ),*/
                 12.ph,
                 CustomTextField(
                   controller: _emailController,

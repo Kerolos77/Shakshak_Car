@@ -214,6 +214,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "تم تحديث الملف الشخصي بنجاح",
     ),
     "promoCode": MessageLookupByLibrary.simpleMessage("رمز ترويجي"),
+    "readFaqsSolution": MessageLookupByLibrary.simpleMessage(
+      "اقرأ حلول الأسئلة الشائعة",
+    ),
     "rides": MessageLookupByLibrary.simpleMessage("الرحلات"),
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
     "selectCarModel": MessageLookupByLibrary.simpleMessage("اختر طراز السيارة"),

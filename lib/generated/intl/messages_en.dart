@@ -218,6 +218,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Profile updated successfully",
     ),
     "promoCode": MessageLookupByLibrary.simpleMessage("Promo code"),
+    "readFaqsSolution": MessageLookupByLibrary.simpleMessage(
+      "Read FAQs solution",
+    ),
     "rides": MessageLookupByLibrary.simpleMessage("Rides"),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "selectCarModel": MessageLookupByLibrary.simpleMessage("Select car model"),

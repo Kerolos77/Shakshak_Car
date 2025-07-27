@@ -46,7 +46,7 @@ class _PhoneTextFieldState extends State<PhoneTextField> {
               },
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.zero,
-                fillColor: Colors.white,
+                fillColor: Theme.of(context).colorScheme.surface,
                 filled: true,
                 hintText: S.of(context).mobileNumber,
                 hintStyle: Styles.textStyle16Medium(context),
@@ -94,6 +94,8 @@ class _PhoneTextFieldState extends State<PhoneTextField> {
               ),
               languageCode: "en",
               initialCountryCode: "EG",
+              style: Styles.textStyle18SemiBold(context).copyWith(
+                  color: Theme.of(context).textTheme.bodyLarge?.color),
             ),
           ],
         );

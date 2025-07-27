@@ -188,5 +188,6 @@
   "close": "إغلاق",
   "logoutSuccessMessage": "تم تسجيل خروجك بنجاح",
   "updateProfile": "تحديث الملف الشخصي",
-  "profileUpdatedSuccessfully": "تم تحديث الملف الشخصي بنجاح"
+  "profileUpdatedSuccessfully": "تم تحديث الملف الشخصي بنجاح",
+  "readFaqsSolution": "اقرأ حلول الأسئلة الشائعة"
 }

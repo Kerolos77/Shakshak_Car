@@ -1269,6 +1269,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Read FAQs solution`
+  String get readFaqsSolution {
+    return Intl.message(
+      'Read FAQs solution',
+      name: 'readFaqsSolution',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

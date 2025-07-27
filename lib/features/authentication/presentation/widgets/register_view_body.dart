@@ -122,7 +122,6 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                 RegisterButton(
                     userNameController: userNameController,
                     emailController: emailController,
-                    phoneController: phoneController,
                     formKey: formKey),
                 HaveAnAccountWidget(),
                 24.ph

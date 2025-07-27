@@ -8,6 +8,8 @@ import 'package:shakshak/features/authentication/presentation/views/login_view.d
 import 'package:shakshak/features/authentication/presentation/views/otp_view.dart';
 import 'package:shakshak/features/authentication/presentation/views/profile_view.dart';
 import 'package:shakshak/features/authentication/presentation/views/register_view.dart';
+import 'package:shakshak/features/contact_us/data/repo/contact_us_repo.dart';
+import 'package:shakshak/features/contact_us/presentation/view_models/contact_us_cubit.dart';
 import 'package:shakshak/features/contact_us/presentation/views/contact_us_view.dart';
 import 'package:shakshak/features/driver/home/presentation/views/driver_home_view.dart';
 import 'package:shakshak/features/driver/online_registration/views/car_licence_view.dart';
@@ -17,6 +19,8 @@ import 'package:shakshak/features/driver/online_registration/views/driver_online
 import 'package:shakshak/features/driver/online_registration/views/licence_view.dart';
 import 'package:shakshak/features/driver/online_registration/views/national_id_view.dart';
 import 'package:shakshak/features/driver/trip_map/presentation/views/trip_map_view.dart';
+import 'package:shakshak/features/faq/data/repo/faqs_repo.dart';
+import 'package:shakshak/features/faq/presentation/view_models/faqs_cubit.dart';
 import 'package:shakshak/features/faq/presentation/views/faq_view.dart';
 import 'package:shakshak/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:shakshak/features/outstation/presentation/views/out_station_view.dart';
@@ -25,7 +29,8 @@ import 'package:shakshak/features/rides/presentation/view_models/rides_cubit.dar
 import 'package:shakshak/features/rides/presentation/views/rides_view.dart';
 import 'package:shakshak/features/settings/presentation/views/settings_view.dart';
 import 'package:shakshak/features/splash/presentation/views/splash_view.dart';
-import 'package:shakshak/features/terms_and_conditions/presetation/views/terms_and_conditions_view.dart';
+import 'package:shakshak/features/static_pages/data/repo/static_pages_repo.dart';
+import 'package:shakshak/features/static_pages/presentation/view_models/static_pages_cubit.dart';
 import 'package:shakshak/features/user_home/presentation/views/user_home_view.dart';
 import 'package:shakshak/features/wallet/data/repo/wallet_repo.dart';
 import 'package:shakshak/features/wallet/presentation/view_models/wallet_cubit.dart';
@@ -36,7 +41,8 @@ import '../../features/authentication/presentation/views/role_selection_view.dar
 import '../../features/driver/outstation/presentation/views/driver_outstation_view.dart';
 import '../../features/driver/vehicle_information/presentation/views/vehicle_information_view.dart';
 import '../../features/outstation_rides/presentation/views/outstation_rides_view.dart';
-import '../../features/terms_and_conditions/presetation/views/privacy_policy_view.dart';
+import '../../features/static_pages/presentation/views/privacy_policy_view.dart';
+import '../../features/static_pages/presentation/views/terms_and_conditions_view.dart';
 import '../../features/user_home_page/presentation/screen/select_destination_page.dart';
 import '../../features/user_home_page/presentation/screen/user_home_page.dart';
 import '../services/service_locator.dart';
@@ -97,7 +103,10 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: TermsAndConditionsView(),
+          child: BlocProvider(
+            create: (context) => StaticPagesCubit(sl<StaticPagesRepo>()),
+            child: TermsAndConditionsView(),
+          ),
         ),
       ),
       GoRoute(
@@ -105,7 +114,10 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: PrivacyPolicyView(),
+          child: BlocProvider(
+            create: (context) => StaticPagesCubit(sl<StaticPagesRepo>()),
+            child: PrivacyPolicyView(),
+          ),
         ),
       ),
       GoRoute(
@@ -248,7 +260,10 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: ContactUsView(),
+          child: BlocProvider(
+            create: (context) => ContactUsCubit(sl<ContactUsRepo>()),
+            child: ContactUsView(),
+          ),
         ),
       ),
       GoRoute(
@@ -256,7 +271,10 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: FaqView(),
+          child: BlocProvider(
+            create: (context) => FaqsCubit(sl<FaqsRepo>()),
+            child: FaqView(),
+          ),
         ),
       ),
       // --------------------------------- Driver ---------------------------------

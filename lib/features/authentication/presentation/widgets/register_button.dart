@@ -20,13 +20,10 @@ class RegisterButton extends StatelessWidget {
     super.key,
     required this.userNameController,
     required this.emailController,
-    required this.phoneController,
     required this.formKey,
   });
 
-  final TextEditingController userNameController,
-      emailController,
-      phoneController;
+  final TextEditingController userNameController, emailController;
 
   final GlobalKey<FormState> formKey;
 
@@ -80,7 +77,7 @@ class RegisterButton extends StatelessWidget {
                       signupBody: SignupBody(
                         userName: userNameController.text,
                         email: emailController.text,
-                        phone: phoneController.text,
+                        phone: context.read<AuthCubit>().completeNumber,
                         countryId: context
                                 .read<CountriesCitiesCubit>()
                                 .selectedCountryId ??

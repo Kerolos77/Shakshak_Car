@@ -18,5 +18,14 @@ class ApiConstant {
   static const String withdrawRequestUrl = 'user/withdraw_request';
 
   // rides
-  static const String geUserRidesUrl = 'order/old-for-user';
+  static const String getUserRidesUrl = 'order/old-for-user';
+
+  //faqs
+  static const String getFaqsUrl = 'faqs';
+
+  //contact us
+  static const String getContactUsUrl = 'contact-us';
+
+  //contact us
+  static const String getStaticPagesUrl = 'pages';
 }

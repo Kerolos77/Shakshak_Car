@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -126,6 +127,60 @@ Future<void> makePhoneCall({required String phoneNumber}) async {
     await launchUrl(Uri.parse(launchUri.toString()));
   } else {
     throw 'Could not launch $launchUri';
+  }
+}
+
+Future<void> openMapLink(BuildContext context, String mapUrl) async {
+  try {
+    // First try to launch the URL directly
+    final uri = Uri.parse(mapUrl);
+
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(
+        uri,
+        mode: LaunchMode.externalApplication,
+      );
+      return;
+    }
+
+    // If direct launch fails, try platform-specific approaches
+    final isIOS = defaultTargetPlatform == TargetPlatform.iOS;
+
+    if (isIOS) {
+      // Try Apple Maps as fallback for iOS
+      final appleMapsUri = Uri.parse('https://maps.apple.com/');
+      if (await canLaunchUrl(appleMapsUri)) {
+        await launchUrl(appleMapsUri);
+        return;
+      }
+    } else {
+      // Try standard Google Maps URL for Android
+      final googleMapsUri = Uri.parse('https://www.google.com/maps/');
+      if (await canLaunchUrl(googleMapsUri)) {
+        await launchUrl(googleMapsUri);
+        return;
+      }
+    }
+//
+    // Ultimate fallback - try opening in browser
+    final browserUri = Uri.parse(mapUrl);
+    if (await canLaunchUrl(browserUri)) {
+      await launchUrl(
+        browserUri,
+        mode: LaunchMode.externalApplication,
+      );
+    } else {
+      throw 'Could not launch any maps application';
+    }
+  } catch (e) {
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Could not open maps: ${e.toString()}'),
+          duration: const Duration(seconds: 3),
+        ),
+      );
+    }
   }
 }
 
