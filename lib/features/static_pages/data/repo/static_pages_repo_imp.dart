@@ -19,6 +19,9 @@ class StaticPagesRepoImp implements StaticPagesRepo {
           token: CacheHelper.getData(key: AppConstant.kToken),
           query: {
             'id': id,
+            'locale': CacheHelper.getData(
+              key: AppConstant.kCurrentLanguage,
+            ),
           });
       return right(StaticPagesModel.fromJson(data.data));
     } catch (e) {

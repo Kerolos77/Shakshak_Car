@@ -25,6 +25,7 @@ class ApiConstant {
 
   //contact us
   static const String getContactUsUrl = 'contact-us';
+  static const String writeUsUrl = 'write_us';
 
   //contact us
   static const String getStaticPagesUrl = 'pages';

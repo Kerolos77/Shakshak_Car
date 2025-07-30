@@ -35,7 +35,7 @@ class RegisterButton extends StatelessWidget {
           if (state.userModel.statusval == true) {
             showSnackBar(
                 context,
-                state.userModel.msg!,
+                state.userModel.msg ?? '',
                 S.of(context).doneSuccessfully,
                 AppColors.primaryColor,
                 ContentType.success);

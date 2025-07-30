@@ -78,6 +78,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "صف مشكلتك وملاحظاتك",
     ),
     "describeIssue": MessageLookupByLibrary.simpleMessage("صف مشكلتك"),
+    "descriptionRequired": MessageLookupByLibrary.simpleMessage("الوصف مطلوب"),
     "dimension": MessageLookupByLibrary.simpleMessage("الأبعاد: "),
     "dobRequired": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد مطلوب"),
     "done": MessageLookupByLibrary.simpleMessage("تم"),

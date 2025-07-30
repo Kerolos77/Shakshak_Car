@@ -18,7 +18,7 @@ class _TermsAndConditionsViewState extends State<TermsAndConditionsView> {
   @override
   void initState() {
     super.initState();
-    context.read<StaticPagesCubit>().getStaticPages(id: 2);
+    context.read<StaticPagesCubit>().getStaticPages(id: 3);
   }
 
   @override

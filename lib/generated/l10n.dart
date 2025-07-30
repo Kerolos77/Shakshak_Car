@@ -1279,6 +1279,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Description required`
+  String get descriptionRequired {
+    return Intl.message(
+      'Description required',
+      name: 'descriptionRequired',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

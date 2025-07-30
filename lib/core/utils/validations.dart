@@ -38,6 +38,16 @@ class Validation {
     };
   }
 
+  static String? Function(String?) validateDescription(BuildContext context) {
+    return (String? value) {
+      if (value == null || value.isEmpty) {
+        return S.of(context).descriptionRequired;
+      } else {
+        return null;
+      }
+    };
+  }
+
   static String? Function(String?) validateOTP(BuildContext context) {
     return (String? value) {
       if (value == null || value.isEmpty) {

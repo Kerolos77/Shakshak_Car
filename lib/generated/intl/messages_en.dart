@@ -82,6 +82,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "describeIssue": MessageLookupByLibrary.simpleMessage(
       "Describe your issue",
     ),
+    "descriptionRequired": MessageLookupByLibrary.simpleMessage(
+      "Description required",
+    ),
     "dimension": MessageLookupByLibrary.simpleMessage("Dimension:"),
     "dobRequired": MessageLookupByLibrary.simpleMessage(
       "Date of birth is required",

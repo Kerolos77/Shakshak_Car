@@ -160,5 +160,6 @@
   "logoutSuccessMessage": "You have been logged out successfully",
   "updateProfile": "Update profile",
   "profileUpdatedSuccessfully": "Profile updated successfully",
-  "readFaqsSolution": "Read FAQs solution"
+  "readFaqsSolution": "Read FAQs solution",
+  "descriptionRequired": "Description required"
 }

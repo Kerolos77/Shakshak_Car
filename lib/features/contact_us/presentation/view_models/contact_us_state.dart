@@ -18,3 +18,17 @@ final class ContactUsFailure extends ContactUsState {
 
   ContactUsFailure({required this.errorMessage});
 }
+
+final class WriteUsLoading extends ContactUsState {}
+
+final class WriteUsSuccess extends ContactUsState {
+  final WriteUsModel writeUsModel;
+
+  WriteUsSuccess({required this.writeUsModel});
+}
+
+final class WriteUsFailure extends ContactUsState {
+  final String errorMessage;
+
+  WriteUsFailure({required this.errorMessage});
+}
