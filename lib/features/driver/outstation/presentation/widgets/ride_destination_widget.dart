@@ -51,12 +51,12 @@ class RideDestinationWidget extends StatelessWidget {
             children: [
               Text(
                 from,
-                style: Styles.textStyle16Medium,
+                style: Styles.textStyle16Medium(context),
               ),
               30.ph,
               Text(
                 to,
-                style: Styles.textStyle16SemiBold,
+                style: Styles.textStyle16SemiBold(context),
               ),
             ],
           ),

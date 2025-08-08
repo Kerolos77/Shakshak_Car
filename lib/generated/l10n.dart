@@ -925,6 +925,286 @@ class S {
     );
   }
 
+  /// `Select country`
+  String get selectCountry {
+    return Intl.message(
+      'Select country',
+      name: 'selectCountry',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select city`
+  String get selectCity {
+    return Intl.message('Select city', name: 'selectCity', desc: '', args: []);
+  }
+
+  /// `Country is required`
+  String get countryIsRequired {
+    return Intl.message(
+      'Country is required',
+      name: 'countryIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `City is required`
+  String get cityIsRequired {
+    return Intl.message(
+      'City is required',
+      name: 'cityIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password is required`
+  String get passwordRequired {
+    return Intl.message(
+      'Password is required',
+      name: 'passwordRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must be at least 8 characters`
+  String get passwordMinLength {
+    return Intl.message(
+      'Password must be at least 8 characters',
+      name: 'passwordMinLength',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please confirm your password`
+  String get confirmPasswordRequired {
+    return Intl.message(
+      'Please confirm your password',
+      name: 'confirmPasswordRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords do not match`
+  String get passwordsDoNotMatch {
+    return Intl.message(
+      'Passwords do not match',
+      name: 'passwordsDoNotMatch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name is required`
+  String get nameRequired {
+    return Intl.message(
+      'Name is required',
+      name: 'nameRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OTP is required`
+  String get otpRequired {
+    return Intl.message(
+      'OTP is required',
+      name: 'otpRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Photo is required`
+  String get photoRequired {
+    return Intl.message(
+      'Photo is required',
+      name: 'photoRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Street name is required`
+  String get streetNameRequired {
+    return Intl.message(
+      'Street name is required',
+      name: 'streetNameRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Building is required`
+  String get buildingRequired {
+    return Intl.message(
+      'Building is required',
+      name: 'buildingRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Floor is required`
+  String get floorRequired {
+    return Intl.message(
+      'Floor is required',
+      name: 'floorRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Apartment is required`
+  String get apartmentRequired {
+    return Intl.message(
+      'Apartment is required',
+      name: 'apartmentRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gender is required`
+  String get genderRequired {
+    return Intl.message(
+      'Gender is required',
+      name: 'genderRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Age is required`
+  String get ageRequired {
+    return Intl.message(
+      'Age is required',
+      name: 'ageRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone number is required`
+  String get phoneRequired {
+    return Intl.message(
+      'Phone number is required',
+      name: 'phoneRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid Saudi phone number`
+  String get invalidPhone {
+    return Intl.message(
+      'Invalid Saudi phone number',
+      name: 'invalidPhone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email or phone number is required`
+  String get emailOrPhoneRequired {
+    return Intl.message(
+      'Email or phone number is required',
+      name: 'emailOrPhoneRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid email address`
+  String get invalidEmail {
+    return Intl.message(
+      'Invalid email address',
+      name: 'invalidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `or`
+  String get or {
+    return Intl.message('or', name: 'or', desc: '', args: []);
+  }
+
+  /// `a valid Saudi phone number`
+  String get validPhone {
+    return Intl.message(
+      'a valid Saudi phone number',
+      name: 'validPhone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email is required`
+  String get emailRequired {
+    return Intl.message(
+      'Email is required',
+      name: 'emailRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `National ID is required`
+  String get nationalIdRequired {
+    return Intl.message(
+      'National ID is required',
+      name: 'nationalIdRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid National ID`
+  String get invalidNationalId {
+    return Intl.message(
+      'Invalid National ID',
+      name: 'invalidNationalId',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date of birth is required`
+  String get dobRequired {
+    return Intl.message(
+      'Date of birth is required',
+      name: 'dobRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid date of birth`
+  String get invalidDob {
+    return Intl.message(
+      'Invalid date of birth',
+      name: 'invalidDob',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account registered successfully`
+  String get accountRegisteredSuccessfully {
+    return Intl.message(
+      'Account registered successfully',
+      name: 'accountRegisteredSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Offer your fare`
   String get offerYourFare {
     return Intl.message(
@@ -943,6 +1223,71 @@ class S {
   /// `Promo code`
   String get promoCode {
     return Intl.message('Promo code', name: 'promoCode', desc: '', args: []);
+  }
+
+  /// `Are you sure you want to log out?`
+  String get logoutConfirmation {
+    return Intl.message(
+      'Are you sure you want to log out?',
+      name: 'logoutConfirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get close {
+    return Intl.message('Close', name: 'close', desc: '', args: []);
+  }
+
+  /// `You have been logged out successfully`
+  String get logoutSuccessMessage {
+    return Intl.message(
+      'You have been logged out successfully',
+      name: 'logoutSuccessMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update profile`
+  String get updateProfile {
+    return Intl.message(
+      'Update profile',
+      name: 'updateProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile updated successfully`
+  String get profileUpdatedSuccessfully {
+    return Intl.message(
+      'Profile updated successfully',
+      name: 'profileUpdatedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Read FAQs solution`
+  String get readFaqsSolution {
+    return Intl.message(
+      'Read FAQs solution',
+      name: 'readFaqsSolution',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Description required`
+  String get descriptionRequired {
+    return Intl.message(
+      'Description required',
+      name: 'descriptionRequired',
+      desc: '',
+      args: [],
+    );
   }
 }
 

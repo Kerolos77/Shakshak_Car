@@ -17,6 +17,7 @@ class WriteCommentWidget extends StatelessWidget {
       child: TextField(
         style: TextStyle(
           fontSize: 14.sp,
+          color: Theme.of(context).textTheme.bodyLarge?.color,
         ),
         // تحديد حجم الخط
         controller: commentController,
@@ -24,9 +25,9 @@ class WriteCommentWidget extends StatelessWidget {
         maxLines: 1,
         decoration: InputDecoration(
           hintText: '...Write your comment here...',
-          hintStyle: const TextStyle(),
+          hintStyle: TextStyle(color: Theme.of(context).hintColor),
           contentPadding: const EdgeInsets.symmetric(vertical: 20.0),
-          labelStyle: const TextStyle(color: AppColors.blackColor),
+          labelStyle: TextStyle(color: Theme.of(context).colorScheme.onSurface),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(18.r),
@@ -37,6 +38,11 @@ class WriteCommentWidget extends StatelessWidget {
             borderRadius: BorderRadius.all(
               Radius.circular(18.r),
             ),
+          ),
+          prefixIcon: Icon(
+            Icons.search_rounded,
+            size: 20,
+            color: Theme.of(context).iconTheme.color,
           ),
         ),
         onTap: onTap,

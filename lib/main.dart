@@ -10,11 +10,16 @@ import 'core/network/dio_helper/dio_helper.dart';
 import 'core/network/local/cache_helper.dart';
 import 'core/resources/app_colors.dart';
 import 'core/services/service_locator.dart';
+import 'core/utils/bloc_observer.dart';
 import 'features/base_layout/presentation/view_models/drawer_cubit/drawer_cubit.dart';
+import 'features/settings/presentation/view_models/language_cubit/language_cubit.dart';
+import 'features/settings/presentation/view_models/theme_cubit/theme_cubit.dart';
 import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = MyBlocObserver();
+
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -40,27 +45,45 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return BlocProvider(
-          create: (context) => DrawerCubit(),
-          child: MaterialApp.router(
-            theme: ThemeData(
-              scaffoldBackgroundColor: Colors.white,
-              primaryColor: AppColors.primaryColor,
-              colorScheme: ColorScheme.fromSeed(
-                seedColor: AppColors.primaryColor,
-              ),
-              fontFamily: 'Cairo',
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => DrawerCubit(),
             ),
-            localizationsDelegates: const [
-              S.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: S.delegate.supportedLocales,
-            locale: const Locale('en'),
-            debugShowCheckedModeBanner: false,
-            routerConfig: AppRouter.routers,
+            BlocProvider(
+              create: (context) => LanguageCubit(),
+            ),
+            BlocProvider(
+              create: (context) => ThemeCubit(),
+            ),
+          ],
+          child: BlocBuilder<LanguageCubit, LanguageState>(
+            buildWhen: (previous, current) =>
+                current is LanguageChangeLangState,
+            builder: (context, state) {
+              return BlocBuilder<ThemeCubit, ThemeState>(
+                builder: (context, themeState) {
+                  final themeCubit = context.read<ThemeCubit>();
+                  return MaterialApp.router(
+                    theme: themeCubit.themeData,
+                    darkTheme: AppColors.darkTheme,
+                    themeMode: themeCubit.state.themeMode == AppThemeMode.dark
+                        ? ThemeMode.dark
+                        : ThemeMode.light,
+                    localizationsDelegates: const [
+                      S.delegate,
+                      GlobalMaterialLocalizations.delegate,
+                      GlobalWidgetsLocalizations.delegate,
+                      GlobalCupertinoLocalizations.delegate,
+                    ],
+                    supportedLocales: S.delegate.supportedLocales,
+                    locale: Locale(AppConstant.currentLanguage),
+                    debugShowCheckedModeBanner: false,
+                    routerConfig: AppRouter.routers,
+                  );
+                },
+              );
+            },
           ),
         );
       },

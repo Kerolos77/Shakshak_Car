@@ -30,34 +30,48 @@ class OtpButton extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is VerifyPhoneOTPSuccessState) {
-          if (state.profileModel.status == 200) {
+          if (state.otpModel.statusval == true) {
             showSnackBar(
                 context,
-                state.profileModel.msg!,
+                state.otpModel.msg!,
                 S.of(context).doneSuccessfully,
                 AppColors.primaryColor,
                 ContentType.success);
-            if (state.profileModel.data?.id != null) {
-              CacheHelper.saveData(
-                  key: AppConstant.kUserIdOtp,
-                  value: state.profileModel.data?.id);
-              if(state.profileModel.data?.driverStatus == "0"){
-                navigateTo(context, Routes.userHomeView);
-              }else{
-                navigateTo(context, Routes.driverHomeView);
-              }
+            CacheHelper.saveData(
+                key: AppConstant.kUserIdOtp, value: state.otpModel.data?.id);
+            CacheHelper.saveData(
+                key: AppConstant.kToken, value: state.otpModel.data?.token);
+            CacheHelper.saveData(
+                key: AppConstant.kUserName, value: state.otpModel.data?.name);
+            CacheHelper.saveData(
+                key: AppConstant.kIsDriver,
+                value: state.otpModel.data?.isDriver);
+            if (state.otpModel.data?.isDriver == 0) {
+              navigateAndFinish(context, Routes.userHomeView);
+            } else {
+              navigateAndFinish(context, Routes.driverHomeView);
             }
-            else {
-            navigateTo(context, Routes.registerView,extra:{"phoneNumber":phoneNumber});
-          }
           } else {
-            showSnackBar(
-                context,
-                state.profileModel.msg!,
-                S.of(context).errorOccurred,
-                AppColors.redColor,
-                ContentType.failure);
+            if (state.otpModel.msg! == 'messages.notfound') {
+              showSnackBar(
+                  context,
+                  state.otpModel.msg!,
+                  S.of(context).errorOccurred,
+                  AppColors.redColor,
+                  ContentType.failure);
+              navigateAndFinish(context, Routes.registerView);
+            } else {
+              showSnackBar(
+                  context,
+                  state.otpModel.msg!,
+                  S.of(context).errorOccurred,
+                  AppColors.redColor,
+                  ContentType.failure);
+            }
           }
+        } else if (state is VerifyPhoneOTPErrorState) {
+          showSnackBar(context, state.errorMsg, S.of(context).errorOccurred,
+              AppColors.redColor, ContentType.failure);
         }
       },
       builder: (context, state) {
@@ -65,9 +79,7 @@ class OtpButton extends StatelessWidget {
           return CustomButton(
             text: S.of(context).activate,
             onTap: () {
-
-
-                 if (formKey.currentState!.validate()) {
+              if (formKey.currentState!.validate()) {
                 context.read<AuthCubit>().verifyPhoneOtp(
                       otpCode: int.parse(otpController.text),
                     );

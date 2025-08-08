@@ -2,6 +2,7 @@
 class Assets {
   Assets._();
 
+  static const String assetsImagesMarkeruser = 'assets/images/markeruser.svg';
   static const String fontsCairoBlack = 'assets/fonts/Cairo-Black.ttf';
   static const String fontsCairoBold = 'assets/fonts/Cairo-Bold.ttf';
   static const String fontsCairoExtraBold = 'assets/fonts/Cairo-ExtraBold.ttf';
@@ -11,7 +12,8 @@ class Assets {
   static const String fontsCairoMedium = 'assets/fonts/Cairo-Medium.ttf';
   static const String fontsCairoRegular = 'assets/fonts/Cairo-Regular.ttf';
   static const String fontsCairoSemiBold = 'assets/fonts/Cairo-SemiBold.ttf';
-  static const String imagesLogo = 'assets/images/logo.png';
+  static const String imagesLoading = 'assets/images/loading.gif';
+  static const String imagesMarkeruser = 'assets/images/markeruser.jpg';
   static const String svgArrowDown = 'assets/svg/arrow-down.svg';
   static const String svgArrowLeft = 'assets/svg/arrow-left.svg';
   static const String svgArrowRight = 'assets/svg/arrow-right.svg';

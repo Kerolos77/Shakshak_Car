@@ -7,10 +7,14 @@ import 'package:shakshak/core/extentions/padding_extention.dart';
 import 'package:shakshak/core/resources/app_colors.dart';
 import 'package:shakshak/core/utils/styles.dart';
 
+import '../../../../core/utils/common_use.dart';
 import '../../../../generated/l10n.dart';
+import '../../data/models/wallet_transactions_model.dart';
 
 class WalletTransactionItem extends StatefulWidget {
-  const WalletTransactionItem({super.key});
+  const WalletTransactionItem({super.key, required this.walletTransactionData});
+
+  final WalletTransactionData walletTransactionData;
 
   @override
   State<WalletTransactionItem> createState() => _WalletTransactionItemState();
@@ -52,14 +56,14 @@ class _WalletTransactionItemState extends State<WalletTransactionItem> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '+100.00 EGP',
-                        style: Styles.textStyle14Bold.copyWith(
+                        '+${widget.walletTransactionData.amount ?? 0} EGP',
+                        style: Styles.textStyle14Bold(context).copyWith(
                           color: AppColors.secondaryColor,
                         ),
                       ),
                       Text(
-                        S.of(context).deposit,
-                        style: Styles.textStyle14Bold,
+                        widget.walletTransactionData.type ?? '',
+                        style: Styles.textStyle14Bold(context),
                       ),
                     ],
                   ),
@@ -109,11 +113,11 @@ class _WalletTransactionItemState extends State<WalletTransactionItem> {
                     children: [
                       Text(
                         S.of(context).transactionId,
-                        style: Styles.textStyle14Bold,
+                        style: Styles.textStyle14Bold(context),
                       ),
                       Text(
-                        '#0123456789',
-                        style: Styles.textStyle14,
+                        '#${widget.walletTransactionData.paymentId ?? ''}',
+                        style: Styles.textStyle14(context),
                       ),
                     ],
                   ),
@@ -123,11 +127,11 @@ class _WalletTransactionItemState extends State<WalletTransactionItem> {
                     children: [
                       Text(
                         S.of(context).paidVia,
-                        style: Styles.textStyle14Bold,
+                        style: Styles.textStyle14Bold(context),
                       ),
                       Text(
-                        'Card',
-                        style: Styles.textStyle14,
+                        widget.walletTransactionData.paymentMethod ?? '',
+                        style: Styles.textStyle14(context),
                       ),
                     ],
                   ),
@@ -137,11 +141,12 @@ class _WalletTransactionItemState extends State<WalletTransactionItem> {
                     children: [
                       Text(
                         S.of(context).date,
-                        style: Styles.textStyle14Bold,
+                        style: Styles.textStyle14Bold(context),
                       ),
                       Text(
-                        '2025/5/5 , 05.55 PM',
-                        style: Styles.textStyle14,
+                        formatCustomDate(
+                            widget.walletTransactionData.createdAt ?? ''),
+                        style: Styles.textStyle14(context),
                       ),
                     ],
                   ),
@@ -151,11 +156,11 @@ class _WalletTransactionItemState extends State<WalletTransactionItem> {
                     children: [
                       Text(
                         S.of(context).status,
-                        style: Styles.textStyle14Bold,
+                        style: Styles.textStyle14Bold(context),
                       ),
                       Text(
-                        'Pending',
-                        style: Styles.textStyle14,
+                        widget.walletTransactionData.status ?? '',
+                        style: Styles.textStyle14(context),
                       ),
                     ],
                   ),

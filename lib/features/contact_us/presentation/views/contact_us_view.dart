@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:shakshak/core/resources/app_colors.dart';
 import 'package:shakshak/core/utils/styles.dart';
 import 'package:shakshak/features/base_layout/presentation/views/base_layout_view.dart';
 
 import '../../../../generated/l10n.dart';
 import '../widgets/call_us_body.dart';
-import '../widgets/email_us_body.dart';
+import '../widgets/write_us_body.dart';
 
 class ContactUsView extends StatefulWidget {
   const ContactUsView({super.key});
@@ -60,9 +59,10 @@ class _ContactUsViewState extends State<ContactUsView> {
                     child: Text(
                       titles[index],
                       textAlign: TextAlign.center,
-                      style: Styles.textStyle16Bold.copyWith(
-                        color:
-                            isSelected ? AppColors.primaryColor : Colors.black,
+                      style: Styles.textStyle16Bold(context).copyWith(
+                        color: isSelected
+                            ? Theme.of(context).primaryColor
+                            : Theme.of(context).colorScheme.onSurface,
                         fontWeight:
                             isSelected ? FontWeight.bold : FontWeight.w600,
                       ),
@@ -79,7 +79,7 @@ class _ContactUsViewState extends State<ContactUsView> {
               onPageChanged: _onPageChanged,
               children: [
                 CallUsBody(),
-                EmailUsBody(),
+                WriteUsBody(),
               ],
             ),
           ),

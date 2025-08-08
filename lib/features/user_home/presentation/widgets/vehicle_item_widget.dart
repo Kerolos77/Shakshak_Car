@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
-import 'package:shakshak/core/resources/app_colors.dart';
 import 'package:shakshak/core/utils/styles.dart';
 
 class VehicleItemWidget extends StatelessWidget {
@@ -21,8 +20,9 @@ class VehicleItemWidget extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(12.r),
         decoration: BoxDecoration(
-          color:
-              isSelected ? AppColors.primaryColor : AppColors.primaryLightColor,
+          color: isSelected
+              ? Theme.of(context).primaryColor
+              : Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(16.r),
         ),
         child: Column(
@@ -30,15 +30,15 @@ class VehicleItemWidget extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(12.r),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(16.r),
               ),
               child: CircleAvatar(
                 radius: 30.r,
-                backgroundColor: Colors.black,
+                backgroundColor: Theme.of(context).colorScheme.onSurface,
                 child: Icon(
                   Icons.person,
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.surface,
                   size: 50.r,
                 ),
               ),
@@ -46,7 +46,8 @@ class VehicleItemWidget extends StatelessWidget {
             6.ph,
             Text(
               'Ride',
-              style: Styles.textStyle16.copyWith(color: Colors.black),
+              style: Styles.textStyle16(context)
+                  .copyWith(color: Theme.of(context).colorScheme.onSurface),
             )
           ],
         ),

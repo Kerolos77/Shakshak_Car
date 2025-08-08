@@ -36,7 +36,7 @@ class RoleSelectionView extends StatelessWidget {
                 ),
                 Text(
                   S.of(context).loginAs,
-                  style: Styles.textStyle18SemiBold,
+                  style: Styles.textStyle18SemiBold(context),
                 ),
                 20.ph,
                 const RoleSelectionWidget(),
@@ -50,7 +50,7 @@ class RoleSelectionView extends StatelessWidget {
                     children: [
                       Text(
                         S.of(context).noAccount,
-                        style: Styles.textStyle14.copyWith(
+                        style: Styles.textStyle14(context).copyWith(
                           color: AppColors.primaryColor,
                         ),
                       ),
@@ -60,7 +60,7 @@ class RoleSelectionView extends StatelessWidget {
                         },
                         child: Text(
                           S.of(context).signup,
-                          style: Styles.textStyle14.copyWith(
+                          style: Styles.textStyle14(context).copyWith(
                             color: AppColors.darkGreyColor,
                           ),
                         ),

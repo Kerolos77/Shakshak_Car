@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/resources/app_colors.dart';
-import 'package:shakshak/generated/l10n.dart';
+
 import '../../data/models/trip_type_model.dart';
 
 class TripTypeWidget extends StatefulWidget {
@@ -29,13 +29,12 @@ class _TripTypeWidgetState extends State<TripTypeWidget> {
         width: 100.w,
         decoration: BoxDecoration(
           color: widget.isSelected
-              ? AppColors.primaryLightColor
-              : AppColors.whiteColor,
-          // Change color based on selection
+              ? Theme.of(context).colorScheme.secondary
+              : Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Padding(
-          padding:  EdgeInsets.all(3.r),
+          padding: EdgeInsets.all(3.r),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -65,7 +64,7 @@ class _TripTypeWidgetState extends State<TripTypeWidget> {
                           style: TextStyle(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.blackColor,
+                            color: Theme.of(context).colorScheme.onSurface,
                           ),
                         ),
                       ),
@@ -76,10 +75,8 @@ class _TripTypeWidgetState extends State<TripTypeWidget> {
               widget.isSelected
                   ? Flexible(
                       child: InkWell(
-                        onTap: () {
-
-                        }, // Keep this for any other action
-                        child:  Icon(
+                        onTap: () {}, // Keep this for any other action
+                        child: Icon(
                           Icons.info_outline,
                           color: AppColors.primaryColor,
                           size: 20.r,

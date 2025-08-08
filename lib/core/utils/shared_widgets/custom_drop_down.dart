@@ -39,7 +39,7 @@ class CustomDropDown extends StatelessWidget {
         if (label != null) ...[
           Text(
             label!,
-            style: Styles.textStyle16SemiBold,
+            style: Styles.textStyle16SemiBold(context),
           ),
           6.ph,
         ],
@@ -48,7 +48,7 @@ class CustomDropDown extends StatelessWidget {
             Container(
                 height: 40.h,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.surface,
                   borderRadius: BorderRadius.circular(borderRadius!),
                 )),
             Container(
@@ -59,7 +59,7 @@ class CustomDropDown extends StatelessWidget {
                 isExpanded: isExpanded,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: validator,
-                dropdownColor: Colors.white,
+                dropdownColor: Theme.of(context).colorScheme.surface,
                 icon: Padding(
                   padding: EdgeInsets.all(6.r),
                   child: SvgPicture.asset(
@@ -72,7 +72,7 @@ class CustomDropDown extends StatelessWidget {
                 value: value,
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Colors.white,
+                  fillColor: Theme.of(context).colorScheme.surface,
                   prefixIcon: prefix,
                   contentPadding: EdgeInsets.symmetric(
                     vertical: 4.h,
@@ -91,7 +91,7 @@ class CustomDropDown extends StatelessWidget {
                   return DropdownMenuItem(
                     value: value,
                     child: Text(
-                      style: Styles.textStyle18SemiBold,
+                      style: Styles.textStyle18SemiBold(context).copyWith(color: Theme.of(context).textTheme.bodyLarge?.color),
                       value ?? '',
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -101,7 +101,7 @@ class CustomDropDown extends StatelessWidget {
                 hint: Text(
                   hint,
                   textAlign: TextAlign.start,
-                  style: Styles.textStyle16Medium,
+                  style: Styles.textStyle16Medium(context).copyWith(color: Theme.of(context).hintColor),
                 ),
               ),
             ),

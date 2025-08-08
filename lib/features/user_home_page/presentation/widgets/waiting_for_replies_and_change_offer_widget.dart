@@ -3,12 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/network/local/cache_helper.dart';
+import '../../../../core/resources/app_colors.dart';
 import '../../data/models/cancel_ride_request_body.dart';
 import '../../logic/home_cubit.dart';
 import '../../logic/home_states.dart';
 import 'find_driver_button.dart';
-import '../../../../core/resources/app_colors.dart';
-import 'package:shakshak/generated/l10n.dart';
 
 class WaitingForRepliesAndChangeOfferWidget extends StatefulWidget {
   WaitingForRepliesAndChangeOfferWidget(
@@ -99,7 +98,7 @@ class _WaitingForRepliesAndChangeOfferWidgetState
               topLeft: Radius.circular(27.r),
               topRight: Radius.circular(27.r),
             ),
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.surface,
           ),
           child: ListView(
             children: [
@@ -110,7 +109,7 @@ class _WaitingForRepliesAndChangeOfferWidgetState
                     Text(
                       'Waiting for replies...',
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.surface,
                         fontSize: 18.sp,
                         fontWeight: FontWeight.w600,
                       ),
@@ -126,7 +125,10 @@ class _WaitingForRepliesAndChangeOfferWidgetState
                     Text(
                       'Your offer',
                       style: TextStyle(
-                        color: Colors.grey,
+                        color: Theme.of(context)
+                            .colorScheme
+                            .surface
+                            .withOpacity(0.7),
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
                       ),

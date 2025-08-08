@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
-import 'package:shakshak/core/resources/app_colors.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_app_bar.dart';
 
 import '../widgets/custom_drawer.dart';
@@ -29,7 +28,7 @@ class BaseLayoutView extends StatelessWidget {
           Container(
             width: MediaQuery.sizeOf(context).width,
             height: MediaQuery.sizeOf(context).height,
-            color: AppColors.primaryColor,
+            color: Theme.of(context).primaryColor,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -45,7 +44,7 @@ class BaseLayoutView extends StatelessWidget {
                       right: horizontalPadding.w),
                   clipBehavior: Clip.hardEdge,
                   decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.surface,
                       borderRadius: BorderRadius.vertical(
                         top: Radius.circular(
                           20.r,

@@ -2,6 +2,7 @@ import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shakshak/core/router/router_helper.dart';
+import 'package:shakshak/features/authentication/presentation/view_models/country_city_cubit/countries_cities_cubit.dart';
 
 import '../../../../core/constants/app_const.dart';
 import '../../../../core/network/local/cache_helper.dart';
@@ -11,6 +12,7 @@ import '../../../../core/utils/shared_widgets/custom_button.dart';
 import '../../../../core/utils/shared_widgets/custom_loading_button.dart';
 import '../../../../core/utils/shared_widgets/show_snack_bar.dart';
 import '../../../../generated/l10n.dart';
+import '../../data/models/signup_body.dart';
 import '../view_models/auth_cubit/auth_cubit.dart';
 
 class RegisterButton extends StatelessWidget {
@@ -18,18 +20,11 @@ class RegisterButton extends StatelessWidget {
     super.key,
     required this.userNameController,
     required this.emailController,
-    required this.phoneController,
-    // required this.countryCode,
     required this.formKey,
-    required this.passwordController,
   });
 
-  final TextEditingController userNameController,
-      emailController,
-      phoneController,
-      passwordController;
+  final TextEditingController userNameController, emailController;
 
-  // final String countryCode;
   final GlobalKey<FormState> formKey;
 
   @override
@@ -37,24 +32,34 @@ class RegisterButton extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is RegisterSuccessState) {
-          if (state.userModel.status == true) {
+          if (state.userModel.statusval == true) {
             showSnackBar(
                 context,
-                state.userModel.message!,
+                state.userModel.msg ?? '',
                 S.of(context).doneSuccessfully,
                 AppColors.primaryColor,
                 ContentType.success);
-            if (state.userModel.data?.token != null &&
-                state.userModel.data?.token != "") {
-              AppConstant.otp = state.userModel.data?.token;
+            if (state.userModel.data?.id != null) {
               CacheHelper.saveData(
-                  key: AppConstant.kRegisterToken,
-                  value: state.userModel.data?.token);
+                  key: AppConstant.kUserIdOtp, value: state.userModel.data?.id);
+              CacheHelper.saveData(
+                  key: AppConstant.kToken, value: state.userModel.data?.token);
+              CacheHelper.saveData(
+                  key: AppConstant.kUserName,
+                  value: state.userModel.data?.name);
+              CacheHelper.saveData(
+                  key: AppConstant.kIsDriver,
+                  value: state.userModel.data?.isDriver);
+              if (state.userModel.data?.isDriver == 0) {
+                navigateAndFinish(context, Routes.userHomeView);
+              } else {
+                navigateAndFinish(context, Routes.driverHomeView);
+              }
             }
           } else {
             showSnackBar(
               context,
-              state.userModel.message!,
+              state.userModel.msg ?? '',
               S.of(context).errorOccurred,
               AppColors.redColor,
               ContentType.failure,
@@ -67,23 +72,23 @@ class RegisterButton extends StatelessWidget {
           return CustomButton(
             text: S.of(context).signup,
             onTap: () {
-              CacheHelper.getData(key: AppConstant.kRoleSelection) == 'user'
-                  ? navigateAndFinish(context, Routes.userHomeView)
-                  : navigateAndFinish(context, Routes.driverHomeView);
-              /*       if (formKey.currentState!.validate()) {
-
-                  context.read<AuthCubit>().signup(
-                    signupBody: SignupBody(
-                      userName: userNameController.text,
-                      email: emailController.text,
-                      phone: phoneController.text,
-                      password: passwordController.text,
-                      roleId: CacheHelper.getData(
-                          key: AppConstant.kRoleSelection),
-                    ),
-                  );
-
-              }*/
+              if (formKey.currentState!.validate()) {
+                context.read<AuthCubit>().signup(
+                      signupBody: SignupBody(
+                        userName: userNameController.text,
+                        email: emailController.text,
+                        phone: context.read<AuthCubit>().completeNumber,
+                        countryId: context
+                                .read<CountriesCitiesCubit>()
+                                .selectedCountryId ??
+                            0,
+                        cityId: context
+                                .read<CountriesCitiesCubit>()
+                                .selectedCityId ??
+                            0,
+                      ),
+                    );
+              }
             },
           );
         } else {

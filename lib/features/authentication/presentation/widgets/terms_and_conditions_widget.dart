@@ -17,19 +17,19 @@ class TermsAndConditionsWidget extends StatelessWidget {
       textAlign: TextAlign.center,
       TextSpan(
         text: S.of(context).byTapping,
-        style: Styles.textStyle16,
+        style: Styles.textStyle16(context),
         children: [
           TextSpan(
             text: ' "${S.of(context).next}" ',
-            style: Styles.textStyle16Bold,
+            style: Styles.textStyle16Bold(context),
           ),
           TextSpan(
             text: S.of(context).agreeTo,
-            style: Styles.textStyle16SemiBold,
+            style: Styles.textStyle16SemiBold(context),
           ),
           TextSpan(
             text: S.of(context).termsAndConditions,
-            style: Styles.textStyle16Bold.copyWith(
+            style: Styles.textStyle16Bold(context).copyWith(
               decoration: TextDecoration.underline,
             ),
             recognizer: TapGestureRecognizer()
@@ -39,11 +39,11 @@ class TermsAndConditionsWidget extends StatelessWidget {
           ),
           TextSpan(
             text: ' ${S.of(context).and} ',
-            style: Styles.textStyle16,
+            style: Styles.textStyle16(context),
           ),
           TextSpan(
             text: S.of(context).privacyPolicy,
-            style: Styles.textStyle16Bold.copyWith(
+            style: Styles.textStyle16Bold(context).copyWith(
               decoration: TextDecoration.underline,
             ),
             recognizer: TapGestureRecognizer()

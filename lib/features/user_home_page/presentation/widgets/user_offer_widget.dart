@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/generated/l10n.dart';
-import 'package:shakshak/core/resources/app_colors.dart';
 
 import 'find_driver_button.dart';
 import 'title_with_close_button.dart';
@@ -19,7 +18,7 @@ class UserOfferWidget extends StatelessWidget {
         controller: controller,
         readOnly: true,
         style: TextStyle(
-          color: Colors.black,
+          color: Theme.of(context).textTheme.bodyLarge?.color,
           fontSize: 18.sp,
           fontWeight: FontWeight.w600,
         ),
@@ -40,7 +39,7 @@ class UserOfferWidget extends StatelessWidget {
           prefixStyle: TextStyle(
             fontSize: 18.sp,
             fontWeight: FontWeight.w500,
-            color: Colors.black,
+            color: Theme.of(context).primaryColor,
           ),
           suffixIcon: const Icon(
             Icons.edit_outlined,
@@ -89,13 +88,18 @@ class UserOfferWidget extends StatelessWidget {
                             padding: EdgeInsets.symmetric(horizontal: 40.w),
                             child: TextFormField(
                               controller: controller,
-                              style: TextStyle(fontSize: 40.sp),
+                              style: TextStyle(
+                                  fontSize: 40.sp,
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.color),
                               keyboardType: TextInputType.number,
                               textAlign: TextAlign.center,
                               decoration: InputDecoration(
                                 hintText: S.of(context).egpPrefix,
                                 hintStyle: TextStyle(
-                                  color: Colors.grey,
+                                  color: Theme.of(context).hintColor,
                                   fontSize: 40.sp,
                                   fontWeight: FontWeight.w800,
                                 ),

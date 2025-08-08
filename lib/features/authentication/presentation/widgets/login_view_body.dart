@@ -3,12 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 import 'package:shakshak/core/extentions/padding_extention.dart';
-import 'package:shakshak/core/utils/shared_widgets/phone_text_field.dart';
 import 'package:shakshak/generated/assets.dart';
 
 import '../../../../core/resources/app_colors.dart';
 import '../../../../core/router/router_helper.dart';
 import '../../../../core/router/routes.dart';
+import '../../../../core/utils/shared_widgets/phone_text_field.dart';
 import '../../../../core/utils/styles.dart';
 import '../../../../generated/l10n.dart';
 import 'login_button.dart';
@@ -57,21 +57,32 @@ class _LoginViewBodyState extends State<LoginViewBody> {
           50.ph,
           Text(
             S.of(context).login,
-            style: Styles.textStyle20Bold,
+            style: Styles.textStyle20Bold(context),
           ),
           Text(
             S.of(context).welcomeBack,
-            style: Styles.textStyle16,
+            style: Styles.textStyle16(context),
           ),
           30.ph,
           Form(
             key: formKey,
             child: Column(
               children: [
+                // CustomTextField(
+                //   controller: phoneController,
+                //   autoValidateMode: AutovalidateMode.onUserInteraction,
+                //   validator: Validation.validatePhone(context),
+                //   keyType: TextInputType.phone,
+                //   prefix: Padding(
+                //     padding: EdgeInsets.all(8.r),
+                //     child: SvgPicture.asset(Assets.svgPhone),
+                //   ),
+                //   hint: S.of(context).mobileNumber,
+                // ),
                 PhoneTextField(
                   controller: phoneController,
                 ),
-                14.ph,
+                24.ph,
                 LoginButton(
                   emailOrPhoneController: phoneController,
                   formKey: formKey,
@@ -84,7 +95,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     children: [
                       Text(
                         S.of(context).noAccount,
-                        style: Styles.textStyle14.copyWith(
+                        style: Styles.textStyle14(context).copyWith(
                           color: AppColors.primaryColor,
                         ),
                       ),
@@ -94,7 +105,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         },
                         child: Text(
                           S.of(context).signup,
-                          style: Styles.textStyle14.copyWith(
+                          style: Styles.textStyle14SemiBold(context).copyWith(
                             color: AppColors.darkGreyColor,
                           ),
                         ),

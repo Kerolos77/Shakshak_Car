@@ -57,7 +57,7 @@ class _OtpViewBodyState extends State<OtpViewBody> {
           Text(
             S.of(context).enterTheCodeSentToYourPhone,
             style:
-                Styles.textStyle14Bold.copyWith(color: AppColors.primaryColor),
+                Styles.textStyle14Bold(context).copyWith(color: AppColors.primaryColor),
           ),
           50.ph,
           Form(

@@ -35,19 +35,28 @@ class _SplashViewState extends State<SplashView>
       ),
     );
     _controller.forward();
+
     Future.delayed(const Duration(seconds: 3), () {
-      if (mounted) {
+      if (!mounted) return;
+
+      if (CacheHelper.getData(key: AppConstant.kOnBoarding) ?? false == true) {
         if (CacheHelper.getData(key: AppConstant.kToken) != null) {
-          navigateAndFinish(
-            context,
-            Routes.onBoardingView,
-          );
+          if (CacheHelper.getData(key: AppConstant.kIsDriver) == 1) {
+            navigateAndFinish(context, Routes.driverHomeView);
+          } else {
+            navigateAndFinish(context, Routes.userHomeView);
+          }
         } else {
           navigateAndFinish(
             context,
-            Routes.onBoardingView,
+            Routes.loginView,
           );
         }
+      } else {
+        navigateAndFinish(
+          context,
+          Routes.onBoardingView,
+        );
       }
     });
   }

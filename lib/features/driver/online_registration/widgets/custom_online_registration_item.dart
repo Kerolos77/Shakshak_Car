@@ -28,7 +28,7 @@ class CustomOnlineRegistrationItem extends StatelessWidget {
           children: [
             Text(
               title,
-              style: Styles.textStyle16.copyWith(color: Colors.white),
+              style: Styles.textStyle16(context).copyWith(color: Colors.white),
             ),
             Icon(
               Icons.chevron_right,

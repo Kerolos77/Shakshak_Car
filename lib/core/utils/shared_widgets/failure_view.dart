@@ -22,7 +22,7 @@ class FailureView extends StatelessWidget {
             Text(
               textAlign: TextAlign.center,
               errorMessage,
-              style: Styles.textStyle22Bold
+              style: Styles.textStyle22Bold(context)
                   .copyWith(color: AppColors.secondaryColor),
             ),
           ],

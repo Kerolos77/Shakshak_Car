@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class ProfileModel {
   ProfileModel({
     this.status,
@@ -12,9 +10,11 @@ class ProfileModel {
     status = json['status'];
     statusval = json['statusval'];
     msg = json['msg'];
-    data = json['data'].isNotEmpty
-        ? UserData.fromJson(jsonDecode(json['data']))
-        : null;
+    if (json['data'] != null && json['data'] is Map<String, dynamic>) {
+      data = UserData.fromJson(json['data']);
+    } else {
+      data = null;
+    }
   }
 
   int? status;
@@ -73,11 +73,11 @@ class UserData {
   String? name;
   String? phone;
   String? image;
-  int? countryId;
-  int? city;
+  dynamic countryId;
+  dynamic city;
   String? email;
   String? walletAmount;
-  String? pendingWallet;
+  dynamic pendingWallet;
   String? driverStatus;
   int? isDriver;
   int? isOnline;

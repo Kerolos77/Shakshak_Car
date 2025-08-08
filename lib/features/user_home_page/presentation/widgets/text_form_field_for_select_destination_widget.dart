@@ -1,15 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 import '../../../../core/resources/app_colors.dart';
 import '../../../../core/router/router_helper.dart';
 import '../../../../core/router/routes.dart';
 import '../../logic/home_cubit.dart';
-import 'select_destination_map_screen.dart';
-import 'select_destination_widget.dart';
 
 class TextFormFieldForSelectDestinationWidget extends StatelessWidget {
   const TextFormFieldForSelectDestinationWidget(
@@ -20,23 +15,25 @@ class TextFormFieldForSelectDestinationWidget extends StatelessWidget {
       required this.categoryName});
 
   final HomeCubit cubit;
+
   // final Function()? onTap;
   final String address;
   final String categoryName;
   final TextEditingController destinationController;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: destinationController,
       style: TextStyle(
-        color: AppColors.blackColor,
+        color: Theme.of(context).textTheme.bodyLarge?.color,
         fontSize: 14.sp,
         fontWeight: FontWeight.w600,
       ),
       decoration: InputDecoration(
         hintText: "To",
         hintStyle: TextStyle(
-          color: Colors.grey,
+          color: Theme.of(context).hintColor,
           fontSize: 14.sp,
           fontWeight: FontWeight.w600,
         ),
@@ -45,7 +42,7 @@ class TextFormFieldForSelectDestinationWidget extends StatelessWidget {
         prefixIcon: Icon(
           Icons.search_rounded,
           size: 20,
-          color: Colors.black,
+          color: Theme.of(context).iconTheme.color,
         ),
         border: OutlineInputBorder(
           borderSide: BorderSide.none,
@@ -56,9 +53,7 @@ class TextFormFieldForSelectDestinationWidget extends StatelessWidget {
       ),
       readOnly: true,
       onTap: () {
-        navigateTo(
-            context,Routes.selectDestinationPage,
-            extra: {
+        navigateTo(context, Routes.selectDestinationPage, extra: {
           'cubit': cubit,
           'address': address,
           'destinationController': destinationController,

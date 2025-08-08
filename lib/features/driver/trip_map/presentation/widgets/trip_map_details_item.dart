@@ -194,7 +194,7 @@ class _TripMapDetailsItemState extends State<TripMapDetailsItem> {
                   child: Center(
                       child: Text(
                     '+5',
-                    style: Styles.textStyle20Bold.copyWith(color: Colors.white),
+                    style: Styles.textStyle20Bold(context).copyWith(color: Colors.white),
                   )),
                 ),
                 separatorBuilder: (context, index) => 8.pw,

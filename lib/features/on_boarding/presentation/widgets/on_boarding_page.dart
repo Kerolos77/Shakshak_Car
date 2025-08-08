@@ -47,13 +47,13 @@ class OnBoardingPageItem extends StatelessWidget {
             Text(
               onBoardingTexts[index],
               textAlign: TextAlign.center,
-              style: Styles.textStyle20Bold,
+              style: Styles.textStyle20Bold(context),
             ),
             4.ph,
             Text(
               onBoardingTexts2[index],
               textAlign: TextAlign.center,
-              style: Styles.textStyle14Medium,
+              style: Styles.textStyle14Medium(context),
             ),
           ],
         ).paddingSymmetric(horizontal: 40.w),

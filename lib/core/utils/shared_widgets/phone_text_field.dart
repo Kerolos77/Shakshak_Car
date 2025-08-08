@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
+import '../../../features/authentication/presentation/view_models/auth_cubit/auth_cubit.dart';
 import '../../../generated/l10n.dart';
 import '../../resources/app_colors.dart';
 import '../styles.dart';
+import '../validations.dart';
 
 class PhoneTextField extends StatefulWidget {
   const PhoneTextField({
@@ -24,9 +27,7 @@ class _PhoneTextFieldState extends State<PhoneTextField> {
   @override
   Widget build(BuildContext context) {
     return FormField<String>(
-      validator: (value) {
-        return validatePhoneNumber(widget.controller?.text);
-      },
+      validator: Validation.validatePhone(context),
       builder: (fieldState) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,15 +36,20 @@ class _PhoneTextFieldState extends State<PhoneTextField> {
               textAlign: TextAlign.start,
               controller: widget.controller,
               onChanged: (phone) {
+                context
+                    .read<AuthCubit>()
+                    .changeCompleteNumber(completeNumber: phone.completeNumber);
+                print(context.read<AuthCubit>().completeNumber);
+
                 completeNumber = phone.completeNumber;
                 fieldState.didChange(phone.number);
               },
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.zero,
-                fillColor: Colors.white,
+                fillColor: Theme.of(context).colorScheme.surface,
                 filled: true,
                 hintText: S.of(context).mobileNumber,
-                hintStyle: Styles.textStyle16Medium,
+                hintStyle: Styles.textStyle16Medium(context),
                 border: OutlineInputBorder(
                   borderSide: const BorderSide(
                     color: AppColors.secondaryColor,
@@ -88,20 +94,12 @@ class _PhoneTextFieldState extends State<PhoneTextField> {
               ),
               languageCode: "en",
               initialCountryCode: "EG",
+              style: Styles.textStyle18SemiBold(context).copyWith(
+                  color: Theme.of(context).textTheme.bodyLarge?.color),
             ),
           ],
         );
       },
     );
   }
-}
-
-String? validatePhoneNumber(String? number) {
-  if (number == null || number.isEmpty) {
-    return 'Phone number is required';
-  }
-  if (number.length < 8) {
-    return 'Enter a valid phone number';
-  }
-  return null;
 }

@@ -10,6 +10,7 @@ import 'package:shakshak/core/utils/converts.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_button.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_divider.dart';
 import 'package:shakshak/core/utils/styles.dart';
+import 'package:shakshak/features/rides/data/models/ride.dart';
 
 import '../../../../../core/utils/common_use.dart';
 import '../../../../../generated/l10n.dart';
@@ -19,11 +20,13 @@ import 'ride_destination_widget.dart';
 class DriverRidesListItem extends StatelessWidget {
    DriverRidesListItem({
     super.key,
+    required this.ride,
     this.isOutstation = false,
     this.isNew = false,
      this.ride,
   });
 
+  final Ride ride;
   final bool isOutstation;
   final bool isNew;
   RideModel? ride;
@@ -109,7 +112,7 @@ class DriverRidesListItem extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
         decoration: BoxDecoration(
             boxShadow: AppConstant.shadow,
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.surfaceContainerHighest,
             borderRadius: BorderRadius.circular(12.r)),
         child: Column(
           children: [
@@ -129,65 +132,29 @@ class DriverRidesListItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        ride!.user!.name!,
-                        style: Styles.textStyle16SemiBold,
+                        ride.user?.name ?? '-',
+                        style: Styles.textStyle16SemiBold(context),
                       ),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              ride!.amount,
-                              style: Styles.textStyle16SemiBold,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                          Text(
-                            ' EGP',
-                            style: Styles.textStyle16SemiBold,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          12.pw,
-                          Text(
-                            ride!.paymentType.toUpperCase(),
-                            style: Styles.textStyle16SemiBold.copyWith(color: AppColors.primaryColor),
-                          ),
-                        ],
+                      Text(
+                        '${ride.amount ?? '-'} EGP',
+                        style: Styles.textStyle16SemiBold(context),
                       ),
                     ],
                   ),
                 ),
                 12.pw,
-                Column(
+                Row(
                   children: [
-                    Row(
-                      children: [
-                        Icon(
-                          FontAwesomeIcons.clock,
-                          color: Colors.black,
-                          size: 14.r,
-                        ),
-                        4.pw,
-                        Text(
-                          Converts.timeAgoFromNow(ride!.createdAt),
-                          style: Styles.textStyle14SemiBold
-                              .copyWith(color: Colors.black),
-                        ),
-                      ],
+                    Icon(
+                      Icons.place,
+                      color: Colors.black,
+                      size: 16.r,
                     ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.place,
-                          color: Colors.black,
-                          size: 16.r,
-                        ),
-                        4.pw,
-                        Text(
-                          '${ride!.distance} ${ride!.distanceType}',
-                          style: Styles.textStyle14SemiBold
-                              .copyWith(color: Colors.black),
-                        ),
-                      ],
+                    4.pw,
+                    Text(
+                      '${ride.distance ?? '-'} KM',
+                      style: Styles.textStyle14SemiBold(context)
+                          .copyWith(color: Colors.black),
                     ),
                   ],
                 ),
@@ -195,10 +162,79 @@ class DriverRidesListItem extends StatelessWidget {
             ),
             CustomDivider(),
             RideDestinationWidget(
-              from: ride!.sourceAddress,
-              to: ride!.destinationAddress,
+              from: ride.sourceAddress ?? '-',
+              to: ride.destinationAddress ?? '-',
             ),
             12.ph,
+            isOutstation
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '${S.of(context).weight} ${ride.parcelWeight ?? '-'} KG',
+                        style: Styles.textStyle16SemiBold(context),
+                      ),
+                      Text(
+                        '${S.of(context).dimension} ${ride.parcelDimension ?? '-'}',
+                        style: Styles.textStyle16SemiBold(context),
+                      ),
+                      Text(
+                        '${S.of(context).image} ${ride.parcelImage ?? '-'}',
+                        style: Styles.textStyle16SemiBold(context),
+                      ),
+                    ],
+                  )
+                : Container(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.surface,
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          '${S.of(context).status}: ',
+                          style: Styles.textStyle16Bold(context),
+                        ),
+                        Text(
+                          ride.status ?? '-',
+                          style: Styles.textStyle16(context),
+                        ),
+                      ],
+                    ),
+                  ),
+            12.ph,
+            if (isOutstation)
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+                decoration: BoxDecoration(
+                  color: AppColors.lightGreyColor,
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+                child: Text(
+                  'Recommended price is ${ride.amount ?? '-'} EGP , Approx distance ${ride.distance ?? '-'} KM',
+                  style: Styles.textStyle16(context),
+                ),
+              ),
+            if (!isOutstation)
+              CustomButton(
+                text: '',
+                onTap: () {
+                  if (ride.user?.phone != null) {
+                    makePhoneCall(
+                      phoneNumber: ride.user!.phone!,
+                    );
+                  }
+                },
+                height: 40,
+                borderRadius: 8,
+                img: Icon(
+                  Icons.call,
+                  color: Colors.white,
+                  size: 26.r,
+                ),
+              )
             if(!isNew)
             Column(
               children: [

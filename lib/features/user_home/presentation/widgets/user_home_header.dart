@@ -15,7 +15,7 @@ class UserHomeHeader extends StatelessWidget {
       children: [
         Text(
           'Mostafa',
-          style: Styles.textStyle20Bold.copyWith(
+          style: Styles.textStyle20Bold(context).copyWith(
             color: Colors.white,
           ),
         ),
@@ -32,7 +32,7 @@ class UserHomeHeader extends StatelessWidget {
             Expanded(
               child: Text(
                 '${S.of(context).welcomeBack} Mostafa!\n${S.of(context).helloToOurApp}',
-                style: Styles.textStyle16.copyWith(color: Colors.white),
+                style: Styles.textStyle16(context).copyWith(color: Colors.white),
               ),
             ),
           ],
