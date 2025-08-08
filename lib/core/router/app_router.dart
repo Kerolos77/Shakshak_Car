@@ -49,7 +49,7 @@ abstract class AppRouter {
   static final routers = GoRouter(
     navigatorKey: navigatorKey,
     debugLogDiagnostics: true,
-    initialLocation: Routes.userHomePage,
+    initialLocation: Routes.driverHomeView,
     routes: <RouteBase>[
       GoRoute(
         path: Routes.splashView,
@@ -108,7 +108,8 @@ abstract class AppRouter {
       GoRoute(
           path: Routes.otpView,
           pageBuilder: (context, state) {
-            final phoneNumber = state.extra as String;
+            final extra = state.extra as Map<String, dynamic>;
+            final phoneNumber = extra["phoneNumber"] as String;
             return buildPageWithDefaultTransition<void>(
               context: context,
               state: state,
@@ -123,7 +124,8 @@ abstract class AppRouter {
       GoRoute(
         path: Routes.registerView,
         pageBuilder: (context, state) {
-          final phoneNumber = state.extra as String?;
+          final extra = state.extra as Map<String, dynamic>;
+          final phoneNumber = extra["phoneNumber"] as String;
           return buildPageWithDefaultTransition<void>(
             context: context,
             state: state,
@@ -319,11 +321,16 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: Routes.tripMapView,
-        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+
+        pageBuilder: (context, state) {
+
+  final Map<String, dynamic> extra =
+  state.extra as Map<String, dynamic>;
+           return buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: TripMapView(),
-        ),
+          child: TripMapView(ride:extra['ride']),
+        );}
       ),
     ],
   );

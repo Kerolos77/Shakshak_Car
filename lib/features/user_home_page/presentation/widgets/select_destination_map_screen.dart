@@ -96,13 +96,13 @@ class _SelectDestinationMapScreenState
                     // Called when the camera stops moving
                     onCameraIdle: onCameraIdle,
                   ),
-                  Center(
-                    child: MarkerOfUserOnMapWidget(
-                      buscando: widget.homeCubit.destinationBuscando,
-                      header: widget.homeCubit.destinationAddress,
-                      markerHeight: 150.0,
-                    ),
-                  ),
+                  // Center(
+                  //   child: MarkerOfUserOnMapWidget(
+                  //     buscando: widget.homeCubit.destinationBuscando,
+                  //     header: widget.homeCubit.destinationAddress,
+                  //     markerHeight: 150.0,
+                  //   ),
+                  // ),
                 ],
               );
             },

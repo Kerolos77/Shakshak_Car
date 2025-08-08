@@ -13,12 +13,24 @@ class HeaderOfPlaceWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
         color: AppColors.primaryColor,
       ),
-      width: 170.w,
-      height: 38.h,
-      child: Center(
-        child: Text(
-          header,
-          style: TextStyle(color: AppColors.whiteColor, fontSize: 13.2.sp),
+      width: 150.h,
+      child: Padding(
+        padding: EdgeInsets.all(10.r),
+        child: Center(
+          child: Text(
+            header,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
+            strutStyle: const StrutStyle(
+              forceStrutHeight: true,
+
+            ),
+            style: TextStyle(
+              color: AppColors.whiteColor,
+              fontSize: 13.2.sp,
+            ),
+          ),
         ),
       ),
     );

@@ -12,12 +12,11 @@ class LoadingOfPlaceHeaderWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
         color: AppColors.primaryColor,
       ),
-      width: 48,
-      height: 38,
-      child: const Center(
+      child:Center(
         child: CircularProgressIndicator(
           valueColor: AlwaysStoppedAnimation(AppColors.whiteColor),
-          strokeWidth: 2.6,
+
+          strokeWidth: 1,
         ),
       ),
     );

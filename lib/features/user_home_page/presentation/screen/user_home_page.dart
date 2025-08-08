@@ -26,8 +26,11 @@ class _UserHomePageState extends State<UserHomePage> {
 
   @override
   Widget build(BuildContext context) {
+
     return BlocProvider(
-      create: (context) => HomeCubit()..getMyLocation(),
+      create: (context) => HomeCubit()
+        // ..getMyLocation()
+      ,
       child: UserHomePageForm(),
     );
   }

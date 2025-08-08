@@ -19,7 +19,7 @@ class _OnlineOfflineToggleButtonState extends State<OnlineOfflineToggleButton> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 12.h),
+      padding: EdgeInsets.only(top: 5.h),
       child: GestureDetector(
         onTap: () {
           setState(() {

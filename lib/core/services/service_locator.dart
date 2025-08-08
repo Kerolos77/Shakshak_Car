@@ -1,4 +1,6 @@
 import 'package:get_it/get_it.dart';
+import 'package:shakshak/features/driver/new_rides/data/repo/new_ride_repo.dart';
+import 'package:shakshak/features/driver/new_rides/data/repo/new_ride_repo_imp.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/authentication/data/repo/auth_repo.dart';
@@ -11,6 +13,9 @@ class ServiceLocator {
     await _initSharedPref();
     sl.registerLazySingleton<AuthRepo>(
       () => AuthRepoImp(),
+    );
+    sl.registerLazySingleton<NewRideRepo>(
+          () => NewRideRepoImp(),
     );
   }
 

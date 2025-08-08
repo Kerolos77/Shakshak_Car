@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geocode/geocode.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -141,7 +142,6 @@ class HomeCubit extends Cubit<HomeState> {
     LatLng lat,
   ) {
     this.mapLocation = lat;
-    animateCamera();
   }
 
   void changeLocationButtonFlag(bool flag) {
@@ -166,12 +166,27 @@ class HomeCubit extends Cubit<HomeState> {
     emit(CloseTripContainerHomeState());
   }
 
-  void getMyLocation() {
+  void getMyLocation({
+    required GoogleMapController mapController,
+    required LatLng targetLocation,
+    required Offset markerOffset,
+    required Size screenSize,
+}) {
     location.getLocation().then((value) {
+      print("targetlocationonmapfff: ${value.latitude}, ${value.longitude}");
       print('get location');
       changeLocation(
         LatLng(value.latitude!, value.longitude!),
-      ); animateCamera();
+      );
+     moveCameraToCustomScreenOffset(
+        mapController:mapController,
+        markerOffset:markerOffset,
+
+        screenSize:screenSize ,
+        targetLocation:LatLng(value.latitude!, value.longitude!),
+      );
+      // animateCamera();
+
     });
   }
 
@@ -191,35 +206,49 @@ class HomeCubit extends Cubit<HomeState> {
     );
     controller.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
   }
+  Future<void> moveCameraToCustomScreenOffset({
+    required GoogleMapController mapController,
+    required LatLng targetLocation,
+    required Offset markerOffset,
+    required Size screenSize,
+  }) async {
+    try {
+      print("targetlocationonmap: ${targetLocation.latitude}, ${targetLocation.longitude}");
+      final targetScreenCoord = await mapController.getScreenCoordinate(targetLocation);
+      final dx = (markerOffset.dx - screenSize.width ).toInt();
+      final dy = (markerOffset.dy - screenSize.height ).toInt();
+      final adjustedScreenCoord = ScreenCoordinate(
+        x: targetScreenCoord.x - dx,
+        y: targetScreenCoord.y - dy,
+      );
+      final adjustedLatLng = await mapController.getLatLng(adjustedScreenCoord);
+      await mapController.animateCamera(CameraUpdate.newCameraPosition(
+        CameraPosition(
+          target: adjustedLatLng,
+          zoom: zoomLevel,
+        ),
+      ));
+    } catch (e) {
+      print("Error moving camera with zoom sensitivity: $e");
+    }
+  }
+  Future<LatLng?> getMarkerLatLngFromScreenOffset({
+    required GoogleMapController mapController,
+    required Offset markerOffset,
+  }) async {
+    try {
+      final latLng = await mapController.getLatLng(ScreenCoordinate(
+        x: markerOffset.dx.toInt(),
+        y: markerOffset.dy.toInt(),
+      ));
+      return latLng;
+    } catch (e) {
+      print("Error getting LatLng from screen offset: $e");
+      return null;
+    }
+  }
 
-  // void sendNotification() {
-  //   services.showNotification(
-  //       id: 0,
-  //       title: "Infraction",
-  //       body:
-  //       """Speed: ${speedMps.toStringAsFixed(0)} \n price : 100 """);
-  // }
-  //
-  // void createAlert(BuildContext context) {
-  //   FirebaseFirestore.instance
-  //       .collection('users')
-  //       .doc(constUid)
-  //       .get()
-  //       .then((value) {
-  //     firebaseRepo
-  //         .createAlert(
-  //       name: "${value.data()!['name']}",
-  //       id: '$constUid',
-  //       nationalID: '${value.data()!['nationalID']}',
-  //       currentSpeed: speedMps.toStringAsFixed(0),
-  //
-  //       preSpeed: preSpeed.toStringAsFixed(0),
-  //       carNumber: "${value.data()!['carNumber']}",
-  //       price: "100 LE",
-  //       address: address,
-  //     );
-  //   });
-  // }
+
 
   getAddress({
     required double lat,

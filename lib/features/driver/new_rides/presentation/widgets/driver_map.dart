@@ -2,8 +2,9 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:shakshak/core/constants/key_const.dart';
 
-class UserMapWidget extends StatefulWidget {
+class DriverMapWidget extends StatefulWidget {
   final Function() onCameraIdle;
   final Function(CameraPosition) onCameraMove;
   final Function() onCameraMoveStarted;
@@ -13,24 +14,26 @@ class UserMapWidget extends StatefulWidget {
   final LatLng? start;
   final LatLng? end;
   final bool testMode;
+  final bool userMap;
 
-  const UserMapWidget({
+  const DriverMapWidget({
     required this.onCameraIdle,
     required this.onCameraMove,
     required this.onCameraMoveStarted,
     required this.onMapCreated,
     required this.cubit,
     required this.cars,
-    this.start = const LatLng(30.1377568, 31.3285276),
-    this.end = const LatLng(30.133154, 31.323619),
+    this.start ,
+    this.end  ,
+    this.userMap = false,
     this.testMode = false,
   });
 
   @override
-  State<UserMapWidget> createState() => _UserMapWidgetState();
+  State<DriverMapWidget> createState() => _UserMapWidgetState();
 }
 
-class _UserMapWidgetState extends State<UserMapWidget> {
+class _UserMapWidgetState extends State<DriverMapWidget> {
   Set<Polyline> _polylines = {};
   Set<Marker> _extraMarkers = {};
   GoogleMapController? _mapController;
@@ -71,8 +74,7 @@ class _UserMapWidgetState extends State<UserMapWidget> {
         LatLng(widget.start!.latitude - 0.004, widget.start!.longitude - 0.004),
         widget.end!,
       ];
-    } else {
-      final apiKey = 'AIzaSyB4IjmqA0Vds7Qbg9YhzShBjmdRIEYVZp4'; // ← استبدله بمفتاحك الصحيح
+    } else {// ← استبدله بمفتاحك الصحيح
       final url = 'https://routes.googleapis.com/directions/v2:computeRoutes';
 
       final body = {
@@ -93,11 +95,12 @@ class _UserMapWidgetState extends State<UserMapWidget> {
           }
         },
         "travelMode": "DRIVE",
-        "routingPreference": "TRAFFIC_AWARE"
+        "routingPreference": "TRAFFIC_AWARE",
+        "computeAlternativeRoutes": true,
       };
 
       final response = await http.post(
-        Uri.parse('$url?key=$apiKey'),
+        Uri.parse('$url?key=${KeyConst.mapDirectionKey}'),
 
         headers: {
           'Content-Type': 'application/json',

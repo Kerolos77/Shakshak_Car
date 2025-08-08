@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,59 +34,62 @@ class _UserHomePageFormState extends State<UserHomePageForm> {
   GoogleMapController? mapController; // ✅ Null safe
   bool locationButtonFlag = false;
   int currentOfferIndex = 0;
+  LatLng testMarkerLocation = LatLng(24.7136, 46.6753); // Riyadh coordinates
+  Size size = Size.zero;
 
   /// ثابت يحدد ارتفاع الماركر من منتصف الشاشة
-  final double markerOffset = 100.h;
-  final double markerHeight = 80.h;
+  double markerOffset = 100.h;
+  // final double markerHeight = 80.h;
 
   List<DriverOffer> driverOffers = [];
-
+  GlobalKey Key = GlobalKey();
   late HomeCubit cubit;
-
+  Size markerSize = Size(0, 0);
   @override
   void dispose() {
     super.dispose();
   }
 
+  Future<Size> getMarkerSize(GlobalKey key) async {
+    final completer = Completer<Size>();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final RenderBox renderBox =
+      key.currentContext!.findRenderObject() as RenderBox;
+      final size = renderBox.size;
+      completer.complete(size);
+    });
+    return completer.future;
+  }
+
+
   Future<void> onCameraIdle() async {
     locationButtonFlag = false;
 
     if (mapController == null) {
-      print("⚠️ mapController لم يجهز بعد");
       return;
     }
 
-    final size = MediaQuery.of(context).size;
-    final Offset screenPoint = Offset(
-      size.width / 2,
-      (size.height / 2) - markerOffset ,
+    markerSize = await getMarkerSize(Key);
+    final size =MediaQuery.of(context).size;
+
+    final Offset screenPointMarker = Offset(
+      size.width ,
+        size.height -(size.height -(markerSize.height*2+markerOffset*2))
     );
-    print("📍 إحداثيات الشاشة: ${screenPoint.dx}, ${screenPoint.dy}");
-    LatLng latLng = await mapController!.getLatLng(ScreenCoordinate(
-      x: screenPoint.dx.round(),
-      y: screenPoint.dy.round(),
-    ));
 
-    cubit.mapLocation = latLng;
+    final newLatLong= await cubit.getMarkerLatLngFromScreenOffset(
+        mapController:mapController!,
+        markerOffset: screenPointMarker,);
 
-    print("✅ إحداثيات النقطة تحت الماركر: ${latLng.latitude}, ${latLng.longitude}");
-
-    // ✅ إظهار SnackBar
-    // ScaffoldMessenger.of(context).showSnackBar(
-    //   SnackBar(
-    //     content: Text(
-    //       "📍 Latitude: ${latLng.latitude.toStringAsFixed(6)}\nLongitude: ${latLng.longitude.toStringAsFixed(6)}",
-    //     ),
-    //     duration: Duration(seconds: 2),
-    //   ),
-    // );
-
+    cubit.mapLocation = newLatLong!;
     cubit.openTripContainer();
 
     cubit.getAddress(
-      lat: latLng.latitude,
-      lng: latLng.longitude,
+      lat: newLatLong.latitude,
+      lng: newLatLong.longitude,
     );
+    print("📍 الموقع الجديد للكاميرا: ${newLatLong.latitude}, ${newLatLong.longitude}");
+    testMarkerLocation= newLatLong;
   }
 
 
@@ -96,17 +101,14 @@ class _UserHomePageFormState extends State<UserHomePageForm> {
   }
 
   void onCameraMove(CameraPosition position) {
-    cubit.zoomLevel = position.zoom;
+    // cubit.zoomLevel = position.zoom;
     cubit.mapBearing = position.bearing;
     cubit.mapLocation = position.target;
-
-    print("📍 الكاميرا تتحرك: ${position.target}");
   }
 
   Future<void> onMapCreated(GoogleMapController controller) async {
     cubit.mapController.complete(controller);
     mapController = controller;
-    print("✅ Map جاهزة");
   }
 
   void showDriverOfferDialog() {
@@ -150,6 +152,7 @@ class _UserHomePageFormState extends State<UserHomePageForm> {
 
   @override
   Widget build(BuildContext context) {
+    // markerOffset = size.height/75*100; // Adjusted for marker height
     return BlocConsumer<HomeCubit, HomeState>(
       listener: (context, state) {
         cubit = HomeCubit.get(context);
@@ -167,13 +170,35 @@ class _UserHomePageFormState extends State<UserHomePageForm> {
                   cubit: cubit,
                   tripTypeList: cubit.tripTypeList,
                   offerController: offerController,
-                  onLocationTap: () {
-                    locationButtonFlag = true;
-                    cubit.getMyLocation();
+                  onLocationTap: () async {
+                    markerSize = await getMarkerSize(Key);
+                    final size =MediaQuery.of(context).size;
+
+                    final Offset screenPointMarker = Offset(
+                        size.width ,
+                        size.height -(size.height -(markerSize.height*2+markerOffset*2))
+                    );
+                    cubit.getMyLocation(
+                        mapController: mapController!,
+                        markerOffset:screenPointMarker,
+                        screenSize:size ,
+                        targetLocation: LatLng(cubit.mapLocation.latitude, cubit.mapLocation.longitude),);
                     cubit.getAddress(
                       lat: cubit.mapLocation.latitude,
                       lng: cubit.mapLocation.longitude,
                     );
+
+
+                    locationButtonFlag = true;
+
+                    // cubit.moveCameraToCustomScreenOffset(
+                    //   mapController: mapController!,
+                    //   markerOffset:screenPointMarker,
+                    //
+                    //   screenSize:size ,
+                    //   targetLocation: LatLng(30.1425061, 31.3221873),
+                    // );
+
                   },
                 ),
               ),
@@ -222,24 +247,22 @@ class _UserHomePageFormState extends State<UserHomePageForm> {
                       onCameraMoveStarted: onCameraMoveStarted,
                       onMapCreated: onMapCreated,
                       cubit: cubit,
-                      cars: [],
+                      cars: [
+                        // testMarkerLocation!
+                      ],
                     ),
+
                     Positioned(
                       // top: -markerOffset,
-                      top: markerHeight+markerOffset,
+                      top: markerOffset,
                       child: MarkerOfUserOnMapWidget(
                         buscando: cubit.buscando,
                         header: cubit.address,
-                        markerHeight: markerHeight,
+                        // markerHeight: markerHeight,
+                        Key: Key,
                       ),
                     ),
-                    Positioned(
-                      top: 80.h,
-                        child: Icon(
-                      Icons.circle_outlined,
-                      color: Colors.red,
-                      size: 20.r,
-                    )),
+
                   ],
                 ),
                 // Drawer button
