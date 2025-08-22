@@ -197,6 +197,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordsDoNotMatch": MessageLookupByLibrary.simpleMessage(
       "كلمتا المرور غير متطابقتين",
     ),
+    "pay": MessageLookupByLibrary.simpleMessage("الرفع"),
     "phoneRequired": MessageLookupByLibrary.simpleMessage("رقم الهاتف مطلوب"),
     "photoRequired": MessageLookupByLibrary.simpleMessage("الصورة مطلوبة"),
     "pickupLocation": MessageLookupByLibrary.simpleMessage(
