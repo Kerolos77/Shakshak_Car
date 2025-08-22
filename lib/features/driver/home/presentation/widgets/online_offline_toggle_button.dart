@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shakshak/features/driver/home/presentation/view_models/driver_home_cubit.dart';
 
 import '../../../../../core/constants/app_const.dart';
 import '../../../../../core/utils/styles.dart';
@@ -24,6 +26,9 @@ class _OnlineOfflineToggleButtonState extends State<OnlineOfflineToggleButton> {
         onTap: () {
           setState(() {
             isOnline = !isOnline;
+            context
+                .read<DriverHomeCubit>()
+                .driverToggleOnline(value: isOnline == true ? 1 : 0);
           });
         },
         child: AnimatedContainer(

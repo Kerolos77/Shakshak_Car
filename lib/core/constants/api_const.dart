@@ -29,4 +29,8 @@ class ApiConstant {
 
   //contact us
   static const String getStaticPagesUrl = 'pages';
+
+  //driver registration
+  static const String driverRegistrationUrl = 'driver/registration';
+  static const String driverToggleOnlineUrl = 'user/toggle_online';
 }

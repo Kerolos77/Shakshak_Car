@@ -161,5 +161,6 @@
   "updateProfile": "Update profile",
   "profileUpdatedSuccessfully": "Profile updated successfully",
   "readFaqsSolution": "Read FAQs solution",
-  "descriptionRequired": "Description required"
+  "descriptionRequired": "Description required",
+  "pay": "Pay"
 }

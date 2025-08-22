@@ -11,6 +11,8 @@ import 'package:shakshak/features/authentication/presentation/views/register_vie
 import 'package:shakshak/features/contact_us/data/repo/contact_us_repo.dart';
 import 'package:shakshak/features/contact_us/presentation/view_models/contact_us_cubit.dart';
 import 'package:shakshak/features/contact_us/presentation/views/contact_us_view.dart';
+import 'package:shakshak/features/driver/home/data/repo/driver_home_repo.dart';
+import 'package:shakshak/features/driver/home/presentation/view_models/driver_home_cubit.dart';
 import 'package:shakshak/features/driver/home/presentation/views/driver_home_view.dart';
 import 'package:shakshak/features/driver/online_registration/views/car_licence_view.dart';
 import 'package:shakshak/features/driver/online_registration/views/car_view.dart';
@@ -34,6 +36,7 @@ import 'package:shakshak/features/static_pages/presentation/view_models/static_p
 import 'package:shakshak/features/user_home/presentation/views/user_home_view.dart';
 import 'package:shakshak/features/wallet/data/repo/wallet_repo.dart';
 import 'package:shakshak/features/wallet/presentation/view_models/wallet_cubit.dart';
+import 'package:shakshak/features/wallet/presentation/views/payment_view.dart';
 import 'package:shakshak/features/wallet/presentation/views/wallet_view.dart';
 import 'package:shakshak/features/wallet/presentation/views/withdraw_history_view.dart';
 
@@ -277,13 +280,28 @@ abstract class AppRouter {
           ),
         ),
       ),
+      GoRoute(
+        path: Routes.paymentView,
+        pageBuilder: (context, state) {
+          var data = state.extra as Map;
+
+          return buildPageWithDefaultTransition<void>(
+            context: context,
+            state: state,
+            child: PaymentView(paymentUrl: data['paymentUrl']),
+          );
+        },
+      ),
       // --------------------------------- Driver ---------------------------------
       GoRoute(
         path: Routes.driverHomeView,
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: DriverHomeView(),
+          child: BlocProvider(
+            create: (context) => DriverHomeCubit(sl<DriverHomeRepo>()),
+            child: DriverHomeView(),
+          ),
         ),
       ),
       GoRoute(

@@ -13,6 +13,7 @@ class Routes {
   static String outstationRidesView = "/outstationRidesView";
   static String walletView = "/walletView";
   static String withdrawHistoryView = "/withdrawHistoryView";
+  static String paymentView = "/paymentView";
   static String contactUsView = "/contactUsView";
   static String faqView = "/faqView";
   static String termsAndConditionsView = "/termsAndConditionsView";
