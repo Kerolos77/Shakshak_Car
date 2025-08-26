@@ -33,6 +33,8 @@ import 'package:shakshak/features/settings/presentation/views/settings_view.dart
 import 'package:shakshak/features/splash/presentation/views/splash_view.dart';
 import 'package:shakshak/features/static_pages/data/repo/static_pages_repo.dart';
 import 'package:shakshak/features/static_pages/presentation/view_models/static_pages_cubit.dart';
+import 'package:shakshak/features/user_home/data/repo/user_home_repo.dart';
+import 'package:shakshak/features/user_home/presentation/view_models/user_home_cubit.dart';
 import 'package:shakshak/features/user_home/presentation/views/user_home_view.dart';
 import 'package:shakshak/features/wallet/data/repo/wallet_repo.dart';
 import 'package:shakshak/features/wallet/presentation/view_models/wallet_cubit.dart';
@@ -181,7 +183,10 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: UserHomeView(),
+          child: BlocProvider(
+            create: (context) => UserHomeCubit(sl<UserHomeRepo>()),
+            child: UserHomeView(),
+          ),
         ),
       ),
       GoRoute(

@@ -17,6 +17,8 @@ import '../../features/faq/data/repo/faqs_repo.dart';
 import '../../features/rides/data/repo/rides_repo.dart';
 import '../../features/rides/data/repo/rides_repo_imp.dart';
 import '../../features/static_pages/data/repo/static_pages_repo_imp.dart';
+import '../../features/user_home/data/repo/static_pages_repo_imp.dart';
+import '../../features/user_home/data/repo/user_home_repo.dart';
 import '../../features/wallet/data/repo/wallet_repo_imp.dart';
 
 final sl = GetIt.instance;
@@ -50,6 +52,9 @@ class ServiceLocator {
     );
     sl.registerSingleton<DriverHomeRepo>(
       DriverHomeRepoImp(),
+    );
+    sl.registerSingleton<UserHomeRepo>(
+      UserHomeRepoImp(),
     );
   }
 

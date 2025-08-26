@@ -8,6 +8,7 @@ import 'package:shakshak/core/utils/styles.dart';
 import 'package:shakshak/features/base_layout/presentation/views/base_layout_view.dart';
 
 import '../../../../generated/l10n.dart';
+import '../widgets/captions_widget.dart';
 import '../widgets/select_vehicle_section.dart';
 import '../widgets/user_home_header.dart';
 
@@ -27,37 +28,7 @@ class UserHomeView extends StatelessWidget {
               style: Styles.textStyle20Bold(context),
             ),
             6.ph,
-            Container(
-              padding: EdgeInsets.all(8.r),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12.r),
-                gradient: LinearGradient(
-                  colors: [
-                    Theme.of(context).primaryColor,
-                    Theme.of(context).colorScheme.secondary,
-                  ],
-                ),
-              ),
-              child: Row(
-                children: [
-                  Icon(Icons.error,
-                      color: Theme.of(context).colorScheme.onPrimary,
-                      size: 24.r),
-                  8.pw,
-                  Expanded(
-                    child: Text(
-                      S.of(context).loremMessage,
-                      style: Styles.textStyle16(context).copyWith(
-                          color: Theme.of(context).colorScheme.onPrimary),
-                    ),
-                  ),
-                  8.pw,
-                  Icon(Icons.chevron_right,
-                      color: Theme.of(context).colorScheme.onPrimary,
-                      size: 28.r),
-                ],
-              ),
-            ),
+            CaptionsWidget(),
             20.ph,
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
