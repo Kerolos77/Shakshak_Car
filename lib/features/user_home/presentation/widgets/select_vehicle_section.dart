@@ -4,10 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 import 'package:shakshak/core/utils/styles.dart';
 import 'package:shakshak/features/user_home/data/models/services_model.dart';
-import 'package:shakshak/features/user_home/presentation/view_models/user_home_cubit.dart';
 import 'package:shakshak/generated/l10n.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
+import '../view_models/user_home_cubit/user_home_cubit.dart';
+import '../view_models/user_home_cubit/user_home_states.dart';
 import 'vehicle_item_widget.dart';
 
 class SelectVehicleSection extends StatefulWidget {

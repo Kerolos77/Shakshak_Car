@@ -168,7 +168,9 @@ class _SelectDestinationWidgetState extends State<SelectDestinationWidget> {
             final place = suggestions[index];
             return InkWell(
               onTap: () {
-                // TODO: call cubit to handle selection
+                UserHomeCubit.get(context).selectPlace(
+                    placeId: place.placeId,
+                    isSource: UserHomeCubit.get(context).isSourceSelected);
               },
               child: Padding(
                 padding: EdgeInsets.symmetric(vertical: 8.h),

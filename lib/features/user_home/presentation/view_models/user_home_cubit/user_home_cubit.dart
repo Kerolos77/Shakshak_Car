@@ -10,12 +10,42 @@ import 'package:shakshak/core/utils/converts.dart';
 
 import '../../../../../core/constants/key_const.dart';
 import '../../../data/models/place_model.dart';
+import '../../../data/repo/user_home_repo.dart';
 import 'user_home_states.dart';
 
 class UserHomeCubit extends Cubit<UserHomeState> {
-  UserHomeCubit() : super(InitialUserHomeState()) {}
+  UserHomeCubit(this.userHomeRepo) : super(InitialUserHomeState());
+  final UserHomeRepo userHomeRepo;
 
   static UserHomeCubit get(context) => BlocProvider.of(context);
+
+  Future<void> getCaptions() async {
+    emit(UserHomeCaptionLoading());
+    final result = await userHomeRepo.getCaptions();
+    result.fold(
+      (error) {
+        debugPrint("error while get captions data ${error.message}");
+        return emit(UserHomeCaptionFailure(errorMessage: error.message));
+      },
+      (success) {
+        return emit(UserHomeCaptionSuccess(userHomeCaptionModel: success));
+      },
+    );
+  }
+
+  Future<void> getServices() async {
+    emit(ServicesLoading());
+    final result = await userHomeRepo.getServices();
+    result.fold(
+      (error) {
+        debugPrint("error while get services data ${error.message}");
+        return emit(ServicesFailure(errorMessage: error.message));
+      },
+      (success) {
+        return emit(ServicesSuccess(servicesModel: success));
+      },
+    );
+  }
 
   LatLng mapLocation = const LatLng(0, 0);
 
@@ -102,54 +132,6 @@ class UserHomeCubit extends Cubit<UserHomeState> {
       return null;
     }
   }
-
-  // getAddress({
-  //   required double lat,
-  //   required double lng,
-  //   bool isDestination = false,
-  // }) async {
-  //   final url = Uri.parse(
-  //     "https://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&key=${KeyConst.mapKey}",
-  //   );
-  //
-  //   try {
-  //     final response = await http.get(url);
-  //
-  //     if (response.statusCode == 200) {
-  //       final data = jsonDecode(response.body);
-  //
-  //       if (data["status"] == "OK" && data["results"].isNotEmpty) {
-  //         final components =
-  //             data["results"][0]["address_components"] as List<dynamic>;
-  //
-  //         String? subLocality;
-  //
-  //         for (var c in components) {
-  //           final types = List<String>.from(c["types"]);
-  //           if (types.contains("establishment")) {
-  //             subLocality = c["long_name"];
-  //           }
-  //         }
-  //
-  //         final formatted = data["results"][0]["formatted_address"];
-  //         if (isDestination) {
-  //           destinationController!.text = subLocality ?? formatted;
-  //         } else {
-  //           sourceController!.text = subLocality ?? formatted;
-  //         }
-  //
-  //         emit(ChangeAddressUserHomeState());
-  //       } else {
-  //         return null;
-  //       }
-  //     } else {
-  //       throw Exception("Failed to fetch data: ${response.statusCode}");
-  //     }
-  //   } catch (e) {
-  //     print("Error: $e");
-  //     return null;
-  //   }
-  // }
 
   Future<void> getPlacesSuggestions(String input) async {
     if (input.isEmpty) {

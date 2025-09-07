@@ -1,4 +1,6 @@
 import '../../../data/models/place_model.dart';
+import '../../../data/models/services_model.dart';
+import '../../../data/models/user_home_caption_model.dart';
 
 abstract class UserHomeState {}
 
@@ -109,4 +111,32 @@ class UserHomeErrorState extends UserHomeState {
   final String message;
 
   UserHomeErrorState(this.message);
+}
+
+final class UserHomeCaptionLoading extends UserHomeState {}
+
+final class UserHomeCaptionSuccess extends UserHomeState {
+  final UserHomeCaptionModel userHomeCaptionModel;
+
+  UserHomeCaptionSuccess({required this.userHomeCaptionModel});
+}
+
+final class UserHomeCaptionFailure extends UserHomeState {
+  final String errorMessage;
+
+  UserHomeCaptionFailure({required this.errorMessage});
+}
+
+final class ServicesLoading extends UserHomeState {}
+
+final class ServicesSuccess extends UserHomeState {
+  final ServicesModel servicesModel;
+
+  ServicesSuccess({required this.servicesModel});
+}
+
+final class ServicesFailure extends UserHomeState {
+  final String errorMessage;
+
+  ServicesFailure({required this.errorMessage});
 }

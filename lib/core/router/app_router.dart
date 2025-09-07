@@ -34,7 +34,6 @@ import 'package:shakshak/features/splash/presentation/views/splash_view.dart';
 import 'package:shakshak/features/static_pages/data/repo/static_pages_repo.dart';
 import 'package:shakshak/features/static_pages/presentation/view_models/static_pages_cubit.dart';
 import 'package:shakshak/features/user_home/data/repo/user_home_repo.dart';
-import 'package:shakshak/features/user_home/presentation/view_models/user_home_cubit.dart';
 import 'package:shakshak/features/user_home/presentation/views/user_home_view.dart';
 import 'package:shakshak/features/wallet/data/repo/wallet_repo.dart';
 import 'package:shakshak/features/wallet/presentation/view_models/wallet_cubit.dart';
@@ -48,6 +47,7 @@ import '../../features/driver/vehicle_information/presentation/views/vehicle_inf
 import '../../features/outstation_rides/presentation/views/outstation_rides_view.dart';
 import '../../features/static_pages/presentation/views/privacy_policy_view.dart';
 import '../../features/static_pages/presentation/views/terms_and_conditions_view.dart';
+import '../../features/user_home/presentation/view_models/user_home_cubit/user_home_cubit.dart';
 import '../../features/user_home/presentation/views/select_destination_page.dart';
 import '../services/service_locator.dart';
 import 'routes.dart';
@@ -183,7 +183,8 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: BlocProvider(
-            create: (context) => UserHomeCubit(sl<UserHomeRepo>()),
+            create: (context) =>
+                UserHomeCubit(sl<UserHomeRepo>())..getMyLocation(),
             child: UserHomeView(),
           ),
         ),
@@ -206,7 +207,6 @@ abstract class AppRouter {
             state: state,
             child: SelectDestinationPage(
               cubit: extra['cubit'],
-
             ),
           );
         },
@@ -216,7 +216,12 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: OutStationView(),
+          child: BlocProvider(
+            create: (context) => UserHomeCubit(sl<UserHomeRepo>()),
+            child: OutStationView(),
+          ),
+
+          // OutStationView(),
         ),
       ),
       GoRoute(
@@ -371,18 +376,16 @@ abstract class AppRouter {
         ),
       ),
       GoRoute(
-        path: Routes.tripMapView,
-
-        pageBuilder: (context, state) {
-
-  final Map<String, dynamic> extra =
-  state.extra as Map<String, dynamic>;
-           return buildPageWithDefaultTransition<void>(
-          context: context,
-          state: state,
-          child: TripMapView(ride:extra['ride']),
-        );}
-      ),
+          path: Routes.tripMapView,
+          pageBuilder: (context, state) {
+            final Map<String, dynamic> extra =
+                state.extra as Map<String, dynamic>;
+            return buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: TripMapView(ride: extra['ride']),
+            );
+          }),
     ],
   );
 }
