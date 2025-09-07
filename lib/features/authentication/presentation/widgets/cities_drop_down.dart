@@ -75,7 +75,7 @@ class _CitiesDropDownState extends State<CitiesDropDown> {
                   .where((name) => name != null)
                   .cast<String>()
                   .toList();
-
+countryNames.sort();
               // Set initial country if provided
               if (widget.initialCountryId != null &&
                   selectedCountryName == null) {

@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:shakshak/features/driver/new_rides/data/models/ride_model.dart';
+import 'package:shakshak/features/rides/data/models/ride.dart';
 
 import '../../../../../core/constants/api_const.dart';
 import '../../../../../core/error/failure.dart';
@@ -9,14 +10,14 @@ import 'new_ride_repo.dart';
 
 class NewRideRepoImp implements NewRideRepo{
   @override
-  Future<Either<Failure, List<RideModel>>> fetchNewRides()async {
+  Future<Either<Failure, List<Ride>>> fetchNewRides()async {
     try {
       var data = await DioHelper.getData(
         url: ApiConstant.orderOldForDriver,
         token: ApiConstant.testDriverToken,
       );
       var rideList = (data.data['data']['searching']as List)
-      .map((ride) => RideModel.fromJson(ride))
+      .map((ride) => Ride.fromJson(ride))
       .toList();
 
           // var ride = RideModel.fromJson(rideList[0]);

@@ -50,11 +50,11 @@ class NewDriverRides extends StatelessWidget {
                     children: [
                       Text(
                         'Mostafa',
-                        style: Styles.textStyle16SemiBold,
+                        style: Styles.textStyle16SemiBold(context),
                       ),
                       Text(
                         '50.00 EGP',
-                        style: Styles.textStyle16SemiBold,
+                        style: Styles.textStyle16SemiBold(context),
                       ),
                     ],
                   ),
@@ -70,7 +70,7 @@ class NewDriverRides extends StatelessWidget {
                     4.pw,
                     Text(
                       '0.79 KM',
-                      style: Styles.textStyle14SemiBold
+                      style: Styles.textStyle14SemiBold(context)
                           .copyWith(color: Colors.black),
                     ),
                   ],

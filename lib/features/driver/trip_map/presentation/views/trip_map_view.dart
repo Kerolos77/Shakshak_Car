@@ -5,10 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:shakshak/features/base_layout/presentation/views/base_layout_view.dart';
 import 'package:shakshak/features/driver/new_rides/data/repo/new_ride_repo.dart';
+import 'package:shakshak/features/rides/data/models/ride.dart';
 
 import '../../../../../core/services/service_locator.dart';
 import '../../../../../generated/l10n.dart';
-import '../../../../user_home_page/presentation/widgets/my_map_widget.dart';
+import '../../../../user_home/presentation/widgets/my_map_widget.dart';
 import '../../../new_rides/data/models/ride_model.dart';
 import '../../../new_rides/presentation/view_model/ride_cubit.dart';
 import '../../../new_rides/presentation/view_model/ride_state.dart';
@@ -17,7 +18,7 @@ import '../widgets/trip_map_details_item.dart';
 
 class TripMapView extends StatelessWidget {
    TripMapView({super.key,required this.ride});
-  final RideModel ride;
+  final Ride ride;
   final Completer<GoogleMapController> mapCompleter = Completer<GoogleMapController>();
   GoogleMapController? mapController;
   Future<void> onMapCreated(GoogleMapController controller) async {
@@ -49,12 +50,12 @@ class TripMapView extends StatelessWidget {
                   cubit: context.read<RideCubit>(),
                   // testMode: true,
                   start: LatLng(
-                    double.parse(ride.sourceLat),
-                    double.parse(ride.sourceLong),
+                    double.parse(ride.sourceLat!),
+                    double.parse(ride.sourceLong!),
                   ),
                   end: LatLng(
-                    double.parse(ride.destinationLat),
-                    double.parse(ride.destinationLong),
+                    double.parse(ride.destinationLat!),
+                    double.parse(ride.destinationLong!),
                   ),
                   cars: [
                   ],

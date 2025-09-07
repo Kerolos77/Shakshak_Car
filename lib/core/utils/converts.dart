@@ -36,4 +36,32 @@ class Converts {
     return  "${duration.inSeconds}";
   }
 
+  String detectLanguageCodeByUnicode(String text) {
+    for (int codeUnit in text.runes) {
+      if (codeUnit >= 0x0600 && codeUnit <= 0x06FF) {
+        return "ar"; // Arabic
+      } else if ((codeUnit >= 0x0041 && codeUnit <= 0x007A) ||
+          (codeUnit >= 0x0020 && codeUnit <= 0x007E)) {
+        return "en"; // English (Basic Latin)
+      } else if (codeUnit >= 0x4E00 && codeUnit <= 0x9FFF) {
+        return "zh"; // Chinese
+      } else if (codeUnit >= 0x0590 && codeUnit <= 0x05FF) {
+        return "he"; // Hebrew
+      } else if (codeUnit >= 0x0900 && codeUnit <= 0x097F) {
+        return "hi"; // Hindi
+      } else if (codeUnit >= 0x0400 && codeUnit <= 0x04FF) {
+        return "ru"; // Russian (Cyrillic)
+      } else if (codeUnit >= 0x0370 && codeUnit <= 0x03FF) {
+        return "el"; // Greek
+      } else if ((codeUnit >= 0x3040 && codeUnit <= 0x309F) ||
+          (codeUnit >= 0x30A0 && codeUnit <= 0x30FF)) {
+        return "ja"; // Japanese (Hiragana/Katakana)
+      } else if (codeUnit >= 0xAC00 && codeUnit <= 0xD7AF) {
+        return "ko"; // Korean (Hangul)
+      }
+    }
+    return "und"; // undefined
+  }
+
+
 }

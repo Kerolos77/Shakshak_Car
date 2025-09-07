@@ -9,12 +9,13 @@ import 'package:shakshak/core/utils/shared_widgets/custom_divider.dart';
 import 'package:shakshak/core/utils/styles.dart';
 
 import '../../../../../generated/l10n.dart';
+import '../../../../rides/data/models/ride.dart';
 import '../../../new_rides/data/models/ride_model.dart';
 import '../../../outstation/presentation/widgets/ride_destination_widget.dart';
 
 class TripMapDetailsItem extends StatefulWidget {
   const TripMapDetailsItem({super.key,required this.ride});
-final RideModel ride;
+final Ride ride;
   @override
   State<TripMapDetailsItem> createState() => _TripMapDetailsItemState();
 }
@@ -74,11 +75,11 @@ class _TripMapDetailsItemState extends State<TripMapDetailsItem> {
                     children: [
                       Text(
                       widget.ride.user!.name!,
-                        style: Styles.textStyle16SemiBold,
+                        style: Styles.textStyle16SemiBold(context),
                       ),
                       Text(
                         '${widget.ride.amount} EGP',
-                        style: Styles.textStyle16SemiBold,
+                        style: Styles.textStyle16SemiBold(context),
                       ),
                     ],
                   ),
@@ -94,7 +95,7 @@ class _TripMapDetailsItemState extends State<TripMapDetailsItem> {
                     4.pw,
                     Text(
                       '${widget.ride.distance.toString()} ${widget.ride.distanceType}',
-                      style: Styles.textStyle14SemiBold
+                      style: Styles.textStyle14SemiBold(context)
                           .copyWith(color: Colors.black),
                     ),
                   ],
@@ -145,11 +146,11 @@ class _TripMapDetailsItemState extends State<TripMapDetailsItem> {
                     children: [
                       Text(
                         widget.ride.user!.name!,
-                        style: Styles.textStyle16SemiBold,
+                        style: Styles.textStyle16SemiBold(context),
                       ),
                       Text(
                         '${widget.ride.amount} EGP',
-                        style: Styles.textStyle16SemiBold,
+                        style: Styles.textStyle16SemiBold(context),
                       ),
                     ],
                   ),
@@ -165,7 +166,7 @@ class _TripMapDetailsItemState extends State<TripMapDetailsItem> {
                     4.pw,
                     Text(
                       '${widget.ride.distance} ${widget.ride.distanceType}',
-                      style: Styles.textStyle14SemiBold
+                      style: Styles.textStyle14SemiBold(context)
                           .copyWith(color: Colors.black),
                     ),
                   ],
@@ -174,8 +175,8 @@ class _TripMapDetailsItemState extends State<TripMapDetailsItem> {
             ),
             CustomDivider(),
             RideDestinationWidget(
-              from: widget.ride.sourceAddress,
-              to:  widget.ride.destinationAddress,
+              from: widget.ride.sourceAddress!,
+              to:  widget.ride.destinationAddress!,
             ),
             12.ph,
             SizedBox(

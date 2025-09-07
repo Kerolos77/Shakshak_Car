@@ -100,7 +100,7 @@ class _UserMapWidgetState extends State<DriverMapWidget> {
       };
 
       final response = await http.post(
-        Uri.parse('$url?key=${KeyConst.mapDirectionKey}'),
+        Uri.parse('$url?key=${KeyConst.mapKey}'),
 
         headers: {
           'Content-Type': 'application/json',

@@ -22,7 +22,8 @@ class _SplashViewState extends State<SplashView>
   @override
   void initState() {
     super.initState();
-
+    CacheHelper.saveData(key: AppConstant.kToken, value: "202|T3V78WjSbmTXhuUHKM6lAuA91VF4u3vAM8r8dkxpc2e41459");
+    CacheHelper.saveData(key: AppConstant.kIsDriver, value: 0);
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
@@ -38,10 +39,15 @@ class _SplashViewState extends State<SplashView>
 
     Future.delayed(const Duration(seconds: 3), () {
       if (!mounted) return;
-
-      if (CacheHelper.getData(key: AppConstant.kOnBoarding) ?? false == true) {
-        if (CacheHelper.getData(key: AppConstant.kToken) != null) {
-          if (CacheHelper.getData(key: AppConstant.kIsDriver) == 1) {
+      bool isOnBoarding = CacheHelper.getData(key: AppConstant.kOnBoarding) ?? false;
+      String? token = CacheHelper.getData(key: AppConstant.kToken);
+      int? isIsDriver = CacheHelper.getData(key: AppConstant.kIsDriver);
+      print("isOnBoarding: $isOnBoarding");
+      print("token: $token");
+      print("isIsDriver: $isIsDriver");
+      if (isOnBoarding ) {
+        if (token != null) {
+          if (isIsDriver == 1) {
             navigateAndFinish(context, Routes.driverHomeView);
           } else {
             navigateAndFinish(context, Routes.userHomeView);

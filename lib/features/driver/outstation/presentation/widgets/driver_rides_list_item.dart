@@ -23,13 +23,13 @@ class DriverRidesListItem extends StatelessWidget {
     required this.ride,
     this.isOutstation = false,
     this.isNew = false,
-     this.ride,
+     // this.ride,
   });
 
   final Ride ride;
   final bool isOutstation;
   final bool isNew;
-  RideModel? ride;
+  // RideModel? ride;
    RideModel testRide = RideModel.fromJson(
       {
         "id": 742,
@@ -101,7 +101,7 @@ class DriverRidesListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ride ??= testRide;
+    // ride ??= testRide;
     return GestureDetector(
       onTap: () {
         navigateTo(context, Routes.tripMapView,extra: {
@@ -167,23 +167,39 @@ class DriverRidesListItem extends StatelessWidget {
             ),
             12.ph,
             isOutstation
-                ? Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '${S.of(context).weight} ${ride.parcelWeight ?? '-'} KG',
-                        style: Styles.textStyle16SemiBold(context),
+                ? Column(
+                  children: [
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            '${S.of(context).weight} ${ride.parcelWeight ?? '-'} KG',
+                            style: Styles.textStyle16SemiBold(context),
+                          ),
+                          Text(
+                            '${S.of(context).dimension} ${ride.parcelDimension ?? '-'}',
+                            style: Styles.textStyle16SemiBold(context),
+                          ),
+
+                        ],
                       ),
-                      Text(
-                        '${S.of(context).dimension} ${ride.parcelDimension ?? '-'}',
-                        style: Styles.textStyle16SemiBold(context),
-                      ),
-                      Text(
-                        '${S.of(context).image} ${ride.parcelImage ?? '-'}',
-                        style: Styles.textStyle16SemiBold(context),
-                      ),
-                    ],
-                  )
+                    Image.network(
+                      ride.parcelImage ?? '',
+                      width: 100.w,
+                      height: 100.h,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Icon(
+                          FontAwesomeIcons.image,
+                          size: 50.r,
+                          color: AppColors.lightGreyColor,
+                        );
+                        
+                      },
+                    ),
+
+                  ],
+                )
                 : Container(
                     padding:
                         EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
@@ -234,8 +250,8 @@ class DriverRidesListItem extends StatelessWidget {
                   color: Colors.white,
                   size: 26.r,
                 ),
-              )
-            if(!isNew)
+              ),
+            if (!isNew)
             Column(
               children: [
                 isOutstation
@@ -244,15 +260,15 @@ class DriverRidesListItem extends StatelessWidget {
                   children: [
                     Text(
                       '${S.of(context).weight} ${ride!.parcelWeight} KG',
-                      style: Styles.textStyle16SemiBold,
+                      style: Styles.textStyle16SemiBold(context),
                     ),
                     Text(
                       '${S.of(context).dimension} ${ride!.parcelDimension} CM',
-                      style: Styles.textStyle16SemiBold,
+                      style: Styles.textStyle16SemiBold(context),
                     ),
                     Text(
                       '${S.of(context).image} ${ride!.parcelImage}',
-                      style: Styles.textStyle16SemiBold,
+                      style: Styles.textStyle16SemiBold(context),
                     ),
                   ],
                 )
@@ -267,11 +283,11 @@ class DriverRidesListItem extends StatelessWidget {
                     children: [
                       Text(
                         '${S.of(context).status}: ',
-                        style: Styles.textStyle16Bold,
+                        style: Styles.textStyle16Bold(context),
                       ),
                       Text(
-                        ride!.status,
-                        style: Styles.textStyle16,
+                        ride.status!,
+                        style: Styles.textStyle16(context),
                       ),
                     ],
                   ),
@@ -285,9 +301,9 @@ class DriverRidesListItem extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12.r),
                     ),
                     child: Text(
-                      'Recommended price is ${ride!.amount} EGP , Approx distance ${ride!.distance} ${ride!.distanceType}',
+                      'Recommended price is ${ride.amount} EGP , Approx distance ${ride.distance} ${ride.distanceType}',
 
-                      style: Styles.textStyle16,
+                      style: Styles.textStyle16(context),
                     ),
                   ),
                 if (!isOutstation)
@@ -295,7 +311,7 @@ class DriverRidesListItem extends StatelessWidget {
                     text: '',
                     onTap: () {
                       makePhoneCall(
-                        phoneNumber: ride!.user!.phone!,
+                        phoneNumber: ride.user!.phone!,
                       );
                     },
                     height: 40,
