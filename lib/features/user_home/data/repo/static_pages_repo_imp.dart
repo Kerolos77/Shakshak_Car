@@ -3,23 +3,22 @@ import 'package:dio/dio.dart';
 import 'package:shakshak/core/constants/app_const.dart';
 import 'package:shakshak/core/error/failure.dart';
 import 'package:shakshak/core/network/local/cache_helper.dart';
-import 'package:shakshak/features/wallet/data/models/charge_wallet_model.dart';
-import 'package:shakshak/features/wallet/data/models/wallet_transactions_model.dart';
-import 'package:shakshak/features/wallet/data/repo/wallet_repo.dart';
+import 'package:shakshak/features/user_home/data/models/user_home_caption_model.dart';
+import 'package:shakshak/features/user_home/data/repo/user_home_repo.dart';
 
 import '../../../../core/constants/api_const.dart';
 import '../../../../core/network/dio_helper/dio_helper.dart';
+import '../models/services_model.dart';
 
-class WalletRepoImp implements WalletRepo {
+class UserHomeRepoImp implements UserHomeRepo {
   @override
-  Future<Either<Failure, WalletTransactionsModel>>
-      getWalletTransactions() async {
+  Future<Either<Failure, UserHomeCaptionModel>> getCaptions() async {
     try {
       var data = await DioHelper.getData(
-        url: ApiConstant.getWalletTransactionsUrl,
+        url: ApiConstant.getCaptionsUrl,
         token: CacheHelper.getData(key: AppConstant.kToken),
       );
-      return right(WalletTransactionsModel.fromJson(data.data));
+      return right(UserHomeCaptionModel.fromJson(data.data));
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));
@@ -29,16 +28,13 @@ class WalletRepoImp implements WalletRepo {
   }
 
   @override
-  Future<Either<Failure, ChargeWalletModel>> chargeWallet(
-      {required double value}) async {
+  Future<Either<Failure, ServicesModel>> getServices() async {
     try {
       var data = await DioHelper.getData(
-          url: ApiConstant.chargeWalletUrl,
-          token: CacheHelper.getData(key: AppConstant.kToken),
-          query: {
-            'value': value,
-          });
-      return right(ChargeWalletModel.fromJson(data.data));
+        url: ApiConstant.getServicesUrl,
+        token: CacheHelper.getData(key: AppConstant.kToken),
+      );
+      return right(ServicesModel.fromJson(data.data));
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));

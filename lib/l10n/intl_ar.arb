@@ -190,5 +190,6 @@
   "updateProfile": "تحديث الملف الشخصي",
   "profileUpdatedSuccessfully": "تم تحديث الملف الشخصي بنجاح",
   "readFaqsSolution": "اقرأ حلول الأسئلة الشائعة",
-  "descriptionRequired": "الوصف مطلوب"
+  "descriptionRequired": "الوصف مطلوب",
+  "pay": "الرفع"
 }

@@ -32,4 +32,12 @@ class ApiConstant {
 
   //contact us
   static const String getStaticPagesUrl = 'pages';
+
+  //user home
+  static const String getCaptionsUrl = 'captions';
+  static const String getServicesUrl = 'services/incity';
+
+  //driver registration
+  static const String driverRegistrationUrl = 'driver/registration';
+  static const String driverToggleOnlineUrl = 'user/toggle_online';
 }

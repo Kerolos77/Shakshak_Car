@@ -4,7 +4,14 @@ import 'package:shakshak/generated/l10n.dart';
 import '../../../../../core/utils/shared_widgets/custom_drop_down.dart';
 
 class YearsDropDown extends StatelessWidget {
-  const YearsDropDown({super.key});
+  final String? selectedValue;
+  final Function(String?)? onYearChanged;
+
+  const YearsDropDown({
+    super.key,
+    this.selectedValue,
+    this.onYearChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +25,8 @@ class YearsDropDown extends StatelessWidget {
       label: 'Car release year',
       hint: S.of(context).selectCarModel,
       items: years,
-      onChange: (selectedYear) {
-        print('Selected Year: $selectedYear');
-      },
+      value: selectedValue,
+      onChange: onYearChanged,
     );
   }
 }

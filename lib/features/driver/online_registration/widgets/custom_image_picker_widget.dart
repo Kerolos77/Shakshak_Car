@@ -12,11 +12,13 @@ import '../../../../../core/utils/styles.dart';
 class CustomImagePickerWidget extends StatefulWidget {
   final String title;
   final ValueChanged<XFile?> onImagePicked;
+  final XFile? initialImage;
 
   const CustomImagePickerWidget({
     super.key,
     required this.title,
     required this.onImagePicked,
+    this.initialImage,
   });
 
   @override
@@ -26,6 +28,12 @@ class CustomImagePickerWidget extends StatefulWidget {
 
 class _CustomImagePickerWidgetState extends State<CustomImagePickerWidget> {
   XFile? _selectedImage;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedImage = widget.initialImage;
+  }
 
   Future<void> _showImageSourceBottomSheet() async {
     await showModalBottomSheet(

@@ -18,3 +18,17 @@ final class WalletTransactionsFailure extends WalletState {
 
   WalletTransactionsFailure({required this.errorMessage});
 }
+
+final class ChargeWalletLoading extends WalletState {}
+
+final class ChargeWalletSuccess extends WalletState {
+  final ChargeWalletModel chargeWalletModel;
+
+  ChargeWalletSuccess({required this.chargeWalletModel});
+}
+
+final class ChargeWalletFailure extends WalletState {
+  final String errorMessage;
+
+  ChargeWalletFailure({required this.errorMessage});
+}

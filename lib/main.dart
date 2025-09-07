@@ -12,6 +12,7 @@ import 'core/resources/app_colors.dart';
 import 'core/services/service_locator.dart';
 import 'core/utils/bloc_observer.dart';
 import 'features/base_layout/presentation/view_models/drawer_cubit/drawer_cubit.dart';
+import 'features/driver/online_registration/presentation/view_models/driver_registration_cubit.dart';
 import 'features/settings/presentation/view_models/language_cubit/language_cubit.dart';
 import 'features/settings/presentation/view_models/theme_cubit/theme_cubit.dart';
 import 'generated/l10n.dart';
@@ -56,6 +57,9 @@ class MyApp extends StatelessWidget {
             ),
             BlocProvider(
               create: (context) => ThemeCubit(),
+            ),
+            BlocProvider(
+              create: (context) => sl<DriverRegistrationCubit>(),
             ),
           ],
           child: BlocBuilder<LanguageCubit, LanguageState>(

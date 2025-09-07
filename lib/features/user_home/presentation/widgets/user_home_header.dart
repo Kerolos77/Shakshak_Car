@@ -5,6 +5,9 @@ import 'package:shakshak/core/extentions/padding_extention.dart';
 import 'package:shakshak/core/utils/styles.dart';
 import 'package:shakshak/generated/l10n.dart';
 
+import '../../../../core/constants/app_const.dart';
+import '../../../../core/network/local/cache_helper.dart';
+
 class UserHomeHeader extends StatelessWidget {
   const UserHomeHeader({super.key});
 
@@ -14,7 +17,7 @@ class UserHomeHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Mostafa',
+          CacheHelper.getData(key: AppConstant.kUserName),
           style: Styles.textStyle20Bold(context).copyWith(
             color: Colors.white,
           ),
@@ -31,8 +34,9 @@ class UserHomeHeader extends StatelessWidget {
             8.pw,
             Expanded(
               child: Text(
-                '${S.of(context).welcomeBack} Mostafa!\n${S.of(context).helloToOurApp}',
-                style: Styles.textStyle16(context).copyWith(color: Colors.white),
+                '${S.of(context).welcomeBack} ${CacheHelper.getData(key: AppConstant.kUserName)}\n${S.of(context).helloToOurApp}',
+                style:
+                    Styles.textStyle16(context).copyWith(color: Colors.white),
               ),
             ),
           ],

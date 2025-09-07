@@ -201,6 +201,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordsDoNotMatch": MessageLookupByLibrary.simpleMessage(
       "Passwords do not match",
     ),
+    "pay": MessageLookupByLibrary.simpleMessage("Pay"),
     "phoneRequired": MessageLookupByLibrary.simpleMessage(
       "Phone number is required",
     ),
