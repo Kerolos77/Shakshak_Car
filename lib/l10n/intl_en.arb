@@ -144,6 +144,7 @@
   "invalidPhone": "Invalid Saudi phone number",
   "emailOrPhoneRequired": "Email or phone number is required",
   "invalidEmail": "Invalid email address",
+  "invalidNumber": "Invalid mobile number",
   "or": "or",
   "validPhone": "a valid Saudi phone number",
   "emailRequired": "Email is required",
@@ -162,5 +163,7 @@
   "profileUpdatedSuccessfully": "Profile updated successfully",
   "readFaqsSolution": "Read FAQs solution",
   "descriptionRequired": "Description required",
-  "pay": "Pay"
+  "pay": "Pay",
+  "userNotFound": "User not found",
+  "codeNotCorrect": "Code not correct"
 }

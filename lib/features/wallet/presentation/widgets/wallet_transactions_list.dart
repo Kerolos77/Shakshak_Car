@@ -33,8 +33,8 @@ class _WalletTransactionsListState extends State<WalletTransactionsList> {
           return state.walletTransactionsModel.data!.isNotEmpty
               ? Expanded(
                   child: ListView.separated(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+                    padding: EdgeInsets.only(
+                        left: 16.w, right: 16.w, top: 12.h, bottom: 24.h),
                     itemBuilder: (context, index) => WalletTransactionItem(
                       walletTransactionData:
                           state.walletTransactionsModel.data![index],

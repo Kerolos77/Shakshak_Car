@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/constants/app_const.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 import 'package:shakshak/core/network/local/cache_helper.dart';
+import 'package:shakshak/core/utils/shared_widgets/custom_cached_network_image.dart';
 import 'package:shakshak/core/utils/styles.dart';
 import 'package:shakshak/features/base_layout/presentation/view_models/drawer_cubit/drawer_cubit.dart';
 
@@ -35,19 +36,34 @@ class CustomDrawer extends StatelessWidget {
                     CircleAvatar(
                       backgroundColor: Theme.of(context).colorScheme.onPrimary,
                       radius: 40.r,
-                      child: Icon(
-                        Icons.person,
-                        color: Theme.of(context).primaryColor,
-                        size: 60.r,
-                      ),
+                      child:
+                          (CacheHelper.getData(key: AppConstant.kUserImage) ??
+                                      '') ==
+                                  ''
+                              ? Icon(
+                                  Icons.person,
+                                  color: Theme.of(context).primaryColor,
+                                  size: 60.r,
+                                )
+                              : ClipOval(
+                                  child: CustomCachedNetworkImage(
+                                      imgUrl: CacheHelper.getData(
+                                              key: AppConstant.kUserImage) ??
+                                          '',
+                                      width: 77.r,
+                                      height: 77.r,
+                                      errorIconSize: 50.r),
+                                ),
                     ),
                     6.ph,
                     Text(
-                      'Mostafa',
+                      CacheHelper.getData(key: AppConstant.kUserName) ??
+                          'user name',
                       style: Styles.textStyle16SemiBold(context),
                     ),
                     Text(
-                      'mostafa@gmail.com',
+                      CacheHelper.getData(key: AppConstant.kUserEmail) ??
+                          'user@gmail.com',
                       style: Styles.textStyle16SemiBold(context),
                     ),
                   ],

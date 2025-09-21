@@ -18,6 +18,8 @@ class AppConstant {
   static const String kRegisterToken = 'registerToken';
   static const String kUserIdOtp = 'userIdOtp';
   static const String kUserName = 'userName';
+  static const String kUserEmail = 'userEmail';
+  static const String kUserImage = 'userImage';
   static const String kCartBox = 'cartBox';
   static const String kCurrentLanguage = 'currentLanguage';
   static const String kThemeMode = 'themeMode';

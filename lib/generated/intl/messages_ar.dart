@@ -62,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "city": MessageLookupByLibrary.simpleMessage("المدينة"),
     "cityIsRequired": MessageLookupByLibrary.simpleMessage("المدينة مطلوبة"),
     "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
+    "codeNotCorrect": MessageLookupByLibrary.simpleMessage("الرمز غير صحيح"),
     "completed": MessageLookupByLibrary.simpleMessage("مكتملة"),
     "completedRides": MessageLookupByLibrary.simpleMessage("الرحلات\nالمكتملة"),
     "confirmPasswordRequired": MessageLookupByLibrary.simpleMessage(
@@ -134,6 +135,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "invalidNationalId": MessageLookupByLibrary.simpleMessage(
       "الرقم القومي غير صالح",
+    ),
+    "invalidNumber": MessageLookupByLibrary.simpleMessage(
+      "رقم الهاتف غير صالح",
     ),
     "invalidPhone": MessageLookupByLibrary.simpleMessage(
       "رقم هاتف سعودي غير صالح",
@@ -262,6 +266,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "بحاجة إلى توصيلة آمنة",
     ),
     "userName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
+    "userNotFound": MessageLookupByLibrary.simpleMessage("المستخدم غير موجود"),
     "validPhone": MessageLookupByLibrary.simpleMessage("رقم هاتف سعودي صالح"),
     "vehicleInformation": MessageLookupByLibrary.simpleMessage(
       "معلومات السيارة",

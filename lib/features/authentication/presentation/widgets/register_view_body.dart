@@ -66,6 +66,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                 CustomTextField(
                   controller: userNameController,
                   autoValidateMode: AutovalidateMode.onUserInteraction,
+                  keyType: TextInputType.name,
                   validator: Validation.validateName(context),
                   prefix: Padding(
                     padding: EdgeInsets.all(8.r),

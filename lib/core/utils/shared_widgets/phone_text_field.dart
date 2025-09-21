@@ -35,6 +35,7 @@ class _PhoneTextFieldState extends State<PhoneTextField> {
             IntlPhoneField(
               textAlign: TextAlign.start,
               controller: widget.controller,
+              invalidNumberMessage: S.of(context).invalidNumber,
               onChanged: (phone) {
                 context
                     .read<AuthCubit>()

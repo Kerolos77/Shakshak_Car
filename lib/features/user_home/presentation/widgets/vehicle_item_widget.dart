@@ -32,6 +32,7 @@ class VehicleItemWidget extends StatelessWidget {
         child: Column(
           children: [
             Container(
+              clipBehavior: Clip.hardEdge,
               padding: EdgeInsets.all(12.r),
               decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.surface,

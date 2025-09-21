@@ -44,6 +44,10 @@ class OtpButton extends StatelessWidget {
             CacheHelper.saveData(
                 key: AppConstant.kUserName, value: state.otpModel.data?.name);
             CacheHelper.saveData(
+                key: AppConstant.kUserEmail, value: state.otpModel.data?.email);
+            CacheHelper.saveData(
+                key: AppConstant.kUserImage, value: state.otpModel.data?.image);
+            CacheHelper.saveData(
                 key: AppConstant.kIsDriver,
                 value: state.otpModel.data?.isDriver);
             if (state.otpModel.data?.isDriver == 0) {
@@ -55,7 +59,15 @@ class OtpButton extends StatelessWidget {
             if (state.otpModel.msg! == 'messages.notfound') {
               showSnackBar(
                   context,
-                  state.otpModel.msg!,
+                  S.of(context).userNotFound,
+                  S.of(context).errorOccurred,
+                  AppColors.redColor,
+                  ContentType.failure);
+              navigateAndFinish(context, Routes.registerView);
+            } else if (state.otpModel.msg! == 'messages.code_not_correct') {
+              showSnackBar(
+                  context,
+                  S.of(context).codeNotCorrect,
                   S.of(context).errorOccurred,
                   AppColors.redColor,
                   ContentType.failure);
@@ -70,8 +82,13 @@ class OtpButton extends StatelessWidget {
             }
           }
         } else if (state is VerifyPhoneOTPErrorState) {
-          showSnackBar(context, state.errorMsg, S.of(context).errorOccurred,
-              AppColors.redColor, ContentType.failure);
+          showSnackBar(
+            context,
+            state.errorMsg,
+            S.of(context).errorOccurred,
+            AppColors.redColor,
+            ContentType.failure,
+          );
         }
       },
       builder: (context, state) {

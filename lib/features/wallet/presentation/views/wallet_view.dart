@@ -84,7 +84,8 @@ class _WalletViewState extends State<WalletView> {
       body: Column(
         children: [
           WalletTransactionsList(),
-          Container(
+          // withdraw
+          /*Container(
             padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
             decoration: BoxDecoration(color: Theme.of(context).primaryColor),
             child: Row(
@@ -110,7 +111,7 @@ class _WalletViewState extends State<WalletView> {
                 )
               ],
             ),
-          ),
+          ),*/
         ],
       ),
     );

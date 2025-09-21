@@ -145,6 +145,7 @@
   "invalidPhone": "رقم هاتف سعودي غير صالح",
   "emailOrPhoneRequired": "البريد الإلكتروني أو رقم الهاتف مطلوب",
   "invalidEmail": "البريد الإلكتروني غير صالح",
+  "invalidNumber": "رقم الهاتف غير صالح",
   "or": "أو",
   "validPhone": "رقم هاتف سعودي صالح",
   "emailRequired": "البريد الإلكتروني مطلوب",
@@ -191,5 +192,7 @@
   "profileUpdatedSuccessfully": "تم تحديث الملف الشخصي بنجاح",
   "readFaqsSolution": "اقرأ حلول الأسئلة الشائعة",
   "descriptionRequired": "الوصف مطلوب",
-  "pay": "الرفع"
+  "pay": "الرفع",
+  "userNotFound": "المستخدم غير موجود",
+  "codeNotCorrect": "الرمز غير صحيح"
 }

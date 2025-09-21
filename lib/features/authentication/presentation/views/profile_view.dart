@@ -90,6 +90,7 @@ class _ProfileViewState extends State<ProfileView> {
             CustomTextField(
               controller: _userNameController,
               autoValidateMode: AutovalidateMode.onUserInteraction,
+              keyType: TextInputType.name,
               validator: Validation.validateName(context),
               prefix: Padding(
                 padding: EdgeInsets.all(8.r),
@@ -217,7 +218,7 @@ class _ProfileViewState extends State<ProfileView> {
                             ),
                             clipBehavior: Clip.hardEdge,
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: AppColors.lightGreyColor,
                               shape: BoxShape.circle,
                             ),
                             child: profilePhotoUrl != ''
@@ -241,11 +242,11 @@ class _ProfileViewState extends State<ProfileView> {
                                     ),
                                   )
                                 : CircleAvatar(
-                                    backgroundColor: Colors.black,
+                                    backgroundColor: Colors.white,
                                     radius: 40.r,
                                     child: Icon(
                                       Icons.person,
-                                      color: Colors.white,
+                                      color: AppColors.primaryColor,
                                       size: 70.r,
                                     ),
                                   ),
@@ -264,12 +265,18 @@ class _ProfileViewState extends State<ProfileView> {
                                 });
                               },
                               child: CircleAvatar(
-                                backgroundColor: Colors.white,
-                                radius: 20.r,
-                                child: Icon(
-                                  Icons.camera,
-                                  color: Colors.black,
-                                  size: 26.r,
+                                backgroundColor: AppColors.lightGreyColor,
+                                child: Padding(
+                                  padding: EdgeInsets.all(3.r),
+                                  child: CircleAvatar(
+                                    backgroundColor: Colors.white,
+                                    radius: 17.r,
+                                    child: Icon(
+                                      Icons.camera,
+                                      color: AppColors.primaryColor,
+                                      size: 26.r,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),

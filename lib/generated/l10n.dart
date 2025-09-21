@@ -1129,6 +1129,16 @@ class S {
     );
   }
 
+  /// `Invalid mobile number`
+  String get invalidNumber {
+    return Intl.message(
+      'Invalid mobile number',
+      name: 'invalidNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `or`
   String get or {
     return Intl.message('or', name: 'or', desc: '', args: []);
@@ -1292,6 +1302,26 @@ class S {
   /// `Pay`
   String get pay {
     return Intl.message('Pay', name: 'pay', desc: '', args: []);
+  }
+
+  /// `User not found`
+  String get userNotFound {
+    return Intl.message(
+      'User not found',
+      name: 'userNotFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Code not correct`
+  String get codeNotCorrect {
+    return Intl.message(
+      'Code not correct',
+      name: 'codeNotCorrect',
+      desc: '',
+      args: [],
+    );
   }
 }
 

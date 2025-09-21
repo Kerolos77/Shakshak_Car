@@ -370,7 +370,10 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: VehicleInformationView(),
+          child: BlocProvider(
+            create: (context) => UserHomeCubit(sl()),
+            child: VehicleInformationView(),
+          ),
         ),
       ),
       GoRoute(

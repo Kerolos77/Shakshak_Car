@@ -62,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "city": MessageLookupByLibrary.simpleMessage("City"),
     "cityIsRequired": MessageLookupByLibrary.simpleMessage("City is required"),
     "close": MessageLookupByLibrary.simpleMessage("Close"),
+    "codeNotCorrect": MessageLookupByLibrary.simpleMessage("Code not correct"),
     "completed": MessageLookupByLibrary.simpleMessage("Completed"),
     "completedRides": MessageLookupByLibrary.simpleMessage("Completed\nRides"),
     "confirmPasswordRequired": MessageLookupByLibrary.simpleMessage(
@@ -140,6 +141,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "invalidNationalId": MessageLookupByLibrary.simpleMessage(
       "Invalid National ID",
+    ),
+    "invalidNumber": MessageLookupByLibrary.simpleMessage(
+      "Invalid mobile number",
     ),
     "invalidPhone": MessageLookupByLibrary.simpleMessage(
       "Invalid Saudi phone number",
@@ -268,6 +272,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Need a safe drive",
     ),
     "userName": MessageLookupByLibrary.simpleMessage("User name"),
+    "userNotFound": MessageLookupByLibrary.simpleMessage("User not found"),
     "validPhone": MessageLookupByLibrary.simpleMessage(
       "a valid Saudi phone number",
     ),
