@@ -37,4 +37,7 @@ class ApiConstant {
   //driver registration
   static const String driverRegistrationUrl = 'driver/registration';
   static const String driverToggleOnlineUrl = 'user/toggle_online';
+  
+  // chat
+  static const String sendMessageUrl = 'send/chat';
 }

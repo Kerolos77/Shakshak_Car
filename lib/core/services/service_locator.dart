@@ -6,6 +6,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/authentication/data/repo/auth_repo.dart';
 import '../../features/authentication/data/repo/auth_repo_imp.dart';
+import '../../features/chat/data/repo/chat_repo.dart';
+import '../../features/chat/data/repo/chat_repo_imp.dart';
 import '../../features/contact_us/data/repo/contact_us_repo.dart';
 import '../../features/contact_us/data/repo/contact_us_repo_imp.dart';
 import '../../features/driver/home/data/repo/driver_home_repo.dart';
@@ -55,6 +57,9 @@ class ServiceLocator {
     );
     sl.registerSingleton<UserHomeRepo>(
       UserHomeRepoImp(),
+    );
+    sl.registerSingleton<ChatRepo>(
+      ChatRepoImp(),
     );
   }
 

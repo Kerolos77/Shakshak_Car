@@ -8,6 +8,7 @@ import 'package:shakshak/features/authentication/presentation/views/login_view.d
 import 'package:shakshak/features/authentication/presentation/views/otp_view.dart';
 import 'package:shakshak/features/authentication/presentation/views/profile_view.dart';
 import 'package:shakshak/features/authentication/presentation/views/register_view.dart';
+import 'package:shakshak/features/chat/data/repo/chat_repo.dart';
 import 'package:shakshak/features/contact_us/data/repo/contact_us_repo.dart';
 import 'package:shakshak/features/contact_us/presentation/view_models/contact_us_cubit.dart';
 import 'package:shakshak/features/contact_us/presentation/views/contact_us_view.dart';
@@ -43,6 +44,8 @@ import 'package:shakshak/features/wallet/presentation/views/wallet_view.dart';
 import 'package:shakshak/features/wallet/presentation/views/withdraw_history_view.dart';
 
 import '../../features/authentication/presentation/views/role_selection_view.dart';
+import '../../features/chat/presentation/view_models/chat_cubit.dart';
+import '../../features/chat/presentation/views/chat_view.dart';
 import '../../features/driver/outstation/presentation/views/driver_outstation_view.dart';
 import '../../features/driver/vehicle_information/presentation/views/vehicle_information_view.dart';
 import '../../features/outstation_rides/presentation/views/outstation_rides_view.dart';
@@ -63,7 +66,7 @@ abstract class AppRouter {
   static final routers = GoRouter(
     navigatorKey: navigatorKey,
     debugLogDiagnostics: true,
-    initialLocation: Routes.splashView,
+    initialLocation: Routes.chatView,
     routes: <RouteBase>[
       GoRoute(
         path: Routes.splashView,
@@ -383,6 +386,22 @@ abstract class AppRouter {
           state: state,
           child: TripMapView(),
         ),
+      ),
+      GoRoute(
+        path: Routes.chatView,
+        pageBuilder: (context, state) {
+          // var data = state.extra as Map;
+
+          return buildPageWithDefaultTransition<void>(
+            context: context,
+            state: state,
+            child: BlocProvider(
+              create: (context) => ChatCubit(sl<ChatRepo>()),
+              // child: ChatView(tripId: data['tripId']),
+              child: ChatView(tripId: 0),
+            ),
+          );
+        },
       ),
     ],
   );
