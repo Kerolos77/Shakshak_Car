@@ -41,24 +41,21 @@ class _SelectVehicleSectionState extends State<SelectVehicleSection> {
               current is ServicesFailure,
           builder: (context, state) {
             if (state is ServicesSuccess) {
-              return Row(
-                children:
-                    List.generate(state.servicesModel.data!.length, (index) {
-                  return Row(
-                    children: [
-                      VehicleItemWidget(
-                        service: state.servicesModel.data![index],
-                        isSelected: selectedIndex == index,
-                        onTap: () {
-                          setState(() {
-                            selectedIndex = index;
-                          });
-                        },
-                      ),
-                      if (index != 2) 12.pw,
-                    ],
-                  );
-                }),
+              return SizedBox(
+                height: 140.h,
+                child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) => VehicleItemWidget(
+                          service: state.servicesModel.data![index],
+                          isSelected: selectedIndex == index,
+                          onTap: () {
+                            setState(() {
+                              selectedIndex = index;
+                            });
+                          },
+                        ),
+                    separatorBuilder: (context, index) => 12.pw,
+                    itemCount: state.servicesModel.data!.length),
               );
             } else if (state is ServicesLoading) {
               return Row(
