@@ -17,7 +17,7 @@ import '../../../../generated/l10n.dart';
 import '../widgets/chat_list_item.dart';
 
 class ChatView extends StatefulWidget {
-  final int tripId; // Add tripId parameter
+  final int tripId;
 
   const ChatView({
     super.key,
@@ -104,7 +104,6 @@ class _ChatViewState extends State<ChatView> {
       body: BlocListener<ChatCubit, ChatState>(
         listener: (context, state) {
           if (state is SendMessageSuccess) {
-            // Add message to local list on success
             setState(() {
               messages.add({
                 "text": state.writeUsModel.message ?? '',

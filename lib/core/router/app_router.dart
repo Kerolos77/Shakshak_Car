@@ -66,7 +66,7 @@ abstract class AppRouter {
   static final routers = GoRouter(
     navigatorKey: navigatorKey,
     debugLogDiagnostics: true,
-    initialLocation: Routes.chatView,
+    initialLocation: Routes.splashView,
     routes: <RouteBase>[
       GoRoute(
         path: Routes.splashView,
