@@ -194,5 +194,9 @@
   "descriptionRequired": "الوصف مطلوب",
   "pay": "الرفع",
   "userNotFound": "المستخدم غير موجود",
-  "codeNotCorrect": "الرمز غير صحيح"
+  "codeNotCorrect": "الرمز غير صحيح",
+  "cancel": "إلغاء",
+  "reject": "رفض",
+  "accept": "قبول",
+  "searching": "بحث..."
 }

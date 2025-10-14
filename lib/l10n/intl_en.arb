@@ -165,5 +165,9 @@
   "descriptionRequired": "Description required",
   "pay": "Pay",
   "userNotFound": "User not found",
-  "codeNotCorrect": "Code not correct"
+  "codeNotCorrect": "Code not correct",
+  "cancel": "Cancel",
+  "reject": "Reject",
+  "accept": "Accept",
+  "searching": "Searching..."
 }

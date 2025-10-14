@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "accept": MessageLookupByLibrary.simpleMessage("Accept"),
     "acceptFareOn": m0,
     "accountRegisteredSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Account registered successfully",
@@ -50,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "byTapping": MessageLookupByLibrary.simpleMessage("By tapping"),
     "call": MessageLookupByLibrary.simpleMessage("Call"),
     "callUs": MessageLookupByLibrary.simpleMessage("Call Us"),
+    "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "canceledRides": MessageLookupByLibrary.simpleMessage("Canceled\nRides"),
     "car": MessageLookupByLibrary.simpleMessage("Car"),
     "carBrand": MessageLookupByLibrary.simpleMessage("Car brand"),
@@ -229,8 +231,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "readFaqsSolution": MessageLookupByLibrary.simpleMessage(
       "Read FAQs solution",
     ),
+    "reject": MessageLookupByLibrary.simpleMessage("Reject"),
     "rides": MessageLookupByLibrary.simpleMessage("Rides"),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
+    "searching": MessageLookupByLibrary.simpleMessage("Searching..."),
     "selectCarModel": MessageLookupByLibrary.simpleMessage("Select car model"),
     "selectCity": MessageLookupByLibrary.simpleMessage("Select city"),
     "selectCountry": MessageLookupByLibrary.simpleMessage("Select country"),

@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "accept": MessageLookupByLibrary.simpleMessage("قبول"),
     "acceptFareOn": m0,
     "accountRegisteredSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم تسجيل الحساب بنجاح",
@@ -50,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "byTapping": MessageLookupByLibrary.simpleMessage("بالنقر على"),
     "call": MessageLookupByLibrary.simpleMessage("اتصل"),
     "callUs": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
+    "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
     "canceledRides": MessageLookupByLibrary.simpleMessage("الرحلات\nالملغاة"),
     "car": MessageLookupByLibrary.simpleMessage("السيارة"),
     "carBrand": MessageLookupByLibrary.simpleMessage("ماركة السيارة"),
@@ -223,8 +225,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "readFaqsSolution": MessageLookupByLibrary.simpleMessage(
       "اقرأ حلول الأسئلة الشائعة",
     ),
+    "reject": MessageLookupByLibrary.simpleMessage("رفض"),
     "rides": MessageLookupByLibrary.simpleMessage("الرحلات"),
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
+    "searching": MessageLookupByLibrary.simpleMessage("بحث..."),
     "selectCarModel": MessageLookupByLibrary.simpleMessage("اختر طراز السيارة"),
     "selectCity": MessageLookupByLibrary.simpleMessage("إختر المدينة"),
     "selectCountry": MessageLookupByLibrary.simpleMessage("إختر الدولة"),

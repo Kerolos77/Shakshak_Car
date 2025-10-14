@@ -51,6 +51,7 @@ import '../../features/driver/vehicle_information/presentation/views/vehicle_inf
 import '../../features/outstation_rides/presentation/views/outstation_rides_view.dart';
 import '../../features/static_pages/presentation/views/privacy_policy_view.dart';
 import '../../features/static_pages/presentation/views/terms_and_conditions_view.dart';
+import '../../features/user_home/presentation/views/offers_view.dart';
 import '../../features/user_home_page/presentation/screen/select_destination_page.dart';
 import '../../features/user_home_page/presentation/screen/user_home_page.dart';
 import '../services/service_locator.dart';
@@ -222,7 +223,10 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: OutStationView(),
+          child: BlocProvider(
+            create: (context) => UserHomeCubit(sl<UserHomeRepo>()),
+            child: OutStationView(),
+          ),
         ),
       ),
       GoRoute(
@@ -400,6 +404,16 @@ abstract class AppRouter {
               // child: ChatView(tripId: data['tripId']),
               child: ChatView(tripId: 0),
             ),
+          );
+        },
+      ),
+      GoRoute(
+        path: Routes.offersView,
+        pageBuilder: (context, state) {
+          return buildPageWithDefaultTransition<void>(
+            context: context,
+            state: state,
+            child: OffersView(),
           );
         },
       ),

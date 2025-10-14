@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
+import 'package:shakshak/core/router/router_helper.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_button.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_drop_down.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_text_field.dart';
 import 'package:shakshak/core/utils/styles.dart';
 import 'package:shakshak/features/base_layout/presentation/views/base_layout_view.dart';
 
+import '../../../../core/router/routes.dart';
 import '../../../../generated/l10n.dart';
 import '../widgets/captions_widget.dart';
 import '../widgets/select_vehicle_section.dart';
@@ -85,7 +87,7 @@ class UserHomeView extends StatelessWidget {
             CustomButton(
               text: S.of(context).bookRide,
               onTap: () {
-                // Trigger booking logic
+                navigateTo(context, Routes.offersView);
               },
             ),
             20.ph,
