@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/constants/app_const.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_button.dart';
 import 'package:shakshak/core/utils/styles.dart';
 
+import '../../../../core/utils/shared_widgets/custom_loading_button.dart';
 import '../../../../generated/l10n.dart';
+import '../view_models/user_home_cubit.dart';
 
 class TripCard extends StatelessWidget {
   const TripCard({
@@ -90,10 +93,27 @@ class TripCard extends StatelessWidget {
             ],
           ),
           12.ph,
-          CustomButton(
-            text: S.of(context).cancel,
-            height: 40,
-            borderRadius: 8,
+          BlocConsumer<UserHomeCubit, UserHomeState>(
+            listener: (context, state) {},
+            builder: (context, state) {
+              if (state is CancelOrderLoading) {
+                return CustomLoadingButton(
+                  height: 40,
+                  borderRadius: 8,
+                );
+              } else {
+                return CustomButton(
+                  text: S.of(context).cancel,
+                  height: 40,
+                  borderRadius: 8,
+                  onTap: () {
+                    context.read<UserHomeCubit>().cancelOrder(
+                          orderId: 707,
+                        );
+                  },
+                );
+              }
+            },
           ),
         ],
       ),

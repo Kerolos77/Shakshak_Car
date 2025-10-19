@@ -8,6 +8,7 @@ import 'package:shakshak/features/user_home/data/repo/user_home_repo.dart';
 
 import '../../../../core/constants/api_const.dart';
 import '../../../../core/network/dio_helper/dio_helper.dart';
+import '../models/accept_offer_model.dart';
 import '../models/services_model.dart';
 
 class UserHomeRepoImp implements UserHomeRepo {
@@ -35,6 +36,44 @@ class UserHomeRepoImp implements UserHomeRepo {
         token: CacheHelper.getData(key: AppConstant.kToken),
       );
       return right(ServicesModel.fromJson(data.data));
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, AcceptOfferModel>> acceptOffer({
+    required int orderId,
+    required int driverId,
+  }) async {
+    try {
+      var data = await DioHelper.getData(
+        url: '${ApiConstant.acceptOfferUrl}/$orderId',
+        token: CacheHelper.getData(key: AppConstant.kToken),
+        query: {'driver_id': driverId},
+      );
+      return right(AcceptOfferModel.fromJson(data.data));
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, AcceptOfferModel>> cancelOrder({
+    required int orderId,
+  }) async {
+    try {
+      var data = await DioHelper.getData(
+        url: '${ApiConstant.cancelOrderUrl}/$orderId',
+        token: CacheHelper.getData(key: AppConstant.kToken),
+      );
+      return right(AcceptOfferModel.fromJson(data.data));
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));

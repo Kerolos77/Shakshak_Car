@@ -413,7 +413,10 @@ abstract class AppRouter {
           return buildPageWithDefaultTransition<void>(
             context: context,
             state: state,
-            child: OffersView(),
+            child: BlocProvider(
+              create: (context) => UserHomeCubit(sl<UserHomeRepo>()),
+              child: OffersView(),
+            ),
           );
         },
       ),

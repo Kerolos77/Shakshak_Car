@@ -32,3 +32,45 @@ final class ServicesFailure extends UserHomeState {
 
   ServicesFailure({required this.errorMessage});
 }
+
+// offers & order
+class AcceptOfferLoading extends UserHomeState {
+  final int orderId;
+  final int index;
+
+  AcceptOfferLoading({required this.orderId, required this.index});
+}
+
+class AcceptOfferSuccess extends UserHomeState {
+  final AcceptOfferModel acceptOfferModel;
+  final int index;
+
+  AcceptOfferSuccess({required this.acceptOfferModel, required this.index});
+}
+
+class AcceptOfferFailure extends UserHomeState {
+  final String errorMessage;
+  final int index;
+
+  AcceptOfferFailure({required this.errorMessage, required this.index});
+}
+
+class OffersUpdated extends UserHomeState {
+  final List<int> offers;
+
+  OffersUpdated(this.offers);
+}
+
+final class CancelOrderLoading extends UserHomeState {}
+
+final class CancelOrderSuccess extends UserHomeState {
+  final AcceptOfferModel cancelOrderModel;
+
+  CancelOrderSuccess({required this.cancelOrderModel});
+}
+
+final class CancelOrderFailure extends UserHomeState {
+  final String errorMessage;
+
+  CancelOrderFailure({required this.errorMessage});
+}
