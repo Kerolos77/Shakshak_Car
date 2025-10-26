@@ -48,8 +48,8 @@ import '../../features/outstation_rides/presentation/views/outstation_rides_view
 import '../../features/static_pages/presentation/views/privacy_policy_view.dart';
 import '../../features/static_pages/presentation/views/terms_and_conditions_view.dart';
 import '../../features/user_home/presentation/view_models/user_home_cubit/user_home_cubit.dart';
-import '../../features/user_home/presentation/views/select_destination_page.dart';
 import '../services/service_locator.dart';
+import '../utils/shared_widgets/select_location/select_destination_page.dart';
 import 'routes.dart';
 
 abstract class AppRouter {
@@ -141,23 +141,28 @@ abstract class AppRouter {
             );
           }),
       GoRoute(
-        path: Routes.registerView,
-        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
-          context: context,
-          state: state,
-          child: MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (context) => AuthCubit(sl<AuthRepo>()),
+          path: Routes.registerView,
+          pageBuilder: (context, state) {
+            final data = state.extra as Map<String, dynamic>;
+            final phoneNumber = data["phoneNumber"] as String;
+            return buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: MultiBlocProvider(
+                providers: [
+                  BlocProvider(
+                    create: (context) => AuthCubit(sl<AuthRepo>()),
+                  ),
+                  BlocProvider(
+                    create: (context) => CountriesCitiesCubit(sl<AuthRepo>()),
+                  ),
+                ],
+                child: RegisterView(
+                  phoneNumber: phoneNumber,
+                ),
               ),
-              BlocProvider(
-                create: (context) => CountriesCitiesCubit(sl<AuthRepo>()),
-              ),
-            ],
-            child: RegisterView(),
-          ),
-        ),
-      ),
+            );
+          }),
       GoRoute(
         path: Routes.profileView,
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
@@ -217,7 +222,8 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: BlocProvider(
-            create: (context) => UserHomeCubit(sl<UserHomeRepo>()),
+            create: (context) =>
+                UserHomeCubit(sl<UserHomeRepo>())..getMyLocation(),
             child: OutStationView(),
           ),
 

@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import '../view_models/user_home_cubit/user_home_cubit.dart';
-import '../view_models/user_home_cubit/user_home_states.dart';
-import 'my_map_widget.dart';
+import '../../../../features/user_home/presentation/view_models/user_home_cubit/user_home_cubit.dart';
+import '../../../../features/user_home/presentation/view_models/user_home_cubit/user_home_states.dart';
+import '../../../../features/user_home/presentation/widgets/my_map_widget.dart';
 
 class SelectDestinationMapScreen extends StatefulWidget {
   final UserHomeCubit homeCubit;

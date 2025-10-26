@@ -7,7 +7,7 @@ import '../../../generated/assets.dart';
 import '../../resources/app_colors.dart';
 import '../styles.dart';
 
-class CustomDropDown extends StatelessWidget {
+class CustomDropDown extends StatefulWidget {
   final List<String> items;
   final String hint;
   final double? borderRadius;
@@ -16,7 +16,6 @@ class CustomDropDown extends StatelessWidget {
   final String? label;
   final String? Function(String?)? validator;
   final Widget? prefix;
-  final bool isExpanded;
 
   const CustomDropDown({
     super.key,
@@ -28,84 +27,143 @@ class CustomDropDown extends StatelessWidget {
     this.validator,
     this.label,
     this.prefix,
-    this.isExpanded = true,
   });
+
+  @override
+  State<CustomDropDown> createState() => _CustomDropDownState();
+}
+
+class _CustomDropDownState extends State<CustomDropDown> {
+  late TextEditingController searchController;
+  String? selectedValue;
+
+  @override
+  void initState() {
+    super.initState();
+    searchController = TextEditingController();
+    selectedValue = widget.value;
+  }
+
+  @override
+  void dispose() {
+    searchController.dispose();
+    super.dispose();
+  }
+
+  void _openSearchDialog(BuildContext context) async {
+    String? result = await showDialog<String>(
+      context: context,
+      barrierDismissible: true,
+      builder: (context) {
+        List<String> filtered = List.from(widget.items);
+
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return Dialog(
+              insetPadding:
+                  const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    TextField(
+                      controller: searchController,
+                      decoration: InputDecoration(
+                        hintText: 'ابحث...',
+                        prefixIcon: const Icon(Icons.search),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      onChanged: (value) {
+                        setState(() {
+                          filtered = widget.items
+                              .where((e) =>
+                                  e.toLowerCase().contains(value.toLowerCase()))
+                              .toList();
+                        });
+                      },
+                    ),
+                    10.ph,
+                    Flexible(
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: filtered.length,
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            title: Text(filtered[index]),
+                            onTap: () =>
+                                Navigator.pop(context, filtered[index]),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        );
+      },
+    );
+
+    if (result != null) {
+      setState(() => selectedValue = result);
+      widget.onChange?.call(result);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (label != null) ...[
-          Text(
-            label!,
-            style: Styles.textStyle16SemiBold(context),
-          ),
+        if (widget.label != null) ...[
+          Text(widget.label!, style: Styles.textStyle16SemiBold(context)),
           6.ph,
         ],
-        Stack(
-          children: [
-            Container(
-                height: 40.h,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.surface,
-                  borderRadius: BorderRadius.circular(borderRadius!),
-                )),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(borderRadius!),
+        GestureDetector(
+          onTap: () => _openSearchDialog(context),
+          child: AbsorbPointer(
+            child: DropdownButtonFormField<String>(
+              isExpanded: true,
+              value: selectedValue,
+              validator: widget.validator,
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Theme.of(context).colorScheme.surface,
+                prefixIcon: widget.prefix,
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 4.h, horizontal: 16.w),
+                focusedBorder: buildOutlineInputBorder(),
+                enabledBorder: buildOutlineInputBorder(),
+                border: buildOutlineInputBorder(),
+                disabledBorder: buildOutlineInputBorder(),
+                errorBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: AppColors.redColor),
+                  borderRadius: BorderRadius.circular(widget.borderRadius!.r),
+                ),
               ),
-              child: DropdownButtonFormField(
-                isExpanded: isExpanded,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: validator,
-                dropdownColor: Theme.of(context).colorScheme.surface,
-                icon: Padding(
-                  padding: EdgeInsets.all(6.r),
-                  child: SvgPicture.asset(
-                    Assets.svgArrowDown,
-                    width: 14.w,
-                  ),
-                ),
-                iconSize: 35.r,
-                menuMaxHeight: 160.h,
-                value: value,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Theme.of(context).colorScheme.surface,
-                  prefixIcon: prefix,
-                  contentPadding: EdgeInsets.symmetric(
-                    vertical: 4.h,
-                    horizontal: 16.w,
-                  ),
-                  focusedBorder: buildOutlineInputBorder(),
-                  enabledBorder: buildOutlineInputBorder(),
-                  border: buildOutlineInputBorder(),
-                  disabledBorder: buildOutlineInputBorder(),
-                  errorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: AppColors.redColor),
-                    borderRadius: BorderRadius.circular(borderRadius!.r),
-                  ),
-                ),
-                items: items.map((String? value) {
-                  return DropdownMenuItem(
-                    value: value,
-                    child: Text(
-                      style: Styles.textStyle18SemiBold(context).copyWith(color: Theme.of(context).textTheme.bodyLarge?.color),
-                      value ?? '',
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  );
-                }).toList(),
-                onChanged: onChange,
-                hint: Text(
-                  hint,
-                  textAlign: TextAlign.start,
-                  style: Styles.textStyle16Medium(context).copyWith(color: Theme.of(context).hintColor),
+              icon: Padding(
+                padding: EdgeInsets.all(6.r),
+                child: SvgPicture.asset(Assets.svgArrowDown, width: 14.w),
+              ),
+              items: widget.items
+                  .map((e) => DropdownMenuItem<String>(
+                        value: e,
+                        child: Text(e, overflow: TextOverflow.ellipsis),
+                      ))
+                  .toList(),
+              onChanged: (_) {},
+              hint: Text(
+                widget.hint,
+                style: Styles.textStyle16Medium(context).copyWith(
+                  color: Theme.of(context).hintColor,
                 ),
               ),
             ),
-          ],
+          ),
         ),
       ],
     );
@@ -113,8 +171,8 @@ class CustomDropDown extends StatelessWidget {
 
   OutlineInputBorder buildOutlineInputBorder() {
     return OutlineInputBorder(
-      borderSide: BorderSide(color: AppColors.secondaryColor),
-      borderRadius: BorderRadius.circular(borderRadius!.r),
+      borderSide: const BorderSide(color: AppColors.secondaryColor),
+      borderRadius: BorderRadius.circular(widget.borderRadius!.r),
     );
   }
 }

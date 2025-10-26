@@ -42,12 +42,14 @@ class _SelectVehicleSectionState extends State<SelectVehicleSection> {
               current is ServicesFailure,
           builder: (context, state) {
             if (state is ServicesSuccess) {
-              return Row(
-                children:
-                    List.generate(state.servicesModel.data!.length, (index) {
-                  return Row(
-                    children: [
-                      VehicleItemWidget(
+              return SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children:
+                      List.generate(state.servicesModel.data!.length, (index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: VehicleItemWidget(
                         service: state.servicesModel.data![index],
                         isSelected: selectedIndex == index,
                         onTap: () {
@@ -56,11 +58,29 @@ class _SelectVehicleSectionState extends State<SelectVehicleSection> {
                           });
                         },
                       ),
-                      if (index != 2) 12.pw,
-                    ],
-                  );
-                }),
+                    );
+                  }),
+                ),
               );
+              // return SingleChildScrollView(
+              //   scrollDirection: Axis.horizontal,
+              //   child: Row(
+              //     children:
+              //         List.generate(state.servicesModel.data!.length, (index) {
+              //       return Padding(
+              //         padding: EdgeInsets.only(
+              //             right: index == state.servicesModel.data!.length - 1
+              //                 ? 0
+              //                 : 12.w),
+              //         child: VehicleItemWidget(
+              //           service: state.servicesModel.data![index],
+              //           isSelected: selectedIndex == index,
+              //           onTap: () => setState(() => selectedIndex = index),
+              //         ),
+              //       );
+              //     }),
+              //   ),
+              // );
             } else if (state is ServicesLoading) {
               return Row(
                 children: List.generate(3, (index) {

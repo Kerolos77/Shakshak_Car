@@ -97,9 +97,12 @@ class AuthRepoImp implements AuthRepo {
       final model = ProfileModel.fromJson(jsonData);
       return right(model);
     } catch (e) {
+      print("error while verify otp ${e.toString()}");
       if (e is DioException) {
+        // print("error while verify otp ${e.toString()}");
         return left(ServerFailure.fromDioError(e));
       }
+
       return left(ServerFailure(e.toString()));
     }
   }

@@ -52,14 +52,17 @@ class OtpButton extends StatelessWidget {
               navigateAndFinish(context, Routes.driverHomeView);
             }
           } else {
-            if (state.otpModel.msg! == 'messages.notfound') {
+            if (state.otpModel.msg! == 'messages.user notfound') {
               showSnackBar(
                   context,
                   state.otpModel.msg!,
                   S.of(context).errorOccurred,
                   AppColors.redColor,
                   ContentType.failure);
-              navigateAndFinish(context, Routes.registerView);
+
+              navigateAndFinish(context, Routes.registerView, extra: {
+                "phoneNumber": phoneNumber,
+              });
             } else {
               showSnackBar(
                   context,
@@ -79,6 +82,7 @@ class OtpButton extends StatelessWidget {
           return CustomButton(
             text: S.of(context).activate,
             onTap: () {
+              print("${phoneNumber}pp=============================");
               if (formKey.currentState!.validate()) {
                 context.read<AuthCubit>().verifyPhoneOtp(
                       otpCode: int.parse(otpController.text),

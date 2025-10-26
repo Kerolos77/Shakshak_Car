@@ -16,6 +16,7 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit(this.authRepo) : super(AuthInitial());
 
+  final TextEditingController phoneController = TextEditingController();
   String roleSelection = '';
   String completeNumber = '';
 

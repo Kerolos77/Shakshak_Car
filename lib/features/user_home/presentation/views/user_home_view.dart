@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_button.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_drop_down.dart';
@@ -8,9 +7,7 @@ import 'package:shakshak/core/utils/shared_widgets/custom_text_field.dart';
 import 'package:shakshak/core/utils/styles.dart';
 import 'package:shakshak/features/base_layout/presentation/views/base_layout_view.dart';
 
-import '../../../../core/resources/app_colors.dart';
-import '../../../../core/router/router_helper.dart';
-import '../../../../core/router/routes.dart';
+import '../../../../core/utils/shared_widgets/select_location/select_location.dart';
 import '../../../../generated/l10n.dart';
 import '../view_models/user_home_cubit/user_home_cubit.dart';
 import '../view_models/user_home_cubit/user_home_states.dart';
@@ -46,78 +43,7 @@ class _UserHomeViewState extends State<UserHomeView> {
                 6.ph,
                 CaptionsWidget(),
                 20.ph,
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Column(
-                      children: [
-                        Container(
-                          height: 24.r,
-                          width: 24.r,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(color: Colors.black, width: 2),
-                          ),
-                        ),
-                        SizedBox(height: 50.h, child: const VerticalDivider()),
-                        Container(
-                          height: 24.r,
-                          width: 24.r,
-                          padding: EdgeInsets.all(1.r),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.black,
-                            border: Border.all(color: Colors.black, width: 2),
-                          ),
-                          child: Icon(Icons.place,
-                              color: Colors.white, size: 16.r),
-                        ),
-                      ],
-                    ),
-                    12.pw,
-                    Expanded(
-                      child: Column(
-                        children: [
-                          CustomTextField(
-                            hint: S.of(context).pickupLocation,
-                            controller: cubit.sourceController,
-                            isReadOnly: true,
-                            borderColor: cubit.isSourceSelected
-                                ? AppColors.greenColor
-                                : AppColors.secondaryColor,
-                            onTap: () {
-                              setState(() {
-                                cubit.isSourceSelected = true;
-                              });
-                              navigateTo(context, Routes.selectDestinationPage,
-                                  extra: {
-                                    'cubit': cubit,
-                                  });
-                            },
-                          ),
-                          12.ph,
-                          CustomTextField(
-                            hint: S.of(context).dropoffLocation,
-                            controller: cubit.destinationController,
-                            isReadOnly: true,
-                            borderColor: !cubit.isSourceSelected
-                                ? AppColors.greenColor
-                                : AppColors.secondaryColor,
-                            onTap: () {
-                              setState(() {
-                                cubit.isSourceSelected = false;
-                              });
-                              navigateTo(context, Routes.selectDestinationPage,
-                                  extra: {
-                                    'cubit': cubit,
-                                  });
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                SelectLocation(),
                 20.ph,
                 const SelectVehicleSection(),
                 20.ph,

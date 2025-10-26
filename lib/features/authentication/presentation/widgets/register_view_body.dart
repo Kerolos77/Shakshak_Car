@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
@@ -9,6 +10,7 @@ import '../../../../core/utils/shared_widgets/phone_text_field.dart';
 import '../../../../core/utils/validations.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
+import '../view_models/auth_cubit/auth_cubit.dart';
 import '../widgets/register_button.dart';
 import 'cities_drop_down.dart';
 import 'have_an_account_widget.dart';
@@ -25,7 +27,8 @@ class RegisterViewBody extends StatefulWidget {
 class _RegisterViewBodyState extends State<RegisterViewBody> {
   final TextEditingController userNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
+
+  // final TextEditingController phoneController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   int? selectedCountryId;
   int? selectedCityId;
@@ -35,13 +38,16 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
   void dispose() {
     userNameController.dispose();
     emailController.dispose();
-    phoneController.dispose();
+    // phoneController.dispose();
     super.dispose();
   }
 
   @override
   void initState() {
-    phoneController.text = widget.phoneNumber;
+    context.read<AuthCubit>().phoneController.text = widget.phoneNumber;
+    context
+        .read<AuthCubit>()
+        .changeCompleteNumber(completeNumber: widget.phoneNumber);
     super.initState();
   }
 
@@ -75,7 +81,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                 ),
                 16.ph,
                 PhoneTextField(
-                  controller: phoneController,
+                  controller: context.read<AuthCubit>().phoneController,
                 ),
                 /*CustomTextField(
                   controller: phoneController,

@@ -27,7 +27,7 @@ class _PhoneTextFieldState extends State<PhoneTextField> {
   @override
   Widget build(BuildContext context) {
     return FormField<String>(
-      validator: Validation.validatePhone(context),
+      validator: Validation.validatePhone(context, widget.controller!),
       builder: (fieldState) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,

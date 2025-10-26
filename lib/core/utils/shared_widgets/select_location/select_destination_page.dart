@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../user_home/presentation/widgets/select_destination_map_screen.dart';
-import '../view_models/user_home_cubit/user_home_cubit.dart';
-import '../widgets/select_destination_widget.dart';
+import '../../../../features/user_home/presentation/view_models/user_home_cubit/user_home_cubit.dart';
+import '../../../../features/user_home/presentation/widgets/select_destination_widget.dart';
+import 'select_destination_map_screen.dart';
 
 class SelectDestinationPage extends StatefulWidget {
   const SelectDestinationPage({
