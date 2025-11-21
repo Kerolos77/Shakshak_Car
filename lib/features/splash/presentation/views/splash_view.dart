@@ -23,7 +23,7 @@ class _SplashViewState extends State<SplashView>
   void initState() {
     super.initState();
     // CacheHelper.saveData(key: AppConstant.kToken, value: "202|T3V78WjSbmTXhuUHKM6lAuA91VF4u3vAM8r8dkxpc2e41459");
-    // CacheHelper.saveData(key: AppConstant.kIsDriver, value: 0);
+    CacheHelper.saveData(key: AppConstant.kIsDriver, value: 0);
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),

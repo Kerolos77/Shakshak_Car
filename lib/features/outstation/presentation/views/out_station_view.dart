@@ -2,6 +2,7 @@ import 'package:flutter/material.dart' hide DatePickerTheme;
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:intl/intl.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
+import 'package:shakshak/core/resources/app_colors.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_button.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_drop_down.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_text_field.dart';
@@ -77,8 +78,8 @@ class _OutStationViewState extends State<OutStationView> {
     DatePicker.showDateTimePicker(
       context,
       theme: DatePickerTheme(
-        doneStyle: TextStyle(color: Colors.purple, fontSize: 18),
-        cancelStyle: TextStyle(color: Colors.grey, fontSize: 16),
+        doneStyle: TextStyle(color: AppColors.primaryColor, fontSize: 18),
+        cancelStyle: TextStyle(color: AppColors.greyColor, fontSize: 16),
       ),
       minTime: DateTime.now(),
       maxTime: DateTime(2030, 12, 31),
