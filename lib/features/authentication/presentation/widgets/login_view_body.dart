@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 import 'package:shakshak/core/extentions/padding_extention.dart';
 import 'package:shakshak/generated/assets.dart';
 
-import '../../../../core/resources/app_colors.dart';
-import '../../../../core/router/router_helper.dart';
-import '../../../../core/router/routes.dart';
 import '../../../../core/utils/shared_widgets/phone_text_field.dart';
 import '../../../../core/utils/styles.dart';
 import '../../../../generated/l10n.dart';
+import '../view_models/auth_cubit/auth_cubit.dart';
 import 'login_button.dart';
 import 'terms_and_conditions_widget.dart';
 
@@ -22,12 +21,11 @@ class LoginViewBody extends StatefulWidget {
 }
 
 class _LoginViewBodyState extends State<LoginViewBody> {
-  final TextEditingController phoneController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
-    phoneController.dispose();
+    // phoneController.dispose();
     super.dispose();
   }
 
@@ -80,39 +78,40 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 //   hint: S.of(context).mobileNumber,
                 // ),
                 PhoneTextField(
-                  controller: phoneController,
+                  controller: context.read<AuthCubit>().phoneController,
                 ),
                 24.ph,
                 LoginButton(
-                  emailOrPhoneController: phoneController,
+                  emailOrPhoneController:
+                      context.read<AuthCubit>().phoneController,
                   formKey: formKey,
                 ),
                 14.ph,
-                Align(
-                  alignment: Alignment.center,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        S.of(context).noAccount,
-                        style: Styles.textStyle14(context).copyWith(
-                          color: AppColors.primaryColor,
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          navigateTo(context, Routes.registerView);
-                        },
-                        child: Text(
-                          S.of(context).signup,
-                          style: Styles.textStyle14SemiBold(context).copyWith(
-                            color: AppColors.darkGreyColor,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                // Align(
+                //   alignment: Alignment.center,
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     children: [
+                //       Text(
+                //         S.of(context).noAccount,
+                //         style: Styles.textStyle14(context).copyWith(
+                //           color: AppColors.primaryColor,
+                //         ),
+                //       ),
+                //       TextButton(
+                //         onPressed: () {
+                //           navigateTo(context, Routes.registerView);
+                //         },
+                //         child: Text(
+                //           S.of(context).signup,
+                //           style: Styles.textStyle14SemiBold(context).copyWith(
+                //             color: AppColors.darkGreyColor,
+                //           ),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
                 14.ph,
                 TermsAndConditionsWidget(),
               ],

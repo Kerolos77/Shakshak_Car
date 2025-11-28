@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
-import 'package:shakshak/features/user_home/presentation/view_models/user_home_cubit.dart';
 
 import '../../../../core/utils/styles.dart';
+import '../view_models/user_home_cubit/user_home_cubit.dart';
+import '../view_models/user_home_cubit/user_home_states.dart';
 
 class CaptionsWidget extends StatefulWidget {
   const CaptionsWidget({

@@ -5,6 +5,7 @@ import 'package:shakshak/features/base_layout/presentation/views/base_layout_vie
 import 'package:shakshak/features/rides/presentation/view_models/rides_cubit.dart';
 
 import '../../../../generated/l10n.dart';
+import '../../../driver/new_rides/data/models/ride_model.dart';
 import '../../data/models/ride.dart';
 import '../widgets/rides_list.dart';
 
