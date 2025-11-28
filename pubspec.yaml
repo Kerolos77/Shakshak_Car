@@ -12,7 +12,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  #  web_socket_channel: ^3.0.3
   cupertino_icons: ^1.0.8
   flutter_screenutil: ^5.9.3
   shared_preferences: ^2.3.2
@@ -46,7 +46,7 @@ dependencies:
   webview_flutter_plus: ^0.4.19
   font_awesome_flutter: ^10.10.0
   web_socket_channel: ^3.0.3
-
+  flutter_datetime_picker_plus: ^2.2.0
 
 
 dev_dependencies:
