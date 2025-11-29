@@ -4,11 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 import 'package:shakshak/core/utils/styles.dart';
 import 'package:shakshak/features/user_home/data/models/services_model.dart';
+import 'package:shakshak/features/user_home/presentation/view_models/user_home_cubit.dart';
 import 'package:shakshak/generated/l10n.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-import '../view_models/user_home_cubit/user_home_cubit.dart';
-import '../view_models/user_home_cubit/user_home_states.dart';
 import 'vehicle_item_widget.dart';
 
 class SelectVehicleSection extends StatefulWidget {
@@ -42,45 +41,22 @@ class _SelectVehicleSectionState extends State<SelectVehicleSection> {
               current is ServicesFailure,
           builder: (context, state) {
             if (state is ServicesSuccess) {
-              return SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children:
-                      List.generate(state.servicesModel.data!.length, (index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: VehicleItemWidget(
-                        service: state.servicesModel.data![index],
-                        isSelected: selectedIndex == index,
-                        onTap: () {
-                          setState(() {
-                            selectedIndex = index;
-                          });
-                        },
-                      ),
-                    );
-                  }),
-                ),
+              return SizedBox(
+                height: 140.h,
+                child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) => VehicleItemWidget(
+                          service: state.servicesModel.data![index],
+                          isSelected: selectedIndex == index,
+                          onTap: () {
+                            setState(() {
+                              selectedIndex = index;
+                            });
+                          },
+                        ),
+                    separatorBuilder: (context, index) => 12.pw,
+                    itemCount: state.servicesModel.data!.length),
               );
-              // return SingleChildScrollView(
-              //   scrollDirection: Axis.horizontal,
-              //   child: Row(
-              //     children:
-              //         List.generate(state.servicesModel.data!.length, (index) {
-              //       return Padding(
-              //         padding: EdgeInsets.only(
-              //             right: index == state.servicesModel.data!.length - 1
-              //                 ? 0
-              //                 : 12.w),
-              //         child: VehicleItemWidget(
-              //           service: state.servicesModel.data![index],
-              //           isSelected: selectedIndex == index,
-              //           onTap: () => setState(() => selectedIndex = index),
-              //         ),
-              //       );
-              //     }),
-              //   ),
-              // );
             } else if (state is ServicesLoading) {
               return Row(
                 children: List.generate(3, (index) {

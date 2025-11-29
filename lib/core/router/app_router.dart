@@ -8,6 +8,7 @@ import 'package:shakshak/features/authentication/presentation/views/login_view.d
 import 'package:shakshak/features/authentication/presentation/views/otp_view.dart';
 import 'package:shakshak/features/authentication/presentation/views/profile_view.dart';
 import 'package:shakshak/features/authentication/presentation/views/register_view.dart';
+import 'package:shakshak/features/chat/data/repo/chat_repo.dart';
 import 'package:shakshak/features/contact_us/data/repo/contact_us_repo.dart';
 import 'package:shakshak/features/contact_us/presentation/view_models/contact_us_cubit.dart';
 import 'package:shakshak/features/contact_us/presentation/views/contact_us_view.dart';
@@ -34,6 +35,7 @@ import 'package:shakshak/features/splash/presentation/views/splash_view.dart';
 import 'package:shakshak/features/static_pages/data/repo/static_pages_repo.dart';
 import 'package:shakshak/features/static_pages/presentation/view_models/static_pages_cubit.dart';
 import 'package:shakshak/features/user_home/data/repo/user_home_repo.dart';
+import 'package:shakshak/features/user_home/presentation/view_models/user_home_cubit.dart';
 import 'package:shakshak/features/user_home/presentation/views/user_home_view.dart';
 import 'package:shakshak/features/wallet/data/repo/wallet_repo.dart';
 import 'package:shakshak/features/wallet/presentation/view_models/wallet_cubit.dart';
@@ -42,14 +44,17 @@ import 'package:shakshak/features/wallet/presentation/views/wallet_view.dart';
 import 'package:shakshak/features/wallet/presentation/views/withdraw_history_view.dart';
 
 import '../../features/authentication/presentation/views/role_selection_view.dart';
+import '../../features/chat/presentation/view_models/chat_cubit.dart';
+import '../../features/chat/presentation/views/chat_view.dart';
 import '../../features/driver/outstation/presentation/views/driver_outstation_view.dart';
 import '../../features/driver/vehicle_information/presentation/views/vehicle_information_view.dart';
 import '../../features/outstation_rides/presentation/views/outstation_rides_view.dart';
 import '../../features/static_pages/presentation/views/privacy_policy_view.dart';
 import '../../features/static_pages/presentation/views/terms_and_conditions_view.dart';
-import '../../features/user_home/presentation/view_models/user_home_cubit/user_home_cubit.dart';
+import '../../features/user_home/presentation/views/offers_view.dart';
+import '../../features/user_home_page/presentation/screen/select_destination_page.dart';
+import '../../features/user_home_page/presentation/screen/user_home_page.dart';
 import '../services/service_locator.dart';
-import '../utils/shared_widgets/select_location/select_destination_page.dart';
 import 'routes.dart';
 
 abstract class AppRouter {
@@ -141,28 +146,23 @@ abstract class AppRouter {
             );
           }),
       GoRoute(
-          path: Routes.registerView,
-          pageBuilder: (context, state) {
-            final data = state.extra as Map<String, dynamic>;
-            final phoneNumber = data["phoneNumber"] as String;
-            return buildPageWithDefaultTransition<void>(
-              context: context,
-              state: state,
-              child: MultiBlocProvider(
-                providers: [
-                  BlocProvider(
-                    create: (context) => AuthCubit(sl<AuthRepo>()),
-                  ),
-                  BlocProvider(
-                    create: (context) => CountriesCitiesCubit(sl<AuthRepo>()),
-                  ),
-                ],
-                child: RegisterView(
-                  phoneNumber: phoneNumber,
-                ),
+        path: Routes.registerView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => AuthCubit(sl<AuthRepo>()),
               ),
-            );
-          }),
+              BlocProvider(
+                create: (context) => CountriesCitiesCubit(sl<AuthRepo>()),
+              ),
+            ],
+            child: RegisterView(),
+          ),
+        ),
+      ),
       GoRoute(
         path: Routes.profileView,
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
@@ -188,20 +188,19 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: BlocProvider(
-            create: (context) =>
-                UserHomeCubit(sl<UserHomeRepo>())..getMyLocation(),
+            create: (context) => UserHomeCubit(sl<UserHomeRepo>()),
             child: UserHomeView(),
           ),
         ),
       ),
-      // GoRoute(
-      //   path: Routes.userHomePage,
-      //   pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
-      //     context: context,
-      //     state: state,
-      //     child: UserHomePage(),
-      //   ),
-      // ),
+      GoRoute(
+        path: Routes.userHomePage,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: UserHomePage(),
+        ),
+      ),
       GoRoute(
         path: Routes.selectDestinationPage,
         pageBuilder: (context, state) {
@@ -212,6 +211,9 @@ abstract class AppRouter {
             state: state,
             child: SelectDestinationPage(
               cubit: extra['cubit'],
+              address: extra['address'],
+              destinationController: extra['destinationController'],
+              categoryName: extra['categoryName'],
             ),
           );
         },
@@ -222,12 +224,9 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: BlocProvider(
-            create: (context) =>
-                UserHomeCubit(sl<UserHomeRepo>())..getMyLocation(),
+            create: (context) => UserHomeCubit(sl<UserHomeRepo>()),
             child: OutStationView(),
           ),
-
-          // OutStationView(),
         ),
       ),
       GoRoute(
@@ -378,20 +377,49 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: VehicleInformationView(),
+          child: BlocProvider(
+            create: (context) => UserHomeCubit(sl()),
+            child: VehicleInformationView(),
+          ),
         ),
       ),
       GoRoute(
-          path: Routes.tripMapView,
-          pageBuilder: (context, state) {
-            final Map<String, dynamic> extra =
-                state.extra as Map<String, dynamic>;
-            return buildPageWithDefaultTransition<void>(
-              context: context,
-              state: state,
-              child: TripMapView(ride: extra['ride']),
-            );
-          }),
+        path: Routes.tripMapView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: TripMapView(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.chatView,
+        pageBuilder: (context, state) {
+          // var data = state.extra as Map;
+
+          return buildPageWithDefaultTransition<void>(
+            context: context,
+            state: state,
+            child: BlocProvider(
+              create: (context) => ChatCubit(sl<ChatRepo>()),
+              // child: ChatView(tripId: data['tripId']),
+              child: ChatView(tripId: 0),
+            ),
+          );
+        },
+      ),
+      GoRoute(
+        path: Routes.offersView,
+        pageBuilder: (context, state) {
+          return buildPageWithDefaultTransition<void>(
+            context: context,
+            state: state,
+            child: BlocProvider(
+              create: (context) => UserHomeCubit(sl<UserHomeRepo>()),
+              child: OffersView(),
+            ),
+          );
+        },
+      ),
     ],
   );
 }

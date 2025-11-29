@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/features/base_layout/presentation/views/base_layout_view.dart';
-import 'package:shakshak/features/driver/new_rides/presentation/views/new_rides_views.dart';
 
 import '../../../../../core/constants/app_const.dart';
 import '../../../../../core/resources/app_colors.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../generated/l10n.dart';
-import '../../../new_rides/presentation/widgets/no_trips_widget.dart';
-import '../../../new_rides/presentation/widgets/online_offline_toggle_button.dart';
+import '../widgets/no_trips_widget.dart';
+import '../widgets/online_offline_toggle_button.dart';
 import '../widgets/rides_list.dart';
 
 class DriverHomeView extends StatelessWidget {
@@ -23,16 +22,8 @@ class DriverHomeView extends StatelessWidget {
         length: 3,
         child: Column(
           children: [
-
-            Expanded(
-              child: TabBarView(
-                children: [
-                  NewRidesViews(),
-                  RidesList(),
-                  RidesList(),
-                ],
-              ),
-            ),
+            OnlineOfflineToggleButton(),
+            SizedBox(height: 12.h),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
               padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
@@ -67,6 +58,15 @@ class DriverHomeView extends StatelessWidget {
                       ],
                     ),
                   ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  NoTripsWidget(),
+                  RidesList(),
+                  RidesList(),
                 ],
               ),
             ),

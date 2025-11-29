@@ -18,7 +18,6 @@ import 'features/settings/presentation/view_models/theme_cubit/theme_cubit.dart'
 import 'generated/l10n.dart';
 
 void main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
 

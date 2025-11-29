@@ -39,17 +39,15 @@ class BaseLayoutView extends StatelessWidget {
               Expanded(
                 child: Container(
                   padding: EdgeInsets.only(
-                      top: horizontalPadding.h,
+                      top: 16.h,
                       left: horizontalPadding.w,
                       right: horizontalPadding.w),
-                  clipBehavior: Clip.hardEdge,
                   decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.surface,
                       borderRadius: BorderRadius.vertical(
                         top: Radius.circular(
                           20.r,
                         ),
-
                       )),
                   child: body,
                 ),

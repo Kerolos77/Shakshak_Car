@@ -72,7 +72,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
           6.ph,
         ],
         TextFormField(
-
           readOnly: widget.isReadOnly,
           autovalidateMode: widget.autoValidateMode,
           obscuringCharacter: "*",
@@ -89,13 +88,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
           decoration: InputDecoration(
             fillColor: Theme.of(context).colorScheme.surface,
             filled: true,
-            enabledBorder: buildOutlineInputBorder(borderColor: widget.borderColor!),
+            enabledBorder: buildOutlineInputBorder(),
             errorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(widget.borderRadius.r),
                 borderSide: const BorderSide(
                     color: AppColors.redColor, style: BorderStyle.solid)),
-            border: buildOutlineInputBorder(borderColor: widget.borderColor!),
-            focusedBorder: buildOutlineInputBorder(borderColor: widget.borderColor!),
+            border: buildOutlineInputBorder(),
+            focusedBorder: buildOutlineInputBorder(),
             contentPadding:
                 EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
             floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -111,12 +110,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
     );
   }
 
-  OutlineInputBorder buildOutlineInputBorder({
-    required Color borderColor,
-}) {
+  OutlineInputBorder buildOutlineInputBorder() {
     return OutlineInputBorder(
         borderRadius: BorderRadius.circular(widget.borderRadius.r),
-        borderSide:  BorderSide(
-            color: borderColor, style: BorderStyle.solid));
+        borderSide: BorderSide(
+            color: AppColors.secondaryColor, style: BorderStyle.solid));
   }
 }

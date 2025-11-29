@@ -7,11 +7,8 @@ class ApiConstant {
   static const String signupUrl = 'auth/signup';
   static const String loginUrl = 'auth/send_otp';
   static const String verifyOtpUrl = 'login';
-  static const String testDriverToken ="202|T3V78WjSbmTXhuUHKM6lAuA91VF4u3vAM8r8dkxpc2e41459";
   static const String sendOTP = 'auth/send_otp';
   static const String verifyOTP = 'auth/verify_otp';
-  static const String orderOldForDriver = 'order/old-for-driver';
-
   static const String getProfileUrl = 'user/profile';
   static const String updateProfileUrl = 'user/profile/update';
 
