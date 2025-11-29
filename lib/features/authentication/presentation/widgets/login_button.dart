@@ -57,8 +57,6 @@ class LoginButton extends StatelessWidget {
           return CustomButton(
             text: S.of(context).next,
             onTap: () {
-              print(
-                  "${emailOrPhoneController.text}=============================");
               if (formKey.currentState!.validate()) {
                 context.read<AuthCubit>().login(
                       loginBody: LoginBody(

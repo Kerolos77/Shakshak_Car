@@ -128,11 +128,10 @@ class Validation {
     };
   }
 
-  static String? Function(String?) validatePhone(
-      BuildContext context, TextEditingController controller) {
+  static String? Function(String?) validatePhone(BuildContext context) {
     return (String? value) {
       final saudiPhoneRegex = RegExp(r'^(?:\+9665|5)[0-9]{8}$');
-      if (controller.text.isEmpty) {
+      if (value == null || value.isEmpty) {
         return S.of(context).phoneRequired;
       }
       /* else if (!saudiPhoneRegex.hasMatch(value)) {
