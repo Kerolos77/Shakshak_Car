@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
+import 'package:shakshak/features/rides/data/models/ride.dart';
+import 'package:shakshak/features/rides/data/models/ride_user.dart';
 
 import 'drive_details_card.dart';
 
@@ -38,7 +40,13 @@ class OrderDetailsViewBody extends StatelessWidget {
           bottom: 30.h,
           left: 16.w,
           right: 16.w,
-          child: DriveDetailsCard(),
+          child: DriveDetailsCard(
+            ride: Ride(
+                amount: '70.00',
+                user: RideUser(
+                  name: 'Kero',
+                )),
+          ),
         ),
       ],
     );

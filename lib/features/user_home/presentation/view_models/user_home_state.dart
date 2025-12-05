@@ -33,6 +33,21 @@ final class ServicesFailure extends UserHomeState {
   ServicesFailure({required this.errorMessage});
 }
 
+// Rides states
+final class UserHomeRidesLoading extends UserHomeState {}
+
+final class UserHomeRidesSuccess extends UserHomeState {
+  final RidesModel ridesModel;
+
+  UserHomeRidesSuccess({required this.ridesModel});
+}
+
+final class UserHomeRidesFailure extends UserHomeState {
+  final String errorMessage;
+
+  UserHomeRidesFailure({required this.errorMessage});
+}
+
 // offers & order
 class AcceptOfferLoading extends UserHomeState {
   final int orderId;

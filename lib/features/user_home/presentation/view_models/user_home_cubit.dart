@@ -4,6 +4,7 @@ import 'package:shakshak/features/user_home/data/models/accept_offer_model.dart'
 import 'package:shakshak/features/user_home/data/models/user_home_caption_model.dart';
 import 'package:shakshak/features/user_home/data/repo/user_home_repo.dart';
 
+import '../../../rides/data/models/rides_model.dart';
 import '../../data/models/services_model.dart';
 
 part 'user_home_state.dart';

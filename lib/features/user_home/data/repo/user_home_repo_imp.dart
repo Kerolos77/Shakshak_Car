@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:shakshak/core/constants/app_const.dart';
 import 'package:shakshak/core/error/failure.dart';
 import 'package:shakshak/core/network/local/cache_helper.dart';
+import 'package:shakshak/features/rides/data/models/rides_model.dart';
 import 'package:shakshak/features/user_home/data/models/user_home_caption_model.dart';
 import 'package:shakshak/features/user_home/data/repo/user_home_repo.dart';
 
@@ -36,6 +37,23 @@ class UserHomeRepoImp implements UserHomeRepo {
         token: CacheHelper.getData(key: AppConstant.kToken),
       );
       return right(ServicesModel.fromJson(data.data));
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, RidesModel>> getRides({required int inCity}) async {
+    try {
+      var data = await DioHelper.getData(
+        url: ApiConstant.getUserRidesUrl,
+        token: CacheHelper.getData(key: AppConstant.kToken),
+        query: {'in_city': inCity},
+      );
+      return right(RidesModel.fromJson(data.data));
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));

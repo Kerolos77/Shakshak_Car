@@ -188,8 +188,15 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: BlocProvider(
-            create: (context) => UserHomeCubit(sl<UserHomeRepo>()),
+          child: MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => UserHomeCubit(sl<UserHomeRepo>()),
+              ),
+              BlocProvider(
+                create: (context) => RidesCubit(sl<RidesRepo>()),
+              ),
+            ],
             child: UserHomeView(),
           ),
         ),

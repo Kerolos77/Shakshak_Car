@@ -7,13 +7,17 @@ import 'package:shakshak/core/router/routes.dart';
 import 'package:shakshak/core/utils/common_use.dart';
 import 'package:shakshak/core/utils/styles.dart';
 
+import '../../../rides/data/models/ride.dart';
+
 class DriveDetailsCard extends StatelessWidget {
   const DriveDetailsCard({
     super.key,
     this.onTap,
+    required this.ride,
   });
 
   final void Function()? onTap;
+  final Ride ride;
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +50,11 @@ class DriveDetailsCard extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'Kero',
+                      ride.user?.name ?? '',
                       style: Styles.textStyle18Bold(context),
                     ),
                     Text(
-                      '70.00 جنيه',
+                      '${ride.amount ?? ''} جنيه',
                       style: Styles.textStyle18Bold(context),
                     ),
                   ],
