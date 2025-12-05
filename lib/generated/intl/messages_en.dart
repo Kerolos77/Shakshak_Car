@@ -182,6 +182,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "noAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account ?",
     ),
+    "noData": MessageLookupByLibrary.simpleMessage("No Data"),
     "noTripsNow": MessageLookupByLibrary.simpleMessage("No trips right now..."),
     "notes": MessageLookupByLibrary.simpleMessage("Notes"),
     "numberOfPassengers": MessageLookupByLibrary.simpleMessage(

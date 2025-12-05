@@ -176,6 +176,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "newRide": MessageLookupByLibrary.simpleMessage("جديدة"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "noAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+    "noData": MessageLookupByLibrary.simpleMessage("لا يوجد بيانات"),
     "noTripsNow": MessageLookupByLibrary.simpleMessage(
       "لا توجد رحلات حالياً...",
     ),

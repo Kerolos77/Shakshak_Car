@@ -11,6 +11,7 @@ import 'package:shakshak/features/base_layout/presentation/views/base_layout_vie
 import '../../../../core/router/routes.dart';
 import '../../../../generated/l10n.dart';
 import '../widgets/captions_widget.dart';
+import '../widgets/drive_details_card.dart';
 import '../widgets/select_vehicle_section.dart';
 import '../widgets/user_home_header.dart';
 
@@ -25,15 +26,21 @@ class UserHomeView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            DriveDetailsCard(
+              onTap: () {
+                navigateTo(context, Routes.driveDetailsView);
+              },
+            ),
+            12.ph,
             Text(
               S.of(context).whereYouWantToGo,
-              style: Styles.textStyle20Bold(context),
+              style: Styles.textStyle18Bold(context),
             ),
             6.ph,
             CaptionsWidget(),
             20.ph,
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Column(
                   children: [

@@ -198,5 +198,6 @@
   "cancel": "إلغاء",
   "reject": "رفض",
   "accept": "قبول",
-  "searching": "بحث..."
+  "searching": "بحث...",
+  "noData": "لا يوجد بيانات"
 }

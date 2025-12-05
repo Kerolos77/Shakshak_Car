@@ -12,12 +12,13 @@ class BaseLayoutView extends StatelessWidget {
     this.body,
     this.title,
     this.horizontalPadding = 16,
+    this.topPadding = 16,
   });
 
   final Widget? header;
   final Widget? body;
   final String? title;
-  final double horizontalPadding;
+  final double horizontalPadding, topPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class BaseLayoutView extends StatelessWidget {
               Expanded(
                 child: Container(
                   padding: EdgeInsets.only(
-                      top: 16.h,
+                      top: topPadding.h,
                       left: horizontalPadding.w,
                       right: horizontalPadding.w),
                   decoration: BoxDecoration(

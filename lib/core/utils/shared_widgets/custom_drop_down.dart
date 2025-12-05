@@ -61,7 +61,7 @@ class CustomDropDown extends StatelessWidget {
                 validator: validator,
                 dropdownColor: Theme.of(context).colorScheme.surface,
                 icon: Padding(
-                  padding: EdgeInsets.all(6.r),
+                  padding: EdgeInsets.all(10.r),
                   child: SvgPicture.asset(
                     Assets.svgArrowDown,
                     width: 14.w,
@@ -91,7 +91,8 @@ class CustomDropDown extends StatelessWidget {
                   return DropdownMenuItem(
                     value: value,
                     child: Text(
-                      style: Styles.textStyle18SemiBold(context).copyWith(color: Theme.of(context).textTheme.bodyLarge?.color),
+                      style: Styles.textStyle18SemiBold(context).copyWith(
+                          color: Theme.of(context).textTheme.bodyLarge?.color),
                       value ?? '',
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -101,7 +102,8 @@ class CustomDropDown extends StatelessWidget {
                 hint: Text(
                   hint,
                   textAlign: TextAlign.start,
-                  style: Styles.textStyle16Medium(context).copyWith(color: Theme.of(context).hintColor),
+                  style: Styles.textStyle16Medium(context)
+                      .copyWith(color: Theme.of(context).hintColor),
                 ),
               ),
             ),

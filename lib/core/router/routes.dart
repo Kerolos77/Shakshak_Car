@@ -22,6 +22,7 @@ class Routes {
   static String userHomePage = "/UserHomePage";
   static String selectDestinationPage = "/SelectDestinationPage";
   static String offersView = "/offersView";
+  static String driveDetailsView = "/driveDetailsView";
 
   // --------------------------------- Driver ---------------------------------
 

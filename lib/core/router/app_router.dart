@@ -51,6 +51,7 @@ import '../../features/driver/vehicle_information/presentation/views/vehicle_inf
 import '../../features/outstation_rides/presentation/views/outstation_rides_view.dart';
 import '../../features/static_pages/presentation/views/privacy_policy_view.dart';
 import '../../features/static_pages/presentation/views/terms_and_conditions_view.dart';
+import '../../features/user_home/presentation/views/drive_details_view.dart';
 import '../../features/user_home/presentation/views/offers_view.dart';
 import '../../features/user_home_page/presentation/screen/select_destination_page.dart';
 import '../../features/user_home_page/presentation/screen/user_home_page.dart';
@@ -361,7 +362,10 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: CarView(),
+          child: BlocProvider(
+            create: (context) => UserHomeCubit(sl()),
+            child: CarView(),
+          ),
         ),
       ),
       GoRoute(
@@ -416,6 +420,19 @@ abstract class AppRouter {
             child: BlocProvider(
               create: (context) => UserHomeCubit(sl<UserHomeRepo>()),
               child: OffersView(),
+            ),
+          );
+        },
+      ),
+      GoRoute(
+        path: Routes.driveDetailsView,
+        pageBuilder: (context, state) {
+          return buildPageWithDefaultTransition<void>(
+            context: context,
+            state: state,
+            child: BlocProvider(
+              create: (context) => UserHomeCubit(sl<UserHomeRepo>()),
+              child: const DriveDetailsView(),
             ),
           );
         },

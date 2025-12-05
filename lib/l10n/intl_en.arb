@@ -169,5 +169,6 @@
   "cancel": "Cancel",
   "reject": "Reject",
   "accept": "Accept",
-  "searching": "Searching..."
+  "searching": "Searching...",
+  "noData": "No Data"
 }

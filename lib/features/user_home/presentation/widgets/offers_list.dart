@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/constants/app_const.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 import 'package:shakshak/core/resources/app_colors.dart';
+import 'package:shakshak/core/router/router_helper.dart';
+import 'package:shakshak/core/router/routes.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_button.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_loading_button.dart';
 import 'package:shakshak/core/utils/styles.dart';
@@ -115,11 +117,15 @@ class OffersList extends StatelessWidget {
                                   height: 40,
                                   borderRadius: 8,
                                   onTap: () {
+                                    navigateTo(
+                                        context, Routes.driveDetailsView);
+                                    /*
                                     context.read<UserHomeCubit>().acceptOffer(
                                           orderId: 707,
                                           driverId: 1,
                                           index: index,
                                         );
+                                        */
                                   },
                                 );
                               }

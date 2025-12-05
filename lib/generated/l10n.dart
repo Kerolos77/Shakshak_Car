@@ -1343,6 +1343,11 @@ class S {
   String get searching {
     return Intl.message('Searching...', name: 'searching', desc: '', args: []);
   }
+
+  /// `No Data`
+  String get noData {
+    return Intl.message('No Data', name: 'noData', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
