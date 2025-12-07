@@ -72,7 +72,7 @@ class _OutStationViewState extends State<OutStationView> {
   void _showDatePicker() {
     // final isArabic = S.maybeOf(context) == 'ar';
     final isArabic = Intl.getCurrentLocale().startsWith('ar');
-
+    int l = 0;
     print(Intl.getCurrentLocale());
     print(isArabic ? 'ar' : 'en');
     DatePicker.showDateTimePicker(
