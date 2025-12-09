@@ -17,9 +17,7 @@ class OtpViewBody extends StatefulWidget {
     super.key,
     required this.phoneNumber,
   });
-
-  final String phoneNumber;
-
+final String phoneNumber;
   @override
   State<OtpViewBody> createState() => _OtpViewBodyState();
 }
@@ -58,8 +56,8 @@ class _OtpViewBodyState extends State<OtpViewBody> {
           60.ph,
           Text(
             S.of(context).enterTheCodeSentToYourPhone,
-            style: Styles.textStyle14Bold(context)
-                .copyWith(color: AppColors.primaryColor),
+            style:
+                Styles.textStyle14Bold(context).copyWith(color: AppColors.primaryColor),
           ),
           50.ph,
           Form(
@@ -88,7 +86,7 @@ class _OtpViewBodyState extends State<OtpViewBody> {
           OtpButton(
             otpController: otpController,
             formKey: formKey,
-            phoneNumber: widget.phoneNumber,
+            phoneNumber:widget.phoneNumber ,
           ),
           14.ph,
           /*   ResendOtp(),*/

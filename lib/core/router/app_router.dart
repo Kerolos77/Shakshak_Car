@@ -147,23 +147,28 @@ abstract class AppRouter {
             );
           }),
       GoRoute(
-        path: Routes.registerView,
-        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
-          context: context,
-          state: state,
-          child: MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (context) => AuthCubit(sl<AuthRepo>()),
+          path: Routes.registerView,
+          pageBuilder: (context, state) {
+            final data = state.extra as Map<String, dynamic>;
+            final phoneNumber = data["phoneNumber"] as String;
+            return buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: MultiBlocProvider(
+                providers: [
+                  BlocProvider(
+                    create: (context) => AuthCubit(sl<AuthRepo>()),
+                  ),
+                  BlocProvider(
+                    create: (context) => CountriesCitiesCubit(sl<AuthRepo>()),
+                  ),
+                ],
+                child: RegisterView(
+                  phoneNumber: phoneNumber,
+                ),
               ),
-              BlocProvider(
-                create: (context) => CountriesCitiesCubit(sl<AuthRepo>()),
-              ),
-            ],
-            child: RegisterView(),
-          ),
-        ),
-      ),
+            );
+          }),
       GoRoute(
         path: Routes.profileView,
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
@@ -395,13 +400,16 @@ abstract class AppRouter {
         ),
       ),
       GoRoute(
-        path: Routes.tripMapView,
-        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
-          context: context,
-          state: state,
-          child: TripMapView(),
-        ),
-      ),
+          path: Routes.tripMapView,
+          pageBuilder: (context, state) {
+            final Map<String, dynamic> extra =
+            state.extra as Map<String, dynamic>;
+            return buildPageWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: TripMapView(ride: extra['ride']),
+            );
+          }),
       GoRoute(
         path: Routes.chatView,
         pageBuilder: (context, state) {

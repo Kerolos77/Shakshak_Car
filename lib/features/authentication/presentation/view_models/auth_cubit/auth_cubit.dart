@@ -16,6 +16,7 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit(this.authRepo) : super(AuthInitial());
 
+  final TextEditingController phoneController = TextEditingController();
   String roleSelection = '';
   String completeNumber = '';
 
@@ -90,7 +91,7 @@ class AuthCubit extends Cubit<AuthState> {
     emit(GetProfileLoadingState());
     var result = await authRepo.getProfile();
     result.fold((error) {
-      debugPrint("error while get profile data ${error.message}");
+      debugPrint("error while get profile data${error.message}");
       return emit(GetProfileFailureState(errMessage: error.message));
     }, (success) {
       return emit(GetProfileSuccessState(success));

@@ -7,7 +7,6 @@ import 'package:shakshak/features/wallet/data/models/wallet_transactions_model.d
 import 'package:shakshak/features/wallet/presentation/view_models/wallet_cubit.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../../../generated/l10n.dart';
 import '../widgets/wallet_transaction_item.dart';
 
 class WalletTransactionsList extends StatefulWidget {
@@ -34,8 +33,8 @@ class _WalletTransactionsListState extends State<WalletTransactionsList> {
           return state.walletTransactionsModel.data!.isNotEmpty
               ? Expanded(
                   child: ListView.separated(
-                    padding: EdgeInsets.only(
-                        left: 16.w, right: 16.w, top: 12.h, bottom: 24.h),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
                     itemBuilder: (context, index) => WalletTransactionItem(
                       walletTransactionData:
                           state.walletTransactionsModel.data![index],
@@ -47,7 +46,7 @@ class _WalletTransactionsListState extends State<WalletTransactionsList> {
               : Expanded(
                   child: Center(
                   child: Text(
-                    S.of(context).noData,
+                    'no data',
                     style: Styles.textStyle16Medium(context),
                   ),
                 ));
