@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 
-import '../../generated/l10n.dart';
+import 'package:shakshak/generated/l10n.dart';
 
 class Validation {
   static String? Function(String?) validatePassword(BuildContext context) {
@@ -178,8 +178,21 @@ class Validation {
     return (String? value) {
       if (value == null || value.isEmpty) {
         return S.of(context).nationalIdRequired;
-      } else if (value.length < 14) {
+      } else if (value.length != 14) {
         return S.of(context).invalidNationalId;
+      } else if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
+        return S.of(context).invalidNationalId;
+      } else {
+        return null;
+      }
+    };
+  }
+
+  static String? Function(String?) validateRequired(
+      BuildContext context, String message) {
+    return (String? value) {
+      if (value == null || value.isEmpty) {
+        return message;
       } else {
         return null;
       }

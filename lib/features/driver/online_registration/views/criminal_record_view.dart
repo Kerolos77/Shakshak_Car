@@ -1,4 +1,4 @@
-import 'dart:io';
+﻿import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,11 +8,11 @@ import 'package:shakshak/core/extentions/glopal_extentions.dart';
 import 'package:shakshak/core/extentions/padding_extention.dart';
 import 'package:shakshak/core/router/router_helper.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_button.dart';
-import 'package:shakshak/features/base_layout/presentation/views/base_layout_view.dart';
+import 'package:shakshak/features/shared/base_layout/presentation/views/base_layout_view.dart';
 
-import '../../../../generated/l10n.dart';
-import '../presentation/view_models/driver_registration_cubit.dart';
-import '../widgets/custom_image_picker_widget.dart';
+import 'package:shakshak/generated/l10n.dart';
+import 'package:shakshak/features/driver/online_registration/presentation/view_models/driver_registration_cubit.dart';
+import 'package:shakshak/features/driver/online_registration/widgets/custom_image_picker_widget.dart';
 
 class CriminalRecordView extends StatefulWidget {
   const CriminalRecordView({super.key});
@@ -45,7 +45,7 @@ class _CriminalRecordViewState extends State<CriminalRecordView> {
         if (state is CriminalRecordImageStoredState) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Criminal record image stored successfully'),
+              content: Text(S.of(context).criminalRecordStored),
               backgroundColor: Colors.green,
             ),
           );
@@ -59,7 +59,7 @@ class _CriminalRecordViewState extends State<CriminalRecordView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomImagePickerWidget(
-                title: S.of(context).frontSide,
+                title: "",
                 onImagePicked: (file) => selectedImage = file,
                 initialImage: selectedImage,
               ),
@@ -76,7 +76,7 @@ class _CriminalRecordViewState extends State<CriminalRecordView> {
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text('Please select an image'),
+                        content: Text(S.of(context).pleaseSelectImage),
                         backgroundColor: Colors.red,
                       ),
                     );
@@ -91,3 +91,5 @@ class _CriminalRecordViewState extends State<CriminalRecordView> {
     );
   }
 }
+
+

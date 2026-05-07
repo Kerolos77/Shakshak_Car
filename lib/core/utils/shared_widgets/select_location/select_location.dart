@@ -1,13 +1,12 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
-
-import '../../../../features/user_home/presentation/view_models/user_home_cubit/user_home_cubit.dart';
-import '../../../../generated/l10n.dart';
-import '../../../resources/app_colors.dart';
-import '../../../router/router_helper.dart';
-import '../../../router/routes.dart';
-import '../custom_text_field.dart';
+import 'package:shakshak/core/resources/app_colors.dart';
+import 'package:shakshak/core/router/router_helper.dart';
+import 'package:shakshak/core/router/routes.dart';
+import 'package:shakshak/core/utils/shared_widgets/custom_text_field.dart';
+import 'package:shakshak/features/user/user_home/presentation/view_models/location/location_cubit.dart';
+import 'package:shakshak/generated/l10n.dart';
 
 class SelectLocation extends StatefulWidget {
   const SelectLocation({super.key});
@@ -19,7 +18,7 @@ class SelectLocation extends StatefulWidget {
 class _SelectLocationState extends State<SelectLocation> {
   @override
   Widget build(BuildContext context) {
-    UserHomeCubit cubit = UserHomeCubit.get(context);
+    LocationCubit cubit = LocationCubit.get(context)..getMyLocation();
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -30,20 +29,25 @@ class _SelectLocationState extends State<SelectLocation> {
               width: 24.r,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: Colors.black, width: 2),
+                border: Border.all(
+                    color: Theme.of(context).colorScheme.onSurface, width: 2),
               ),
             ),
-            SizedBox(height: 50.h, child: const VerticalDivider()),
+            SizedBox(
+                height: 50.h,
+                child: VerticalDivider(color: Theme.of(context).dividerColor)),
             Container(
               height: 24.r,
               width: 24.r,
               padding: EdgeInsets.all(1.r),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.black,
-                border: Border.all(color: Colors.black, width: 2),
+                color: Theme.of(context).colorScheme.onSurface,
+                border: Border.all(
+                    color: Theme.of(context).colorScheme.onSurface, width: 2),
               ),
-              child: Icon(Icons.place, color: Colors.white, size: 16.r),
+              child: Icon(Icons.place,
+                  color: Theme.of(context).cardColor, size: 16.r),
             ),
           ],
         ),
@@ -56,7 +60,7 @@ class _SelectLocationState extends State<SelectLocation> {
                 controller: cubit.sourceController,
                 isReadOnly: true,
                 borderColor: cubit.isSourceSelected
-                    ? AppColors.greenColor
+                    ? AppColors.darkPurpleColor
                     : AppColors.secondaryColor,
                 onTap: () {
                   setState(() {
@@ -73,7 +77,7 @@ class _SelectLocationState extends State<SelectLocation> {
                 controller: cubit.destinationController,
                 isReadOnly: true,
                 borderColor: !cubit.isSourceSelected
-                    ? AppColors.greenColor
+                    ? AppColors.darkPurpleColor
                     : AppColors.secondaryColor,
                 onTap: () {
                   setState(() {

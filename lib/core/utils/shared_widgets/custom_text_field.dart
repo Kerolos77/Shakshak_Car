@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 
-import '../../resources/app_colors.dart';
-import '../styles.dart';
+import 'package:shakshak/core/resources/app_colors.dart';
+import 'package:shakshak/core/utils/styles.dart';
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
@@ -67,7 +67,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
         if (widget.label != null) ...[
           Text(
             widget.label!,
-            style: Styles.textStyle16SemiBold(context).copyWith(color: Theme.of(context).colorScheme.onSurface),
+            style: Styles.textStyle16SemiBold(context)
+                .copyWith(color: Theme.of(context).colorScheme.onSurface),
           ),
           6.ph,
         ],
@@ -88,32 +89,36 @@ class _CustomTextFieldState extends State<CustomTextField> {
           decoration: InputDecoration(
             fillColor: Theme.of(context).colorScheme.surface,
             filled: true,
-            enabledBorder: buildOutlineInputBorder(),
+            enabledBorder: buildOutlineInputBorder(widget.borderColor),
             errorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(widget.borderRadius.r),
                 borderSide: const BorderSide(
                     color: AppColors.redColor, style: BorderStyle.solid)),
-            border: buildOutlineInputBorder(),
-            focusedBorder: buildOutlineInputBorder(),
+            border: buildOutlineInputBorder(widget.borderColor),
+            focusedBorder: buildOutlineInputBorder(widget.borderColor),
             contentPadding:
                 EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
             floatingLabelBehavior: FloatingLabelBehavior.always,
             suffixIcon: widget.suffix,
             prefixIcon: widget.prefix,
             hintText: widget.hint,
-            hintStyle: Styles.textStyle16Medium(context).copyWith(color: Theme.of(context).hintColor),
-            labelStyle: Styles.textStyle16SemiBold(context).copyWith(color: Theme.of(context).colorScheme.onSurface),
+            hintStyle: Styles.textStyle16Medium(context)
+                .copyWith(color: Theme.of(context).hintColor),
+            labelStyle: Styles.textStyle16SemiBold(context)
+                .copyWith(color: Theme.of(context).colorScheme.onSurface),
           ),
-          style: Styles.textStyle18SemiBold(context).copyWith(color: Theme.of(context).textTheme.bodyLarge?.color),
+          style: Styles.textStyle18SemiBold(context)
+              .copyWith(color: Theme.of(context).textTheme.bodyLarge?.color),
         ),
       ],
     );
   }
 
-  OutlineInputBorder buildOutlineInputBorder() {
+  OutlineInputBorder buildOutlineInputBorder(Color? color) {
     return OutlineInputBorder(
         borderRadius: BorderRadius.circular(widget.borderRadius.r),
         borderSide: BorderSide(
-            color: AppColors.secondaryColor, style: BorderStyle.solid));
+            color: color ?? AppColors.secondaryColor,
+            style: BorderStyle.solid));
   }
 }

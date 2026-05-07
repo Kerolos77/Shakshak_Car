@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../constants/app_const.dart';
-import '../../services/service_locator.dart';
+import 'package:shakshak/core/constants/app_const.dart';
+import 'package:shakshak/core/services/service_locator.dart';
 
 class CacheHelper {
   static late SharedPreferences sharedPreferences;

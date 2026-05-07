@@ -1,330 +1,94 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:shakshak/core/constants/app_const.dart';
-import 'package:shakshak/core/extentions/glopal_extentions.dart';
-import 'package:shakshak/core/resources/app_colors.dart';
-import 'package:shakshak/core/router/router_helper.dart';
-import 'package:shakshak/core/router/routes.dart';
- import 'package:shakshak/core/utils/shared_widgets/custom_button.dart';
-import 'package:shakshak/core/utils/shared_widgets/custom_divider.dart';
-import 'package:shakshak/core/utils/styles.dart';
-import 'package:shakshak/features/rides/data/models/ride.dart';
+﻿import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shakshak/features/driver/new_rides/presentation/view_model/ride_cubit.dart';
+import 'package:shakshak/features/driver/new_rides/presentation/view_model/ride_state.dart';
+import 'package:shakshak/features/user/user_home/domain/entities/new_ride_data_entity.dart';
 
-import '../../../../../core/utils/common_use.dart';
-import '../../../../../generated/l10n.dart';
-import '../../../new_rides/data/models/ride_model.dart';
-import 'ride_destination_widget.dart';
+import 'main_card.dart';
 
-class DriverRidesListItem extends StatelessWidget {
-   DriverRidesListItem({
+class DriverRidesListItem extends StatefulWidget {
+  const DriverRidesListItem({
     super.key,
     required this.ride,
     this.isOutstation = false,
     this.isNew = false,
-     // this.ride,
+    this.showDetailsButton = true,
+    this.showDismissButton = true,
   });
 
-  final Ride ride;
+  final NewRideDataEntity ride;
   final bool isOutstation;
   final bool isNew;
-  // RideModel? ride;
-   RideModel testRide = RideModel.fromJson(
-      {
-        "id": 742,
-        "destination_lat": "24.9534",
-        "destination_long": "24.9534",
-        "destination_address": "Airport Terminal 1",
-        "source_lat": "24.7136",
-        "source_long": "46.6753",
-        "source_address": "Royal Hotel",
-        "amount": "120.000",
-        "final_rate": "0.000",
-        "distance": "14",
-        "distance_type": "km",
-        "status": "searching",
-        "offerdriver": "",
-        "is_offer": "1",
-        "created_at": "2025-07-31 21:51:21",
-        "driver":{
-          "id": 51,
-          "name": "ii",
-          "phone": "+201225536605",
-          "image": "",
-          "country_id": 64,
-          "city": 1881,
-          "email": "kokofaie7@gmail.com",
-          "wallet_amount": "-330.00",
-          "pending_wallet": "330.000",
-          "driver_status": "",
-          "is_driver": 0,
-          "is_online": 0,
-          "service_id": 0},
-        "user": {
-          "id": 51,
-          "name": "ii",
-          "phone": "+201225536605",
-          "image": "",
-          "country_id": 64,
-          "city": 1881,
-          "email": "kokofaie7@gmail.com",
-          "wallet_amount": "-330.00",
-          "pending_wallet": "330.000",
-          "driver_status": "",
-          "is_driver": 0,
-          "is_online": 0,
-          "service_id": 0
-        },
-        "when_date": "",
-        "inter_city": 1,
-        "user_service_id": "4",
-        "paid": 0,
-        "payment_type": "cash",
-        "commission": "",
-        "destination_City": "",
-        "source_city": "",
-        "parcel_dimension": "",
-        "parcel_image": "",
-        "parcel_weight": "",
-        "number_of_passenger": 4,
-        "is_placed": "",
-        "is_started": "",
-        "is_accept": "",
-        "is_complete": "",
-        "is_canceled": "",
-        "canceled_by": 0,
-        "comment": "",
-        "service_type": "ride"
-      }
-  );
+  final bool showDetailsButton;
+  final bool showDismissButton;
+
+  @override
+  State<DriverRidesListItem> createState() => _DriverRidesListItemState();
+}
+
+class _DriverRidesListItemState extends State<DriverRidesListItem> {
+  bool _isWaiting = false;
 
   @override
   Widget build(BuildContext context) {
-    // ride ??= testRide;
-    return GestureDetector(
-      onTap: () {
-        navigateTo(context, Routes.tripMapView,extra: {
-          'ride':ride,
-        });
+    final rideCubit = context.read<RideCubit>();
+    final rideState = context.watch<RideCubit>().state;
+
+    final bool isAnyActionLoading =
+        rideState.actionStatus == RideActionStatus.loading;
+
+    // نقرأ السعر الحالي من الـ state المشترك – مش local state
+    final double currentAmount = rideState.currentAmounts[widget.ride.id] ??
+        widget.ride.amount.toDouble();
+
+    return BlocListener<RideCubit, RideState>(
+      listener: (context, state) {
+        if (state.actionStatus == RideActionStatus.loading &&
+            state.actionOrderId == widget.ride.id) {
+          if (!_isWaiting) setState(() => _isWaiting = true);
+        }
+
+        if ((state.actionStatus == RideActionStatus.error ||
+                state.actionStatus == RideActionStatus.success) &&
+            state.actionOrderId == widget.ride.id) {
+          if (_isWaiting) setState(() => _isWaiting = false);
+        }
       },
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
-        decoration: BoxDecoration(
-            boxShadow: AppConstant.shadow,
-            color: Theme.of(context).colorScheme.surfaceContainerHighest,
-            borderRadius: BorderRadius.circular(12.r)),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Container(
-                  width: 50.r,
-                  height: 50.r,
-                  decoration: BoxDecoration(
-                    color: AppColors.lightGreyColor,
-                    borderRadius: BorderRadius.circular(12.r),
-                  ),
-                ),
-                12.pw,
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        ride.user?.name ?? '-',
-                        style: Styles.textStyle16SemiBold(context),
-                      ),
-                      Text(
-                        '${ride.amount ?? '-'} EGP',
-                        style: Styles.textStyle16SemiBold(context),
-                      ),
-                    ],
-                  ),
-                ),
-                12.pw,
-                Row(
-                  children: [
-                    Icon(
-                      Icons.place,
-                      color: Colors.black,
-                      size: 16.r,
-                    ),
-                    4.pw,
-                    Text(
-                      '${ride.distance ?? '-'} KM',
-                      style: Styles.textStyle14SemiBold(context)
-                          .copyWith(color: Colors.black),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            CustomDivider(),
-            RideDestinationWidget(
-              from: ride.sourceAddress ?? '-',
-              to: ride.destinationAddress ?? '-',
-            ),
-            12.ph,
-            isOutstation
-                ? Column(
-                  children: [
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            '${S.of(context).weight} ${ride.parcelWeight ?? '-'} KG',
-                            style: Styles.textStyle16SemiBold(context),
-                          ),
-                          Text(
-                            '${S.of(context).dimension} ${ride.parcelDimension ?? '-'}',
-                            style: Styles.textStyle16SemiBold(context),
-                          ),
+      child: MainCard(
+        ride: widget.ride,
+        isNew: widget.isNew,
+        isOutstation: widget.isOutstation,
+        currentAmount: currentAmount,
+        negotiationSettings: rideState.negotiationSettings,
+        isAnyActionLoading: isAnyActionLoading,
+        isOfferPending: rideState.pendingOffers.contains(widget.ride.id),
+        showDetailsButton: widget.showDetailsButton,
+        showDismissButton: widget.showDismissButton,
+        onBid: (delta) {
+          final base = widget.ride.amount.toDouble();
+          // ✅ الزيادة دايماً تتحسب من السعر الأصلي مش من السعر الحالي
+          // مثال: base=120, delta=+40 → 160 (مش 140+40=180)
+          double newAmount = base + delta;
+          // لا تنزل عن السعر الأصلي
+          if (newAmount < base) newAmount = base;
+          rideCubit.updateAmount(widget.ride.id, newAmount);
+        },
+        onPrimaryAction: () {
+          if (isAnyActionLoading) return;
 
-                        ],
-                      ),
-                    Image.network(
-                      ride.parcelImage ?? '',
-                      width: 100.w,
-                      height: 100.h,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) {
-                        return Icon(
-                          FontAwesomeIcons.image,
-                          size: 50.r,
-                          color: AppColors.lightGreyColor,
-                        );
-                        
-                      },
-                    ),
-
-                  ],
-                )
-                : Container(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.surface,
-                      borderRadius: BorderRadius.circular(8.r),
-                    ),
-                    child: Row(
-                      children: [
-                        Text(
-                          '${S.of(context).status}: ',
-                          style: Styles.textStyle16Bold(context),
-                        ),
-                        Text(
-                          ride.status ?? '-',
-                          style: Styles.textStyle16(context),
-                        ),
-                      ],
-                    ),
-                  ),
-            12.ph,
-            if (isOutstation)
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
-                decoration: BoxDecoration(
-                  color: AppColors.lightGreyColor,
-                  borderRadius: BorderRadius.circular(12.r),
-                ),
-                child: Text(
-                  'Recommended price is ${ride.amount ?? '-'} EGP , Approx distance ${ride.distance ?? '-'} KM',
-                  style: Styles.textStyle16(context),
-                ),
-              ),
-            if (!isOutstation)
-              CustomButton(
-                text: '',
-                onTap: () {
-                  if (ride.user?.phone != null) {
-                    makePhoneCall(
-                      phoneNumber: ride.user!.phone!,
-                    );
-                  }
-                },
-                height: 40,
-                borderRadius: 8,
-                img: Icon(
-                  Icons.call,
-                  color: Colors.white,
-                  size: 26.r,
-                ),
-              ),
-            if (!isNew)
-            Column(
-              children: [
-                isOutstation
-                    ? Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      '${S.of(context).weight} ${ride!.parcelWeight} KG',
-                      style: Styles.textStyle16SemiBold(context),
-                    ),
-                    Text(
-                      '${S.of(context).dimension} ${ride!.parcelDimension} CM',
-                      style: Styles.textStyle16SemiBold(context),
-                    ),
-                    Text(
-                      '${S.of(context).image} ${ride!.parcelImage}',
-                      style: Styles.textStyle16SemiBold(context),
-                    ),
-                  ],
-                )
-                    : Container(
-                  padding:
-                  EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
-                  decoration: BoxDecoration(
-                    color: AppColors.lightGreyColor,
-                    borderRadius: BorderRadius.circular(8.r),
-                  ),
-                  child: Row(
-                    children: [
-                      Text(
-                        '${S.of(context).status}: ',
-                        style: Styles.textStyle16Bold(context),
-                      ),
-                      Text(
-                        ride.status!,
-                        style: Styles.textStyle16(context),
-                      ),
-                    ],
-                  ),
-                ),
-                12.ph,
-                if (isOutstation)
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
-                    decoration: BoxDecoration(
-                      color: AppColors.lightGreyColor,
-                      borderRadius: BorderRadius.circular(12.r),
-                    ),
-                    child: Text(
-                      'Recommended price is ${ride.amount} EGP , Approx distance ${ride.distance} ${ride.distanceType}',
-
-                      style: Styles.textStyle16(context),
-                    ),
-                  ),
-                if (!isOutstation)
-                  CustomButton(
-                    text: '',
-                    onTap: () {
-                      makePhoneCall(
-                        phoneNumber: ride.user!.phone!,
-                      );
-                    },
-                    height: 40,
-                    borderRadius: 8,
-                    img: Icon(
-                      Icons.call,
-                      color: Colors.white,
-                      size: 26.r,
-                    ),
-                  )
-              ],
-            )
-          ],
-        ),
+          final base = widget.ride.amount.toDouble();
+          if (currentAmount == base) {
+            rideCubit.acceptRide(widget.ride.id);
+          } else {
+            rideCubit.counterOffer(widget.ride.id, currentAmount);
+          }
+        },
+        onDismiss: () => rideCubit.dismissRide(widget.ride.id),
+        onCancelOffer: () {
+          // عند الإلغاء نرجع السعر لأصله في الـ state
+          rideCubit.updateAmount(widget.ride.id, widget.ride.amount.toDouble());
+          rideCubit.cancelOffer(widget.ride.id);
+        },
       ),
     );
   }

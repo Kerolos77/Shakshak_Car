@@ -1,12 +1,12 @@
-/*
+﻿/*
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../generated/assets.dart';
-import '../../constants/app_const.dart';
-import '../../resources/app_colors.dart';
+import 'package:shakshak/generated/assets.dart';
+import 'package:shakshak/core/constants/app_const.dart';
+import 'package:shakshak/core/resources/app_colors.dart';
 
 class CustomBackButton extends StatelessWidget {
   const CustomBackButton({
@@ -38,3 +38,4 @@ class CustomBackButton extends StatelessWidget {
   }
 }
 */
+

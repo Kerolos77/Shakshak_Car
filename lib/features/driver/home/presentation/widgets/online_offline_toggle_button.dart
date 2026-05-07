@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/features/driver/home/presentation/view_models/driver_home_cubit.dart';
 
-import '../../../../../core/constants/app_const.dart';
-import '../../../../../core/utils/styles.dart';
-import '../../../../../generated/l10n.dart';
+import 'package:shakshak/core/constants/app_const.dart';
+import 'package:shakshak/core/utils/styles.dart';
+import 'package:shakshak/generated/l10n.dart';
 
 class OnlineOfflineToggleButton extends StatefulWidget {
   const OnlineOfflineToggleButton({super.key});
@@ -37,7 +37,7 @@ class _OnlineOfflineToggleButtonState extends State<OnlineOfflineToggleButton> {
           height: 40.h,
           padding: EdgeInsets.symmetric(horizontal: 4.w),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.surface,
             boxShadow: AppConstant.shadow,
             borderRadius: BorderRadius.circular(24.r),
           ),

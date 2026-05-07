@@ -1,4 +1,4 @@
-import 'dart:io';
+﻿import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,15 +6,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 import 'package:shakshak/core/extentions/padding_extention.dart';
-import 'package:shakshak/features/base_layout/presentation/views/base_layout_view.dart';
+import 'package:shakshak/features/shared/base_layout/presentation/views/base_layout_view.dart';
 
-import '../../../../core/resources/app_colors.dart';
-import '../../../../core/router/router_helper.dart';
-import '../../../../core/utils/shared_widgets/custom_button.dart';
-import '../../../../core/utils/shared_widgets/custom_text_field.dart';
-import '../../../../generated/l10n.dart';
-import '../presentation/view_models/driver_registration_cubit.dart';
-import '../widgets/custom_image_picker_widget.dart';
+import 'package:shakshak/core/resources/app_colors.dart';
+import 'package:shakshak/core/router/router_helper.dart';
+import 'package:shakshak/core/utils/shared_widgets/custom_button.dart';
+import 'package:shakshak/core/utils/shared_widgets/custom_text_field.dart';
+import 'package:shakshak/generated/l10n.dart';
+import 'package:shakshak/features/driver/online_registration/presentation/view_models/driver_registration_cubit.dart';
+import 'package:shakshak/features/driver/online_registration/widgets/custom_image_picker_widget.dart';
 
 class CarLicenceView extends StatefulWidget {
   const CarLicenceView({super.key});
@@ -40,6 +40,19 @@ class _CarLicenceViewState extends State<CarLicenceView> {
           frontImage = XFile(cubit.storedCarLicenceImage!.path);
         });
       }
+      if (cubit.storedCarLicenceBackImage != null) {
+        setState(() {
+          backImage = XFile(cubit.storedCarLicenceBackImage!.path);
+        });
+      }
+      if (cubit.storedCarLicenceSelfieImage != null) {
+        setState(() {
+          selfieImage = XFile(cubit.storedCarLicenceSelfieImage!.path);
+        });
+      }
+      if (cubit.storedCarLicenceExpireDate != null) {
+        _controller.text = cubit.storedCarLicenceExpireDate!;
+      }
     });
   }
 
@@ -50,7 +63,7 @@ class _CarLicenceViewState extends State<CarLicenceView> {
         if (state is CarLicenceImageStoredState) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Car licence images stored successfully'),
+              content: Text(S.of(context).carLicenceStored),
               backgroundColor: Colors.green,
             ),
           );
@@ -74,36 +87,42 @@ class _CarLicenceViewState extends State<CarLicenceView> {
                     size: 26.r,
                   ),
                   onTap: () async {
+                    final now = DateTime.now();
+                    final today = DateTime(now.year, now.month, now.day);
                     final pickedDate = await showDatePicker(
                       context: context,
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime(2000),
+                      initialDate: today,
+                      firstDate: today,
                       lastDate: DateTime(2100),
                     );
                     if (pickedDate != null) {
-                      _controller.text =
+                      final dateString =
                           pickedDate.toLocal().toString().split(' ')[0];
+                      _controller.text = dateString;
+                      context
+                          .read<DriverRegistrationCubit>()
+                          .storeCarLicenceExpireDate(dateString);
                     }
                   },
                 ),
                 20.ph,
-                            CustomImagePickerWidget(
-              title: S.of(context).frontSide,
-              onImagePicked: (file) => frontImage = file,
-              initialImage: frontImage,
-            ),
+                CustomImagePickerWidget(
+                  title: S.of(context).frontSide,
+                  onImagePicked: (file) => frontImage = file,
+                  initialImage: frontImage,
+                ),
                 20.ph,
-                            CustomImagePickerWidget(
-              title: S.of(context).backSide,
-              onImagePicked: (file) => backImage = file,
-              initialImage: backImage,
-            ),
+                CustomImagePickerWidget(
+                  title: S.of(context).backSide,
+                  onImagePicked: (file) => backImage = file,
+                  initialImage: backImage,
+                ),
                 20.ph,
-                            CustomImagePickerWidget(
-              title: S.of(context).selfieWithLicense,
-              onImagePicked: (file) => selfieImage = file,
-              initialImage: selfieImage,
-            ),
+                CustomImagePickerWidget(
+                  title: S.of(context).selfieWithLicense,
+                  onImagePicked: (file) => selfieImage = file,
+                  initialImage: selfieImage,
+                ),
                 30.ph,
                 CustomButton(
                   text: S.of(context).done,
@@ -111,16 +130,19 @@ class _CarLicenceViewState extends State<CarLicenceView> {
                     if (frontImage != null &&
                         backImage != null &&
                         selfieImage != null) {
-                      // Store the front image as the main car licence image
+                      // Store all car licence images
                       context
                           .read<DriverRegistrationCubit>()
-                          .storeCarLicenceImage(
-                            File(frontImage!.path),
+                          .storeCarLicenceImages(
+                            front: File(frontImage!.path),
+                            back: File(backImage!.path),
+                            selfie: File(selfieImage!.path),
                           );
+                      navigatePop(context);
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                            content: Text('Please add all required images')),
+                        SnackBar(
+                            content: Text(S.of(context).pleaseAddAllImages)),
                       );
                     }
                   },
@@ -134,3 +156,5 @@ class _CarLicenceViewState extends State<CarLicenceView> {
     );
   }
 }
+
+

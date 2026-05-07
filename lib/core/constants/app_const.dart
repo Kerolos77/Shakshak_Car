@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../resources/app_colors.dart';
+import 'package:shakshak/core/resources/app_colors.dart';
 
 class AppConstant {
-/*  static String currentLanguage =
+  /*  static String currentLanguage =
       Intl.getCurrentLocale() == 'en_US' ? 'en' : 'ar';
   */
   static String currentLanguage = 'ar';
@@ -32,7 +32,7 @@ class AppConstant {
       offset: const Offset(0, 4),
       spreadRadius: -1,
       blurRadius: 10,
-    )
+    ),
   ];
   static List<BoxShadow> shadow2 = [
     BoxShadow(
@@ -40,12 +40,7 @@ class AppConstant {
       offset: const Offset(0, 1),
       spreadRadius: 0,
       blurRadius: 4,
-    )
-  ];
-
-  static const List<Color> whiteLinearGradient = [
-    AppColors.whiteColor,
-    Colors.white
+    ),
   ];
 
   static double screenHeight(context) => MediaQuery.sizeOf(context).height;

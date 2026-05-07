@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
-import 'package:shakshak/core/resources/app_colors.dart';
+
 import 'package:shakshak/core/utils/styles.dart';
 
-import '../../../../../generated/l10n.dart';
+import 'package:shakshak/generated/l10n.dart';
 
 class NoTripsWidget extends StatefulWidget {
   const NoTripsWidget({Key? key}) : super(key: key);
@@ -72,7 +72,7 @@ class _NoTripsWidgetState extends State<NoTripsWidget>
                   buildCircle(
                     baseSize: 250,
                     opacity: 0.2,
-                    color: AppColors.primaryColor,
+                    color: Theme.of(context).primaryColor,
                     scale: _scaleAnimation.value,
                   ),
 
@@ -80,7 +80,7 @@ class _NoTripsWidgetState extends State<NoTripsWidget>
                   buildCircle(
                     baseSize: 175,
                     opacity: 0.4,
-                    color: AppColors.primaryColor,
+                    color: Theme.of(context).primaryColor,
                     scale: _scaleAnimation.value,
                   ),
 
@@ -88,11 +88,11 @@ class _NoTripsWidgetState extends State<NoTripsWidget>
                   buildCircle(
                     baseSize: 100,
                     opacity: 1.0,
-                    color: AppColors.primaryColor,
+                    color: Theme.of(context).primaryColor,
                     scale: 1.0,
                     widget: Icon(
                       Icons.person_pin,
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.onPrimary,
                       size: 50.r,
                     ),
                   ),

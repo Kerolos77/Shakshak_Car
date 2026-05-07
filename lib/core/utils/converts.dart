@@ -1,3 +1,5 @@
+import 'dart:math' as Math;
+
 class Converts {
   static String timeAgoFromNow(String dateTimeString) {
     final inputTime = DateTime.parse(dateTimeString);
@@ -33,7 +35,7 @@ class Converts {
 
     final pluralUnit = value == 1 ? unit : '${unit}s';
     // return  "$value $pluralUnit";
-    return  "${duration.inSeconds}";
+    return "${duration.inSeconds}";
   }
 
   String detectLanguageCodeByUnicode(String text) {
@@ -63,5 +65,15 @@ class Converts {
     return "und"; // undefined
   }
 
-
+  static double calculateDistanceKm(
+      double lat1, double lon1, double lat2, double lon2) {
+    const p = 0.017453292519943295; // PI/180
+    final a = 0.5 -
+        Math.cos((lat2 - lat1) * p) / 2 +
+        Math.cos(lat1 * p) *
+            Math.cos(lat2 * p) *
+            (1 - Math.cos((lon2 - lon1) * p)) /
+            2;
+    return 12742 * Math.asin(Math.sqrt(Math.max(0, a))); // 2*R ; R=6371
+  }
 }

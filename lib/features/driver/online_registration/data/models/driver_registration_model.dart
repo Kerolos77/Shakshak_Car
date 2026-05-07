@@ -1,19 +1,23 @@
-class DriverRegistrationModel {
+import 'package:shakshak/features/driver/online_registration/domain/entities/driver_registration_entity.dart';
+
+class DriverRegistrationModel extends DriverRegistrationEntity {
   DriverRegistrationModel({
-    this.success,
+    super.success,
     this.data,
-    this.message,
+    super.message,
+    super.status,
   });
 
-  DriverRegistrationModel.fromJson(dynamic json) {
-    success = json['success'];
+  DriverRegistrationModel.fromJson(dynamic json)
+      : super(
+          success: json['success'],
+          message: json['message'],
+          status: json['status'],
+        ) {
     data = json['data'] != null ? Data.fromJson(json['data']) : null;
-    message = json['message'];
   }
 
-  bool? success;
   Data? data;
-  String? message;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -54,4 +58,4 @@ class Data {
     map['updated_at'] = updatedAt;
     return map;
   }
-} 
+}

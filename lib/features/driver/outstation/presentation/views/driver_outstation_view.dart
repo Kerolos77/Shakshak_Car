@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shakshak/features/base_layout/presentation/views/base_layout_view.dart';
+import 'package:shakshak/features/shared/base_layout/presentation/views/base_layout_view.dart';
 
-import '../../../../../core/constants/app_const.dart';
-import '../../../../../core/resources/app_colors.dart';
-import '../../../../../core/utils/styles.dart';
-import '../../../../../generated/l10n.dart';
-import '../../../../rides/presentation/widgets/rides_list.dart';
+import 'package:shakshak/core/constants/app_const.dart';
+import 'package:shakshak/core/resources/app_colors.dart';
+import 'package:shakshak/core/utils/styles.dart';
+import 'package:shakshak/generated/l10n.dart';
+import 'package:shakshak/features/shared/rides/presentation/widgets/rides_list.dart';
 
 class DriverOutstationView extends StatelessWidget {
   const DriverOutstationView({super.key});
@@ -43,7 +43,8 @@ class DriverOutstationView extends StatelessWidget {
                         labelStyle: Styles.textStyle16Bold(context).copyWith(
                           fontFamily: 'Cairo',
                         ),
-                        unselectedLabelStyle: Styles.textStyle16Bold(context).copyWith(
+                        unselectedLabelStyle:
+                            Styles.textStyle16Bold(context).copyWith(
                           fontFamily: 'Cairo',
                         ),
                         tabs: [
@@ -88,3 +89,6 @@ class DriverOutstationView extends StatelessWidget {
     );
   }
 }
+
+
+
