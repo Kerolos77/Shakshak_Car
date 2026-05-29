@@ -27,10 +27,11 @@ class ApiConstant {
   static const String getProfileUrl = 'user/profile';
   static const String updateProfileUrl = 'user/profile/update';
 
-  // wallet
+  // wallet & points
   static const String getWalletTransactionsUrl = 'user/transactions';
   static const String chargeWalletUrl = 'user/charge_wallet';
   static const String withdrawRequestUrl = 'user/withdraw_request';
+  static const String pointsHistoryUrl = 'user/points/history';
 
   // rides
   static const String getUserRidesUrl = 'order/old-for-user';
@@ -62,8 +63,10 @@ class ApiConstant {
   
   // driver actions
   static const String driverSetDestinationUrl = 'driver/set-destination';
-  static const String driverPackagesUrl = 'driver/packages';
-  static const String driverBuyPackageUrl = 'driver/packages/buy';
+  // packages (shop)
+  static const String packagesUrl = 'packages';
+  static const String buyPackageUrl = 'packages/buy';
+  static const String subscriptionStatusUrl = 'packages/status';
 
   // chat
   static const String sendMessageUrl = 'send/chat';

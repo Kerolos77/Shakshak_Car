@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui' as ui;
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -194,7 +195,10 @@ class _DriverHomeMapState extends State<DriverHomeMap> {
                 scrollGesturesEnabled: true,
                 zoomGesturesEnabled: true,
               ),
-            if (!_isMapReady || !_isLocationLoaded) const MapLoadingSkeleton(),
+            
+            // Loading Overlay with smooth transition
+            if (!_isMapReady || !_isLocationLoaded)
+              const MapLoadingSkeleton(),
 
             // Offline Overlay
             BlocBuilder<DriverHomeCubit, DriverHomeState>(
@@ -204,34 +208,39 @@ class _DriverHomeMapState extends State<DriverHomeMap> {
 
                 return Positioned.fill(
                   child: IgnorePointer(
-                    child: Container(
-                      color: Theme.of(context).brightness == Brightness.dark 
-                          ? Colors.black.withOpacity(0.7)
-                          : Colors.grey.shade200.withOpacity(0.8),
-                      alignment: Alignment.center,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(Icons.wifi_off_rounded, 
-                               color: Theme.of(context).brightness == Brightness.dark ? Colors.white54 : Colors.black54, size: 56.r),
-                          SizedBox(height: 16.h),
-                          Text(
-                            "أنت غير متصل بالإنترنت",
-                            style: TextStyle(
-                              color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black,
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.bold,
-                            ),
+                    child: ClipRect(
+                      child: BackdropFilter(
+                        filter: ui.ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                        child: Container(
+                          color: Theme.of(context).brightness == Brightness.dark 
+                              ? Colors.black.withOpacity(0.7)
+                              : Colors.white.withOpacity(0.3),
+                          alignment: Alignment.center,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(Icons.wifi_off_rounded, 
+                                   color: Theme.of(context).brightness == Brightness.dark ? Colors.white54 : Colors.black45, size: 56.r),
+                              SizedBox(height: 16.h),
+                              Text(
+                                "أنت غير متصل بالإنترنت",
+                                style: TextStyle(
+                                  color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black87,
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 8.h),
+                              Text(
+                                "لتلقي الطلبات، قم بتفعيل وضع الأونلاين",
+                                style: TextStyle(
+                                  color: Theme.of(context).brightness == Brightness.dark ? Colors.white70 : Colors.black54,
+                                  fontSize: 14.sp,
+                                ),
+                              ),
+                            ],
                           ),
-                          SizedBox(height: 8.h),
-                          Text(
-                            "لتلقي الطلبات، قم بتفعيل وضع الأونلاين",
-                            style: TextStyle(
-                              color: Theme.of(context).brightness == Brightness.dark ? Colors.white70 : Colors.black87,
-                              fontSize: 14.sp,
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
                     ),
                   ),

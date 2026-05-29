@@ -39,10 +39,15 @@ class _MapLoadingSkeletonState extends State<MapLoadingSkeleton>
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final baseColor = isDark ? Colors.grey.shade900 : Colors.grey.shade200;
+    final iconColor = isDark ? Colors.grey.shade700 : Colors.grey.shade400;
+    final textColor = isDark ? Colors.grey.shade600 : Colors.grey.shade500;
+
     return AnimatedBuilder(
       animation: _anim,
       builder: (_, __) => Container(
-        color: Colors.grey.shade200.withOpacity(_anim.value),
+        color: baseColor.withOpacity(_anim.value),
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -50,12 +55,12 @@ class _MapLoadingSkeletonState extends State<MapLoadingSkeleton>
               Icon(
                 widget.icon ?? Icons.map_outlined,
                 size: 48,
-                color: Colors.grey.shade400,
+                color: iconColor,
               ),
               const SizedBox(height: 12),
               Text(
                 widget.loadingText ?? 'جارٍ تحميل الخريطة...',
-                style: TextStyle(color: Colors.grey.shade500, fontSize: 14),
+                style: TextStyle(color: textColor, fontSize: 14),
               ),
             ],
           ),

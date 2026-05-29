@@ -26,21 +26,29 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m2(amount, currency) => "+ ${amount} ${currency}";
 
-  static String m3(number) => "عرض السائق ${number}";
+  static String m3(method) => "هل أنت متأكد من شراء الباقة باستخدام ${method}؟";
 
-  static String m4(error) => "خطأ: ${error}";
+  static String m4(number) => "عرض السائق ${number}";
 
-  static String m5(hours) => "${hours} ساعة";
+  static String m5(error) => "خطأ: ${error}";
 
-  static String m6(weight) => "${weight} كجم";
+  static String m6(hours) => "${hours} ساعة";
 
-  static String m7(distance) => "${distance} كم";
+  static String m7(weight) => "${weight} كجم";
 
-  static String m8(minutes) => "${minutes} دقيقة";
+  static String m8(distance) => "${distance} كم";
 
-  static String m9(role) => "تم التبديل إلى وضع ${role}";
+  static String m9(minutes) => "${minutes} دقيقة";
 
-  static String m10(date) => "تاريخ الرحلة: ${date}";
+  static String m10(points) => "تم خصم ${points} نقطة بسبب إلغاء الرحلة.";
+
+  static String m11(points) => "${points} نقطة";
+
+  static String m12(role) => "تم التبديل إلى وضع ${role}";
+
+  static String m13(date) => "تاريخ الرحلة: ${date}";
+
+  static String m14(points) => "لقد حصلت على ${points} نقطة لمشوارك الأخير.";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -56,7 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "activate": MessageLookupByLibrary.simpleMessage("تفعيل"),
     "active": MessageLookupByLibrary.simpleMessage("نشطة"),
     "activeRides": MessageLookupByLibrary.simpleMessage("الرحلات النشطة"),
-    "activeTrip": MessageLookupByLibrary.simpleMessage("رحلة نشطة حالياً"),
+    "activeTrip": MessageLookupByLibrary.simpleMessage("رحلة نشطة قيد التنفيذ"),
     "addNewCard": MessageLookupByLibrary.simpleMessage("إضافة بطاقة جديدة"),
     "addNewPlace": MessageLookupByLibrary.simpleMessage("إضافة مكان جديد"),
     "addPhoto": MessageLookupByLibrary.simpleMessage("إضافة صورة"),
@@ -69,6 +77,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "agreeTo": MessageLookupByLibrary.simpleMessage("فإنك توافق على "),
     "allStepsCompleted": MessageLookupByLibrary.simpleMessage(
       "تم إكمال جميع الخطوات!",
+    ),
+    "alreadySubscribedToPackage": MessageLookupByLibrary.simpleMessage(
+      "أنت مشترك بالفعل في باقة",
     ),
     "and": MessageLookupByLibrary.simpleMessage(" و "),
     "apartmentRequired": MessageLookupByLibrary.simpleMessage(
@@ -109,6 +120,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
     "cancelConfirmation": MessageLookupByLibrary.simpleMessage(
       "هل أنت متأكد من رغبتك في إلغاء الرحلة؟",
+    ),
+    "cancelPenalty": MessageLookupByLibrary.simpleMessage(
+      "خصم نقاط عند الإلغاء",
     ),
     "cancelTrip": MessageLookupByLibrary.simpleMessage("الغاء الرحلة"),
     "cancelWarning": MessageLookupByLibrary.simpleMessage(
@@ -158,10 +172,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
     "confirmDestination": MessageLookupByLibrary.simpleMessage("تأكيد الوجهة"),
     "confirmOrder": MessageLookupByLibrary.simpleMessage("تأكيد الطلب"),
+    "confirmPackagePurchaseMethod": m3,
     "confirmPasswordRequired": MessageLookupByLibrary.simpleMessage(
       "يرجى تأكيد كلمة المرور",
     ),
+    "confirmPurchase": MessageLookupByLibrary.simpleMessage("تأكيد الشراء"),
     "confirmTrip": MessageLookupByLibrary.simpleMessage("تأكيد الرحلة"),
+    "congratulations": MessageLookupByLibrary.simpleMessage("مبروك!"),
     "connectingWithDrivers": MessageLookupByLibrary.simpleMessage(
       "جاري التوصيل مع أقرب السائقين...",
     ),
@@ -176,10 +193,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "تم حفظ صورة السجل الجنائي بنجاح",
     ),
     "currency": MessageLookupByLibrary.simpleMessage("ج.م"),
+    "currentPackage": MessageLookupByLibrary.simpleMessage("الباقة الحالية"),
     "currentRole": MessageLookupByLibrary.simpleMessage("الدور:"),
     "cvv": MessageLookupByLibrary.simpleMessage("رمز التحقق (CVV)"),
     "dark": MessageLookupByLibrary.simpleMessage("داكن"),
     "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
+    "days": MessageLookupByLibrary.simpleMessage("يوم"),
     "deductedAmountAddedToWallet": MessageLookupByLibrary.simpleMessage(
       "سيتم إضافة المبلغ المخصوم تلقائياً إلى محفظتك",
     ),
@@ -199,6 +218,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "developerTools": MessageLookupByLibrary.simpleMessage("أدوات المطور"),
     "digitalEarnings": MessageLookupByLibrary.simpleMessage("أرباح إلكترونية"),
     "dimension": MessageLookupByLibrary.simpleMessage("الأبعاد: "),
+    "discountPercentage": MessageLookupByLibrary.simpleMessage("خصم عمولة"),
     "dobRequired": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد مطلوب"),
     "done": MessageLookupByLibrary.simpleMessage("تم"),
     "doneSuccessfully": MessageLookupByLibrary.simpleMessage("تم بنجاح"),
@@ -216,14 +236,16 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "driverHomeMap": MessageLookupByLibrary.simpleMessage("الرئيسية (سائق)"),
     "driverLabel": MessageLookupByLibrary.simpleMessage("السائق: "),
-    "driverOfferWithNumber": m3,
+    "driverOfferWithNumber": m4,
     "driverOnWay": MessageLookupByLibrary.simpleMessage(
       "السائق في الطريق إليك",
     ),
     "driverServices": MessageLookupByLibrary.simpleMessage("خدمات السائق"),
+    "driverStore": MessageLookupByLibrary.simpleMessage("متجر السائق"),
     "dropoffLocation": MessageLookupByLibrary.simpleMessage("أدخل موقع الوصول"),
     "earnings": MessageLookupByLibrary.simpleMessage("الأرباح"),
     "earningsDashboard": MessageLookupByLibrary.simpleMessage("لوحة الأرباح"),
+    "editProfile": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
     "egHomeWork": MessageLookupByLibrary.simpleMessage("مثال: المنزل، العمل"),
     "egpPrefix": MessageLookupByLibrary.simpleMessage("ج.م  "),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
@@ -251,7 +273,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "error": MessageLookupByLibrary.simpleMessage("حدث خطأ"),
     "errorOccurred": MessageLookupByLibrary.simpleMessage("حدث خطأ"),
-    "errorOccurredWith": m4,
+    "errorOccurredWith": m5,
+    "expirationDate": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
     "expiryDate": MessageLookupByLibrary.simpleMessage(
       "تاريخ الانتهاء (شهر/سنة)",
     ),
@@ -282,7 +305,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "hideDetails": MessageLookupByLibrary.simpleMessage("إخفاء"),
     "holderName": MessageLookupByLibrary.simpleMessage("اسم حامل البطاقة"),
     "home": MessageLookupByLibrary.simpleMessage("المنزل"),
-    "hoursSuffix": m5,
+    "hoursSuffix": m6,
     "iHaveMyOwnAccount": MessageLookupByLibrary.simpleMessage(
       "لدي حساب خاص بي؟",
     ),
@@ -301,9 +324,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "رقم الهاتف غير صالح",
     ),
     "invalidPhone": MessageLookupByLibrary.simpleMessage("رقم غادر صالح"),
-    "kgSuffix": m6,
+    "kgSuffix": m7,
     "km": MessageLookupByLibrary.simpleMessage("كم"),
-    "kmSuffix": m7,
+    "kmSuffix": m8,
     "language": MessageLookupByLibrary.simpleMessage("اللغة"),
     "licence": MessageLookupByLibrary.simpleMessage("الرخصة"),
     "licenceStored": MessageLookupByLibrary.simpleMessage(
@@ -345,7 +368,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تم إرسال الرسالة بنجاح",
     ),
     "min": MessageLookupByLibrary.simpleMessage("دقيقة"),
-    "minSuffix": m8,
+    "minSuffix": m9,
     "mobileNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
     "momentPlease": MessageLookupByLibrary.simpleMessage("لحظات من فضلك..."),
     "myWallet": MessageLookupByLibrary.simpleMessage("محفظتي"),
@@ -373,6 +396,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "noNotificationsYet": MessageLookupByLibrary.simpleMessage(
       "لا توجد إشعارات بعد",
+    ),
+    "noPackagesAvailable": MessageLookupByLibrary.simpleMessage(
+      "لا توجد باقات متاحة حالياً",
     ),
     "noTripsNow": MessageLookupByLibrary.simpleMessage(
       "لا توجد رحلات حالياً...",
@@ -409,6 +435,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "outstationRides": MessageLookupByLibrary.simpleMessage(
       "رحلات خارج المدينة",
     ),
+    "packagesStore": MessageLookupByLibrary.simpleMessage("متجر الباقات"),
     "paidVia": MessageLookupByLibrary.simpleMessage("تم الدفع عبر"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "passwordMinLength": MessageLookupByLibrary.simpleMessage(
@@ -429,6 +456,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "بدء عملية الدفع الآمنة...",
     ),
     "paymentSupport": MessageLookupByLibrary.simpleMessage("الدفع والأسعار"),
+    "penaltyDeducted": m10,
     "performance": MessageLookupByLibrary.simpleMessage("الأداء"),
     "permanentlyDelete": MessageLookupByLibrary.simpleMessage(
       "احذف حسابي نهائيًا",
@@ -459,6 +487,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseSelectRide": MessageLookupByLibrary.simpleMessage(
       "من فضلك اختر رحلة",
     ),
+    "point": MessageLookupByLibrary.simpleMessage("نقطة"),
+    "pointsAdded": MessageLookupByLibrary.simpleMessage("تم إضافة نقاط"),
+    "pointsDeducted": MessageLookupByLibrary.simpleMessage("تم خصم نقاط"),
+    "pointsHistory": MessageLookupByLibrary.simpleMessage("سجل النقاط"),
+    "pointsMethod": MessageLookupByLibrary.simpleMessage("النقاط"),
+    "pointsSuffix": m11,
     "politeDriver": MessageLookupByLibrary.simpleMessage("سائق مهذب"),
     "politePassenger": MessageLookupByLibrary.simpleMessage("راكب مهذب"),
     "priceLabel": MessageLookupByLibrary.simpleMessage("السعر: "),
@@ -498,6 +532,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetLocation": MessageLookupByLibrary.simpleMessage("إعادة ضبط الموقع"),
     "respectful": MessageLookupByLibrary.simpleMessage("محترم"),
     "review": MessageLookupByLibrary.simpleMessage("مراجعة"),
+    "rewardPoints": MessageLookupByLibrary.simpleMessage("نقاط المكافأة"),
     "rideRequests": MessageLookupByLibrary.simpleMessage("طلبات الركاب"),
     "rides": MessageLookupByLibrary.simpleMessage("الرحلات"),
     "safeDriving": MessageLookupByLibrary.simpleMessage("قيادة آمنة"),
@@ -568,7 +603,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "submit": MessageLookupByLibrary.simpleMessage("إرسال"),
     "submitting": MessageLookupByLibrary.simpleMessage("جاري الإرسال..."),
     "support": MessageLookupByLibrary.simpleMessage("الدعم"),
-    "switchedTo": m9,
+    "switchedTo": m12,
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "الشروط والأحكام",
     ),
@@ -589,7 +624,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "track": MessageLookupByLibrary.simpleMessage("تتبع"),
     "transactionHistory": MessageLookupByLibrary.simpleMessage("سجل العمليات"),
     "transactionId": MessageLookupByLibrary.simpleMessage("رقم العملية"),
-    "tripDate": m10,
+    "tripDate": m13,
     "tripDetails": MessageLookupByLibrary.simpleMessage("تفاصل الرحلة"),
     "tripInProgress": MessageLookupByLibrary.simpleMessage(
       "الرحلة قيد التنفيذ",
@@ -611,6 +646,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "userHome": MessageLookupByLibrary.simpleMessage("الرئيسية (مستخدم)"),
     "userName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
     "userNotFound": MessageLookupByLibrary.simpleMessage("المستخدم غير موجود"),
+    "validFor": MessageLookupByLibrary.simpleMessage("صالحة لمدة"),
     "validPhone": MessageLookupByLibrary.simpleMessage("رقم هاتف صالح"),
     "vehicleAndRegistration": MessageLookupByLibrary.simpleMessage(
       "المركبة والتسجيل",
@@ -626,6 +662,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "الانتظار في الوقت المحدد",
     ),
     "wallet": MessageLookupByLibrary.simpleMessage("المحفظة"),
+    "walletMethod": MessageLookupByLibrary.simpleMessage("المحفظة"),
     "warning": MessageLookupByLibrary.simpleMessage("تنبيه مسافة"),
     "weight": MessageLookupByLibrary.simpleMessage("الوزن: "),
     "welcomeBack": MessageLookupByLibrary.simpleMessage(
@@ -646,6 +683,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "writeUs": MessageLookupByLibrary.simpleMessage("اكتب لنا"),
     "writeYourReview": MessageLookupByLibrary.simpleMessage("اكتب مراجعتك"),
     "yes": MessageLookupByLibrary.simpleMessage("نعم"),
+    "youEarnedPoints": m14,
+    "yourCurrentPoints": MessageLookupByLibrary.simpleMessage("نقاطك الحالية"),
     "yourOffer": MessageLookupByLibrary.simpleMessage("عرضك"),
+    "yourPoints": MessageLookupByLibrary.simpleMessage("نقاطك الحالية"),
   };
 }

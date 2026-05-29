@@ -21,11 +21,13 @@ class BaseLayoutView extends StatelessWidget {
     this.forceDrawer = false,
     this.showDrawer = false,
     this.showAppBar = true,
+    this.trailing,
   });
 
   final Widget? header;
   final Widget? body;
   final Widget? bottomSheet;
+  final Widget? trailing;
   final String? title;
   final bool forceDrawer;
   final bool showDrawer;
@@ -77,7 +79,11 @@ class BaseLayoutView extends StatelessWidget {
               children: [
                 if (showAppBar) ...[
                   40.ph,
-                  CustomAppBar(title: title, forceDrawer: forceDrawer),
+                  CustomAppBar(
+                    title: title,
+                    forceDrawer: forceDrawer,
+                    trailing: trailing,
+                  ),
                 ],
                 header ?? SizedBox.shrink(),
                 Expanded(

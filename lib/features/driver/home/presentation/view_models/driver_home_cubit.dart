@@ -18,6 +18,12 @@ class DriverHomeCubit extends Cubit<DriverHomeState> {
   final SetDriverDestinationUseCase setDriverDestinationUseCase;
   bool isOnline = false;
 
+  void updateOnlineStatus(bool online) {
+    isOnline = online;
+    emit(DriverToggleOnlineSuccess(
+        driverToggleOnlineEntity: DriverToggleOnlineEntity(status: online ? 1 : 0)));
+  }
+
   Future<void> driverToggleOnline({required int value}) async {
     isOnline = value == 1;
     emit(DriverToggleOnlineLoading());

@@ -13,12 +13,12 @@ class DriverStoreRepoImp implements DriverStoreRepo {
   Future<Either<Failure, List<DriverPackageModel>>> getPackages() async {
     try {
       var response = await DioHelper.getData(
-        url: ApiConstant.driverPackagesUrl,
+        url: ApiConstant.packagesUrl,
         token: CacheHelper.getData(key: AppConstant.kToken),
       );
       List<DriverPackageModel> packages = [];
-      if (response.data['data'] != null) {
-        packages = (response.data['data'] as List)
+      if (response.data['data'] != null && response.data['data']['packages'] != null) {
+        packages = (response.data['data']['packages'] as List)
             .map((e) => DriverPackageModel.fromJson(e))
             .toList();
       }
@@ -34,12 +34,13 @@ class DriverStoreRepoImp implements DriverStoreRepo {
   @override
   Future<Either<Failure, bool>> buyPackage({required int packageId, required String paymentMethod}) async {
     try {
+      final method = paymentMethod == 'wallet' ? 'cash' : paymentMethod;
       var response = await DioHelper.postData(
-        url: ApiConstant.driverBuyPackageUrl,
+        url: ApiConstant.buyPackageUrl,
         token: CacheHelper.getData(key: AppConstant.kToken),
         data: {
           'package_id': packageId,
-          'payment_method': paymentMethod, // 'points' or 'wallet'
+          'payment_method': method,
         },
       );
       return right(response.statusCode == 200 || response.statusCode == 201);

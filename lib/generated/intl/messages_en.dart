@@ -26,21 +26,32 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m2(amount, currency) => "+ ${amount} ${currency}";
 
-  static String m3(number) => "Driver Offer ${number}";
+  static String m3(method) =>
+      "Are you sure you want to purchase the package using ${method}?";
 
-  static String m4(error) => "Error: ${error}";
+  static String m4(number) => "Driver Offer ${number}";
 
-  static String m5(hours) => "${hours} h";
+  static String m5(error) => "Error: ${error}";
 
-  static String m6(weight) => "${weight} KG";
+  static String m6(hours) => "${hours} h";
 
-  static String m7(distance) => "${distance} KM";
+  static String m7(weight) => "${weight} KG";
 
-  static String m8(minutes) => "${minutes} min";
+  static String m8(distance) => "${distance} KM";
 
-  static String m9(role) => "Switched to ${role} data mode";
+  static String m9(minutes) => "${minutes} min";
 
-  static String m10(date) => "Trip Date: ${date}";
+  static String m10(points) =>
+      "You have been penalized ${points} points for canceling the trip.";
+
+  static String m11(points) => "${points} Points";
+
+  static String m12(role) => "Switched to ${role} data mode";
+
+  static String m13(date) => "Trip Date: ${date}";
+
+  static String m14(points) =>
+      "You have earned ${points} points for your last trip.";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -73,6 +84,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "agreeTo": MessageLookupByLibrary.simpleMessage("you agree to "),
     "allStepsCompleted": MessageLookupByLibrary.simpleMessage(
       "All steps completed!",
+    ),
+    "alreadySubscribedToPackage": MessageLookupByLibrary.simpleMessage(
+      "You are already subscribed to a package",
     ),
     "and": MessageLookupByLibrary.simpleMessage(" and "),
     "apartmentRequired": MessageLookupByLibrary.simpleMessage(
@@ -113,6 +127,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "cancelConfirmation": MessageLookupByLibrary.simpleMessage(
       "Are you sure you want to cancel the ride?",
+    ),
+    "cancelPenalty": MessageLookupByLibrary.simpleMessage(
+      "Cancellation Penalty",
     ),
     "cancelTrip": MessageLookupByLibrary.simpleMessage("Cancel Trip"),
     "cancelWarning": MessageLookupByLibrary.simpleMessage(
@@ -166,10 +183,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Confirm Destination",
     ),
     "confirmOrder": MessageLookupByLibrary.simpleMessage("Confirm Order"),
+    "confirmPackagePurchaseMethod": m3,
     "confirmPasswordRequired": MessageLookupByLibrary.simpleMessage(
       "Please confirm your password",
     ),
+    "confirmPurchase": MessageLookupByLibrary.simpleMessage("Confirm Purchase"),
     "confirmTrip": MessageLookupByLibrary.simpleMessage("Confirm Trip"),
+    "congratulations": MessageLookupByLibrary.simpleMessage("Congratulations!"),
     "connectingWithDrivers": MessageLookupByLibrary.simpleMessage(
       "Connecting with nearby drivers...",
     ),
@@ -186,10 +206,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Criminal record image stored successfully",
     ),
     "currency": MessageLookupByLibrary.simpleMessage("EGP"),
+    "currentPackage": MessageLookupByLibrary.simpleMessage("Current Package"),
     "currentRole": MessageLookupByLibrary.simpleMessage("Current Role:"),
     "cvv": MessageLookupByLibrary.simpleMessage("CVV"),
     "dark": MessageLookupByLibrary.simpleMessage("Dark"),
     "date": MessageLookupByLibrary.simpleMessage("Date"),
+    "days": MessageLookupByLibrary.simpleMessage("Days"),
     "deductedAmountAddedToWallet": MessageLookupByLibrary.simpleMessage(
       "The deducted amount will be automatically added to your wallet",
     ),
@@ -213,6 +235,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "developerTools": MessageLookupByLibrary.simpleMessage("Developer Tools"),
     "digitalEarnings": MessageLookupByLibrary.simpleMessage("Digital Earnings"),
     "dimension": MessageLookupByLibrary.simpleMessage("Dimension:"),
+    "discountPercentage": MessageLookupByLibrary.simpleMessage(
+      "Discount Percentage",
+    ),
     "dobRequired": MessageLookupByLibrary.simpleMessage(
       "Date of birth is required",
     ),
@@ -236,9 +261,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "driverHomeMap": MessageLookupByLibrary.simpleMessage("Driver Home (Map)"),
     "driverLabel": MessageLookupByLibrary.simpleMessage("Driver: "),
-    "driverOfferWithNumber": m3,
+    "driverOfferWithNumber": m4,
     "driverOnWay": MessageLookupByLibrary.simpleMessage("Driver is on the way"),
     "driverServices": MessageLookupByLibrary.simpleMessage("Driver Services"),
+    "driverStore": MessageLookupByLibrary.simpleMessage("Driver Store"),
     "dropoffLocation": MessageLookupByLibrary.simpleMessage(
       "Enter drop-off location",
     ),
@@ -246,6 +272,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "earningsDashboard": MessageLookupByLibrary.simpleMessage(
       "Earnings Dashboard",
     ),
+    "editProfile": MessageLookupByLibrary.simpleMessage("Edit profile"),
     "egHomeWork": MessageLookupByLibrary.simpleMessage("E.g. Home, Work"),
     "egpPrefix": MessageLookupByLibrary.simpleMessage("EGP "),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
@@ -269,7 +296,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "error": MessageLookupByLibrary.simpleMessage("Error"),
     "errorOccurred": MessageLookupByLibrary.simpleMessage("Error occurred"),
-    "errorOccurredWith": m4,
+    "errorOccurredWith": m5,
+    "expirationDate": MessageLookupByLibrary.simpleMessage("Expiration Date"),
     "expiryDate": MessageLookupByLibrary.simpleMessage("Expiry date"),
     "faqs": MessageLookupByLibrary.simpleMessage("FAQs"),
     "female": MessageLookupByLibrary.simpleMessage("Female"),
@@ -300,7 +328,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "hideDetails": MessageLookupByLibrary.simpleMessage("Hide"),
     "holderName": MessageLookupByLibrary.simpleMessage("Holder name"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
-    "hoursSuffix": m5,
+    "hoursSuffix": m6,
     "iHaveMyOwnAccount": MessageLookupByLibrary.simpleMessage(
       "I have my own account?",
     ),
@@ -317,9 +345,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalidPhone": MessageLookupByLibrary.simpleMessage(
       "Invalid phone number",
     ),
-    "kgSuffix": m6,
+    "kgSuffix": m7,
     "km": MessageLookupByLibrary.simpleMessage("km"),
-    "kmSuffix": m7,
+    "kmSuffix": m8,
     "language": MessageLookupByLibrary.simpleMessage("Language"),
     "licence": MessageLookupByLibrary.simpleMessage("Licence"),
     "licenceStored": MessageLookupByLibrary.simpleMessage(
@@ -356,7 +384,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Message sent successfully",
     ),
     "min": MessageLookupByLibrary.simpleMessage("min"),
-    "minSuffix": m8,
+    "minSuffix": m9,
     "mobileNumber": MessageLookupByLibrary.simpleMessage("Mobile number"),
     "momentPlease": MessageLookupByLibrary.simpleMessage(
       "Just a moment please...",
@@ -390,6 +418,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "noNotificationsYet": MessageLookupByLibrary.simpleMessage(
       "No notifications yet",
+    ),
+    "noPackagesAvailable": MessageLookupByLibrary.simpleMessage(
+      "No packages available currently",
     ),
     "noTripsNow": MessageLookupByLibrary.simpleMessage("No trips right now..."),
     "noTripsYet": MessageLookupByLibrary.simpleMessage("No trips yet"),
@@ -426,6 +457,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "outStation": MessageLookupByLibrary.simpleMessage("Outstation ride"),
     "outstation": MessageLookupByLibrary.simpleMessage("Outstation"),
     "outstationRides": MessageLookupByLibrary.simpleMessage("Outstation rides"),
+    "packagesStore": MessageLookupByLibrary.simpleMessage("Packages Store"),
     "paidVia": MessageLookupByLibrary.simpleMessage("Paid Via"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordMinLength": MessageLookupByLibrary.simpleMessage(
@@ -446,6 +478,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Initiating secure payment...",
     ),
     "paymentSupport": MessageLookupByLibrary.simpleMessage("Payment & Pricing"),
+    "penaltyDeducted": m10,
     "performance": MessageLookupByLibrary.simpleMessage("Performance"),
     "permanentlyDelete": MessageLookupByLibrary.simpleMessage(
       "Permanently delete my account",
@@ -478,6 +511,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseSelectRide": MessageLookupByLibrary.simpleMessage(
       "Please select a ride",
     ),
+    "point": MessageLookupByLibrary.simpleMessage("Point"),
+    "pointsAdded": MessageLookupByLibrary.simpleMessage("Points Added"),
+    "pointsDeducted": MessageLookupByLibrary.simpleMessage("Points Deducted"),
+    "pointsHistory": MessageLookupByLibrary.simpleMessage("Points History"),
+    "pointsMethod": MessageLookupByLibrary.simpleMessage("Points"),
+    "pointsSuffix": m11,
     "politeDriver": MessageLookupByLibrary.simpleMessage("Polite driver"),
     "politePassenger": MessageLookupByLibrary.simpleMessage("Polite passenger"),
     "priceLabel": MessageLookupByLibrary.simpleMessage("Price: "),
@@ -519,6 +558,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetLocation": MessageLookupByLibrary.simpleMessage("Reset Location"),
     "respectful": MessageLookupByLibrary.simpleMessage("Respectful"),
     "review": MessageLookupByLibrary.simpleMessage("Review"),
+    "rewardPoints": MessageLookupByLibrary.simpleMessage("Reward Points"),
     "rideRequests": MessageLookupByLibrary.simpleMessage("Ride Requests"),
     "rides": MessageLookupByLibrary.simpleMessage("Rides"),
     "safeDriving": MessageLookupByLibrary.simpleMessage("Safe driving"),
@@ -589,7 +629,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "submit": MessageLookupByLibrary.simpleMessage("Submit"),
     "submitting": MessageLookupByLibrary.simpleMessage("Submitting..."),
     "support": MessageLookupByLibrary.simpleMessage("Support"),
-    "switchedTo": m9,
+    "switchedTo": m12,
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "Terms and conditions",
     ),
@@ -614,7 +654,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Transaction History",
     ),
     "transactionId": MessageLookupByLibrary.simpleMessage("Transaction ID"),
-    "tripDate": m10,
+    "tripDate": m13,
     "tripDetails": MessageLookupByLibrary.simpleMessage("Trip Details"),
     "tripInProgress": MessageLookupByLibrary.simpleMessage("Trip in progress"),
     "tripMap": MessageLookupByLibrary.simpleMessage("Trip map"),
@@ -636,6 +676,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "userHome": MessageLookupByLibrary.simpleMessage("User Home"),
     "userName": MessageLookupByLibrary.simpleMessage("User name"),
     "userNotFound": MessageLookupByLibrary.simpleMessage("User not found"),
+    "validFor": MessageLookupByLibrary.simpleMessage("Valid for"),
     "validPhone": MessageLookupByLibrary.simpleMessage("Valid phone number"),
     "vehicleAndRegistration": MessageLookupByLibrary.simpleMessage(
       "Vehicle & Registration",
@@ -649,6 +690,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "waitingOnTime": MessageLookupByLibrary.simpleMessage("Waiting on time"),
     "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
+    "walletMethod": MessageLookupByLibrary.simpleMessage("Wallet"),
     "warning": MessageLookupByLibrary.simpleMessage("Distance Alert"),
     "weight": MessageLookupByLibrary.simpleMessage("Weight:"),
     "welcomeBack": MessageLookupByLibrary.simpleMessage(
@@ -680,6 +722,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "Write your review",
     ),
     "yes": MessageLookupByLibrary.simpleMessage("Yes"),
+    "youEarnedPoints": m14,
+    "yourCurrentPoints": MessageLookupByLibrary.simpleMessage(
+      "Your Current Points",
+    ),
     "yourOffer": MessageLookupByLibrary.simpleMessage("Your offer"),
+    "yourPoints": MessageLookupByLibrary.simpleMessage("Your Current Points"),
   };
 }

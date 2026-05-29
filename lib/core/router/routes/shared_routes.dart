@@ -42,9 +42,20 @@ import 'package:shakshak/features/shared/wallet/presentation/views/payment_view.
 import 'package:shakshak/features/shared/wallet/presentation/views/wallet_view.dart';
 import 'package:shakshak/features/shared/wallet/presentation/views/withdraw_history_view.dart';
 import 'package:shakshak/features/user/user_home/data/models/new-ride/new_ride_data.dart';
+import 'package:shakshak/features/shared/loyalty/presentation/views/points_view.dart';
+import 'package:shakshak/features/shared/loyalty/presentation/view_models/loyalty_cubit.dart';
 
 class SharedRoutes {
   static final List<RouteBase> routes = [
+    GoRoute(
+      path: Routes.pointsView,
+      builder: (context, state) {
+        return BlocProvider.value(
+          value: context.read<LoyaltyCubit>()..getPointsHistory(),
+          child: const PointsView(),
+        );
+      },
+    ),
     GoRoute(
       path: Routes.onBoardingView,
       builder: (context, state) => const OnBoardingView(),

@@ -105,9 +105,21 @@ import 'package:shakshak/features/shared/review/domain/usecases/get_user_reviews
 
 import 'package:shakshak/features/shared/review/data/repo/review_repo_imp.dart';
 import 'package:shakshak/features/shared/authentication/presentation/view_models/country_city_cubit/countries_cities_cubit.dart';
+import 'package:shakshak/features/driver/earnings/presentation/manager/earnings_cubit.dart';
+import 'package:shakshak/features/shared/loyalty/data/repo/loyalty_repo.dart';
+import 'package:shakshak/features/shared/loyalty/data/repo/loyalty_repo_imp.dart';
+import 'package:shakshak/features/shared/loyalty/presentation/view_models/loyalty_cubit.dart';
+import 'package:shakshak/features/user/store/data/repo/user_store_repo_imp.dart';
+import 'package:shakshak/features/user/store/domain/repositories/user_store_repo.dart';
+import 'package:shakshak/features/user/store/presentation/view_models/user_store_cubit.dart';
 import 'package:shakshak/features/driver/earnings/data/earnings_repo.dart';
 import 'package:shakshak/features/driver/earnings/data/earnings_repo_impl.dart';
-import 'package:shakshak/features/driver/earnings/presentation/manager/earnings_cubit.dart';
+import 'package:shakshak/features/shared/shop/data/repo/shop_repo_imp.dart';
+import 'package:shakshak/features/shared/shop/domain/repositories/shop_repo.dart';
+import 'package:shakshak/features/shared/shop/domain/usecases/buy_package_usecase.dart';
+import 'package:shakshak/features/shared/shop/domain/usecases/get_packages_usecase.dart';
+import 'package:shakshak/features/shared/shop/domain/usecases/get_subscription_status_usecase.dart';
+import 'package:shakshak/features/shared/shop/presentation/view_models/shop_cubit.dart';
 
 final sl = GetIt.instance;
 
@@ -298,6 +310,13 @@ class ServiceLocator {
     sl.registerFactory<DriverStoreCubit>(
       () => DriverStoreCubit(sl(), sl()),
     );
+    
+    sl.registerLazySingleton<UserStoreRepo>(
+      () => UserStoreRepoImp(),
+    );
+    sl.registerFactory<UserStoreCubit>(
+      () => UserStoreCubit(sl()),
+    );
 
     sl.registerSingleton<UserHomeRepo>(
       UserHomeRepoImp(),
@@ -381,6 +400,23 @@ class ServiceLocator {
     sl.registerFactory<EarningsCubit>(
       () => EarningsCubit(sl()),
     );
+    sl.registerLazySingleton<LoyaltyRepo>(
+      () => LoyaltyRepoImp(),
+    );
+    sl.registerFactory<LoyaltyCubit>(
+      () => LoyaltyCubit(sl()),
+    );
+
+    // Shop
+    sl.registerLazySingleton<ShopRepo>(() => ShopRepoImp());
+    sl.registerLazySingleton<GetPackagesUseCase>(() => GetPackagesUseCase(sl()));
+    sl.registerLazySingleton<BuyPackageUseCase>(() => BuyPackageUseCase(sl()));
+    sl.registerLazySingleton<GetSubscriptionStatusUseCase>(() => GetSubscriptionStatusUseCase(sl()));
+    sl.registerFactory<ShopCubit>(() => ShopCubit(
+          getPackagesUseCase: sl(),
+          buyPackageUseCase: sl(),
+          getSubscriptionStatusUseCase: sl(),
+        ));
   }
 
   Future<void> _initSharedPref() async {

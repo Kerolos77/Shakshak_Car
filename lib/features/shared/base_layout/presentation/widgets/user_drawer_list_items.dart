@@ -68,6 +68,15 @@ class UserDrawerListItems extends StatelessWidget {
           },
         ),
         CustomDrawerItem(
+          title: "متجر الباقات",
+          icon: Icons.store_mall_directory_rounded,
+          isSelected: false,
+          onTap: () {
+            Scaffold.of(context).closeDrawer();
+            navigateTo(context, Routes.userStoreView);
+          },
+        ),
+        CustomDrawerItem(
           title: S.of(context).settings,
           icon: Icons.settings_suggest_rounded,
           isSelected: selectedIndex == 5,

@@ -34,6 +34,7 @@ import 'package:shakshak/features/user/user_home/presentation/view_models/locati
 import 'package:shakshak/features/user/user_home/presentation/view_models/user_home/user_home_cubit.dart';
 import 'package:shakshak/features/shared/authentication/presentation/view_models/country_city_cubit/countries_cities_cubit.dart';
 import 'package:shakshak/features/shared/notifications/presentation/manager/notification_cubit.dart';
+import 'package:shakshak/features/shared/loyalty/presentation/view_models/loyalty_cubit.dart';
 import 'package:shakshak/core/services/user_storage_service.dart';
 import 'package:shakshak/core/network/network_info/network_cubit.dart';
 import 'package:shakshak/core/utils/shared_widgets/global_network_banner.dart';
@@ -137,6 +138,9 @@ class MyApp extends StatelessWidget {
             ),
             BlocProvider(
               create: (context) => sl<NetworkCubit>(),
+            ),
+            BlocProvider(
+              create: (context) => sl<LoyaltyCubit>(),
             ),
           ],
           child: BlocBuilder<LanguageCubit, LanguageState>(

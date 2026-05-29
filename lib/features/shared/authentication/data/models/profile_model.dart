@@ -62,6 +62,7 @@ class UserData implements UserDataEntity {
     this.gender,
     this.rewardPoints,
     this.cashRestrictionSecondsRemaining,
+    this.activePackage,
   });
 
   UserData.fromJson(dynamic json) {
@@ -92,6 +93,7 @@ class UserData implements UserDataEntity {
     gender = userJson['gender'];
     rewardPoints = userJson['reward_points'];
     cashRestrictionSecondsRemaining = userJson['cash_restriction_seconds_remaining'];
+    activePackage = userJson['active_package'] != null ? ActivePackageModel.fromJson(userJson['active_package']) : null;
   }
 
   int? id;
@@ -111,6 +113,7 @@ class UserData implements UserDataEntity {
   String? gender;
   int? rewardPoints;
   int? cashRestrictionSecondsRemaining;
+  ActivePackage? activePackage;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -131,6 +134,32 @@ class UserData implements UserDataEntity {
     map['gender'] = gender;
     map['reward_points'] = rewardPoints;
     map['cash_restriction_seconds_remaining'] = cashRestrictionSecondsRemaining;
+    if (activePackage != null) {
+      map['active_package'] = activePackage!.toJson();
+    }
     return map;
+  }
+}
+
+class ActivePackageModel extends ActivePackage {
+  ActivePackageModel({required super.id, required super.name, super.image, super.expiresAt});
+
+  factory ActivePackageModel.fromJson(Map<String, dynamic> json) {
+    return ActivePackageModel(
+      id: json['id'],
+      name: json['name'],
+      image: json['image'],
+      expiresAt: json['expires_at']?.toString(),
+    );
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'image': image,
+      'expires_at': expiresAt,
+    };
   }
 }

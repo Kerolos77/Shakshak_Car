@@ -57,4 +57,7 @@ class Routes {
   static const String deleteAccountView = "/deleteAccountView";
   static const String notificationDetailsView = "/notificationDetailsView";
   static const String sosView = "/sosView";
+  static const String pointsView = "/pointsView";
+  static const String userStoreView = "/userStoreView";
+  static const String editProfileView = "/editProfileView";
 }

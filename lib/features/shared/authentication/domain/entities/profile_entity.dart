@@ -30,6 +30,7 @@ class UserDataEntity {
   final String? gender;
   final int? rewardPoints;
   final int? cashRestrictionSecondsRemaining;
+  final ActivePackage? activePackage;
 
   const UserDataEntity({
     this.id,
@@ -49,5 +50,24 @@ class UserDataEntity {
     this.gender,
     this.rewardPoints,
     this.cashRestrictionSecondsRemaining,
+    this.activePackage,
   });
+}
+
+class ActivePackage {
+  final int id;
+  final String name;
+  final String? image;
+  final String? expiresAt;
+
+  const ActivePackage({required this.id, required this.name, this.image, this.expiresAt});
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'image': image,
+      'expires_at': expiresAt,
+    };
+  }
 }

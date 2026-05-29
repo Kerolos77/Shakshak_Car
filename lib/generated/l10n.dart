@@ -54,6 +54,16 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Edit profile`
+  String get editProfile {
+    return Intl.message(
+      'Edit profile',
+      name: 'editProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Active trip in progress`
   String get activeTrip {
     return Intl.message(
@@ -3142,6 +3152,231 @@ class S {
   /// `No trips yet`
   String get noTripsYet {
     return Intl.message('No trips yet', name: 'noTripsYet', desc: '', args: []);
+  }
+
+  /// `Reward Points`
+  String get rewardPoints {
+    return Intl.message(
+      'Reward Points',
+      name: 'rewardPoints',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Current Points`
+  String get yourPoints {
+    return Intl.message(
+      'Your Current Points',
+      name: 'yourPoints',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{points} Points`
+  String pointsSuffix(Object points) {
+    return Intl.message(
+      '$points Points',
+      name: 'pointsSuffix',
+      desc: '',
+      args: [points],
+    );
+  }
+
+  /// `Cancellation Penalty`
+  String get cancelPenalty {
+    return Intl.message(
+      'Cancellation Penalty',
+      name: 'cancelPenalty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Points History`
+  String get pointsHistory {
+    return Intl.message(
+      'Points History',
+      name: 'pointsHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Points Added`
+  String get pointsAdded {
+    return Intl.message(
+      'Points Added',
+      name: 'pointsAdded',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Points Deducted`
+  String get pointsDeducted {
+    return Intl.message(
+      'Points Deducted',
+      name: 'pointsDeducted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Congratulations!`
+  String get congratulations {
+    return Intl.message(
+      'Congratulations!',
+      name: 'congratulations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have earned {points} points for your last trip.`
+  String youEarnedPoints(Object points) {
+    return Intl.message(
+      'You have earned $points points for your last trip.',
+      name: 'youEarnedPoints',
+      desc: '',
+      args: [points],
+    );
+  }
+
+  /// `You have been penalized {points} points for canceling the trip.`
+  String penaltyDeducted(Object points) {
+    return Intl.message(
+      'You have been penalized $points points for canceling the trip.',
+      name: 'penaltyDeducted',
+      desc: '',
+      args: [points],
+    );
+  }
+
+  /// `Packages Store`
+  String get packagesStore {
+    return Intl.message(
+      'Packages Store',
+      name: 'packagesStore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No packages available currently`
+  String get noPackagesAvailable {
+    return Intl.message(
+      'No packages available currently',
+      name: 'noPackagesAvailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Current Points`
+  String get yourCurrentPoints {
+    return Intl.message(
+      'Your Current Points',
+      name: 'yourCurrentPoints',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Point`
+  String get point {
+    return Intl.message('Point', name: 'point', desc: '', args: []);
+  }
+
+  /// `You are already subscribed to a package`
+  String get alreadySubscribedToPackage {
+    return Intl.message(
+      'You are already subscribed to a package',
+      name: 'alreadySubscribedToPackage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Current Package`
+  String get currentPackage {
+    return Intl.message(
+      'Current Package',
+      name: 'currentPackage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expiration Date`
+  String get expirationDate {
+    return Intl.message(
+      'Expiration Date',
+      name: 'expirationDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Valid for`
+  String get validFor {
+    return Intl.message('Valid for', name: 'validFor', desc: '', args: []);
+  }
+
+  /// `Days`
+  String get days {
+    return Intl.message('Days', name: 'days', desc: '', args: []);
+  }
+
+  /// `Confirm Purchase`
+  String get confirmPurchase {
+    return Intl.message(
+      'Confirm Purchase',
+      name: 'confirmPurchase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to purchase the package using {method}?`
+  String confirmPackagePurchaseMethod(Object method) {
+    return Intl.message(
+      'Are you sure you want to purchase the package using $method?',
+      name: 'confirmPackagePurchaseMethod',
+      desc: '',
+      args: [method],
+    );
+  }
+
+  /// `Points`
+  String get pointsMethod {
+    return Intl.message('Points', name: 'pointsMethod', desc: '', args: []);
+  }
+
+  /// `Wallet`
+  String get walletMethod {
+    return Intl.message('Wallet', name: 'walletMethod', desc: '', args: []);
+  }
+
+  /// `Driver Store`
+  String get driverStore {
+    return Intl.message(
+      'Driver Store',
+      name: 'driverStore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Discount Percentage`
+  String get discountPercentage {
+    return Intl.message(
+      'Discount Percentage',
+      name: 'discountPercentage',
+      desc: '',
+      args: [],
+    );
   }
 }
 

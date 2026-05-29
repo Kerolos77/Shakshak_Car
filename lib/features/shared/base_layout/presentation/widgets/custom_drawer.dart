@@ -67,6 +67,8 @@ class CustomDrawer extends StatelessWidget {
         final imageUrl = user?.image;
         final userName = user?.name ?? CacheHelper.getData(key: AppConstant.kUserName) ?? 'Guest User';
         final userEmail = user?.email ?? user?.phone ?? 'Welcome to ShakShak';
+        final activePackage = user?.activePackage;
+        final isPremium = activePackage != null;
 
         return Container(
           width: double.infinity,
@@ -77,11 +79,12 @@ class CustomDrawer extends StatelessWidget {
             right: 20.w,
           ),
           decoration: BoxDecoration(
-            color: AppColors.primaryColor,
-            image: const DecorationImage(
-              image: AssetImage('assets/images/drawer_pattern.png'),
-              fit: BoxFit.cover,
-              opacity: 0.1,
+            gradient: LinearGradient(
+              colors: isPremium 
+                ? [const Color(0xFFD4AF37), AppColors.primaryColor] // Gold to Primary
+                : [AppColors.primaryColor, AppColors.primaryColor],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
             ),
             borderRadius: BorderRadius.only(
               bottomRight: Radius.circular(80.r),
@@ -90,39 +93,60 @@ class CustomDrawer extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                padding: EdgeInsets.all(3.r),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
-                  shape: BoxShape.circle,
-                ),
-                child: Hero(
-                  tag: 'profile_pic_drawer', // Changed tag to avoid conflict
-                  child: Container(
-                    width: 85.r,
-                    height: 85.r,
-                    clipBehavior: Clip.hardEdge,
-                    decoration: const BoxDecoration(
+              Stack(
+                alignment: Alignment.bottomRight,
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(isPremium ? 4.r : 3.r),
+                    decoration: BoxDecoration(
+                      color: isPremium ? const Color(0xFFD4AF37) : Colors.white.withOpacity(0.2),
                       shape: BoxShape.circle,
+                      boxShadow: isPremium ? [
+                        BoxShadow(
+                          color: const Color(0xFFD4AF37).withOpacity(0.4),
+                          blurRadius: 10,
+                          spreadRadius: 2,
+                        )
+                      ] : null,
                     ),
-                    child: imageUrl != null && imageUrl.isNotEmpty
-                        ? CustomCachedNetworkImage(
-                            imgUrl: imageUrl,
-                            width: 85.r,
-                            height: 85.r,
-                            errorIconSize: 35.r,
-                          )
-                        : CircleAvatar(
-                            backgroundColor: Colors.white.withOpacity(0.9),
-                            radius: 42.5.r,
-                            child: Icon(
-                              Icons.person_rounded,
-                              color: AppColors.primaryColor,
-                              size: 50.r,
-                            ),
-                          ),
+                    child: Hero(
+                      tag: 'profile_pic_drawer',
+                      child: Container(
+                        width: 85.r,
+                        height: 85.r,
+                        clipBehavior: Clip.hardEdge,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: imageUrl != null && imageUrl.isNotEmpty
+                            ? CustomCachedNetworkImage(
+                                imgUrl: imageUrl,
+                                width: 85.r,
+                                height: 85.r,
+                                errorIconSize: 35.r,
+                              )
+                            : CircleAvatar(
+                                backgroundColor: Colors.white.withOpacity(0.9),
+                                radius: 42.5.r,
+                                child: Icon(
+                                  Icons.person_rounded,
+                                  color: AppColors.primaryColor,
+                                  size: 50.r,
+                                ),
+                              ),
+                      ),
+                    ),
                   ),
-                ),
+                  if (isPremium)
+                    Container(
+                      padding: EdgeInsets.all(4.r),
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFD4AF37),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(Icons.star_rounded, color: Colors.white, size: 16.r),
+                    ),
+                ],
               ),
               20.ph,
               Text(
@@ -135,16 +159,25 @@ class CustomDrawer extends StatelessWidget {
                   letterSpacing: 0.5,
                 ),
               ),
-              3.ph,
-              Text(
-                userEmail,
-                maxLines: 1,
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-                style: Styles.textStyle14(context).copyWith(
-                  color: Colors.white.withOpacity(0.7),
+              if (isPremium) ...[
+                4.ph,
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 2.h),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(10.r),
+                    border: Border.all(color: const Color(0xFFD4AF37).withOpacity(0.5)),
+                  ),
+                  child: Text(
+                    activePackage.name,
+                    style: TextStyle(
+                      color: const Color(0xFFD4AF37),
+                      fontSize: 11.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
-              ),
+              ],
               15.ph,
               GestureDetector(
                 onTap: () {

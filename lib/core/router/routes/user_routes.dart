@@ -19,9 +19,14 @@ import 'package:shakshak/features/user/user_home/presentation/views/user_home_vi
 import 'package:shakshak/features/user/user_home/presentation/views/ride_payment_webview_screen.dart';
 import 'package:shakshak/features/user/user_home_page/presentation/screen/select_destination_page.dart';
 import 'package:shakshak/features/user/user_home_page/presentation/screen/user_home_page.dart';
+import 'package:shakshak/features/user/store/presentation/views/user_store_view.dart';
 
 class UserRoutes {
   static final List<RouteBase> routes = [
+    GoRoute(
+      path: Routes.userStoreView,
+      builder: (context, state) => const UserStoreView(),
+    ),
     GoRoute(
       path: Routes.userHomeView,
       builder: (context, state) => MultiBlocProvider(

@@ -3,7 +3,11 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/foundation.dart';
-import 'package:web_socket_channel/web_socket_channel.dart';
+import 'package:http/http.dart' as http;
+import 'package:pusher_channels_flutter/pusher_channels_flutter.dart';
+
+import 'package:shakshak/core/constants/app_const.dart';
+import 'package:shakshak/core/network/local/cache_helper.dart';
 
 typedef EventCallback = void Function(dynamic data);
 
@@ -28,14 +32,12 @@ class RealtimeManager {
   factory RealtimeManager() => _instance;
   RealtimeManager._internal();
 
-  WebSocketChannel? _channel;
+  final PusherChannelsFlutter _pusher = PusherChannelsFlutter.getInstance();
   RealtimeConnectionStatus _status = RealtimeConnectionStatus.disconnected;
-  String? _url;
+  String? _url; // We'll keep url param for backward compatibility, but we might parse it
 
   final Set<String> _activeSubscribes = {};
   final List<RealtimeSubscription> _subscriptions = [];
-  int _reconnectAttempts = 0;
-  Timer? _reconnectTimer;
   bool _isManualDisconnect = false;
 
   final ValueNotifier<RealtimeConnectionStatus> connectionStatus =
@@ -48,76 +50,108 @@ class RealtimeManager {
   }
 
   /// ================= CONNECT =================
-  void connect({required String url}) {
-    if (_status == RealtimeConnectionStatus.connected && _url == url) return;
+  Future<void> connect({required String url}) async {
+    if (_status == RealtimeConnectionStatus.connected) return;
 
     _url = url;
     _isManualDisconnect = false;
-    _reconnectAttempts = 0;
-    _establishConnection();
-  }
-
-  void _establishConnection() {
-    if (_url == null || _isManualDisconnect) return;
-
     _updateStatus(RealtimeConnectionStatus.connecting);
-    _closeExisting();
 
     try {
-      _channel = WebSocketChannel.connect(Uri.parse(_url!));
-      _channel!.stream.listen(
-        _onMessage,
-        onError: _onConnectionError,
-        onDone: _onConnectionClosed,
-        cancelOnError: true,
+      // Parse host and port from URL (if it's something like ws://shakshak.net:6001)
+      // We will fallback to defaults if parsing fails
+      final uri = Uri.tryParse(url);
+      final String host = uri?.host ?? 'shakshak.net';
+      final int port = uri?.port ?? 6001;
+      final bool useTLS = uri?.scheme == 'wss' || uri?.scheme == 'https';
+
+      await _pusher.init(
+        apiKey: "shakshak_key", // Since this is custom Reverb, key can be arbitrary if not enforced
+        cluster: "mt1",
+        wsHost: host,
+        wsPort: port,
+        wssPort: port,
+        useTLS: useTLS,
+        onConnectionStateChange: _onConnectionStateChange,
+        onError: _onError,
+        onSubscriptionSucceeded: _onSubscriptionSucceeded,
+        onEvent: _onEvent,
+        onAuthorizer: _onAuthorizer,
       );
+
+      await _pusher.connect();
     } catch (e) {
-      _onConnectionError(e);
+      debugPrint('❌ RealtimeManager Connection Exception: $e');
+      _updateStatus(RealtimeConnectionStatus.disconnected);
     }
   }
 
-  void _closeExisting() {
-    _channel?.sink.close();
-    _channel = null;
+  Future<dynamic> _onAuthorizer(String channelName, String socketId, dynamic options) async {
+    try {
+      String? token = CacheHelper.getData(key: AppConstant.kToken);
+      
+      var response = await http.post(
+        Uri.parse('https://shakshak.net/api/broadcasting/auth'),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
+        body: jsonEncode({
+          "socket_id": socketId,
+          "channel_name": channelName,
+        }),
+      );
+
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        debugPrint("Auth Error: ${response.body}");
+        throw Exception("Authentication Failed");
+      }
+    } catch (e) {
+      debugPrint("Authorizer Exception: $e");
+      rethrow;
+    }
+  }
+
+  void _onConnectionStateChange(dynamic currentState, dynamic previousState) {
+    debugPrint("🌐 Pusher Connection State: $currentState");
+    if (currentState == 'CONNECTED') {
+      _updateStatus(RealtimeConnectionStatus.connected);
+      _resubscribeAll();
+    } else if (currentState == 'DISCONNECTED') {
+      if (!_isManualDisconnect) {
+        _updateStatus(RealtimeConnectionStatus.disconnected);
+      }
+    } else if (currentState == 'CONNECTING') {
+      _updateStatus(RealtimeConnectionStatus.connecting);
+    }
+  }
+
+  void _onError(String message, int? code, dynamic e) {
+    debugPrint("❌ Pusher Error: $message code: $code exception: $e");
+  }
+
+  void _onSubscriptionSucceeded(String channelName, dynamic data) {
+    debugPrint("✅ Subscribed successfully to: $channelName");
   }
 
   /// ================= HANDLERS =================
-  void _onMessage(dynamic message) {
-    debugPrint('📥 RealtimeManager Received: $message');
+  void _onEvent(PusherEvent event) {
+    debugPrint('📥 RealtimeManager Received Event: ${event.eventName} on channel: ${event.channelName}');
     try {
-      final decoded = jsonDecode(message);
-      final String? event = decoded['event'];
-      final String? channel = decoded['channel'];
-      final dynamic data = decoded['data'];
+      if (event.eventName.startsWith('pusher:')) return;
 
-      if (event == null) return;
-
-      // Pulse check
-      if (event == 'pusher:ping') {
-        _send({"event": "pusher:pong"});
-        return;
-      }
-
-      // Connection Established
-      if (event == 'pusher:connection_established') {
-        _reconnectAttempts = 0;
-        _updateStatus(RealtimeConnectionStatus.connected);
-        _resubscribeAll();
-        return;
-      }
-
-      if (event.startsWith('pusher:')) return;
-
-      // Logic events
+      final dynamic data = event.data;
       final parsedData = (data is String) ? jsonDecode(data) : data;
 
-      // Notify listeners matching channel AND event
       final targets = _subscriptions
           .where((s) =>
-              s.channel == channel &&
-              (s.event == event ||
-                  ".${s.event}" == event ||
-                  s.event == ".$event"))
+              s.channel == event.channelName &&
+              (s.event == event.eventName ||
+                  ".${s.event}" == event.eventName ||
+                  s.event == ".${event.eventName}"))
           .toList();
 
       for (var sub in targets) {
@@ -128,41 +162,6 @@ class RealtimeManager {
     }
   }
 
-  void _onConnectionError(dynamic error) {
-    debugPrint('❌ RealtimeManager Connection Error: $error');
-    _updateStatus(RealtimeConnectionStatus.disconnected);
-    _scheduleReconnect();
-  }
-
-  void _onConnectionClosed() {
-    if (!_isManualDisconnect) {
-      debugPrint('🔌 RealtimeManager Connection Closed Unexpectedly');
-      _updateStatus(RealtimeConnectionStatus.disconnected);
-      _scheduleReconnect();
-    }
-  }
-
-  /// ================= RECONNECT LOGIC =================
-  void _scheduleReconnect() {
-    if (_isManualDisconnect) return;
-
-    _reconnectTimer?.cancel();
-
-    // Exponential Backoff: 2s, 4s, 8s, 16s, max 30s
-    final seconds = min(pow(2, _reconnectAttempts).toInt() + 2, 30);
-    // Add Jitter (random +/- 1-2 seconds)
-    final jitter = Random().nextInt(3);
-    final delay = Duration(seconds: seconds + jitter);
-
-    debugPrint(
-        '🔄 RealtimeManager: Attempting reconnect in ${delay.inSeconds}s (Attempt: ${_reconnectAttempts + 1})');
-
-    _reconnectTimer = Timer(delay, () {
-      _reconnectAttempts++;
-      _establishConnection();
-    });
-  }
-
   /// ================= ACTIONS =================
   void subscribe(String channel, {String? eventName}) {
     final subKey = eventName != null ? '$channel|$eventName' : channel;
@@ -170,26 +169,24 @@ class RealtimeManager {
 
     _activeSubscribes.add(subKey);
     if (_status == RealtimeConnectionStatus.connected) {
-      _rawSubscribe(channel, eventName: eventName);
+      _rawSubscribe(channel);
     }
   }
 
-  void _rawSubscribe(String channel, {String? eventName}) {
-    debugPrint(
-        '📡 RealtimeManager: Subscribing to $channel ${eventName != null ? "event: $eventName" : ""}');
-    final data = <String, dynamic>{"channel": channel};
-    if (eventName != null) {
-      data["event"] = eventName;
+  Future<void> _rawSubscribe(String channel) async {
+    debugPrint('📡 RealtimeManager: Subscribing to $channel');
+    try {
+      await _pusher.subscribe(channelName: channel);
+    } catch (e) {
+      debugPrint('❌ RealtimeManager Subscribe Error: $e');
     }
-    _send({"event": "pusher:subscribe", "data": data});
   }
 
   void _resubscribeAll() {
     for (var subKey in _activeSubscribes) {
       final parts = subKey.split('|');
       final channel = parts[0];
-      final eventName = parts.length > 1 ? parts[1] : null;
-      _rawSubscribe(channel, eventName: eventName);
+      _rawSubscribe(channel);
     }
   }
 
@@ -216,34 +213,29 @@ class RealtimeManager {
     _subscriptions.removeWhere((s) => s.token == token);
   }
 
-  void unsubscribe(String channel) {
+  Future<void> unsubscribe(String channel) async {
     _activeSubscribes
         .removeWhere((key) => key == channel || key.startsWith('$channel|'));
     _subscriptions.removeWhere((s) => s.channel == channel);
 
     if (_status == RealtimeConnectionStatus.connected) {
-      _send({
-        "event": "pusher:unsubscribe",
-        "data": {"channel": channel}
-      });
+      try {
+        await _pusher.unsubscribe(channelName: channel);
+      } catch (e) {
+        debugPrint('❌ RealtimeManager Unsubscribe Error: $e');
+      }
     }
   }
 
-  void disconnect() {
+  Future<void> disconnect() async {
     _isManualDisconnect = true;
-    _reconnectTimer?.cancel();
-    _closeExisting();
     _activeSubscribes.clear();
     _subscriptions.clear();
     _updateStatus(RealtimeConnectionStatus.disconnected);
-  }
-
-  void _send(Map<String, dynamic> data) {
-    if (_status != RealtimeConnectionStatus.connected) return;
     try {
-      _channel?.sink.add(jsonEncode(data));
+      await _pusher.disconnect();
     } catch (e) {
-      debugPrint('❌ RealtimeManager Send Error: $e');
+      debugPrint('❌ RealtimeManager Disconnect Error: $e');
     }
   }
 }

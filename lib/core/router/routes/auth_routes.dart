@@ -7,6 +7,7 @@ import 'package:shakshak/features/shared/authentication/presentation/view_models
 import 'package:shakshak/features/shared/authentication/presentation/view_models/country_city_cubit/countries_cities_cubit.dart';
 import 'package:shakshak/features/shared/authentication/presentation/views/login_view.dart';
 import 'package:shakshak/features/shared/authentication/presentation/views/otp_view.dart';
+import 'package:shakshak/features/shared/authentication/presentation/views/edit_profile_view.dart';
 import 'package:shakshak/features/shared/authentication/presentation/views/profile_view.dart';
 import 'package:shakshak/features/shared/authentication/presentation/views/register_view.dart';
 import 'package:shakshak/features/shared/authentication/presentation/views/role_selection_view.dart';
@@ -94,6 +95,19 @@ class AuthRoutes {
           updateProfileUseCase: sl(),
         ),
         child: const ProfileView(),
+      ),
+    ),
+    GoRoute(
+      path: Routes.editProfileView,
+      builder: (context, state) => BlocProvider(
+        create: (context) => AuthCubit(
+          loginUseCase: sl(),
+          signupUseCase: sl(),
+          verifyPhoneOtpUseCase: sl(),
+          getProfileUseCase: sl(),
+          updateProfileUseCase: sl(),
+        ),
+        child: const EditProfileView(),
       ),
     ),
   ];
