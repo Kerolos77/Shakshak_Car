@@ -8,9 +8,9 @@ final class DriverHomeInitial extends DriverHomeState {}
 final class DriverToggleOnlineLoading extends DriverHomeState {}
 
 final class DriverToggleOnlineSuccess extends DriverHomeState {
-  final DriverToggleOnlineModel driverToggleOnlineModel;
+  final DriverToggleOnlineEntity driverToggleOnlineEntity;
 
-  DriverToggleOnlineSuccess({required this.driverToggleOnlineModel});
+  DriverToggleOnlineSuccess({required this.driverToggleOnlineEntity});
 }
 
 final class DriverToggleOnlineFailure extends DriverHomeState {

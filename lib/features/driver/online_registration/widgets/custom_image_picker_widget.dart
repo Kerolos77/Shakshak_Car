@@ -1,13 +1,13 @@
-import 'dart:io';
+﻿import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 
-import '../../../../../core/resources/app_colors.dart';
-import '../../../../../core/utils/shared_widgets/dashed_border.dart';
-import '../../../../../core/utils/styles.dart';
+import 'package:shakshak/core/utils/shared_widgets/dashed_border.dart';
+import 'package:shakshak/core/utils/styles.dart';
+import 'package:shakshak/generated/l10n.dart';
 
 class CustomImagePickerWidget extends StatefulWidget {
   final String title;
@@ -35,26 +35,35 @@ class _CustomImagePickerWidgetState extends State<CustomImagePickerWidget> {
     _selectedImage = widget.initialImage;
   }
 
+  @override
+  void didUpdateWidget(covariant CustomImagePickerWidget oldWidget) {
+    if (widget.initialImage != oldWidget.initialImage) {
+      _selectedImage = widget.initialImage;
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
   Future<void> _showImageSourceBottomSheet() async {
     await showModalBottomSheet(
       context: context,
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       builder: (context) => SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 20.h),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('Please select', style: Styles.textStyle18Bold(context)),
+              Text(S.of(context).pleaseSelect,
+                  style: Styles.textStyle18Bold(context)),
               12.ph,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _buildSourceButton(
-                      Icons.camera_alt, 'Camera', ImageSource.camera),
+                  _buildSourceButton(Icons.camera_alt, S.of(context).camera,
+                      ImageSource.camera),
                   12.pw,
-                  _buildSourceButton(
-                      Icons.photo_library, 'Gallery', ImageSource.gallery),
+                  _buildSourceButton(Icons.photo_library, S.of(context).gallery,
+                      ImageSource.gallery),
                 ],
               ),
             ],
@@ -75,7 +84,8 @@ class _CustomImagePickerWidgetState extends State<CustomImagePickerWidget> {
         padding: EdgeInsets.all(8.r),
         child: Column(
           children: [
-            Icon(icon, color: Colors.black, size: 28.r),
+            Icon(icon,
+                color: Theme.of(context).colorScheme.onSurface, size: 28.r),
             Text(label, style: Styles.textStyle16(context)),
           ],
         ),
@@ -93,7 +103,7 @@ class _CustomImagePickerWidgetState extends State<CustomImagePickerWidget> {
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: ${e.toString()}')),
+        SnackBar(content: Text(S.of(context).errorOccurredWith(e.toString()))),
       );
     }
   }
@@ -109,7 +119,7 @@ class _CustomImagePickerWidgetState extends State<CustomImagePickerWidget> {
           onTap: _showImageSourceBottomSheet,
           child: _selectedImage == null
               ? DashedBorder(
-                  color: AppColors.lightGreyColor,
+                  color: Theme.of(context).dividerColor,
                   strokeWidth: 2.w,
                   dashLength: 8.w,
                   dashGap: 4.w,
@@ -125,14 +135,16 @@ class _CustomImagePickerWidgetState extends State<CustomImagePickerWidget> {
                           width: 100.w,
                           height: 100.h,
                           decoration: BoxDecoration(
-                            color: Colors.black,
+                            color: Theme.of(context).colorScheme.onSurface,
                             borderRadius: BorderRadius.circular(12.r),
                           ),
                           child: Icon(Icons.upload_file,
-                              size: 50.r, color: Colors.white),
+                              size: 50.r,
+                              color: Theme.of(context).colorScheme.surface),
                         ),
                         12.ph,
-                        Text('Add photo', style: Styles.textStyle16SemiBold(context)),
+                        Text(S.of(context).addPhoto,
+                            style: Styles.textStyle16SemiBold(context)),
                       ],
                     ),
                   ),

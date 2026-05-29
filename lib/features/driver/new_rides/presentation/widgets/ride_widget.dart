@@ -1,23 +1,21 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/constants/app_const.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
-import 'package:shakshak/core/resources/app_colors.dart';
+
 import 'package:shakshak/core/router/router_helper.dart';
 import 'package:shakshak/core/router/routes.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_button.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_divider.dart';
 import 'package:shakshak/core/utils/styles.dart';
+import 'package:shakshak/generated/l10n.dart';
 
-import '../../../../../core/utils/common_use.dart';
-import '../../../../../generated/l10n.dart';
-import '../../../outstation/presentation/widgets/ride_destination_widget.dart';
+import 'package:shakshak/core/utils/shared_widgets/ride_destination_widget.dart';
 
 class NewDriverRides extends StatelessWidget {
   const NewDriverRides({
     super.key,
   });
-
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +27,7 @@ class NewDriverRides extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
         decoration: BoxDecoration(
             boxShadow: AppConstant.shadow,
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.surface,
             borderRadius: BorderRadius.circular(12.r)),
         child: Column(
           children: [
@@ -39,7 +37,8 @@ class NewDriverRides extends StatelessWidget {
                   width: 50.r,
                   height: 50.r,
                   decoration: BoxDecoration(
-                    color: AppColors.lightGreyColor,
+                    color:
+                        Theme.of(context).colorScheme.surfaceContainerHighest,
                     borderRadius: BorderRadius.circular(12.r),
                   ),
                 ),
@@ -53,7 +52,7 @@ class NewDriverRides extends StatelessWidget {
                         style: Styles.textStyle16SemiBold(context),
                       ),
                       Text(
-                        '50.00 EGP',
+                        '50.00 ${S.of(context).currency}',
                         style: Styles.textStyle16SemiBold(context),
                       ),
                     ],
@@ -64,14 +63,14 @@ class NewDriverRides extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.place,
-                      color: Colors.black,
+                      color: Theme.of(context).colorScheme.onSurface,
                       size: 16.r,
                     ),
                     4.pw,
                     Text(
-                      '0.79 KM',
-                      style: Styles.textStyle14SemiBold(context)
-                          .copyWith(color: Colors.black),
+                      S.of(context).kmSuffix('0.79'),
+                      style: Styles.textStyle14SemiBold(context).copyWith(
+                          color: Theme.of(context).colorScheme.onSurface),
                     ),
                   ],
                 ),
@@ -104,48 +103,47 @@ class NewDriverRides extends StatelessWidget {
             //   ),
             // ),
             12.ph,
-              // Container(
-              //   padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
-              //   decoration: BoxDecoration(
-              //     color: AppColors.lightGreyColor,
-              //     borderRadius: BorderRadius.circular(12.r),
-              //   ),
-              //   child: Text(
-              //     'Recommended price is 50.00 EGP , Approx distance 3.03 KM',
-              //     style: Styles.textStyle16,
-              //   ),
+            // Container(
+            //   padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+            //   decoration: BoxDecoration(
+            //     color: AppColors.lightGreyColor,
+            //     borderRadius: BorderRadius.circular(12.r),
+            //   ),
+            //   child: Text(
+            //     'Recommended price is 50.00 EGP , Approx distance 3.03 KM',
+            //     style: Styles.textStyle16,
+            //   ),
+            // ),
+            CustomButton(
+              text: S
+                  .of(context)
+                  .acceptRideWithPrice('50.00', S.of(context).currency),
+              onTap: () {},
+              height: 40.h,
+              borderRadius: 8.r,
+              // img: Icon(
+              //   Icons.call,
+              //   color: Colors.white,
+              //   size: 26.r,
               // ),
-              CustomButton(
-                text: 'Accept Ride (50.00 EGP)',
-                onTap: () {
-
-                },
-                height: 40.h,
-                borderRadius: 8.r,
-                // img: Icon(
-                //   Icons.call,
-                //   color: Colors.white,
-                //   size: 26.r,
-                // ),
-              ),
+            ),
             12.ph,
             ListView.builder(
               physics: const NeverScrollableScrollPhysics(),
-                padding: EdgeInsets.zero,
+              padding: EdgeInsets.zero,
               // scrollDirection:  Axis.,
 
               itemCount: 3,
-                shrinkWrap: true,
-                itemBuilder:  (context, index) {
-                  return CustomButton(
-                    text: '+ 20 EGP',
-                    onTap: () {
-
-                    },
-                    height: 40.h,
-                    borderRadius: 8.r,
-                  );
-                },
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                return CustomButton(
+                  text:
+                      S.of(context).biddingAmount('20', S.of(context).currency),
+                  onTap: () {},
+                  height: 40.h,
+                  borderRadius: 8.r,
+                );
+              },
             ),
           ],
         ),

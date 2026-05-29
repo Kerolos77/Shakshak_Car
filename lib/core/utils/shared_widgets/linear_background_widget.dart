@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../resources/app_colors.dart';
+import 'package:shakshak/core/resources/app_colors.dart';
 
 class LinearBackgroundWidget extends StatelessWidget {
   const LinearBackgroundWidget({

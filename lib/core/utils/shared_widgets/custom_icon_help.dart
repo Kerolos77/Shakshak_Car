@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../resources/app_colors.dart';
+import 'package:shakshak/core/resources/app_colors.dart';
 
 class CustomIconHelp extends StatefulWidget {
   final String? title;
@@ -66,7 +65,10 @@ class _CustomIconHelpState extends State<CustomIconHelp> {
                 },
               );
             },
-            icon: Icon(Icons.question_mark,size: 17,),
+            icon: Icon(
+              Icons.question_mark,
+              size: 17,
+            ),
           ),
         ),
       ],

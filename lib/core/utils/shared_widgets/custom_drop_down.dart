@@ -3,9 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 
-import '../../../generated/assets.dart';
-import '../../resources/app_colors.dart';
-import '../styles.dart';
+import 'package:shakshak/generated/assets.dart';
+import 'package:shakshak/core/resources/app_colors.dart';
+import 'package:shakshak/core/utils/styles.dart';
+import 'package:shakshak/generated/l10n.dart';
 
 class CustomDropDown extends StatefulWidget {
   final List<String> items;
@@ -16,6 +17,7 @@ class CustomDropDown extends StatefulWidget {
   final String? label;
   final String? Function(String?)? validator;
   final Widget? prefix;
+  final bool enabled;
 
   const CustomDropDown({
     super.key,
@@ -27,6 +29,7 @@ class CustomDropDown extends StatefulWidget {
     this.validator,
     this.label,
     this.prefix,
+    this.enabled = true,
   });
 
   @override
@@ -42,6 +45,14 @@ class _CustomDropDownState extends State<CustomDropDown> {
     super.initState();
     searchController = TextEditingController();
     selectedValue = widget.value;
+  }
+
+  @override
+  void didUpdateWidget(CustomDropDown oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.value != oldWidget.value) {
+      selectedValue = widget.value;
+    }
   }
 
   @override
@@ -70,7 +81,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
                     TextField(
                       controller: searchController,
                       decoration: InputDecoration(
-                        hintText: 'ابحث...',
+                        hintText: S.of(context).search,
                         prefixIcon: const Icon(Icons.search),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
@@ -124,7 +135,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
           6.ph,
         ],
         GestureDetector(
-          onTap: () => _openSearchDialog(context),
+          onTap: widget.enabled ? () => _openSearchDialog(context) : null,
           child: AbsorbPointer(
             child: DropdownButtonFormField<String>(
               isExpanded: true,
@@ -132,7 +143,9 @@ class _CustomDropDownState extends State<CustomDropDown> {
               validator: widget.validator,
               decoration: InputDecoration(
                 filled: true,
-                fillColor: Theme.of(context).colorScheme.surface,
+                fillColor: widget.enabled
+                    ? Theme.of(context).colorScheme.surface
+                    : Theme.of(context).disabledColor.withOpacity(0.1),
                 prefixIcon: widget.prefix,
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 4.h, horizontal: 16.w),
@@ -145,10 +158,12 @@ class _CustomDropDownState extends State<CustomDropDown> {
                   borderRadius: BorderRadius.circular(widget.borderRadius!.r),
                 ),
               ),
-              icon: Padding(
-                padding: EdgeInsets.all(6.r),
-                child: SvgPicture.asset(Assets.svgArrowDown, width: 14.w),
-              ),
+              icon: widget.enabled
+                  ? Padding(
+                      padding: EdgeInsets.all(6.r),
+                      child: SvgPicture.asset(Assets.svgArrowDown, width: 14.w),
+                    )
+                  : const SizedBox(),
               items: widget.items
                   .map((e) => DropdownMenuItem<String>(
                         value: e,

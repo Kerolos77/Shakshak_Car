@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shakshak/core/router/router_helper.dart';
 
-import '../../../../features/user_home/presentation/view_models/user_home_cubit/user_home_cubit.dart';
-import '../../../../features/user_home/presentation/widgets/select_destination_widget.dart';
-import 'select_destination_map_screen.dart';
+import 'package:shakshak/features/user/user_home/presentation/view_models/location/location_cubit.dart';
+import 'package:shakshak/features/user/user_home/presentation/widgets/select_destination_widget.dart';
+import 'package:shakshak/core/router/routes.dart';
 
 class SelectDestinationPage extends StatefulWidget {
   const SelectDestinationPage({
@@ -11,7 +12,7 @@ class SelectDestinationPage extends StatefulWidget {
     required this.cubit,
   });
 
-  final UserHomeCubit cubit;
+  final LocationCubit cubit;
 
   @override
   State<SelectDestinationPage> createState() => _SelectDestinationPageState();
@@ -20,23 +21,21 @@ class SelectDestinationPage extends StatefulWidget {
 class _SelectDestinationPageState extends State<SelectDestinationPage> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider.value(
-      value: widget.cubit,
-      child: SelectDestinationWidget(
-        changeMapTap: () async {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => BlocProvider.value(
-                value: widget.cubit,
-                child: SelectDestinationMapScreen(
-                  homeCubit: widget.cubit,
-                ),
-              ),
-            ),
-          );
-        },
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: BlocProvider.value(
+        value: widget.cubit,
+        child: SelectDestinationWidget(
+          changeMapTap: () async {
+            FocusScope.of(context).unfocus();
+
+            navigateTo(context, Routes.selectDestinationMapScreen,
+                extra: {'cubit': widget.cubit});
+          },
+        ),
       ),
     );
   }
 }
+
+

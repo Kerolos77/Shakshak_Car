@@ -1,12 +1,16 @@
+import 'dart:developer' as dev;
+
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-
-import '../../constants/api_const.dart';
-import '../../constants/app_const.dart';
+import 'package:shakshak/core/constants/api_const.dart';
+import 'package:shakshak/core/constants/app_const.dart';
 
 class DioHelper {
   static Dio? dio;
+  static String logName = "DIO HELPER Request Data";
+  static int requestId = 0;
+  static String tag = '';
 
   static init() {
     dio = Dio(BaseOptions(
@@ -17,27 +21,53 @@ class DioHelper {
     // Manual interceptor
     dio!.interceptors.add(InterceptorsWrapper(
       onRequest: (options, handler) {
-        debugPrint("🚀 REQUEST:");
-        debugPrint("- URL: ${options.baseUrl}${options.path}");
-        debugPrint("- METHOD: ${options.method}");
-        debugPrint("- HEADERS: ${options.headers}");
-        debugPrint("- QUERY PARAMS: ${options.queryParameters}");
-        debugPrint("- BODY: ${options.data}");
+        requestId++;
+        tag = "$logName $requestId";
+        debugPrint("NEW REQUEST$tag");
+        dev.log(
+          '''
+============================================
+🚀 REQUEST
+URL: ${options.baseUrl}${options.path}
+METHOD: ${options.method}
+HEADERS: ${options.headers}
+QUERY: ${options.queryParameters}
+BODY: ${options.data}
+============================================
+''',
+          name: tag,
+        );
         return handler.next(options);
       },
       onResponse: (response, handler) {
-        debugPrint("✅ RESPONSE:");
-        debugPrint("- STATUS CODE: ${response.statusCode}");
-        debugPrint("- DATA: ${response.data}");
+        dev.log(
+          '''
+============================================
+✅ RESPONSE
+STATUS: ${response.statusCode}
+DATA: ${response.data}
+============================================
+''',
+          name: tag,
+        );
         return handler.next(response);
       },
       onError: (DioException e, handler) {
-        debugPrint("❌ ERROR:");
-        debugPrint("- MESSAGE: ${e.message}");
-        if (e.response != null) {
-          debugPrint("- STATUS CODE: ${e.response?.statusCode}");
-          debugPrint("- DATA: ${e.response?.data}");
-        }
+        dev.log(
+          '''
+============================================
+❌ ERROR
+MESSAGE: ${e.message}
+TYPE: ${e.type}
+STATUS: ${e.response?.statusCode}
+DATA: ${e.response?.data}
+============================================
+''',
+          name: tag,
+          error: e,
+          stackTrace: e.stackTrace,
+        );
+
         return handler.next(e);
       },
     ));
@@ -70,6 +100,9 @@ class DioHelper {
       url,
       queryParameters: query,
       data: body,
+      options: Options(
+        validateStatus: (status) => status != null && status < 500,
+      ),
     );
   }
 
@@ -83,25 +116,38 @@ class DioHelper {
       'lang': AppConstant.currentLanguage,
       'Content-Type': 'application/json',
     };
-    return await dio!.get(url, queryParameters: query);
+    return await dio!.get(
+      url,
+      queryParameters: query,
+      options: Options(
+        validateStatus: (status) => status != null && status < 500,
+      ),
+    );
   }
 
   static Future<Response> postData({
     required String url,
     Map<String, dynamic>? query,
     required Object data,
-    String? lang,
     String? token,
   }) async {
     dio!.options.headers = {
-      'lang': AppConstant.currentLanguage,
-      'Authorization': 'Bearer $token',
+      'Accept': 'application/json',
       'Content-Type': 'application/json',
+      'lang': AppConstant.currentLanguage,
+      if (token != null && token.isNotEmpty) 'Authorization': 'Bearer $token',
     };
+
     return await dio!.post(
       url,
       queryParameters: query,
       data: data,
+      options: Options(
+        followRedirects: false,
+        validateStatus: (status) {
+          return status != null && status < 500;
+        },
+      ),
     );
   }
 
@@ -121,6 +167,9 @@ class DioHelper {
       url,
       queryParameters: query,
       data: data,
+      options: Options(
+        validateStatus: (status) => status != null && status < 500,
+      ),
     );
   }
 
@@ -138,6 +187,9 @@ class DioHelper {
     return await dio!.delete(
       url,
       queryParameters: query,
+      options: Options(
+        validateStatus: (status) => status != null && status < 500,
+      ),
     );
   }
 
@@ -157,6 +209,9 @@ class DioHelper {
       url,
       queryParameters: query,
       data: data,
+      options: Options(
+        validateStatus: (status) => status != null && status < 500,
+      ),
     );
   }
 
@@ -169,13 +224,16 @@ class DioHelper {
   }) async {
     dio!.options.headers = {
       'lang': AppConstant.currentLanguage,
-      'Authorization': token ?? '',
+      'Authorization': (token != null && token.isNotEmpty) ? 'Bearer $token' : '',
       'Content-Type': 'application/json',
     };
     return await dio!.put(
       url,
       queryParameters: query,
       data: data,
+      options: Options(
+        validateStatus: (status) => status != null && status < 500,
+      ),
     );
   }
 }

@@ -8,8 +8,8 @@ import 'package:intl/intl.dart';
 import 'package:shakshak/core/utils/styles.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../resources/app_colors.dart';
-import '../router/router_helper.dart';
+import 'package:shakshak/core/resources/app_colors.dart';
+import 'package:shakshak/core/router/router_helper.dart';
 
 List<Color> cardColors = [
   AppColors.secondaryColor,
@@ -87,9 +87,13 @@ Widget buildLineText({
     );
 
 AppBar buildAppBar(BuildContext context,
-    {String? title, Color color = Colors.white, void Function()? onPressed}) {
+    {String? title,
+    Color color = Colors.white,
+    Color? iconColor,
+    void Function()? onPressed}) {
   return AppBar(
     backgroundColor: color,
+    elevation: 0,
     surfaceTintColor: Colors.transparent,
     title: title != null
         ? Row(
@@ -110,7 +114,7 @@ AppBar buildAppBar(BuildContext context,
                 },
             icon: Icon(
               Icons.arrow_back,
-              color: AppColors.primaryColor,
+              color: iconColor ?? AppColors.primaryColor,
               size: 20.r,
             ),
           )
@@ -123,10 +127,24 @@ Future<void> makePhoneCall({required String phoneNumber}) async {
     scheme: 'tel',
     path: phoneNumber,
   );
-  if (await canLaunchUrl(Uri.parse(launchUri.toString()))) {
-    await launchUrl(Uri.parse(launchUri.toString()));
+  if (await canLaunchUrl(launchUri)) {
+    await launchUrl(launchUri);
   } else {
     throw 'Could not launch $launchUri';
+  }
+}
+
+Future<void> launchWhatsApp({required String phoneNumber, String message = ''}) async {
+  final String url = "whatsapp://send?phone=$phoneNumber&text=${Uri.encodeComponent(message)}";
+  final Uri uri = Uri.parse(url);
+  if (await canLaunchUrl(uri)) {
+    await launchUrl(uri);
+  } else {
+    final String webUrl = "https://wa.me/$phoneNumber?text=${Uri.encodeComponent(message)}";
+    final Uri webUri = Uri.parse(webUrl);
+    if (await canLaunchUrl(webUri)) {
+      await launchUrl(webUri, mode: LaunchMode.externalApplication);
+    }
   }
 }
 
