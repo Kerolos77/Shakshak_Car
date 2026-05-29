@@ -43,3 +43,20 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# ============================================
+# Generated files (prevent merge conflicts)
+# ============================================
+
+# Intl/l10n generated files
+lib/generated/
+
+# Code generation outputs (build_runner)
+*.g.dart
+*.freezed.dart
+
+# Generated assets
+# lib/generated/assets.dart  (covered by lib/generated/ above)
+
+# Firebase environment-specific config
+lib/firebase_options.dart
