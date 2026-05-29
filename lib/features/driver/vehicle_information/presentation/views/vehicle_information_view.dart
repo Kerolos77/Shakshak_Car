@@ -1,12 +1,11 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:shakshak/core/extentions/glopal_extentions.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_button.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_text_field.dart';
-import 'package:shakshak/features/user_home/presentation/widgets/select_vehicle_section.dart';
 import 'package:shakshak/generated/l10n.dart';
 
-import '../../../../base_layout/presentation/views/base_layout_view.dart';
-import '../widgets/car_model_drop_down.dart';
+import 'package:shakshak/features/shared/base_layout/presentation/views/base_layout_view.dart';
+import 'package:shakshak/features/driver/vehicle_information/presentation/widgets/car_model_drop_down.dart';
 
 class VehicleInformationView extends StatelessWidget {
   const VehicleInformationView({super.key});
@@ -18,7 +17,7 @@ class VehicleInformationView extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SelectVehicleSection(),
+            // SelectVehicleSection(),
             12.ph,
             CustomTextField(
               label: S.of(context).carNumber,
@@ -46,3 +45,4 @@ class VehicleInformationView extends StatelessWidget {
     );
   }
 }
+

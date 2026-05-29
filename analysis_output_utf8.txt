@@ -1,0 +1,57 @@
+﻿Analyzing driver...                                             
+
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\earnings\presentation\views\earnings_view.dart:139:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\earnings\presentation\views\earnings_view.dart:210:49 - deprecated_member_use
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\driver\home\presentation\view_models\driver_home_cubit.dart:1:8 - depend_on_referenced_packages
+   info - Parameter 'key' could be a super parameter - lib\features\driver\home\presentation\widgets\no_trips_widget.dart:10:9 - use_super_parameters
+warning - Unused import: 'package:shakshak/features/driver/new_rides/data/models/ride_model.dart' - lib\features\driver\new_rides\data\repo\new_ride_repo.dart:2:8 - unused_import
+warning - Unnecessary cast - lib\features\driver\new_rides\data\repo\new_ride_repo_imp.dart:43:16 - unnecessary_cast
+   info - Parameter 'key' could be a super parameter - lib\features\driver\new_rides\presentation\widgets\no_trips_widget.dart:10:9 - use_super_parameters
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\driver\online_registration\presentation\view_models\driver_registration_cubit.dart:3:8 - depend_on_referenced_packages
+   info - Don't use 'BuildContext's across async gaps - lib\features\driver\online_registration\views\car_licence_view.dart:102:23 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\driver\online_registration\views\driver_online_registration_view.dart:85:23 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\driver\online_registration\views\licence_view.dart:102:23 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\driver\online_registration\widgets\custom_image_picker_widget.dart:105:28 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\driver\online_registration\widgets\custom_image_picker_widget.dart:106:37 - use_build_context_synchronously
+   info - Constructors for public widgets should have a named 'key' parameter - lib\features\driver\outstation\presentation\widgets\bid_button.dart:7:9 - use_key_in_widget_constructors
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\bid_button.dart:32:58 - deprecated_member_use
+warning - Unused import: 'dart:math' - lib\features\driver\outstation\presentation\widgets\header_row.dart:1:8 - unused_import
+   info - The import of 'dart:ui' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart' - lib\features\driver\outstation\presentation\widgets\header_row.dart:2:8 - unnecessary_import
+warning - Unused import: 'package:shakshak/core/resources/app_colors.dart' - lib\features\driver\outstation\presentation\widgets\header_row.dart:9:8 - unused_import
+   info - Constructors for public widgets should have a named 'key' parameter - lib\features\driver\outstation\presentation\widgets\header_row.dart:19:9 - use_key_in_widget_constructors
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\header_row.dart:88:55 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\header_row.dart:108:39 - deprecated_member_use
+   info - Constructors for public widgets should have a named 'key' parameter - lib\features\driver\outstation\presentation\widgets\main_card.dart:19:9 - use_key_in_widget_constructors
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\main_card.dart:63:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\main_card.dart:70:46 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\main_card.dart:80:48 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\main_card.dart:92:61 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\main_card.dart:183:42 - deprecated_member_use
+   info - Constructors for public widgets should have a named 'key' parameter - lib\features\driver\outstation\presentation\widgets\outstation_info.dart:9:9 - use_key_in_widget_constructors
+   info - Constructors for public widgets should have a named 'key' parameter - lib\features\driver\outstation\presentation\widgets\user_row.dart:18:9 - use_key_in_widget_constructors
+   info - Constructors for public widgets should have a named 'key' parameter - lib\features\driver\outstation\presentation\widgets\waiting_overlay.dart:10:7 - use_key_in_widget_constructors
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\waiting_overlay.dart:21:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\waiting_overlay.dart:38:58 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\trip_map\presentation\widgets\trip_map_details_item.dart:213:59 - deprecated_member_use
+
+flutter : 33 issues 
+found. (ran in 4.3s)
+At line:1 char:1
++ flutter analyze 
+--no-fatal-infos 
+lib/features/driver > 
+analysis_outpu ...
++ ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: (33 issues    
+ found. (ran in 4.    
+3s):String) [], R    
+emoteException
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 

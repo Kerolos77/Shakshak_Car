@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../resources/app_colors.dart';
-import '../styles.dart';
+import 'package:shakshak/core/resources/app_colors.dart';
+import 'package:shakshak/core/utils/styles.dart';
 
 class FailureView extends StatelessWidget {
   const FailureView({

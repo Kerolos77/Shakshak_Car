@@ -1,22 +1,23 @@
-class DriverToggleOnlineModel {
+import 'package:shakshak/features/driver/home/domain/entities/driver_toggle_online_entity.dart';
+
+class DriverToggleOnlineModel extends DriverToggleOnlineEntity {
   DriverToggleOnlineModel({
     this.data,
-    this.msg,
-    this.status,
-    this.statusval,
-  });
+    super.msg,
+    super.status,
+    super.statusval,
+  }) : super(isOnline: data?.isOnline);
 
-  DriverToggleOnlineModel.fromJson(dynamic json) {
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
-    msg = json['msg'];
-    status = json['status'];
-    statusval = json['statusval'];
+  factory DriverToggleOnlineModel.fromJson(dynamic json) {
+    return DriverToggleOnlineModel(
+      data: json['data'] != null ? Data.fromJson(json['data']) : null,
+      msg: json['msg'],
+      status: json['status'],
+      statusval: json['statusval'],
+    );
   }
 
   Data? data;
-  String? msg;
-  num? status;
-  bool? statusval;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

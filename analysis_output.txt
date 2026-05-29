@@ -1,0 +1,718 @@
+﻿Analyzing Shakshak_Car...                                       
+
+warning - Unused import: 'package:shakshak/core/resources/app_colors.dart' - lib\core\constants\app_const.dart:3:8 - unused_import
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\constants\app_const.dart:31:27 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\constants\app_const.dart:39:27 - deprecated_member_use
+   info - 'dialogBackgroundColor' is deprecated and shouldn't be used. Use DialogThemeData.backgroundColor instead. This feature was deprecated after v3.27.0-0.1.pre - lib\core\resources\app_colors.dart:245:5 - deprecated_member_use
+   info - The import of 'package:flutter/foundation.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/widgets.dart' - lib\core\services\background_location_service.dart:5:8 - unnecessary_import
+   info - Statements in an if should be enclosed in a block - lib\core\services\background_location_service.dart:123:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\core\services\location_service.dart:91:7 - curly_braces_in_flow_control_structures
+warning - The value of the field '_globalListeners' isn't used - lib\core\services\real_time\realtime_service.dart:20:42 - unused_field
+   info - The prefix 'Math' isn't a lower_case_with_underscores identifier - lib\core\utils\converts.dart:1:23 - library_prefixes
+warning - The value of the local variable 'pluralUnit' isn't used - lib\core\utils\converts.dart:36:11 - unused_local_variable
+   info - Don't invoke 'print' in production code - lib\core\utils\google_maps_resolver.dart:17:7 - avoid_print
+warning - Unused import: 'package:shakshak/core/resources/app_colors.dart' - lib\core\utils\shared_widgets\custom_cancel_dialog.dart:5:8 - unused_import
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\shared_widgets\custom_cancel_dialog.dart:33:48 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\shared_widgets\custom_cancel_dialog.dart:36:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\shared_widgets\custom_cancel_dialog.dart:41:37 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\shared_widgets\custom_cancel_dialog.dart:55:37 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\shared_widgets\custom_cancel_dialog.dart:65:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\shared_widgets\custom_cancel_dialog.dart:90:72 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\shared_widgets\custom_cancel_dialog.dart:99:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\shared_widgets\custom_cancel_dialog.dart:101:66 - deprecated_member_use
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\core\utils\shared_widgets\custom_drop_down.dart:142:15 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\shared_widgets\custom_drop_down.dart:148:55 - deprecated_member_use
+   info - Constructors in '@immutable' classes should be declared as 'const' - lib\core\utils\shared_widgets\custom_icon_help.dart:9:3 - prefer_const_constructors_in_immutables
+   info - Parameter 'key' could be a super parameter - lib\core\utils\shared_widgets\custom_icon_help.dart:9:3 - use_super_parameters
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\shared_widgets\destination_map.dart:331:39 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\shared_widgets\global_network_banner.dart:72:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\shared_widgets\global_network_banner.dart:73:44 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\shared_widgets\global_network_banner.dart:77:45 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\shared_widgets\map_loading_skeleton.dart:50:26 - deprecated_member_use
+   info - 'value' is deprecated and shouldn't be used. Use component accessors like .r or .g, or toARGB32 for an explicit conversion - lib\core\utils\shared_widgets\map_marker_helper.dart:22:31 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\shared_widgets\map_marker_helper.dart:37:30 - deprecated_member_use
+   info - 'fromBytes' is deprecated and shouldn't be used. Use BitmapDescriptor.bytes method instead - lib\core\utils\shared_widgets\map_marker_helper.dart:85:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\shared_widgets\map_marker_helper.dart:108:30 - deprecated_member_use
+   info - 'fromBytes' is deprecated and shouldn't be used. Use BitmapDescriptor.bytes method instead - lib\core\utils\shared_widgets\map_marker_helper.dart:163:41 - deprecated_member_use
+   info - 'value' is deprecated and shouldn't be used. Use component accessors like .r or .g, or toARGB32 for an explicit conversion - lib\core\utils\shared_widgets\map_marker_helper.dart:172:18 - deprecated_member_use
+   info - 'fromBytes' is deprecated and shouldn't be used. Use BitmapDescriptor.bytes method instead - lib\core\utils\shared_widgets\map_marker_helper.dart:205:26 - deprecated_member_use
+   info - Don't invoke 'print' in production code - lib\core\utils\shared_widgets\map_utils.dart:9:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\utils\shared_widgets\map_utils.dart:10:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\utils\shared_widgets\map_utils.dart:11:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\utils\shared_widgets\map_utils.dart:24:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\utils\shared_widgets\map_utils.dart:44:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\utils\shared_widgets\map_utils.dart:45:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\utils\shared_widgets\map_utils.dart:46:5 - avoid_print
+   info - 'setMapStyle' is deprecated and shouldn't be used. Use GoogleMap.style instead - lib\core\utils\shared_widgets\map_utils.dart:178:26 - deprecated_member_use
+   info - 'setMapStyle' is deprecated and shouldn't be used. Use GoogleMap.style instead - lib\core\utils\shared_widgets\map_utils.dart:183:24 - deprecated_member_use
+   info - Don't invoke 'print' in production code - lib\core\utils\shared_widgets\phone_text_field.dart:45:13 - avoid_print
+   info - Invalid use of a private type in a public API - lib\core\utils\shared_widgets\rating_user_form.dart:748:3 - library_private_types_in_public_api
+   info - Constructors for public widgets should have a named 'key' parameter - lib\core\utils\shared_widgets\rating_user_form.dart:904:7 - use_key_in_widget_constructors
+   info - Invalid use of a private type in a public API - lib\core\utils\shared_widgets\rating_user_form.dart:906:3 - library_private_types_in_public_api
+   info - Use 'isNotEmpty' instead of 'length' to test whether the collection is empty - lib\core\utils\shared_widgets\rating_user_form.dart:957:45 - prefer_is_empty
+   info - Unnecessary braces in a string interpolation - lib\core\utils\shared_widgets\rating_user_form.dart:968:32 - unnecessary_brace_in_string_interps
+   info - Unnecessary 'new' keyword - lib\core\utils\shared_widgets\rating_user_form.dart:977:33 - unnecessary_new
+   info - Unnecessary 'new' keyword - lib\core\utils\shared_widgets\rating_user_form.dart:978:31 - unnecessary_new
+   info - Unnecessary 'const' keyword - lib\core\utils\shared_widgets\rating_user_form.dart:980:27 - unnecessary_const
+   info - Unnecessary 'new' keyword - lib\core\utils\shared_widgets\rating_user_form.dart:992:34 - unnecessary_new
+warning - Dead code - lib\core\utils\shared_widgets\rating_user_form.dart:1021:28 - dead_code
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: ListtileForm.title1, ListtileForm.title2, ListtileForm.title3, ListtileForm.title4, ListtileForm.title5, ListtileForm.title6, ListtileForm.trailing1, ListtileForm.trailing2, ListtileForm.trailing3, ListtileForm.trailing4, ListtileForm.trailing5, ListtileForm.trailing6 - lib\core\utils\shared_widgets\rating_user_form.dart:1142:7 - must_be_immutable
+   info - Invalid use of a private type in a public API - lib\core\utils\shared_widgets\rating_user_form.dart:1174:3 - library_private_types_in_public_api
+warning - The value of the field '_selectedItem' isn't used - lib\core\utils\shared_widgets\rating_user_form.dart:1180:11 - unused_field
+   info - Don't invoke 'print' in production code - lib\core\utils\shared_widgets\rating_user_form.dart:1184:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\utils\shared_widgets\rating_user_form.dart:1185:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\utils\shared_widgets\rating_user_form.dart:1186:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\utils\shared_widgets\rating_user_form.dart:1187:5 - avoid_print
+   info - Invalid use of a private type in a public API - lib\core\utils\shared_widgets\rating_user_form.dart:1513:3 - library_private_types_in_public_api
+   info - Invalid use of a private type in a public API - lib\core\utils\shared_widgets\select_location\select_destination_map_screen.dart:14:3 - library_private_types_in_public_api
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\shared_widgets\tracking_map.dart:214:41 - deprecated_member_use
+   info - Don't use 'BuildContext's across async gaps - lib\core\utils\shared_widgets\tracking_map.dart:292:9 - use_build_context_synchronously
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\styles.dart:20:56 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\styles.dart:50:56 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\styles.dart:56:56 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\utils\styles.dart:146:56 - deprecated_member_use
+warning - The value of the local variable 'saudiPhoneRegex' isn't used - lib\core\utils\validations.dart:133:13 - unused_local_variable
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\earnings\presentation\views\earnings_view.dart:126:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\earnings\presentation\views\earnings_view.dart:214:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\earnings\presentation\views\earnings_view.dart:217:26 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\earnings\presentation\views\earnings_view.dart:229:28 - deprecated_member_use
+   info - Unnecessary use of string interpolation - lib\features\driver\earnings\presentation\views\earnings_view.dart:242:13 - unnecessary_string_interpolations
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\earnings\presentation\views\earnings_view.dart:341:64 - deprecated_member_use
+warning - Unused import: 'package:shakshak/features/driver/home/data/models/driver_toggle_online_model.dart' - lib\features\driver\home\domain\repositories\driver_home_repo.dart:3:8 - unused_import
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\driver\home\presentation\view_models\driver_home_cubit.dart:1:8 - depend_on_referenced_packages
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\home\presentation\views\driver_home_view.dart:99:44 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\home\presentation\views\driver_home_view.dart:100:44 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\home\presentation\views\driver_home_view.dart:144:55 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\home\presentation\views\driver_home_view.dart:227:62 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\home\presentation\views\driver_home_view.dart:252:60 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\home\presentation\views\driver_home_view.dart:329:62 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\home\presentation\views\driver_home_view.dart:372:24 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\home\presentation\views\driver_home_view.dart:393:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\home\presentation\views\driver_home_view.dart:458:61 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\home\presentation\widgets\driver_home_map.dart:116:26 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\home\presentation\widgets\driver_home_map.dart:117:28 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\home\presentation\widgets\driver_home_map.dart:216:46 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\home\presentation\widgets\driver_home_map.dart:217:46 - deprecated_member_use
+   info - Parameter 'key' could be a super parameter - lib\features\driver\home\presentation\widgets\no_trips_widget.dart:10:9 - use_super_parameters
+warning - Unnecessary cast - lib\features\driver\new_rides\data\repo\new_ride_repo_imp.dart:45:16 - unnecessary_cast
+warning - Duplicate import - lib\features\driver\new_rides\presentation\view_model\ride_cubit.dart:22:8 - duplicate_import
+   info - Parameter 'key' could be a super parameter - lib\features\driver\new_rides\presentation\widgets\no_trips_widget.dart:10:9 - use_super_parameters
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\driver\online_registration\presentation\view_models\driver_registration_cubit.dart:3:8 - depend_on_referenced_packages
+   info - Don't use 'BuildContext's across async gaps - lib\features\driver\online_registration\views\car_licence_view.dart:102:23 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\driver\online_registration\views\driver_online_registration_view.dart:108:23 - use_build_context_synchronously
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\online_registration\views\driver_online_registration_view.dart:199:36 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\online_registration\views\driver_online_registration_view.dart:207:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\online_registration\views\driver_online_registration_view.dart:227:39 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\online_registration\views\driver_online_registration_view.dart:243:45 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\online_registration\views\driver_online_registration_view.dart:254:47 - deprecated_member_use
+   info - Don't use 'BuildContext's across async gaps - lib\features\driver\online_registration\views\licence_view.dart:102:23 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\driver\online_registration\widgets\custom_image_picker_widget.dart:105:28 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\driver\online_registration\widgets\custom_image_picker_widget.dart:106:37 - use_build_context_synchronously
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\online_registration\widgets\custom_online_registration_item.dart:31:50 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\online_registration\widgets\custom_online_registration_item.dart:32:50 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\online_registration\widgets\custom_online_registration_item.dart:37:52 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\online_registration\widgets\custom_online_registration_item.dart:49:54 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\online_registration\widgets\custom_online_registration_item.dart:50:54 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\online_registration\widgets\custom_online_registration_item.dart:79:52 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\bid_button.dart:33:58 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\header_row.dart:72:55 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\header_row.dart:103:55 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\header_row.dart:123:39 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\main_card.dart:65:50 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\main_card.dart:72:49 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\main_card.dart:82:58 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\main_card.dart:182:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\main_card.dart:219:42 - deprecated_member_use
+   info - Constructors for public widgets should have a named 'key' parameter - lib\features\driver\outstation\presentation\widgets\outstation_info.dart:9:9 - use_key_in_widget_constructors
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\user_info_sheet.dart:25:46 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\user_info_sheet.dart:67:34 - deprecated_member_use
+   info - Constructors for public widgets should have a named 'key' parameter - lib\features\driver\outstation\presentation\widgets\waiting_overlay.dart:10:7 - use_key_in_widget_constructors
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\waiting_overlay.dart:21:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\outstation\presentation\widgets\waiting_overlay.dart:38:58 - deprecated_member_use
+warning - Unused import: 'package:flutter/foundation.dart' - lib\features\driver\store\presentation\view_models\driver_store_state.dart:1:8 - unused_import
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\store\presentation\views\driver_store_view.dart:92:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\store\presentation\views\driver_store_view.dart:94:62 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\driver\trip_map\presentation\widgets\trip_map_details_item.dart:213:59 - deprecated_member_use
+   info - The member 'data' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\city_model.dart:23:15 - annotate_overrides
+   info - The member 'msg' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\city_model.dart:24:11 - annotate_overrides
+   info - The member 'status' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\city_model.dart:25:8 - annotate_overrides
+   info - The member 'statusval' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\city_model.dart:26:9 - annotate_overrides
+   info - The member 'id' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\city_model.dart:44:8 - annotate_overrides
+   info - The member 'name' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\city_model.dart:45:11 - annotate_overrides
+   info - The member 'latitude' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\city_model.dart:46:11 - annotate_overrides
+   info - The member 'longitude' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\city_model.dart:47:11 - annotate_overrides
+   info - The member 'data' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\country_model.dart:23:15 - annotate_overrides
+   info - The member 'msg' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\country_model.dart:24:11 - annotate_overrides
+   info - The member 'status' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\country_model.dart:25:8 - annotate_overrides
+   info - The member 'statusval' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\country_model.dart:26:9 - annotate_overrides
+   info - The member 'id' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\country_model.dart:44:8 - annotate_overrides
+   info - The member 'name' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\country_model.dart:45:11 - annotate_overrides
+   info - The member 'latitude' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\country_model.dart:46:11 - annotate_overrides
+   info - The member 'longitude' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\country_model.dart:47:11 - annotate_overrides
+   info - The member 'data' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\login_model.dart:4:11 - annotate_overrides
+   info - The member 'msg' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\login_model.dart:5:11 - annotate_overrides
+   info - The member 'status' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\login_model.dart:6:8 - annotate_overrides
+   info - The member 'statusval' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\login_model.dart:7:9 - annotate_overrides
+   info - The member 'status' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:28:8 - annotate_overrides
+   info - The member 'statusval' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:30:9 - annotate_overrides
+   info - The member 'msg' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:31:11 - annotate_overrides
+   info - The member 'data' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:32:13 - annotate_overrides
+   info - The member 'id' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:99:8 - annotate_overrides
+   info - The member 'name' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:100:11 - annotate_overrides
+   info - The member 'phone' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:101:11 - annotate_overrides
+   info - The member 'image' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:102:11 - annotate_overrides
+   info - The member 'countryId' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:103:8 - annotate_overrides
+   info - The member 'city' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:104:8 - annotate_overrides
+   info - The member 'email' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:105:11 - annotate_overrides
+   info - The member 'walletAmount' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:106:11 - annotate_overrides
+   info - The member 'pendingWallet' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:107:11 - annotate_overrides
+   info - The member 'driverStatus' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:108:11 - annotate_overrides
+   info - The member 'isDriver' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:109:8 - annotate_overrides
+   info - The member 'isOnline' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:110:8 - annotate_overrides
+   info - The member 'serviceId' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:111:8 - annotate_overrides
+   info - The member 'token' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:112:11 - annotate_overrides
+   info - The member 'gender' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:113:11 - annotate_overrides
+   info - The member 'rewardPoints' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:114:8 - annotate_overrides
+   info - The member 'cashRestrictionSecondsRemaining' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:115:8 - annotate_overrides
+   info - The member 'activePackage' overrides an inherited member but isn't annotated with '@override' - lib\features\shared\authentication\data\models\profile_model.dart:116:18 - annotate_overrides
+   info - Don't invoke 'print' in production code - lib\features\shared\authentication\data\repo\auth_repo_imp.dart:116:7 - avoid_print
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\shared\authentication\presentation\view_models\auth_cubit\auth_cubit.dart:3:8 - depend_on_referenced_packages
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\shared\authentication\presentation\view_models\country_city_cubit\countries_cities_cubit.dart:1:8 - depend_on_referenced_packages
+warning - Unused import: 'package:shakshak/core/utils/styles.dart' - lib\features\shared\authentication\presentation\views\edit_profile_view.dart:16:8 - unused_import
+warning - Unused import: 'dart:io' - lib\features\shared\authentication\presentation\views\profile_view.dart:1:8 - unused_import
+warning - Unused import: 'package:image_picker/image_picker.dart' - lib\features\shared\authentication\presentation\views\profile_view.dart:8:8 - unused_import
+warning - Unused import: 'package:shakshak/core/utils/shared_widgets/custom_loading_button.dart' - lib\features\shared\authentication\presentation\views\profile_view.dart:14:8 - unused_import
+warning - Unused import: 'package:shakshak/features/shared/authentication/presentation/view_models/country_city_cubit/countries_cities_cubit.dart' - lib\features\shared\authentication\presentation\views\profile_view.dart:19:8 - unused_import
+warning - Unused import: 'package:shakshak/features/shared/authentication/presentation/widgets/cities_drop_down.dart' - lib\features\shared\authentication\presentation\views\profile_view.dart:20:8 - unused_import
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\views\profile_view.dart:134:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\views\profile_view.dart:154:99 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\views\profile_view.dart:159:64 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\views\profile_view.dart:165:53 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\views\profile_view.dart:234:60 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\views\profile_view.dart:236:79 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\views\profile_view.dart:260:84 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\views\profile_view.dart:263:51 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\views\profile_view.dart:463:74 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\views\profile_view.dart:495:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\views\profile_view.dart:497:59 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\views\profile_view.dart:534:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\views\profile_view.dart:570:62 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\views\profile_view.dart:573:60 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\views\profile_view.dart:584:28 - deprecated_member_use
+warning - The declaration '_buildModernField' isn't referenced - lib\features\shared\authentication\presentation\views\profile_view.dart:603:10 - unused_element
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\views\profile_view.dart:617:50 - deprecated_member_use
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: RegisterView.phoneNumber - lib\features\shared\authentication\presentation\views\register_view.dart:6:7 - must_be_immutable
+   info - Don't invoke 'print' in production code - lib\features\shared\authentication\presentation\views\register_view.dart:13:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\shared\authentication\presentation\widgets\login_button.dart:60:15 - avoid_print
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\login_view_body.dart:51:49 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\login_view_body.dart:72:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\login_view_body.dart:73:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\login_view_body.dart:92:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\login_view_body.dart:93:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\login_view_body.dart:121:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\login_view_body.dart:130:49 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\login_view_body.dart:165:58 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\login_view_body.dart:186:53 - deprecated_member_use
+   info - Don't invoke 'print' in production code - lib\features\shared\authentication\presentation\widgets\otp_button.dart:74:15 - avoid_print
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\otp_view_body.dart:43:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\otp_view_body.dart:80:49 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\otp_view_body.dart:101:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\otp_view_body.dart:102:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\otp_view_body.dart:121:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\otp_view_body.dart:122:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\register_view_body.dart:107:51 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\register_view_body.dart:128:44 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\register_view_body.dart:129:44 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\register_view_body.dart:148:44 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\register_view_body.dart:149:44 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\register_view_body.dart:177:49 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\register_view_body.dart:186:51 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\register_view_body.dart:222:60 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\authentication\presentation\widgets\role_selection_option.dart:37:51 - deprecated_member_use
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\shared\base_layout\presentation\view_models\drawer_cubit\drawer_cubit.dart:1:8 - depend_on_referenced_packages
+   info - The imported package 'meta' isn't a dependency of the importing package - lib\features\shared\base_layout\presentation\view_models\drawer_cubit\drawer_cubit.dart:2:8 - depend_on_referenced_packages
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\base_layout\presentation\widgets\custom_drawer.dart:102:81 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\base_layout\presentation\widgets\custom_drawer.dart:106:58 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\base_layout\presentation\widgets\custom_drawer.dart:129:63 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\base_layout\presentation\widgets\custom_drawer.dart:167:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\base_layout\presentation\widgets\custom_drawer.dart:169:71 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\base_layout\presentation\widgets\custom_drawer.dart:188:39 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\base_layout\presentation\widgets\custom_drawer.dart:200:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\base_layout\presentation\widgets\custom_drawer.dart:280:22 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\base_layout\presentation\widgets\custom_drawer_item.dart:31:50 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\base_layout\presentation\widgets\custom_drawer_item.dart:35:68 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\base_layout\presentation\widgets\custom_drawer_item.dart:47:26 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\base_layout\presentation\widgets\custom_drawer_item.dart:57:67 - deprecated_member_use
+   info - 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor instead. This feature was deprecated after v3.31.0-2.0.pre - lib\features\shared\base_layout\presentation\widgets\driver_drawer_list_items.dart:49:17 - deprecated_member_use
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\shared\chat\presentation\view_models\chat_cubit.dart:1:8 - depend_on_referenced_packages
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\chat\presentation\views\chat_view.dart:170:56 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\chat\presentation\widgets\chat_list_item.dart:42:46 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\chat\presentation\widgets\chat_list_item.dart:76:55 - deprecated_member_use
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\shared\contact_us\presentation\view_models\contact_us_cubit.dart:1:8 - depend_on_referenced_packages
+   info - Field overrides a field inherited from 'FaqsEntity' - lib\features\shared\faq\data\models\faqs_model.dart:24:14 - overridden_fields
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\shared\faq\presentation\view_models\faqs_cubit.dart:1:8 - depend_on_referenced_packages
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\faq\presentation\widgets\faq_item.dart:92:26 - deprecated_member_use
+warning - The left operand can't be null, so the right operand is never executed - lib\features\shared\help_center\presentation\views\help_center_view.dart:66:44 - dead_null_aware_expression
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\help_center\presentation\views\help_center_view.dart:78:37 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\help_center\presentation\views\help_center_view.dart:89:49 - deprecated_member_use
+warning - The left operand can't be null, so the right operand is never executed - lib\features\shared\help_center\presentation\views\help_center_view.dart:101:52 - dead_null_aware_expression
+warning - The left operand can't be null, so the right operand is never executed - lib\features\shared\help_center\presentation\views\help_center_view.dart:106:27 - dead_null_aware_expression
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\help_center\presentation\views\help_center_view.dart:111:32 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\help_center\presentation\views\help_center_view.dart:124:26 - deprecated_member_use
+warning - The left operand can't be null, so the right operand is never executed - lib\features\shared\help_center\presentation\views\help_center_view.dart:136:50 - dead_null_aware_expression
+warning - The left operand can't be null, so the right operand is never executed - lib\features\shared\help_center\presentation\views\help_center_view.dart:141:50 - dead_null_aware_expression
+warning - The left operand can't be null, so the right operand is never executed - lib\features\shared\help_center\presentation\views\help_center_view.dart:146:48 - dead_null_aware_expression
+warning - The left operand can't be null, so the right operand is never executed - lib\features\shared\help_center\presentation\views\help_center_view.dart:151:44 - dead_null_aware_expression
+warning - The left operand can't be null, so the right operand is never executed - lib\features\shared\help_center\presentation\views\help_center_view.dart:161:43 - dead_null_aware_expression
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\help_center\presentation\views\help_center_view.dart:183:50 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\help_center\presentation\views\help_center_view.dart:186:54 - deprecated_member_use
+warning - The left operand can't be null, so the right operand is never executed - lib\features\shared\help_center\presentation\views\help_center_view.dart:215:42 - dead_null_aware_expression
+warning - The left operand can't be null, so the right operand is never executed - lib\features\shared\help_center\presentation\views\help_center_view.dart:240:48 - dead_null_aware_expression
+warning - The left operand can't be null, so the right operand is never executed - lib\features\shared\help_center\presentation\views\help_center_view.dart:250:15 - dead_null_aware_expression
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\help_center\presentation\views\help_center_view.dart:282:30 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\help_center\presentation\views\help_center_view.dart:299:30 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\help_center\presentation\views\help_center_view.dart:309:22 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\help_center\presentation\views\trip_issue_view.dart:133:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\loyalty\presentation\views\points_view.dart:73:34 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\loyalty\presentation\views\points_view.dart:90:77 - deprecated_member_use
+   info - Use 'rethrow' to rethrow a caught exception - lib\features\shared\notifications\data\repo\notification_repo_imp.dart:43:7 - use_rethrow_when_possible
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\shared\notifications\presentation\manager\notification_cubit.dart:2:8 - depend_on_referenced_packages
+   info - Parameter 'key' could be a super parameter - lib\features\shared\notifications\presentation\pages\notification_screen.dart:10:9 - use_super_parameters
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\notifications\presentation\pages\notification_screen.dart:85:62 - deprecated_member_use
+   info - Don't use 'BuildContext's across async gaps - lib\features\shared\notifications\presentation\pages\notification_screen.dart:110:29 - use_build_context_synchronously
+   info - Parameter 'key' could be a super parameter - lib\features\shared\notifications\presentation\views\notification_details_view.dart:11:9 - use_super_parameters
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\notifications\presentation\views\notification_details_view.dart:39:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\notifications\presentation\views\notification_details_view.dart:41:66 - deprecated_member_use
+   info - Parameter 'key' could be a super parameter - lib\features\shared\notifications\presentation\widgets\notification_item.dart:9:9 - use_super_parameters
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\notifications\presentation\widgets\notification_item.dart:25:48 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\notifications\presentation\widgets\notification_item.dart:29:62 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\notifications\presentation\widgets\notification_item.dart:70:64 - deprecated_member_use
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\features\shared\on_boarding\presentation\views\on_boarding_view.dart:111:47 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\features\shared\on_boarding\presentation\views\on_boarding_view.dart:156:35 - use_build_context_synchronously
+   info - The import of 'package:flutter/services.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart' - lib\features\shared\payment\presentation\views\add_card_view.dart:2:8 - unnecessary_import
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\payment\presentation\widgets\payment_card_item.dart:35:48 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\payment\presentation\widgets\payment_card_item.dart:45:62 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\payment\presentation\widgets\payment_card_item.dart:59:49 - deprecated_member_use
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\shared\review\presentation\view_models\review_cubit.dart:1:8 - depend_on_referenced_packages
+warning - Unused import: 'package:awesome_snackbar_content/awesome_snackbar_content.dart' - lib\features\shared\review\presentation\views\review_view.dart:1:8 - unused_import
+warning - Unused import: 'package:shakshak/core/resources/app_colors.dart' - lib\features\shared\review\presentation\views\review_view.dart:5:8 - unused_import
+warning - Unused import: 'package:shakshak/core/utils/shared_widgets/show_snack_bar.dart' - lib\features\shared\review\presentation\views\review_view.dart:6:8 - unused_import
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\review\presentation\views\user_reviews_view.dart:45:57 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\review\presentation\views\user_reviews_view.dart:59:63 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\review\presentation\views\user_reviews_view.dart:108:36 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\review\presentation\views\user_reviews_view.dart:113:38 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\review\presentation\views\user_reviews_view.dart:141:46 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\review\presentation\widgets\review_form.dart:126:58 - deprecated_member_use
+   info - Don't invoke 'print' in production code - lib\features\shared\rides\data\models\rides_data.dart:22:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\shared\rides\data\models\rides_data.dart:24:7 - avoid_print
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\shared\rides\presentation\view_models\rides_cubit.dart:1:8 - depend_on_referenced_packages
+warning - Unused import: 'package:shakshak/core/utils/shared_widgets/ride_destination_widget.dart' - lib\features\shared\rides\presentation\views\trip_summary_view.dart:14:8 - unused_import
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\rides\presentation\views\trip_summary_view.dart:150:39 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\rides\presentation\views\trip_summary_view.dart:152:58 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\rides\presentation\views\trip_summary_view.dart:176:48 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\rides\presentation\views\trip_summary_view.dart:177:48 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\rides\presentation\views\trip_summary_view.dart:180:53 - deprecated_member_use
+warning - Unused import: 'package:shakshak/core/utils/styles.dart' - lib\features\shared\rides\presentation\views\unified_rides_history_view.dart:7:8 - unused_import
+warning - Unused import: 'package:shakshak/features/user/user_home/data/models/new-ride/new_ride_data.dart' - lib\features\shared\rides\presentation\views\unified_rides_history_view.dart:10:8 - unused_import
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\rides\presentation\widgets\ride_history_list_item.dart:83:44 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\rides\presentation\widgets\ride_history_list_item.dart:101:30 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\rides\presentation\widgets\ride_history_list_item.dart:145:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\rides\presentation\widgets\ride_history_list_item.dart:224:50 - deprecated_member_use
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\shared\settings\presentation\view_models\language_cubit\language_cubit.dart:1:8 - depend_on_referenced_packages
+   info - The imported package 'meta' isn't a dependency of the importing package - lib\features\shared\settings\presentation\view_models\language_cubit\language_cubit.dart:2:8 - depend_on_referenced_packages
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\shared\settings\presentation\view_models\theme_cubit\theme_cubit.dart:1:8 - depend_on_referenced_packages
+   info - Parameter 'themeMode' could be a super parameter - lib\features\shared\settings\presentation\view_models\theme_cubit\theme_state.dart:9:9 - use_super_parameters
+   info - Parameter 'themeMode' could be a super parameter - lib\features\shared\settings\presentation\view_models\theme_cubit\theme_state.dart:13:9 - use_super_parameters
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\settings\presentation\views\account_deletion_view.dart:32:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\settings\presentation\views\account_deletion_view.dart:55:22 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\settings\presentation\views\settings_view.dart:134:58 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\settings\presentation\views\settings_view.dart:148:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\settings\presentation\views\settings_view.dart:178:36 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\settings\presentation\views\settings_view.dart:201:24 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\settings\presentation\views\settings_view.dart:216:45 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\sos\presentation\views\sos_view.dart:48:37 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\sos\presentation\views\sos_view.dart:60:49 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\sos\presentation\views\sos_view.dart:220:37 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\sos\presentation\views\sos_view.dart:222:56 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\sos\presentation\views\sos_view.dart:232:40 - deprecated_member_use
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\shared\static_pages\presentation\view_models\static_pages_cubit.dart:1:8 - depend_on_referenced_packages
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\shared\wallet\presentation\view_models\wallet_cubit.dart:1:8 - depend_on_referenced_packages
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\wallet\presentation\views\payment_view.dart:105:37 - deprecated_member_use
+warning - Unused import: 'package:shakshak/core/router/route_args.dart' - lib\features\shared\wallet\presentation\views\wallet_view.dart:7:8 - unused_import
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\wallet\presentation\views\wallet_view.dart:266:77 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\wallet\presentation\views\wallet_view.dart:300:74 - deprecated_member_use
+   info - Parameter 'key' could be a super parameter - lib\features\shared\wallet\presentation\widgets\inline_webview.dart:11:9 - use_super_parameters
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\wallet\presentation\widgets\inline_webview.dart:101:55 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\wallet\presentation\widgets\inline_webview.dart:134:39 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\wallet\presentation\widgets\wallet_card.dart:33:51 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\wallet\presentation\widgets\wallet_card.dart:52:22 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\wallet\presentation\widgets\wallet_card.dart:63:22 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\wallet\presentation\widgets\wallet_card.dart:80:51 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\wallet\presentation\widgets\wallet_card.dart:98:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\wallet\presentation\widgets\wallet_card.dart:103:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\wallet\presentation\widgets\wallet_card.dart:124:34 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\wallet\presentation\widgets\wallet_transaction_item.dart:35:52 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\wallet\presentation\widgets\wallet_transaction_item.dart:46:36 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\shared\wallet\presentation\widgets\wallet_transaction_item.dart:150:22 - deprecated_member_use
+   info - Don't invoke 'print' in production code - lib\features\user\outstation\presentation\views\out_station_view.dart:73:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\user\outstation\presentation\views\out_station_view.dart:74:5 - avoid_print
+warning - Unused import: 'dart:convert' - lib\features\user\ride_tracking\presentation\view_models\ride_tracking_cubit.dart:1:8 - unused_import
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\user\ride_tracking\presentation\view_models\ride_tracking_cubit.dart:4:8 - depend_on_referenced_packages
+warning - Unused import: 'package:dio/dio.dart' - lib\features\user\ride_tracking\presentation\view_models\ride_tracking_cubit.dart:20:8 - unused_import
+warning - Unnecessary cast - lib\features\user\ride_tracking\presentation\view_models\ride_tracking_cubit.dart:202:23 - unnecessary_cast
+warning - Unnecessary cast - lib\features\user\ride_tracking\presentation\view_models\ride_tracking_cubit.dart:207:31 - unnecessary_cast
+warning - Unused import: 'package:shakshak/features/shared/payment/presentation/view_models/payment_cubit.dart' - lib\features\user\ride_tracking\presentation\views\ride_tracking_view.dart:29:8 - unused_import
+warning - Unused import: 'package:shakshak/features/shared/authentication/presentation/view_models/auth_cubit/auth_cubit.dart' - lib\features\user\ride_tracking\presentation\views\ride_tracking_view.dart:30:8 - unused_import
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\ride_tracking\presentation\views\ride_tracking_view.dart:182:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\ride_tracking\presentation\views\ride_tracking_view.dart:202:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\ride_tracking\presentation\views\ride_tracking_view.dart:247:65 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\ride_tracking\presentation\views\ride_tracking_view.dart:439:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\ride_tracking\presentation\views\ride_tracking_view.dart:460:59 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\ride_tracking\presentation\widgets\trip_progress_tracker.dart:25:39 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\ride_tracking\presentation\widgets\trip_progress_tracker.dart:32:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\ride_tracking\presentation\widgets\trip_progress_tracker.dart:56:46 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\ride_tracking\presentation\widgets\trip_progress_tracker.dart:66:46 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\ride_tracking\presentation\widgets\trip_progress_tracker.dart:82:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\ride_tracking\presentation\widgets\trip_progress_tracker.dart:149:28 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\saved_places\presentation\widgets\saved_places_sheet.dart:77:62 - deprecated_member_use
+   info - Don't use 'BuildContext's across async gaps - lib\features\user\saved_places\presentation\widgets\saved_places_sheet.dart:140:31 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\user\saved_places\presentation\widgets\saved_places_sheet.dart:155:11 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\user\saved_places\presentation\widgets\saved_places_sheet.dart:157:32 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\user\saved_places\presentation\widgets\saved_places_sheet.dart:158:41 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\user\saved_places\presentation\widgets\saved_places_sheet.dart:178:9 - use_build_context_synchronously
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\store\presentation\views\user_store_view.dart:91:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\store\presentation\views\user_store_view.dart:93:62 - deprecated_member_use
+   info - The member 'email' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\accept_offer_model.dart:51:11 - annotate_overrides
+   info - The member 'description' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\accept_offer_model.dart:52:11 - annotate_overrides
+   info - The member 'updatedAt' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\accept_offer_model.dart:53:11 - annotate_overrides
+   info - The member 'createdAt' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\accept_offer_model.dart:54:11 - annotate_overrides
+   info - The member 'id' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\accept_offer_model.dart:55:8 - annotate_overrides
+   info - The member 'id' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:64:13 - annotate_overrides
+   info - The member 'destinationLat' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:65:16 - annotate_overrides
+   info - The member 'destinationLong' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:66:16 - annotate_overrides
+   info - The member 'destinationAddress' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:67:16 - annotate_overrides
+   info - The member 'sourceLat' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:68:16 - annotate_overrides
+   info - The member 'sourceLong' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:69:16 - annotate_overrides
+   info - The member 'sourceAddress' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:70:16 - annotate_overrides
+   info - The member 'amount' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:71:16 - annotate_overrides
+   info - The member 'finalRate' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:72:16 - annotate_overrides
+   info - The member 'distance' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:73:16 - annotate_overrides
+   info - The member 'distanceType' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:74:16 - annotate_overrides
+   info - The member 'status' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:75:16 - annotate_overrides
+   info - The member 'isOffer' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:76:14 - annotate_overrides
+   info - The member 'createdAt' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:77:18 - annotate_overrides
+   info - The member 'user' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:78:21 - annotate_overrides
+   info - The member 'whenDate' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:79:19 - annotate_overrides
+   info - The member 'interCity' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:80:14 - annotate_overrides
+   info - The member 'userServiceId' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:81:13 - annotate_overrides
+   info - The member 'paid' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:82:14 - annotate_overrides
+   info - The member 'paymentType' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:83:16 - annotate_overrides
+   info - The member 'numberOfPassenger' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:84:13 - annotate_overrides
+   info - The member 'serviceType' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:85:16 - annotate_overrides
+   info - The member 'reviewsCount' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:86:13 - annotate_overrides
+   info - The member 'hasReview' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:87:14 - annotate_overrides
+   info - The member 'driver' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:88:22 - annotate_overrides
+   info - The member 'carBrand' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:89:17 - annotate_overrides
+   info - The member 'carModel' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:90:17 - annotate_overrides
+   info - The member 'carColor' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:91:17 - annotate_overrides
+   info - The member 'carPlate' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:92:17 - annotate_overrides
+   info - The member 'parcelDimension' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:93:17 - annotate_overrides
+   info - The member 'parcelImage' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:94:17 - annotate_overrides
+   info - The member 'parcelWeight' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:95:17 - annotate_overrides
+   info - The member 'offerdriver' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:96:17 - annotate_overrides
+   info - The member 'commission' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_data.dart:97:17 - annotate_overrides
+   info - The member 'id' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_user.dart:4:13 - annotate_overrides
+   info - The member 'name' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_user.dart:5:16 - annotate_overrides
+   info - The member 'phone' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_user.dart:6:16 - annotate_overrides
+   info - The member 'image' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_user.dart:7:16 - annotate_overrides
+   info - The member 'countryId' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_user.dart:8:16 - annotate_overrides
+   info - The member 'city' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_user.dart:9:17 - annotate_overrides
+   info - The member 'email' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_user.dart:10:16 - annotate_overrides
+   info - The member 'walletAmount' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_user.dart:11:16 - annotate_overrides
+   info - The member 'pendingWallet' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_user.dart:12:16 - annotate_overrides
+   info - The member 'isDriver' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_user.dart:13:14 - annotate_overrides
+   info - The member 'isOnline' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_user.dart:14:14 - annotate_overrides
+   info - The member 'serviceId' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\new-ride\new_ride_user.dart:15:13 - annotate_overrides
+   info - The member 'km' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\price_model.dart:15:7 - annotate_overrides
+   info - The member 'price' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\price_model.dart:16:10 - annotate_overrides
+   info - The member 'min' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\price_model.dart:17:10 - annotate_overrides
+   info - The member 'id' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\services_model.dart:46:8 - annotate_overrides
+   info - The member 'name' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\services_model.dart:47:11 - annotate_overrides
+   info - The member 'image' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\services_model.dart:48:11 - annotate_overrides
+   info - The member 'offerRate' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\services_model.dart:49:11 - annotate_overrides
+   info - The member 'serviceType' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\services_model.dart:50:11 - annotate_overrides
+   info - The member 'id' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\user_home_caption_model.dart:20:13 - annotate_overrides
+   info - The member 'caption' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\user_home_caption_model.dart:21:16 - annotate_overrides
+   info - The member 'lang' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\user_home_caption_model.dart:22:16 - annotate_overrides
+   info - The member 'serviceId' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\user_home_caption_model.dart:23:13 - annotate_overrides
+   info - The member 'createdAt' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\user_home_caption_model.dart:24:18 - annotate_overrides
+   info - The member 'updatedAt' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\user_home_caption_model.dart:25:18 - annotate_overrides
+   info - The member 'service' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\user_home_caption_model.dart:26:18 - annotate_overrides
+   info - The member 'id' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\user_home_caption_model.dart:53:13 - annotate_overrides
+   info - The member 'title' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\user_home_caption_model.dart:54:16 - annotate_overrides
+   info - The member 'image' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\user_home_caption_model.dart:55:17 - annotate_overrides
+   info - The member 'intercityType' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\user_home_caption_model.dart:56:14 - annotate_overrides
+   info - The member 'kmCharge' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\user_home_caption_model.dart:57:16 - annotate_overrides
+   info - The member 'offerRate' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\user_home_caption_model.dart:58:16 - annotate_overrides
+   info - The member 'enable' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\user_home_caption_model.dart:59:14 - annotate_overrides
+   info - The member 'adminCommission' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\user_home_caption_model.dart:60:17 - annotate_overrides
+   info - The member 'createdAt' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\user_home_caption_model.dart:61:18 - annotate_overrides
+   info - The member 'updatedAt' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\user_home_caption_model.dart:62:18 - annotate_overrides
+   info - The member 'deletedAt' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\user_home_caption_model.dart:63:19 - annotate_overrides
+   info - The member 'serviceType' overrides an inherited member but isn't annotated with '@override' - lib\features\user\user_home\data\models\user_home_caption_model.dart:64:16 - annotate_overrides
+   info - Don't invoke 'print' in production code - lib\features\user\user_home\presentation\view_models\location\location_cubit.dart:63:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\user\user_home\presentation\view_models\location\location_cubit.dart:67:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\user\user_home\presentation\view_models\location\location_cubit.dart:70:11 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\user\user_home\presentation\view_models\location\location_cubit.dart:79:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\user\user_home\presentation\view_models\location\location_cubit.dart:82:11 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\user\user_home\presentation\view_models\location\location_cubit.dart:89:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\user\user_home\presentation\view_models\location\location_cubit.dart:101:11 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\user\user_home\presentation\view_models\location\location_cubit.dart:106:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\user\user_home\presentation\view_models\location\location_cubit.dart:115:7 - avoid_print
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home\presentation\view_models\location\location_cubit.dart:125:50 - unnecessary_this
+   info - Don't invoke 'print' in production code - lib\features\user\user_home\presentation\view_models\location\location_cubit.dart:169:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\user\user_home\presentation\view_models\location\location_cubit.dart:181:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\user\user_home\presentation\view_models\location\location_cubit.dart:206:11 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\user\user_home\presentation\view_models\location\location_cubit.dart:212:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\user\user_home\presentation\view_models\location\location_cubit.dart:247:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\user\user_home\presentation\view_models\location\location_cubit.dart:259:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\user\user_home\presentation\view_models\location\location_cubit.dart:288:7 - avoid_print
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\views\offers_view.dart:123:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\views\offers_view.dart:168:49 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block - lib\features\user\user_home\presentation\views\ride_payment_webview_screen.dart:69:7 - curly_braces_in_flow_control_structures
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\views\ride_payment_webview_screen.dart:160:37 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block - lib\features\user\user_home\presentation\views\user_home_view.dart:65:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\features\user\user_home\presentation\views\user_home_view.dart:68:47 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\features\user\user_home\presentation\views\user_home_view.dart:70:7 - curly_braces_in_flow_control_structures
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\views\user_home_view.dart:145:44 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\views\user_home_view.dart:209:44 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\views\user_home_view.dart:284:48 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\views\user_home_view.dart:287:48 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\views\user_home_view.dart:296:46 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\views\user_home_view.dart:303:48 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block - lib\features\user\user_home\presentation\views\user_home_view.dart:363:39 - curly_braces_in_flow_control_structures
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\views\user_home_view.dart:471:63 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\views\user_home_view_backup.dart:139:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\active_trip_widget.dart:31:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\active_trip_widget.dart:44:37 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\active_trip_widget.dart:47:49 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\active_trip_widget.dart:58:57 - deprecated_member_use
+warning - The receiver can't be null, so the null-aware operator '?.' is unnecessary - lib\features\user\user_home\presentation\widgets\ads_banner.dart:45:26 - invalid_null_aware_operator
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\ads_banner.dart:64:26 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\ads_banner.dart:78:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\ads_banner.dart:92:63 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\ads_banner.dart:100:63 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\ads_banner.dart:120:57 - deprecated_member_use
+warning - The value of the field '_controller' isn't used - lib\features\user\user_home\presentation\widgets\animated_searching_text.dart:17:28 - unused_field
+warning - The value of the field '_animation' isn't used - lib\features\user\user_home\presentation\widgets\animated_searching_text.dart:18:26 - unused_field
+warning - The value of the field '_timer' isn't used - lib\features\user\user_home\presentation\widgets\animated_searching_text.dart:19:14 - unused_field
+   info - The private field _currentIndex could be 'final' - lib\features\user\user_home\presentation\widgets\animated_searching_text.dart:20:7 - prefer_final_fields
+   info - Unnecessary override - lib\features\user\user_home\presentation\widgets\animated_searching_text.dart:37:8 - unnecessary_overrides
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\book_ride\book_ride_sheet_content.dart:110:57 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\book_ride\book_ride_sheet_content.dart:307:34 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\book_ride\book_ride_sheet_content.dart:341:32 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\book_ride\book_ride_sheet_content.dart:391:49 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\book_ride\book_ride_sheet_content.dart:437:28 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\book_ride\payment_method_widget.dart:91:34 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\book_ride\payment_method_widget.dart:223:46 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\book_ride\payment_method_widget.dart:224:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\book_ride\payment_method_widget.dart:229:37 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\book_ride\payment_method_widget.dart:238:52 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\book_ride\payment_method_widget.dart:239:41 - deprecated_member_use
+   info - 'activeColor' is deprecated and shouldn't be used. Use activeTrackColor instead. This feature was deprecated after v3.24.0-0.2.pre - lib\features\user\user_home\presentation\widgets\book_ride\payment_method_widget.dart:272:21 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\book_ride\payment_method_widget.dart:364:41 - deprecated_member_use
+warning - The '!' will have no effect because the receiver can't be null - lib\features\user\user_home\presentation\widgets\book_ride\ride_services_list.dart:87:48 - unnecessary_non_null_assertion
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\drive_details_card.dart:36:53 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\drive_details_card.dart:42:45 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\drive_details_card.dart:51:59 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\drive_details_card.dart:77:34 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\drive_details_card.dart:166:28 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\drive_details_card.dart:178:32 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\drive_details_view_body.dart:29:22 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\drive_details_view_body.dart:39:24 - deprecated_member_use
+   info - Parameter 'key' could be a super parameter - lib\features\user\user_home\presentation\widgets\location_marker_loading_indicator.dart:6:9 - use_super_parameters
+   info - Invalid use of a private type in a public API - lib\features\user\user_home\presentation\widgets\location_marker_loading_indicator.dart:9:3 - library_private_types_in_public_api
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\map_loading_overlay.dart:18:35 - deprecated_member_use
+warning - The value of the local variable 'showLoading' isn't used - lib\features\user\user_home\presentation\widgets\map_loading_widget.dart:35:16 - unused_local_variable
+   info - The variable name 'Key' isn't a lowerCamelCase identifier - lib\features\user\user_home\presentation\widgets\marker_of_user_on_map_widget.dart:14:21 - non_constant_identifier_names
+   info - The variable name 'Key' isn't a lowerCamelCase identifier - lib\features\user\user_home\presentation\widgets\marker_of_user_on_map_widget.dart:18:19 - non_constant_identifier_names
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\my_map_widget.dart:151:14 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\my_map_widget.dart:158:54 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\offer_item.dart:157:53 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\offer_item.dart:265:57 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\offer_item.dart:398:55 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\offer_item.dart:408:20 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block - lib\features\user\user_home\presentation\widgets\quick_actions_section.dart:81:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\features\user\user_home\presentation\widgets\quick_actions_section.dart:83:7 - curly_braces_in_flow_control_structures
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\quick_actions_section.dart:142:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\quick_actions_section.dart:147:52 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\quick_actions_section.dart:148:52 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\quick_actions_section.dart:153:64 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\quick_actions_section.dart:177:56 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\quick_actions_section.dart:209:69 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\quick_actions_section.dart:229:72 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\ripple_loader.dart:63:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\select_destination_widget.dart:72:52 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\select_destination_widget.dart:204:52 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\select_destination_widget.dart:216:57 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\select_destination_widget.dart:230:53 - deprecated_member_use
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: SelectVehicleSection.isInCity - lib\features\user\user_home\presentation\widgets\select_vehicle_section.dart:16:7 - must_be_immutable
+warning - Unused import: 'package:shakshak/generated/l10n.dart' - lib\features\user\user_home\presentation\widgets\title_with_close_button.dart:3:8 - unused_import
+   info - Parameter 'key' could be a super parameter - lib\features\user\user_home\presentation\widgets\title_with_close_button.dart:10:9 - use_super_parameters
+   info - The private field _currentTipIndex could be 'final' - lib\features\user\user_home\presentation\widgets\trip_card.dart:34:7 - prefer_final_fields
+warning - The value of the field '_currentTipIndex' isn't used - lib\features\user\user_home\presentation\widgets\trip_card.dart:34:7 - unused_field
+warning - The value of the field '_safetyTips' isn't used - lib\features\user\user_home\presentation\widgets\trip_card.dart:36:22 - unused_field
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\trip_card.dart:92:53 - deprecated_member_use
+   info - 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor instead. This feature was deprecated after v3.31.0-2.0.pre - lib\features\user\user_home\presentation\widgets\trip_card.dart:282:23 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\user_home_header.dart:30:61 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\user_home_header.dart:45:28 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\user_home_header.dart:67:56 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\user_home_header.dart:69:75 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\vehicle_item_widget.dart:59:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\vehicle_item_widget.dart:68:54 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\vehicle_item_widget.dart:69:54 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\vehicle_item_widget.dart:75:51 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\vehicle_item_widget.dart:97:28 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\vehicle_item_widget.dart:108:32 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\vehicle_item_widget.dart:139:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\vehicle_item_widget.dart:195:52 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\vehicle_item_widget.dart:197:62 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\vehicle_item_widget.dart:235:49 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\vehicle_item_widget.dart:242:57 - deprecated_member_use
+warning - Unused import: 'dart:async' - lib\features\user\user_home\presentation\widgets\waiting_for_drivers_widget.dart:1:8 - unused_import
+warning - Unused import: 'package:animate_do/animate_do.dart' - lib\features\user\user_home\presentation\widgets\waiting_for_drivers_widget.dart:2:8 - unused_import
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\waiting_for_drivers_widget.dart:37:45 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\waiting_for_drivers_widget.dart:40:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home\presentation\widgets\waiting_for_drivers_widget.dart:64:62 - deprecated_member_use
+   info - Unnecessary 'new' keyword - lib\features\user\user_home_page\data\models\calc_price_time_distance_request_body.dart:24:39 - unnecessary_new
+   info - Unnecessary constructor invocation - lib\features\user\user_home_page\data\models\calc_price_time_distance_request_body.dart:24:39 - prefer_collection_literals
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\calc_price_time_distance_request_body.dart:25:24 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\calc_price_time_distance_request_body.dart:26:27 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\calc_price_time_distance_request_body.dart:27:27 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\calc_price_time_distance_request_body.dart:28:25 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\calc_price_time_distance_request_body.dart:29:25 - unnecessary_this
+   info - Unnecessary 'new' keyword - lib\features\user\user_home_page\data\models\calc_price_time_distance_response.dart:7:35 - unnecessary_new
+   info - Unnecessary 'new' keyword - lib\features\user\user_home_page\data\models\calc_price_time_distance_response.dart:11:39 - unnecessary_new
+   info - Unnecessary constructor invocation - lib\features\user\user_home_page\data\models\calc_price_time_distance_response.dart:11:39 - prefer_collection_literals
+   info - Unnecessary 'new' keyword - lib\features\user\user_home_page\data\models\calc_price_time_distance_response.dart:29:35 - unnecessary_new
+   info - Unnecessary 'new' keyword - lib\features\user\user_home_page\data\models\calc_price_time_distance_response.dart:33:39 - unnecessary_new
+   info - Unnecessary constructor invocation - lib\features\user\user_home_page\data\models\calc_price_time_distance_response.dart:33:39 - prefer_collection_literals
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\calc_price_time_distance_response.dart:34:19 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\calc_price_time_distance_response.dart:35:26 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\calc_price_time_distance_response.dart:36:9 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\calc_price_time_distance_response.dart:37:22 - unnecessary_this
+   info - Unnecessary 'new' keyword - lib\features\user\user_home_page\data\models\calc_price_time_distance_response.dart:57:39 - unnecessary_new
+   info - Unnecessary constructor invocation - lib\features\user\user_home_page\data\models\calc_price_time_distance_response.dart:57:39 - prefer_collection_literals
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\calc_price_time_distance_response.dart:58:21 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\calc_price_time_distance_response.dart:59:24 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\calc_price_time_distance_response.dart:60:20 - unnecessary_this
+   info - Unnecessary 'new' keyword - lib\features\user\user_home_page\data\models\cancel_ride_request_body.dart:11:39 - unnecessary_new
+   info - Unnecessary constructor invocation - lib\features\user\user_home_page\data\models\cancel_ride_request_body.dart:11:39 - prefer_collection_literals
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\cancel_ride_request_body.dart:12:30 - unnecessary_this
+   info - Unnecessary 'new' keyword - lib\features\user\user_home_page\data\models\cancel_ride_response_body.dart:7:35 - unnecessary_new
+   info - Unnecessary 'new' keyword - lib\features\user\user_home_page\data\models\cancel_ride_response_body.dart:11:39 - unnecessary_new
+   info - Unnecessary constructor invocation - lib\features\user\user_home_page\data\models\cancel_ride_response_body.dart:11:39 - prefer_collection_literals
+warning - The '?' is unnecessary because 'Null' is nullable without it - lib\features\user\user_home_page\data\models\cancel_ride_response_body.dart:22:7 - unnecessary_question_mark
+   info - Unnecessary 'new' keyword - lib\features\user\user_home_page\data\models\cancel_ride_response_body.dart:33:39 - unnecessary_new
+   info - Unnecessary constructor invocation - lib\features\user\user_home_page\data\models\cancel_ride_response_body.dart:33:39 - prefer_collection_literals
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\cancel_ride_response_body.dart:34:19 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\cancel_ride_response_body.dart:35:26 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\cancel_ride_response_body.dart:36:20 - unnecessary_this
+   info - Unnecessary 'new' keyword - lib\features\user\user_home_page\data\models\request_ride_request_body.dart:33:39 - unnecessary_new
+   info - Unnecessary constructor invocation - lib\features\user\user_home_page\data\models\request_ride_request_body.dart:33:39 - prefer_collection_literals
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\request_ride_request_body.dart:34:29 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\request_ride_request_body.dart:35:30 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\request_ride_request_body.dart:36:31 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\request_ride_request_body.dart:37:30 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\request_ride_request_body.dart:38:31 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\request_ride_request_body.dart:39:32 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\request_ride_request_body.dart:40:24 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\request_ride_request_body.dart:41:25 - unnecessary_this
+   info - Unnecessary 'new' keyword - lib\features\user\user_home_page\data\models\ride_request_model.dart:33:39 - unnecessary_new
+   info - Unnecessary constructor invocation - lib\features\user\user_home_page\data\models\ride_request_model.dart:33:39 - prefer_collection_literals
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\ride_request_model.dart:34:29 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\ride_request_model.dart:35:30 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\ride_request_model.dart:36:31 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\ride_request_model.dart:37:30 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\ride_request_model.dart:38:31 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\ride_request_model.dart:39:32 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\ride_request_model.dart:40:24 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\ride_request_model.dart:41:25 - unnecessary_this
+   info - Unnecessary 'new' keyword - lib\features\user\user_home_page\data\models\ride_request_response_body.dart:7:35 - unnecessary_new
+   info - Unnecessary 'new' keyword - lib\features\user\user_home_page\data\models\ride_request_response_body.dart:11:39 - unnecessary_new
+   info - Unnecessary constructor invocation - lib\features\user\user_home_page\data\models\ride_request_response_body.dart:11:39 - prefer_collection_literals
+   info - Unnecessary 'new' keyword - lib\features\user\user_home_page\data\models\ride_request_response_body.dart:29:35 - unnecessary_new
+   info - Unnecessary 'new' keyword - lib\features\user\user_home_page\data\models\ride_request_response_body.dart:33:39 - unnecessary_new
+   info - Unnecessary constructor invocation - lib\features\user\user_home_page\data\models\ride_request_response_body.dart:33:39 - prefer_collection_literals
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\ride_request_response_body.dart:34:19 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\ride_request_response_body.dart:35:26 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\ride_request_response_body.dart:36:9 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\ride_request_response_body.dart:37:22 - unnecessary_this
+   info - Unnecessary 'new' keyword - lib\features\user\user_home_page\data\models\ride_request_response_body.dart:53:39 - unnecessary_new
+   info - Unnecessary constructor invocation - lib\features\user\user_home_page\data\models\ride_request_response_body.dart:53:39 - prefer_collection_literals
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\ride_request_response_body.dart:54:29 - unnecessary_this
+   info - Unnecessary 'new' keyword - lib\features\user\user_home_page\data\models\trip_type_model.dart:19:39 - unnecessary_new
+   info - Unnecessary constructor invocation - lib\features\user\user_home_page\data\models\trip_type_model.dart:19:39 - prefer_collection_literals
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\trip_type_model.dart:20:20 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\trip_type_model.dart:21:21 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\data\models\trip_type_model.dart:22:20 - unnecessary_this
+warning - Unused import: 'package:shakshak/features/user/user_home_page/data/models/calc_price_time_distance_response.dart' - lib\features\user\user_home_page\logic\home_cubit.dart:7:8 - unused_import
+warning - Unused import: 'package:shakshak/features/user/user_home_page/data/models/ride_request_response_body.dart' - lib\features\user\user_home_page\logic\home_cubit.dart:10:8 - unused_import
+warning - Unused import: 'package:shakshak/features/user/user_home_page/data/repository/user_home_repository.dart' - lib\features\user\user_home_page\logic\home_cubit.dart:12:8 - unused_import
+   info - Empty constructor bodies should be written using a ';' rather than '{}' - lib\features\user\user_home_page\logic\home_cubit.dart:21:37 - empty_constructor_bodies
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\logic\home_cubit.dart:143:5 - unnecessary_this
+   info - Don't invoke 'print' in production code - lib\features\user\user_home_page\logic\home_cubit.dart:171:7 - avoid_print
+   info - Unnecessary 'this.' qualifier - lib\features\user\user_home_page\logic\home_cubit.dart:185:50 - unnecessary_this
+   info - Don't invoke 'print' in production code - lib\features\user\user_home_page\presentation\screen\user_home_page_form.dart:53:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\user\user_home_page\presentation\screen\user_home_page_form.dart:62:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\user\user_home_page\presentation\screen\user_home_page_form.dart:70:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\user\user_home_page\presentation\screen\user_home_page_form.dart:103:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\user\user_home_page\presentation\screen\user_home_page_form.dart:109:5 - avoid_print
+   info - 'WillPopScope' is deprecated and shouldn't be used. Use PopScope instead. The Android predictive back feature will not work with WillPopScope. This feature was deprecated after v3.12.0-1.0.pre - lib\features\user\user_home_page\presentation\screen\user_home_page_form.dart:164:28 - deprecated_member_use
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: ChooseVehicleListViewWidget.callBackFunction - lib\features\user\user_home_page\presentation\widgets\choose_vehicle_list_view_widget.dart:6:7 - must_be_immutable
+   info - The variable name 'PriceProoPlus' isn't a lowerCamelCase identifier - lib\features\user\user_home_page\presentation\widgets\choose_vehicle_list_view_widget.dart:12:21 - non_constant_identifier_names
+   info - The variable name 'PriceProoPlus' isn't a lowerCamelCase identifier - lib\features\user\user_home_page\presentation\widgets\choose_vehicle_list_view_widget.dart:21:13 - non_constant_identifier_names
+   info - Unnecessary braces in a string interpolation - lib\features\user\user_home_page\presentation\widgets\choose_vehicle_list_view_widget.dart:31:31 - unnecessary_brace_in_string_interps
+   info - Unnecessary braces in a string interpolation - lib\features\user\user_home_page\presentation\widgets\choose_vehicle_list_view_widget.dart:32:33 - unnecessary_brace_in_string_interps
+   info - Unnecessary braces in a string interpolation - lib\features\user\user_home_page\presentation\widgets\choose_vehicle_list_view_widget.dart:33:31 - unnecessary_brace_in_string_interps
+   info - Unnecessary braces in a string interpolation - lib\features\user\user_home_page\presentation\widgets\choose_vehicle_list_view_widget.dart:34:33 - unnecessary_brace_in_string_interps
+   info - Unnecessary braces in a string interpolation - lib\features\user\user_home_page\presentation\widgets\choose_vehicle_list_view_widget.dart:35:27 - unnecessary_brace_in_string_interps
+   info - Unnecessary braces in a string interpolation - lib\features\user\user_home_page\presentation\widgets\choose_vehicle_list_view_widget.dart:36:27 - unnecessary_brace_in_string_interps
+   info - Constructors for public widgets should have a named 'key' parameter - lib\features\user\user_home_page\presentation\widgets\custom_drawer_button.dart:8:9 - use_key_in_widget_constructors
+   info - Dangling library doc comment - lib\features\user\user_home_page\presentation\widgets\data_in_user_home_page_form.dart:934:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\user\user_home_page\presentation\widgets\data_in_user_home_page_form.dart:1098:1 - dangling_library_doc_comments
+   info - Constructors for public widgets should have a named 'key' parameter - lib\features\user\user_home_page\presentation\widgets\driver_offer_list.dart:11:3 - use_key_in_widget_constructors
+   info - Constructors in '@immutable' classes should be declared as 'const' - lib\features\user\user_home_page\presentation\widgets\driver_offer_list.dart:11:3 - prefer_const_constructors_in_immutables
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: DriverButton.textColor, DriverButton.buttonColor - lib\features\user\user_home_page\presentation\widgets\find_driver_button.dart:5:7 - must_be_immutable
+   info - Parameter 'key' could be a super parameter - lib\features\user\user_home_page\presentation\widgets\list_view_of_trip_type_list.dart:10:9 - use_super_parameters
+warning - Unused import: 'package:google_maps_flutter/google_maps_flutter.dart' - lib\features\user\user_home_page\presentation\widgets\marker_of_user_on_map_widget.dart:3:8 - unused_import
+warning - Unused import: 'package:shakshak/generated/l10n.dart' - lib\features\user\user_home_page\presentation\widgets\marker_of_user_on_map_widget.dart:4:8 - unused_import
+   info - Constructors in '@immutable' classes should be declared as 'const' - lib\features\user\user_home_page\presentation\widgets\my_current_location_widget.dart:5:3 - prefer_const_constructors_in_immutables
+   info - Constructors for public widgets should have a named 'key' parameter - lib\features\user\user_home_page\presentation\widgets\my_map_widget.dart:14:9 - use_key_in_widget_constructors
+   info - Constructors for public widgets should have a named 'key' parameter - lib\features\user\user_home_page\presentation\widgets\offer_card.dart:13:3 - use_key_in_widget_constructors
+   info - Constructors in '@immutable' classes should be declared as 'const' - lib\features\user\user_home_page\presentation\widgets\offer_card.dart:13:3 - prefer_const_constructors_in_immutables
+   info - Invalid use of a private type in a public API - lib\features\user\user_home_page\presentation\widgets\offer_card.dart:17:3 - library_private_types_in_public_api
+   info - Constructors for public widgets should have a named 'key' parameter - lib\features\user\user_home_page\presentation\widgets\select_destination_map_screen.dart:13:3 - use_key_in_widget_constructors
+   info - Constructors in '@immutable' classes should be declared as 'const' - lib\features\user\user_home_page\presentation\widgets\select_destination_map_screen.dart:13:3 - prefer_const_constructors_in_immutables
+   info - Invalid use of a private type in a public API - lib\features\user\user_home_page\presentation\widgets\select_destination_map_screen.dart:18:3 - library_private_types_in_public_api
+warning - The value of the local variable 'containerHeight' isn't used - lib\features\user\user_home_page\presentation\widgets\select_destination_widget.dart:24:12 - unused_local_variable
+warning - The operand can't be 'null', so the condition is always 'true' - lib\features\user\user_home_page\presentation\widgets\time_and_distance_info_widget.dart:21:20 - unnecessary_null_comparison
+warning - The operand can't be 'null', so the condition is always 'true' - lib\features\user\user_home_page\presentation\widgets\time_and_distance_info_widget.dart:28:24 - unnecessary_null_comparison
+warning - Unused import: 'package:shakshak/generated/l10n.dart' - lib\features\user\user_home_page\presentation\widgets\title_with_close_button.dart:3:8 - unused_import
+   info - Parameter 'key' could be a super parameter - lib\features\user\user_home_page\presentation\widgets\title_with_close_button.dart:9:9 - use_super_parameters
+   info - Parameter 'key' could be a super parameter - lib\features\user\user_home_page\presentation\widgets\travel_time_widget.dart:10:9 - use_super_parameters
+   info - Invalid use of a private type in a public API - lib\features\user\user_home_page\presentation\widgets\travel_time_widget.dart:13:3 - library_private_types_in_public_api
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home_page\presentation\widgets\travel_time_widget.dart:30:48 - deprecated_member_use
+warning - The '!' will have no effect because the receiver can't be null - lib\features\user\user_home_page\presentation\widgets\trip_info_column_widget.dart:205:36 - unnecessary_non_null_assertion
+warning - Dead code - lib\features\user\user_home_page\presentation\widgets\trip_info_column_widget.dart:279:9 - dead_code
+warning - This class (or a class that this class inherits from) is marked as '@immutable', but one or more of its instance fields aren't final: WaitingForRepliesAndChangeOfferWidget.currentOfferValue, WaitingForRepliesAndChangeOfferWidget.offerController - lib\features\user\user_home_page\presentation\widgets\waiting_for_replies_and_change_offer_widget.dart:13:7 - must_be_immutable
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\user\user_home_page\presentation\widgets\waiting_for_replies_and_change_offer_widget.dart:132:30 - deprecated_member_use
+   info - The 'child' argument should be last in widget constructor invocations - lib\features\user\user_home_page\presentation\widgets\waiting_for_replies_and_change_offer_widget.dart:147:27 - sort_child_properties_last
+   info - The 'child' argument should be last in widget constructor invocations - lib\features\user\user_home_page\presentation\widgets\waiting_for_replies_and_change_offer_widget.dart:184:27 - sort_child_properties_last
+   info - The imported package 'flutter_localizations' isn't a dependency of the importing package - lib\main.dart:12:8 - depend_on_referenced_packages
+   info - Don't invoke 'print' in production code - test_api.dart:16:3 - avoid_print
+   info - Don't invoke 'print' in production code - test_api.dart:17:3 - avoid_print
+   info - Don't invoke 'print' in production code - test_api.dart:20:5 - avoid_print
+   info - Don't invoke 'print' in production code - test_api.dart:22:5 - avoid_print
+   info - Don't invoke 'print' in production code - test_api.dart:23:5 - avoid_print
+

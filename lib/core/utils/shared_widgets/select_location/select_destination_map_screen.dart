@@ -1,18 +1,14 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import '../../../../features/user_home/presentation/view_models/user_home_cubit/user_home_cubit.dart';
-import '../../../../features/user_home/presentation/view_models/user_home_cubit/user_home_states.dart';
-import '../../../../features/user_home/presentation/widgets/my_map_widget.dart';
+import 'package:shakshak/features/user/user_home/presentation/view_models/location/location_cubit.dart';
+import 'package:shakshak/features/user/user_home/presentation/view_models/location/location_states.dart';
+import 'package:shakshak/features/user/user_home/presentation/widgets/my_map_widget.dart';
 
 class SelectDestinationMapScreen extends StatefulWidget {
-  final UserHomeCubit homeCubit;
-
-  SelectDestinationMapScreen({
-    required this.homeCubit,
-  });
+  const SelectDestinationMapScreen({super.key});
 
   @override
   _SelectDestinationMapScreenState createState() =>
@@ -49,10 +45,11 @@ class _SelectDestinationMapScreenState
 
   void onMapCreated(GoogleMapController controller) {
     mapController = controller;
+    var locationCubit = context.read<LocationCubit>();
 
     // Check if the Completer is already completed
-    if (!widget.homeCubit.mapController.isCompleted) {
-      widget.homeCubit.mapController.complete(controller);
+    if (!locationCubit.mapController.isCompleted) {
+      locationCubit.mapController.complete(controller);
     }
   }
 
@@ -70,13 +67,13 @@ class _SelectDestinationMapScreenState
       ),
       body: Stack(
         children: [
-          BlocConsumer<UserHomeCubit, UserHomeState>(
+          BlocConsumer<LocationCubit, LocationState>(
             listener: (context, state) {},
             builder: (context, state) {
               return Stack(
                 children: [
                   UserMapWidget(
-                    cubit: widget.homeCubit,
+                    cubit: context.read<LocationCubit>(),
                     // Use the HomeCubit to get the initial mapLocation
                     // When the map is created
                     onMapCreated: onMapCreated,

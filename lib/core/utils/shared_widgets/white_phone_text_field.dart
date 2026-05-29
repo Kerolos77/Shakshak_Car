@@ -1,13 +1,13 @@
-/*
+﻿/*
 import 'package:enjaz/core/extentions/glopal_extentions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../generated/assets.dart';
-import '../../resources/app_colors.dart';
-import '../styles.dart';
-import '../validations.dart';
+import 'package:shakshak/generated/assets.dart';
+import 'package:shakshak/core/resources/app_colors.dart';
+import 'package:shakshak/core/utils/styles.dart';
+import 'package:shakshak/core/utils/validations.dart';
 import 'custom_text_field.dart';
 
 class WhitePhoneTextField extends StatefulWidget {
@@ -24,7 +24,7 @@ class WhitePhoneTextField extends StatefulWidget {
 
 class _WhitePhoneTextFieldState extends State<WhitePhoneTextField> {
   final TextEditingController countryController =
-      TextEditingController(text: '🇸🇦 +966');
+      TextEditingController(text: 'ðŸ‡¸ðŸ‡¦ +966');
 
   @override
   Widget build(BuildContext context) {
@@ -126,3 +126,4 @@ class _WhitePhoneTextFieldState extends State<WhitePhoneTextField> {
   }
 }
 */
+

@@ -1,13 +1,10 @@
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shakshak/core/utils/shared_widgets/custom_button.dart';
 
-import '../../../features/base_layout/presentation/widgets/custom_drawer.dart';
-import '../../resources/app_colors.dart';
+import 'package:shakshak/core/resources/app_colors.dart';
 
 // class RatingDialog extends StatefulWidget {
 //   const RatingDialog({Key? key}) : super(key: key);
@@ -1613,7 +1610,7 @@ class _PriceSelectionBottomSheetState extends State<PriceSelectionBottomSheet> {
                     height: 30.h,
                   ),
                   CustomButton(
-                    buttonColor:AppColors.primaryColor,
+                    buttonColor: AppColors.primaryColor,
                     height: 50,
                     borderRadius: 18,
                     onTap: () {
